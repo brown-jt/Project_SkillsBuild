@@ -21,7 +21,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private PlayerInputHandler playerInputHandler;
-    //[SerializeField] private Animator animator;
+    [SerializeField] private Animator animator;
     #endregion
 
     private Vector3 currentMovement;
@@ -38,7 +38,7 @@ public class FirstPersonController : MonoBehaviour
 
         // Ensure animator knows we are grounded and speed 0 at start
         //animator.SetBool("IsGrounded", true);
-        //animator.SetFloat("Speed", 0f);
+        animator.SetFloat("Speed", 0f);
     }
 
     void Update()
@@ -98,12 +98,12 @@ public class FirstPersonController : MonoBehaviour
 
         // Updating animator to match movement
         // Ensuring speed is normalized and lerped to allow for smooth animation transitions
-        //float maxSpeed = walkSpeed * sprintMultiplier;
-        //float speed = new Vector3(currentMovement.x, 0f, currentMovement.z).magnitude;
-        //float normalizedSpeed = speed / maxSpeed;
-        //float lerpedSpeed = Mathf.Lerp(animator.GetFloat("Speed"), normalizedSpeed, Time.deltaTime * 10f);
+        float maxSpeed = walkSpeed * sprintMultiplier;
+        float speed = new Vector3(currentMovement.x, 0f, currentMovement.z).magnitude;
+        float normalizedSpeed = speed / maxSpeed;
+        float lerpedSpeed = Mathf.Lerp(animator.GetFloat("Speed"), normalizedSpeed, Time.deltaTime * 10f);
 
-        //animator.SetFloat("Speed", lerpedSpeed);
+        animator.SetFloat("Speed", lerpedSpeed);
         //animator.SetBool("IsGrounded", characterController.isGrounded);
     }
 
