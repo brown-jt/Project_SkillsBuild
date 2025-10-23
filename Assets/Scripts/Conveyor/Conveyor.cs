@@ -36,13 +36,14 @@ public class Conveyor : MonoBehaviour
     {
         return directionSetting switch
         {
-            ConveyorDirection.FORWARD => transform.forward,
-            ConveyorDirection.BACKWARD => -transform.forward,
-            ConveyorDirection.LEFT => -transform.right,
-            ConveyorDirection.RIGHT => transform.right,
-            _ => transform.forward
+            ConveyorDirection.FORWARD => Vector3.forward,   // world +Z
+            ConveyorDirection.BACKWARD => Vector3.back,     // world -Z
+            ConveyorDirection.LEFT => Vector3.left,         // world -X
+            ConveyorDirection.RIGHT => Vector3.right,       // world +X
+            _ => Vector3.forward
         };
     }
+
 
     private void FixedUpdate()
     {
@@ -56,7 +57,7 @@ public class Conveyor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (currentItemRb != null) return; // conveyor already occupied
-        if (!other.CompareTag("Item")) return;
+        if (!other.CompareTag("Item")) return; // not an item
 
         Rigidbody rb = other.attachedRigidbody;
         if (rb == null) return;
@@ -71,6 +72,18 @@ public class Conveyor : MonoBehaviour
         {
             currentItemRb = null;
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (currentItemRb != null) return; // conveyor already occupied
+
+        if (!other.CompareTag("Item")) return; // not an item
+
+        Rigidbody rb = other.attachedRigidbody; 
+        if (rb == null) return;
+
+        currentItemRb = rb; // new item can now enter after previous exited so lets set it
     }
 
     private void OnDrawGizmos()
