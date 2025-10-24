@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
@@ -13,82 +14,79 @@ public class Conveyor : MonoBehaviour
 
     [Header("Conveyor Settings")]
     [SerializeField] private ConveyorDirection directionSetting = ConveyorDirection.FORWARD;
-    [SerializeField] private float speed = 2f; // movement speed in units/sec
+    [SerializeField] private float speed = 10f;
 
-    private Vector3 direction;
-    private BoxCollider movementZone;
+    private ConveyorItem currentItem;
+    private readonly List<ConveyorItem> nextItems = new List<ConveyorItem>();
 
-    private Rigidbody currentItemRb; // only one item allowed
+    public float Speed => speed;
 
     private void Awake()
     {
-        movementZone = GetComponent<BoxCollider>();
-        movementZone.isTrigger = true;
-        direction = GetDirectionVector();
+        GetComponent<BoxCollider>().isTrigger = true;
     }
 
-    private void OnValidate()
-    {
-        direction = GetDirectionVector();
-    }
-
-    private Vector3 GetDirectionVector()
+    /// <summary>
+    /// Returns the conveyor direction in WORLD SPACE.
+    /// </summary>
+    public Vector3 GetDirectionVector()
     {
         return directionSetting switch
         {
-            ConveyorDirection.FORWARD => Vector3.forward,   // world +Z
-            ConveyorDirection.BACKWARD => Vector3.back,     // world -Z
-            ConveyorDirection.LEFT => Vector3.left,         // world -X
-            ConveyorDirection.RIGHT => Vector3.right,       // world +X
+            ConveyorDirection.FORWARD => Vector3.forward,
+            ConveyorDirection.BACKWARD => Vector3.back,
+            ConveyorDirection.LEFT => Vector3.left,
+            ConveyorDirection.RIGHT => Vector3.right,
             _ => Vector3.forward
         };
     }
 
-
-    private void FixedUpdate()
-    {
-        if (currentItemRb == null) return;
-
-        // Constant movement along the conveyor direction
-        Vector3 move = direction.normalized * speed * Time.fixedDeltaTime;
-        currentItemRb.MovePosition(currentItemRb.position + move);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (currentItemRb != null) return; // conveyor already occupied
-        if (!other.CompareTag("Item")) return; // not an item
+        if (!other.CompareTag("Item")) return;
 
-        Rigidbody rb = other.attachedRigidbody;
-        if (rb == null) return;
-
-        currentItemRb = rb;
+        var item = other.GetComponent<ConveyorItem>();
+        if (item != null)
+        {
+            if (currentItem == null)
+            {
+                currentItem = item;
+                currentItem.OnEnterConveyor(this);
+            }
+            else
+            {
+                // Queue the item
+                item.ToggleMovement(false);
+                nextItems.Add(item);
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Rigidbody rb = other.attachedRigidbody;
-        if (currentItemRb == rb)
+        if (!other.CompareTag("Item")) return;
+
+        var item = other.GetComponent<ConveyorItem>();
+        if (item != null)
         {
-            currentItemRb = null;
+            item.OnExitConveyor(this);
+            currentItem = null;
+            if (nextItems.Count > 0)
+            {
+                // Grab next item in line
+                currentItem = nextItems[0];
+                nextItems.RemoveAt(0);
+
+                // Resume its movement and notify it
+                currentItem.OnEnterConveyor(this);
+                currentItem.ToggleMovement(true);
+            }
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (currentItemRb != null) return; // conveyor already occupied
-
-        if (!other.CompareTag("Item")) return; // not an item
-
-        Rigidbody rb = other.attachedRigidbody; 
-        if (rb == null) return;
-
-        currentItemRb = rb; // new item can now enter after previous exited so lets set it
     }
 
     private void OnDrawGizmos()
     {
-        BoxCollider box = GetComponent<BoxCollider>();
+        var box = GetComponent<BoxCollider>();
         if (box == null) return;
 
         Vector3 worldCenter = box.bounds.center;
