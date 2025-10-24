@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
 public class ConveyorItem : MonoBehaviour
 {
     private Rigidbody rb;
