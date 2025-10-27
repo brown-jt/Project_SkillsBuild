@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3075072743950972986
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2135221172773756533, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135221172773756533, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135221172773756533, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135221172773756533, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135221172773756533, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135221172773756533, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135221172773756533, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135221172773756533, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135221172773756533, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135221172773756533, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109401303576464831, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+      propertyPath: m_Name
+      value: Slope_Conveyor_Medium_High_Without_Sides
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4487221052278853867, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+    - {fileID: 974401522760842075, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+    - {fileID: 3960282397234774868, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+    - {fileID: 79699622485961679, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2eecd4bf90a623449804376a69ce31d, type: 3}
