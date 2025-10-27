@@ -39,7 +39,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _FlashSpeed: 2
+    - _FlashSpeed: 1.5
     - _OutlineSharpness: 1
     - _QueueControl: 1
     - _QueueOffset: 0

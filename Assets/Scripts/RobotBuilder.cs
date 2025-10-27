@@ -56,4 +56,45 @@ public class RobotBuilder : MonoBehaviour
             renderer.material = outlineMaterial;
         }
     }
+
+    private void AddPart(string partName)
+    {
+        switch (partName)
+        {
+            case "head":
+                hasHead = true;
+                break;
+            case "torso": 
+                hasTorso = true;
+                break;
+            case "arm": 
+                if (!hasLeftArm) hasLeftArm = true;
+                else hasRightArm = true;
+                break;
+            case "leg":
+                if (!hasLeftLeg) hasLeftLeg = true;
+                else hasRightLeg = true;
+                break;
+            default: 
+                break;
+        }
+
+        RefreshRobot();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other == null || !other.CompareTag("Player")) return;
+
+        TestPartAddition();
+    }
+
+    // Debug helper function to test addition of parts
+    private void TestPartAddition()
+    {
+        if (!hasHead) AddPart("head");
+        else if (!hasTorso) AddPart("torso");
+        else if (!hasLeftArm || !hasRightArm) AddPart("arm");
+        else if (!hasLeftLeg || !hasRightLeg) AddPart("leg");
+    }
 }
