@@ -23,13 +23,13 @@ Material:
   m_Name: outline_material
   m_Shader: {fileID: -6465566751694194690, guid: 448121738633a5b409166549054fbb3d, type: 3}
   m_Parent: {fileID: -876546973899608171, guid: 448121738633a5b409166549054fbb3d, type: 3}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 16
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -41,7 +41,9 @@ Material:
     m_Floats:
     - _FlashSpeed: 2
     - _OutlineSharpness: 1
+    - _QueueControl: 1
+    - _QueueOffset: 0
     m_Colors:
-    - _OutlineColour: {r: 0.02547166, g: 0.5, b: 0.47797766, a: 1}
+    - _OutlineColour: {r: 0.038157545, g: 0.7490196, b: 0.7160293, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
