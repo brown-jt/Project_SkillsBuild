@@ -867,6 +867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00877caa95ccc564c9c2ecc8efa40731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RobotBuilder
+  interactionZone: {fileID: 7261075323630851634}
+  interactionPrompt: Press 'E' to interact
   torso: {fileID: 3147528686217411581}
   head: {fileID: 5544885049585662547}
   leftArm: {fileID: 1078237096239753461}

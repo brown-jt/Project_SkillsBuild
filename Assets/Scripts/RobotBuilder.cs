@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RobotBuilder : MonoBehaviour
+public class RobotBuilder : InteractableArea
 {
     [Header("Robot Parts")]
     [SerializeField] private GameObject torso;
@@ -82,11 +82,22 @@ public class RobotBuilder : MonoBehaviour
         RefreshRobot();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private bool HasAllParts()
     {
-        if (other == null || !other.CompareTag("Player")) return;
+        return hasHead && hasTorso && hasLeftArm && hasRightArm && hasLeftLeg && hasRightLeg;
+    }
+
+    public override void Interact()
+    {
+        if (!IsInteractable) return;
 
         TestPartAddition();
+
+        if (HasAllParts())
+        {
+            Debug.Log("Robot is fully assembled!");
+            IsInteractable = false;
+        }
     }
 
     // Debug helper function to test addition of parts
