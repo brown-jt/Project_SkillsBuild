@@ -41,7 +41,14 @@ public class ConveyorSpawner : MonoBehaviour
             prefabToSpawn = smallRobotParts[spawnIndex];
         }
 
-        Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+        // Random Y rotation for the object so it appears varied
+        prefabToSpawn.transform.rotation = Quaternion.Euler(
+            prefabToSpawn.transform.rotation.x, 
+            Random.Range(0, 360), prefabToSpawn.
+            transform.rotation.z
+        );
+
+        Instantiate(prefabToSpawn, transform.position, prefabToSpawn.transform.rotation);
 
         spawnIndex = (spawnIndex + 1) % 4;
         spawnedItems = (spawnedItems + 1) % (smallRobotParts.Length + mediumRobotParts.Length + largeRobotParts.Length);

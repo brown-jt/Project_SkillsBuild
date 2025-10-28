@@ -3,8 +3,8 @@ using UnityEngine;
 public class RobotBuilder : InteractableArea
 {
     [Header("Robot Parts")]
-    [SerializeField] private GameObject torso;
     [SerializeField] private GameObject head;
+    [SerializeField] private GameObject torso;
     [SerializeField] private GameObject leftArm;
     [SerializeField] private GameObject rightArm;
     [SerializeField] private GameObject leftLeg;
