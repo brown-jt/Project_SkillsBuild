@@ -1,13 +1,17 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(BoxCollider))]
 public abstract class InteractableArea : MonoBehaviour
 {
+    [Header("Interaction Settings")]
     [SerializeField] private BoxCollider interactionZone;
-    [SerializeField] private string interactionPrompt = "Press 'E' to interact";
-    private bool isInteractable = true;
+    [SerializeField] private string interactionPrompt = "CHANGE ME";
+    [SerializeField] private AudioClip interactionSound;
 
+    private bool isInteractable = true;
     public string InteractionPrompt => interactionPrompt;
+    public AudioClip InteractionSound => interactionSound;
     public bool IsInteractable
     {
         get => isInteractable;
@@ -16,7 +20,7 @@ public abstract class InteractableArea : MonoBehaviour
 
     public abstract void Interact();
 
-    private void Awake()
+    private void Start()
     {
         // Ensure the interaction zone is assigned and set as a trigger
         interactionZone = GetComponent<BoxCollider>();

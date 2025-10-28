@@ -25,6 +25,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction jumpAction;
     private InputAction sprintAction;
     private InputAction interactAction;
+    public InputAction InteractAction => interactAction;
     private InputAction attackAction;
 
     public Vector2 MovementInput { get; private set; }

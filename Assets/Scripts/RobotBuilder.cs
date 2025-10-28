@@ -107,5 +107,10 @@ public class RobotBuilder : InteractableArea
         else if (!hasTorso) AddPart("torso");
         else if (!hasLeftArm || !hasRightArm) AddPart("arm");
         else if (!hasLeftLeg || !hasRightLeg) AddPart("leg");
+
+        if (InteractionSound != null)
+        {
+            AudioSource.PlayClipAtPoint(InteractionSound, transform.position);
+        }
     }
 }
