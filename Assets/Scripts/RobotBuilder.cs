@@ -110,7 +110,8 @@ public class RobotBuilder : InteractableArea
 
         if (InteractionSound != null)
         {
-            AudioSource.PlayClipAtPoint(InteractionSound, transform.position);
+            // Play sound just at center of robot for now
+            AudioSource.PlayClipAtPoint(InteractionSound, torso.transform.position);
         }
     }
 }
