@@ -3,10 +3,15 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInputHandler))]
 public class PlayerInteract : MonoBehaviour
 {
+    [Header("Interact Prompt UI Reference")]
     [SerializeField] private InteractionPromptUI promptUI;
 
+    [Header("Interaction Settings")]
+    [SerializeField] private float interactRange = 3f;
+
     private PlayerInputHandler inputHandler;
-    private InteractableArea currentInteractableArea;
+    private InteractableArea currentArea;
+    private InteractableItem currentItem;
 
     private void Awake()
     {
@@ -15,22 +20,8 @@ public class PlayerInteract : MonoBehaviour
 
     private void Update()
     {
-        if (currentInteractableArea == null) return;
-
-        // Check if still interactable whilst in area
-        if (!currentInteractableArea.IsInteractable)
-        {
-            currentInteractableArea = null;
-            promptUI.Hide();
-            return;
-        }
-
-
-        // Handle interaction
-        if (currentInteractableArea.IsInteractable && inputHandler.InteractTriggered)
-        {
-            currentInteractableArea.Interact();
-        }
+        HandleAreaInteration();
+        HandleItemInteraction();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,7 +30,7 @@ public class PlayerInteract : MonoBehaviour
         {
             if (interactableArea.IsInteractable)
             {
-                currentInteractableArea = interactableArea;
+                currentArea = interactableArea;
                 promptUI.Show(interactableArea.InteractionPrompt);
             }
         }
@@ -49,11 +40,70 @@ public class PlayerInteract : MonoBehaviour
     {
         if (other.TryGetComponent(out InteractableArea interactableArea))
         {
-            if (interactableArea == currentInteractableArea)
+            if (interactableArea == currentArea)
             {
-                currentInteractableArea = null;
+                currentArea = null;
                 promptUI.Hide();
             }
+        }
+    }
+
+    private void HandleAreaInteration() 
+    {
+        if (currentArea == null) return;
+
+        // Check if still interactable whilst in area
+        if (!currentArea.IsInteractable)
+        {
+            currentArea = null;
+            promptUI.Hide();
+            return;
+        }
+
+        // Handle interaction
+        if (currentArea.IsInteractable && inputHandler.InteractTriggered)
+        {
+            currentArea.Interact();
+        }
+    }
+
+    private void HandleItemInteraction() 
+    {
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        int itemLayerMask = LayerMask.GetMask("Item");
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange, itemLayerMask))
+        {
+            Debug.DrawLine(ray.origin, hit.point, Color.green);
+            Debug.Log($"Hit: {hit.collider.name}");
+
+            if (hit.collider.TryGetComponent(out InteractableItem interactableItem))
+            {
+                // Show prompt
+                if (currentItem != interactableItem)
+                {
+                    currentItem = interactableItem;
+                    promptUI.Show($"{interactableItem.InteractionPrompt} {interactableItem.ItemName}");
+                }
+
+                // Interact if key pressed
+                if (interactableItem.IsInteractable && inputHandler.InteractTriggered)
+                {
+                    interactableItem.Interact();
+
+                    // For now, hide prompt after any item interaction
+                    promptUI.Hide();
+                }
+
+                return;
+            }
+        }
+
+        // Hide prompt if not looking at interactable
+        if (currentItem != null)
+        {
+            currentItem = null;
+            promptUI.Hide();
         }
     }
 }

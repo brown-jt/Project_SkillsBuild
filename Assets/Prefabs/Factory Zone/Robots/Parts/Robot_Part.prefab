@@ -74,6 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1297d31752181a44fa78d2b7af18ed36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorItem
+  itemName: Unnamed Item
+  interactionPrompt: CHANGE ME
+  interactionSound: {fileID: 8300000, guid: c77c99e076f0f8f449b9a82d1fbbd01d, type: 3}
   centeringThreshold: 0.01
   centeringSpeedMultiplier: 1
 --- !u!65 &6546745822117592777

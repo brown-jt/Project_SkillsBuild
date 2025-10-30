@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1329292441745951476, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9135455
+      value: 0.60181504
       objectReference: {fileID: 0}
     - target: {fileID: 1329292441745951476, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_LocalRotation.x
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1329292441745951476, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.40673658
+      value: 0.79863554
       objectReference: {fileID: 0}
     - target: {fileID: 1329292441745951476, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_LocalRotation.z
@@ -71,6 +71,14 @@ PrefabInstance:
     - target: {fileID: 4232536376218655034, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
+      propertyPath: itemName
+      value: Small Torso
+      objectReference: {fileID: 0}
+    - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
+      propertyPath: interactionPrompt
+      value: Pickup
       objectReference: {fileID: 0}
     - target: {fileID: 6546745822117592777, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_Size.x

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
-public class ConveyorItem : MonoBehaviour
+public class ConveyorItem : InteractableItem
 {
     private Rigidbody rb;
 
@@ -11,6 +11,7 @@ public class ConveyorItem : MonoBehaviour
     private bool centering = false;
     private Vector3 targetCenterPos;
 
+    [Header("Centering Force Settings")]
     [SerializeField] private float centeringThreshold = 0.05f;
     [SerializeField] private float centeringSpeedMultiplier = 1.5f;
 
@@ -122,5 +123,12 @@ public class ConveyorItem : MonoBehaviour
     public void ToggleMovement(bool b)
     {
         isMoveable = b;
+    }
+
+    public override void Interact()
+    {
+        AudioSource.PlayClipAtPoint(InteractionSound, transform.position);
+        Debug.Log("Picked up Item: " + gameObject.name);
+        Destroy(gameObject);
     }
 }

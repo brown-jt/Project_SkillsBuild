@@ -72,6 +72,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
+      propertyPath: itemName
+      value: Medium Leg
+      objectReference: {fileID: 0}
+    - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
+      propertyPath: interactionPrompt
+      value: Pickup
+      objectReference: {fileID: 0}
     - target: {fileID: 6546745822117592777, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_Size.x
       value: 0.3

@@ -47,7 +47,7 @@ public class ConveyorSpawner : MonoBehaviour
             transform.rotation.z
         );
 
-        Debug.Log($"Spawning Part #{spawnedItems + 1} -> {prefabToSpawn.name}");
+        Debug.Log($"Spawning Part #{spawnedItems + 1}: {prefabToSpawn.name}");
         Instantiate(prefabToSpawn, transform.position, prefabToSpawn.transform.rotation);
 
         spawnIndex = (spawnIndex + 1) % 4;

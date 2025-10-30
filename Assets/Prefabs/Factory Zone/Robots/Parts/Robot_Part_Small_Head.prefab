@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1329292441745951476, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.37460664
+      value: 0.5150381
       objectReference: {fileID: 0}
     - target: {fileID: 1329292441745951476, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_LocalRotation.x
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1329292441745951476, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.92718387
+      value: 0.8571673
       objectReference: {fileID: 0}
     - target: {fileID: 1329292441745951476, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_LocalRotation.z
@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -7070831255929112694, guid: 295d5dc69eca16d4286741a64dddd757, type: 3}
+    - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
+      propertyPath: itemName
+      value: Small Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
+      propertyPath: interactionPrompt
+      value: Pickup
+      objectReference: {fileID: 0}
     - target: {fileID: 6546745822117592777, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: m_Size.x
       value: 0.2
