@@ -25,12 +25,11 @@ public class ConveyorSpawner : MonoBehaviour
     }
     private void SpawnRandomObject()
     {
-        Debug.Log("Spawning robot part number..." + spawnedItems.ToString());
         GameObject prefabToSpawn;
 
         if (spawnedItems < 4)
         {
-            prefabToSpawn = largeRobotParts[spawnIndex];
+            prefabToSpawn = smallRobotParts[spawnIndex];
         }
         else if (spawnedItems < 8)
         {
@@ -38,7 +37,7 @@ public class ConveyorSpawner : MonoBehaviour
         }
         else
         {
-            prefabToSpawn = smallRobotParts[spawnIndex];
+            prefabToSpawn = largeRobotParts[spawnIndex];
         }
 
         // Random Y rotation for the object so it appears varied
@@ -48,6 +47,7 @@ public class ConveyorSpawner : MonoBehaviour
             transform.rotation.z
         );
 
+        Debug.Log($"Spawning Part #{spawnedItems + 1} -> {prefabToSpawn.name}");
         Instantiate(prefabToSpawn, transform.position, prefabToSpawn.transform.rotation);
 
         spawnIndex = (spawnIndex + 1) % 4;
