@@ -7646,6 +7646,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5625462662994123019, guid: d80e19a91ed0293409641fe8cd3d6af1, type: 3}
+      propertyPath: autoSpawnOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625462662994123019, guid: d80e19a91ed0293409641fe8cd3d6af1, type: 3}
       propertyPath: largeRobotParts.Array.size
       value: 4
       objectReference: {fileID: 0}
