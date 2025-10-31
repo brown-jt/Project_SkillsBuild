@@ -90,8 +90,25 @@ public class Conveyor : MonoBehaviour
         if (box == null) return;
 
         Vector3 worldCenter = box.bounds.center;
+        Vector3 dir = GetDirectionVector().normalized;
+        float length = 1f;
+
+        Vector3 end = worldCenter + dir * length;
+
+        // Draw main line
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(worldCenter, worldCenter + GetDirectionVector().normalized * 2f);
+        Gizmos.DrawLine(worldCenter, end);
         Gizmos.DrawSphere(worldCenter, 0.05f);
+
+        // Draw arrowhead
+        float arrowHeadAngle = 25f;
+        float arrowHeadLength = 0.2f;
+
+        // Calculate arrowhead direction lines
+        Vector3 right = Quaternion.LookRotation(dir) * Quaternion.Euler(0, 180 + arrowHeadAngle, 0) * Vector3.forward;
+        Vector3 left = Quaternion.LookRotation(dir) * Quaternion.Euler(0, 180 - arrowHeadAngle, 0) * Vector3.forward;
+
+        Gizmos.DrawLine(end, end + right * arrowHeadLength);
+        Gizmos.DrawLine(end, end + left * arrowHeadLength);
     }
 }
