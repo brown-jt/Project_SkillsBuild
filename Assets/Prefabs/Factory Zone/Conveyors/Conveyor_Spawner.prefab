@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8782813167897193406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5199592254115776030}
+  - component: {fileID: 3237101836871618432}
+  m_Layer: 0
+  m_Name: Item_Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5199592254115776030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8782813167897193406}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.70710987, z: -0, w: -0.7071037}
+  m_LocalPosition: {x: 0, y: 0.85, z: 1.9499998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5751305877974032731}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3237101836871618432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8782813167897193406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd46a0724f2a214bbb6137ed0b3320c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConveyorSpawner
+  smallRobotParts:
+  - {fileID: 6392336958159363530, guid: e8fd0a5d139c4ea4ebba15974ddccbcc, type: 3}
+  - {fileID: 6392336958159363530, guid: bc42da950a062454992cdbdbc923bf07, type: 3}
+  - {fileID: 6392336958159363530, guid: 1c50262b5865fd5479eb309b902d41ad, type: 3}
+  - {fileID: 6392336958159363530, guid: 2843b014992bed945823c2cefdd38502, type: 3}
+  mediumRobotParts:
+  - {fileID: 6392336958159363530, guid: c206e89f225a1eb4bbbe1255a4f49c37, type: 3}
+  - {fileID: 6392336958159363530, guid: 7e4d5ac04719f5f41b4399c704ab3479, type: 3}
+  - {fileID: 6392336958159363530, guid: ca0c8bbc07d1da14896ac3b4ffd40c2f, type: 3}
+  - {fileID: 6392336958159363530, guid: 7fdede3f34ff3bf44bb477cb8979c7ad, type: 3}
+  largeRobotParts:
+  - {fileID: 5052092363877515615, guid: aaca7a5d50cba1a4eb9cfcf8bb00e92d, type: 3}
+  - {fileID: 5052092363877515615, guid: de7c0548665ef804eb2e7a195d8f033e, type: 3}
+  - {fileID: 5052092363877515615, guid: 4cffdf7ba7b79e64ab3f4e8d7bec33f0, type: 3}
+  - {fileID: 5052092363877515615, guid: ce5ee8adeb11bb24bad26c0f998aceee, type: 3}
+  autoSpawnOnStart: 1
+  minSpawnDelay: 4
+  maxSpawnDelay: 6
 --- !u!1001 &7266559410803822457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79,27 +141,16 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2009970270918115792, guid: fd1db910fa45c7e42b26336496a925ea, type: 3}
     - {fileID: 587853070867890676, guid: fd1db910fa45c7e42b26336496a925ea, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3127965302009739265, guid: fd1db910fa45c7e42b26336496a925ea, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9163128218459206600}
+    m_RemovedGameObjects:
+    - {fileID: 3127965302009739265, guid: fd1db910fa45c7e42b26336496a925ea, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3100938838440799778, guid: fd1db910fa45c7e42b26336496a925ea, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 5199592254115776030}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd1db910fa45c7e42b26336496a925ea, type: 3}
---- !u!1 &5742303475945076600 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3127965302009739265, guid: fd1db910fa45c7e42b26336496a925ea, type: 3}
+--- !u!4 &5751305877974032731 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3100938838440799778, guid: fd1db910fa45c7e42b26336496a925ea, type: 3}
   m_PrefabInstance: {fileID: 7266559410803822457}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9163128218459206600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5742303475945076600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfd46a0724f2a214bbb6137ed0b3320c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ConveyorSpawner

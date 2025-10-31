@@ -5,12 +5,13 @@ public class InteractionPromptUI : MonoBehaviour
 {
     [Header("UI Elements")]
     [SerializeField] private GameObject promptPanel;
+    [SerializeField] private TextMeshProUGUI promptName;
     [SerializeField] private TextMeshProUGUI promptText;
 
     private bool isDisplayed = false;
     private void Start()
     {
-        if (promptPanel == null || promptText == null)
+        if (promptPanel == null || promptText == null || promptName == null)
         {
             Debug.LogError("InteractionPromptUI: UI elements are not assigned.");
         }
@@ -21,11 +22,12 @@ public class InteractionPromptUI : MonoBehaviour
         }
     }
 
-    public void Show(string message)
+    public void Show(string message, string name = "")
     {
         if (isDisplayed) return;
         isDisplayed = true;
         promptPanel.SetActive(true);
+        promptName.text = name;
         promptText.text = message;
     }
 

@@ -83,7 +83,7 @@ public class PlayerInteract : MonoBehaviour
                 if (currentItem != interactableItem)
                 {
                     currentItem = interactableItem;
-                    promptUI.Show($"{interactableItem.InteractionPrompt} {interactableItem.ItemName}");
+                    promptUI.Show($"{interactableItem.InteractionPrompt}", $"{interactableItem.ItemName}");
                 }
 
                 // Interact if key pressed
