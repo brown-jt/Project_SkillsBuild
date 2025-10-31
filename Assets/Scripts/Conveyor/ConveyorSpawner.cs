@@ -1,20 +1,18 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ConveyorSpawner : MonoBehaviour
 {
     [Header("Robot Parts to Spawn")]
-    [SerializeField] GameObject[] smallRobotParts;
-    [SerializeField] GameObject[] mediumRobotParts;
-    [SerializeField] GameObject[] largeRobotParts;
+    [SerializeField] GameObject[] robotParts;
 
     [Header("Spawn Settings")]
     [SerializeField] bool autoSpawnOnStart = true;
     [SerializeField] float minSpawnDelay = 3f;
     [SerializeField] float maxSpawnDelay = 5f;
 
-    private int spawnIndex = 0;
-    private int spawnedItems = 0;
+    private List<GameObject> availableParts = new List<GameObject>();
 
     private void Start()
     {
@@ -22,36 +20,38 @@ public class ConveyorSpawner : MonoBehaviour
         {
             StartCoroutine(SpawnItems());
         }
+
+        ResetRobotParts();
     }
     private void SpawnRandomObject()
     {
-        GameObject prefabToSpawn;
-
-        if (spawnedItems < 4)
+        // Reset parts if needed
+        if (availableParts.Count == 0)
         {
-            prefabToSpawn = smallRobotParts[spawnIndex];
-        }
-        else if (spawnedItems < 8)
-        {
-            prefabToSpawn = mediumRobotParts[spawnIndex];
-        }
-        else
-        {
-            prefabToSpawn = largeRobotParts[spawnIndex];
+            ResetRobotParts();
         }
 
-        Debug.Log($"Spawning Part #{spawnedItems + 1}: {prefabToSpawn.name}");
+        // Our randomly chosen prefab to spawn
+        int index = Random.Range(0, availableParts.Count);
+        GameObject prefabToSpawn = availableParts[index];
+
+        // Remove it so it can't be chosen again this spawn cycle
+        availableParts.RemoveAt(index);
+
+        // Spawning prefab
         GameObject spawnedPrefab = Instantiate(prefabToSpawn, transform.position, prefabToSpawn.transform.rotation);
 
-        // Random Y rotation for the object so it appears varied
+        // Random Y rotation for the prefab object so it appears varied
         spawnedPrefab.transform.rotation = Quaternion.Euler(
             prefabToSpawn.transform.rotation.x,
             Random.Range(0, 360), 
             prefabToSpawn.transform.rotation.z
         );
+    }
 
-        spawnIndex = (spawnIndex + 1) % 4;
-        spawnedItems = (spawnedItems + 1) % (smallRobotParts.Length + mediumRobotParts.Length + largeRobotParts.Length);
+    private void ResetRobotParts()
+    {
+        availableParts = new List<GameObject>(robotParts);
     }
 
     IEnumerator SpawnItems()

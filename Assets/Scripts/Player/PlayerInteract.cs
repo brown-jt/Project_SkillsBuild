@@ -74,9 +74,6 @@ public class PlayerInteract : MonoBehaviour
         int itemLayerMask = LayerMask.GetMask("Item");
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange, itemLayerMask))
         {
-            Debug.DrawLine(ray.origin, hit.point, Color.green);
-            Debug.Log($"Hit: {hit.collider.name}");
-
             if (hit.collider.TryGetComponent(out InteractableItem interactableItem))
             {
                 // Show prompt
@@ -92,6 +89,7 @@ public class PlayerInteract : MonoBehaviour
                     interactableItem.Interact();
 
                     // For now, hide prompt after any item interaction
+                    // TODO - Handle differently for pick up vs other interactions
                     promptUI.Hide();
                 }
 
