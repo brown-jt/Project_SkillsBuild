@@ -6,12 +6,11 @@ public class FirstPersonController : MonoBehaviour
     [Header("Movement Speeds")]
     [SerializeField] private float walkSpeed = 3.0f;
     [SerializeField] private float sprintMultiplier = 2.0f;
-
+    [SerializeField] private float climbSpeed = 2.0f;
 
     [Header("Jump Parameters")]
     [SerializeField] private float jumpForce = 5.0f;
     [SerializeField] private float gravityMultiplier = 1.0f;
-
 
     [Header("Look Parameters")]
     [SerializeField] private float mouseSensitivity = 0.1f;
@@ -27,6 +26,8 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 currentMovement;
     private float verticalRotation;
     private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1);
+
+    private bool isClimbing = false;
 
     //private bool iFramesActive = false;
     //private float iFramesTimer = 0.5f;
@@ -87,15 +88,33 @@ public class FirstPersonController : MonoBehaviour
     /// </summary>
     private void HandleMovement()
     {
-        Vector3 worldDirection = CalculateWorldDirection();
-        currentMovement.x = worldDirection.x * CurrentSpeed;
-        currentMovement.z = worldDirection.z * CurrentSpeed;
+        if (isClimbing)
+        {
+            // Disable gravity and control only vertical motion
+            float climbInput = playerInputHandler.MovementInput.y;
+            currentMovement = Vector3.zero;
+            currentMovement.y = climbInput * climbSpeed;
 
-        // Handle jumping as part of movement
-        HandleJumping();
+            // Exit climbing if pressing down and touching ground
+            // Helps to avoid sticking to ladder when reaching bottom and not exiting trigger zone
+            if (characterController.isGrounded && climbInput < -0.1f)
+            {
+                SetClimbing(false);
+                return;
+            }
+        }
+        else
+        {
+            Vector3 worldDirection = CalculateWorldDirection();
+            currentMovement.x = worldDirection.x * CurrentSpeed;
+            currentMovement.z = worldDirection.z * CurrentSpeed;
+
+            // Handle jumping as part of movement if not climbing
+            HandleJumping();
+        }
 
         characterController.Move(currentMovement * Time.deltaTime);
-
+            
         // Updating animator to match movement
         // Ensuring speed is normalized and lerped to allow for smooth animation transitions
         float maxSpeed = walkSpeed * sprintMultiplier;
@@ -136,5 +155,19 @@ public class FirstPersonController : MonoBehaviour
 
         ApplyHorizontalRotation(mouseXRotation);
         ApplyVerticalRotation(mouseYRotation);
+    }
+
+    /// <summary>
+    /// Public access function to set climbing state (called from Ladder trigger)
+    /// </summary>
+    /// <param name="val"></param>
+    public void SetClimbing(bool val)
+    {
+        isClimbing = val;
+        if (isClimbing)
+        {
+            // Reset vertical movement when starting to climb
+            currentMovement.y = 0f;
+        }
     }
 }

@@ -3,8 +3,8 @@ using UnityEngine;
 public class RobotBuilder : InteractableArea
 {
     [Header("Robot Parts")]
-    [SerializeField] private GameObject torso;
     [SerializeField] private GameObject head;
+    [SerializeField] private GameObject torso;
     [SerializeField] private GameObject leftArm;
     [SerializeField] private GameObject rightArm;
     [SerializeField] private GameObject leftLeg;
@@ -107,5 +107,11 @@ public class RobotBuilder : InteractableArea
         else if (!hasTorso) AddPart("torso");
         else if (!hasLeftArm || !hasRightArm) AddPart("arm");
         else if (!hasLeftLeg || !hasRightLeg) AddPart("leg");
+
+        if (InteractionSound != null)
+        {
+            // Play sound just at center of robot for now
+            AudioSource.PlayClipAtPoint(InteractionSound, torso.transform.position);
+        }
     }
 }
