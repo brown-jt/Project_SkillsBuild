@@ -6,12 +6,11 @@ public class FirstPersonController : MonoBehaviour
     [Header("Movement Speeds")]
     [SerializeField] private float walkSpeed = 3.0f;
     [SerializeField] private float sprintMultiplier = 2.0f;
-
+    [SerializeField] private float climbSpeed = 2.0f;
 
     [Header("Jump Parameters")]
     [SerializeField] private float jumpForce = 5.0f;
     [SerializeField] private float gravityMultiplier = 1.0f;
-
 
     [Header("Look Parameters")]
     [SerializeField] private float mouseSensitivity = 0.1f;
@@ -27,6 +26,8 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 currentMovement;
     private float verticalRotation;
     private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1);
+
+    private bool isClimbing = false;
 
     //private bool iFramesActive = false;
     //private float iFramesTimer = 0.5f;
@@ -91,8 +92,16 @@ public class FirstPersonController : MonoBehaviour
         currentMovement.x = worldDirection.x * CurrentSpeed;
         currentMovement.z = worldDirection.z * CurrentSpeed;
 
-        // Handle jumping as part of movement
-        HandleJumping();
+        if (isClimbing)
+        {
+            // Override vertical movement when climbing
+            currentMovement.y = playerInputHandler.MovementInput.y * climbSpeed;
+        }
+        else
+        {
+            // Handle jumping as part of movement if not climbing
+            HandleJumping();
+        }
 
         characterController.Move(currentMovement * Time.deltaTime);
 
@@ -136,5 +145,19 @@ public class FirstPersonController : MonoBehaviour
 
         ApplyHorizontalRotation(mouseXRotation);
         ApplyVerticalRotation(mouseYRotation);
+    }
+
+    /// <summary>
+    /// Public access function to set climbing state (called from Ladder trigger)
+    /// </summary>
+    /// <param name="val"></param>
+    public void SetClimbing(bool val)
+    {
+        isClimbing = val;
+        if (isClimbing)
+        {
+            // Reset vertical movement when starting to climb
+            currentMovement.y = 0f;
+        }
     }
 }
