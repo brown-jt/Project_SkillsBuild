@@ -88,23 +88,33 @@ public class FirstPersonController : MonoBehaviour
     /// </summary>
     private void HandleMovement()
     {
-        Vector3 worldDirection = CalculateWorldDirection();
-        currentMovement.x = worldDirection.x * CurrentSpeed;
-        currentMovement.z = worldDirection.z * CurrentSpeed;
-
         if (isClimbing)
         {
-            // Override vertical movement when climbing
-            currentMovement.y = playerInputHandler.MovementInput.y * climbSpeed;
+            // Disable gravity and control only vertical motion
+            float climbInput = playerInputHandler.MovementInput.y;
+            currentMovement = Vector3.zero;
+            currentMovement.y = climbInput * climbSpeed;
+
+            // Exit climbing if pressing down and touching ground
+            // Helps to avoid sticking to ladder when reaching bottom and not exiting trigger zone
+            if (characterController.isGrounded && climbInput < -0.1f)
+            {
+                SetClimbing(false);
+                return;
+            }
         }
         else
         {
+            Vector3 worldDirection = CalculateWorldDirection();
+            currentMovement.x = worldDirection.x * CurrentSpeed;
+            currentMovement.z = worldDirection.z * CurrentSpeed;
+
             // Handle jumping as part of movement if not climbing
             HandleJumping();
         }
 
         characterController.Move(currentMovement * Time.deltaTime);
-
+            
         // Updating animator to match movement
         // Ensuring speed is normalized and lerped to allow for smooth animation transitions
         float maxSpeed = walkSpeed * sprintMultiplier;
