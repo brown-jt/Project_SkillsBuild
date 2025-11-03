@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
@@ -12,8 +13,8 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] private float minScale = 0.8f;
     [SerializeField] private float maxScale = 1.2f;
 
-    [Header("Positioning Settings")]
-    [SerializeField] private BoxCollider exclusionArea;
+    [Header("Exclusion Area Settings")]
+    [SerializeField] private BoxCollider exclusionZone;
 
 
     private void Start()
@@ -33,23 +34,15 @@ public class ObjectSpawner : MonoBehaviour
         Vector3 terrainPos = terrain.transform.position;
 
         int spawnedCount = 0;
-        int attempts = 0;
-        int maxAttempts = numberOfObjects * 10; // safety to avoid infinite loop
 
-        while (spawnedCount < numberOfObjects && attempts < maxAttempts)
+        while (spawnedCount < numberOfObjects)
         {
-            attempts++;
-
             // Random position within terrain bounds
             float randomX = Random.Range(0f, terrainData.size.x);
             float randomZ = Random.Range(0f, terrainData.size.z);
             float y = terrain.SampleHeight(new Vector3(randomX, 0f, randomZ) + terrainPos);
 
             Vector3 spawnPos = new Vector3(randomX, y, randomZ) + terrainPos;
-
-            // Skip if inside exclusion area
-            if (exclusionArea != null && exclusionArea.bounds.Contains(spawnPos))
-                continue;
 
             // Spawn the object
             GameObject obj = Instantiate(prefabToSpawn, spawnPos, Quaternion.Euler(0f, Random.Range(0f, 360f), 0f), parentContainer);
@@ -62,13 +55,78 @@ public class ObjectSpawner : MonoBehaviour
             spawnedCount++;
         }
 
-        if (attempts >= maxAttempts)
+        RemoveFromExclusionZone();
+    }
+
+    private void RemoveFromExclusionZone()
+    {
+        if (exclusionZone == null)
         {
-            Debug.LogWarning("Reached max attempts. Some objects may not have been spawned due to exclusion area.");
+            Debug.LogWarning("No exclusion zone assigned.");
+            return;
         }
-        else
+
+        if (parentContainer == null)
         {
-            Debug.Log($"Spawned {spawnedCount} objects in {attempts} attempts.");
+            Debug.LogWarning("No parent container assigned.");
+            return;
         }
+
+        // World-space center of the BoxCollider (accounts for center offset)
+        Vector3 worldCenter = exclusionZone.transform.TransformPoint(exclusionZone.center);
+
+        // Half-extents in local space, then scale by lossyScale to get world half-extents
+        Vector3 localHalf = exclusionZone.size * 0.5f;
+        Vector3 worldHalf = Vector3.Scale(localHalf, exclusionZone.transform.lossyScale);
+
+        // Use the collider's rotation
+        Quaternion orientation = exclusionZone.transform.rotation;
+
+        // Include triggers just in case tree colliders are triggers
+        Collider[] hits = Physics.OverlapBox(worldCenter, worldHalf, orientation, ~0, QueryTriggerInteraction.Collide);
+
+        if (hits == null || hits.Length == 0)
+        {
+            Debug.Log("No colliders detected overlapping exclusion zone.");
+            return;
+        }
+
+        // Keep track of which root children we've already destroyed
+        var destroyed = new System.Collections.Generic.HashSet<GameObject>();
+        int removedCount = 0;
+
+        foreach (Collider hit in hits)
+        {
+            if (hit == null) continue;
+
+            // Walk up the hierarchy until we find a direct child of parentContainer
+            Transform t = hit.transform;
+            Transform topChild = null;
+
+            // If the hit transform is the parent container itself, skip
+            if (t == parentContainer) continue;
+
+            // Find the direct child of parentContainer this collider belongs to
+            while (t != null && t != parentContainer)
+            {
+                topChild = t;
+                t = t.parent;
+            }
+
+            // If we didn't reach parentContainer (i.e. not a descendant), skip
+            if (t != parentContainer || topChild == null) continue;
+
+            GameObject candidate = topChild.gameObject;
+
+            // Only delete trees (tag check) and prevent duplicate destroys
+            if (!destroyed.Contains(candidate) && candidate.CompareTag("Tree"))
+            {
+                destroyed.Add(candidate);
+                Destroy(candidate);
+                removedCount++;
+            }
+        }
+
+        Debug.Log($"Removed {removedCount} trees inside exclusion zone (checked {hits.Length} colliders).");
     }
 }
