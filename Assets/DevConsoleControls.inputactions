@@ -1,0 +1,75 @@
+{
+    "version": 1,
+    "name": "DevConsoleControls",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "5cbbfbb8-b1a6-47ea-b0a3-ff22757603b2",
+            "actions": [
+                {
+                    "name": "ToggleConsole",
+                    "type": "Button",
+                    "id": "296b8359-967b-4b24-8e23-0c47bbaa0ab4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SubmitCommand",
+                    "type": "Button",
+                    "id": "dfc0c2f8-836a-4d07-b8a1-872870a59e97",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CloseConsole",
+                    "type": "Button",
+                    "id": "d308d094-72ed-4ea6-ab20-a523db1aa05a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "76e9f840-fbcf-47e6-a087-78b1156456ca",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleConsole",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "574e6b3b-8f10-48ba-adaf-dda73b842934",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SubmitCommand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa2e21ed-3898-4a4e-a718-3ff8e34aaaf9",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseConsole",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
