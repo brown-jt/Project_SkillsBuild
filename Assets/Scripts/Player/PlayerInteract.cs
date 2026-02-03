@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerInputHandler))]
 public class PlayerInteract : MonoBehaviour
@@ -24,6 +25,24 @@ public class PlayerInteract : MonoBehaviour
         HandleItemInteraction();
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Clear any current interactions on new scene load
+        currentArea = null;
+        currentItem = null;
+        promptUI.Hide();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out InteractableArea interactableArea))
@@ -31,7 +50,7 @@ public class PlayerInteract : MonoBehaviour
             if (interactableArea.IsInteractable)
             {
                 currentArea = interactableArea;
-                promptUI.Show(interactableArea.InteractionPrompt);
+                promptUI.Show($"{interactableArea.InteractionPrompt}", $"{interactableArea.InteractName}");
             }
         }
     }

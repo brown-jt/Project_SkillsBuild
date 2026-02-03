@@ -8,6 +8,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HubScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/FactoryScene.unity
+    guid: 16aca88726f53434888bb3ff10cceb76
+  - enabled: 1
+    path: Assets/Scenes/ForestScene.unity
+    guid: a36093efd4307da4689e7b87aeab93a3
+  - enabled: 1
+    path: Assets/Scenes/WarehouseScene.unity
+    guid: 3954c1b41150eaa4896169e2ab01fac4
+  - enabled: 1
+    path: Assets/Scenes/SecurityScene.unity
+    guid: 41fa1cca570512940a65461164f8131a
+  - enabled: 1
+    path: Assets/Scenes/MuseumScene.unity
+    guid: ccc5b430d16b11040a971375cd89e0bd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
