@@ -32,7 +32,7 @@ public class AnimalManager : MonoBehaviour
         {
             if (NavMeshUtils.RandomPointOnNavMesh(out Vector3 pos))
             {
-                var animal = Instantiate(horseAnimal, pos, Quaternion.identity);
+                var animal = Instantiate(horseAnimal, pos, Quaternion.identity, parentContainer);
 
                 float scale = Random.Range(minScale, maxScale);
                 animal.transform.localScale *= scale;
