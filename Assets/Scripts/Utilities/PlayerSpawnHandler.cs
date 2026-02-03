@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -55,11 +56,29 @@ public class PlayerSpawnHandler : MonoBehaviour
         if (spawnPoint != null)
         {
             // Move the player to the spawn point position and rotation
-            transform.SetPositionAndRotation(spawnPoint.transform.position, spawnPoint.transform.rotation);
+            var controller = GetComponent<CharacterController>();
+            if (controller != null)
+            {
+                // Disable temporarily to avoid physics glitches
+                controller.enabled = false;
+                transform.position = spawnPoint.transform.position;
+                transform.rotation = spawnPoint.transform.rotation;
+                controller.enabled = true;
+            }
+            else
+            {
+                transform.SetPositionAndRotation(spawnPoint.transform.position, spawnPoint.transform.rotation);
+            }
         }
         else
         {
             Debug.LogWarning("No PlayerSpawnPoint found in scene:" + scene.name);
+        }
+
+        // Clearing after use back to Default
+        if (SpawnManager.Instance != null)
+        {
+            SpawnManager.Instance.NextSpawnID = "Default";
         }
     }
 }
