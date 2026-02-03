@@ -4651,6 +4651,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1776153608}
     m_Modifications:
     - target: {fileID: 3237101836871618432, guid: 8daeca8a75b8cd449b609090ac909443, type: 3}
+      propertyPath: spawnParent
+      value: 
+      objectReference: {fileID: 691348867}
+    - target: {fileID: 3237101836871618432, guid: 8daeca8a75b8cd449b609090ac909443, type: 3}
       propertyPath: robotParts.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -5280,6 +5284,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fe6795b6211534240b43134a476fc2f4, type: 3}
   m_PrefabInstance: {fileID: 657457856}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &691348866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 691348867}
+  m_Layer: 0
+  m_Name: RobotParts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &691348867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691348866}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.39958, y: 2.18032, z: -5.80005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &703888944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12600,6 +12635,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3992017631390163591, guid: d80e19a91ed0293409641fe8cd3d6af1, type: 3}
+      propertyPath: spawnParent
+      value: 
+      objectReference: {fileID: 691348867}
+    - target: {fileID: 3992017631390163591, guid: d80e19a91ed0293409641fe8cd3d6af1, type: 3}
       propertyPath: robotParts.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -16849,6 +16888,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3992017631390163591, guid: d80e19a91ed0293409641fe8cd3d6af1, type: 3}
+      propertyPath: spawnParent
+      value: 
+      objectReference: {fileID: 691348867}
+    - target: {fileID: 3992017631390163591, guid: d80e19a91ed0293409641fe8cd3d6af1, type: 3}
       propertyPath: robotParts.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -17017,3 +17060,4 @@ SceneRoots:
   - {fileID: 2130245420}
   - {fileID: 1311898288}
   - {fileID: 841822824}
+  - {fileID: 691348867}

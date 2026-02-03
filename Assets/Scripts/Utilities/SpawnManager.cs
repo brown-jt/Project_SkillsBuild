@@ -3,7 +3,12 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager Instance;
-    public string NextSpawnID;
+
+    [Tooltip("Spawn ID to use for the next teleport")]
+    public string NextSpawnID = "Default";
+
+    [Tooltip("Scene the player is teleporting into")]
+    public string TargetSceneName;
 
     private void Awake()
     {
@@ -15,11 +20,17 @@ public class SpawnManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
 
-        // Initialising default spawn ID
-        if (string.IsNullOrEmpty(NextSpawnID))
-        {
-            NextSpawnID = "Default";
-        }
+    public void SetNextSpawn(string spawnID, string sceneName)
+    {
+        NextSpawnID = spawnID;
+        TargetSceneName = sceneName;
+    }
+
+    public void ClearNextSpawn()
+    {
+        NextSpawnID = "Default";
+        TargetSceneName = "";
     }
 }

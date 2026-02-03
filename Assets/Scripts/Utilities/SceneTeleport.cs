@@ -7,7 +7,7 @@ public class SceneTeleport : InteractableArea
     [SerializeField] private string returnSpawnID;
     public override void Interact()
     {
-        SpawnManager.Instance.NextSpawnID = returnSpawnID;
-        SceneManager.LoadScene(sceneName);
+        SpawnManager.Instance.SetNextSpawn(returnSpawnID, sceneName);
+        ZoneManager.Instance.TeleportTo(sceneName, returnSpawnID);
     }
 }
