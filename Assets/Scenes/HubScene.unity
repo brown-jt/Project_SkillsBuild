@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   NextSpawnID: 
+  TargetSceneName: 
 --- !u!4 &56170181
 Transform:
   m_ObjectHideFlags: 0
@@ -1143,6 +1144,7 @@ MonoBehaviour:
   - SecurityScene
   - MuseumScene
   hubSceneName: HubScene
+  promptUI: {fileID: 715732985}
 --- !u!4 &1198330849
 Transform:
   m_ObjectHideFlags: 0
@@ -1953,10 +1955,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1121594179055304080, guid: dc961844a8b5d1d4c95d7bd0ad8fc0ad, type: 3}
-      propertyPath: m_Center.y
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 2777245197480001615, guid: dc961844a8b5d1d4c95d7bd0ad8fc0ad, type: 3}
       propertyPath: m_Name
       value: Player

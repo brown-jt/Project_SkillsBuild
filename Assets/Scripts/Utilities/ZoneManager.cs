@@ -7,8 +7,12 @@ public class ZoneManager : MonoBehaviour
 {
     public static ZoneManager Instance;
 
+    [Header("Zone Scene Names")]
     [SerializeField] private List<string> allZoneScenes; // all additive zones including Hub
     [SerializeField] private string hubSceneName = "HubScene";
+
+    [Header("Interact Prompt UI Reference")]
+    [SerializeField] private InteractionPromptUI promptUI;
 
     private Scene currentScene;
     private Dictionary<string, Scene> loadedScenes = new Dictionary<string, Scene>();
@@ -79,6 +83,9 @@ public class ZoneManager : MonoBehaviour
         {
             comp.OnSceneActivated();
         }
+
+        // Ensure prompt UI is cleared after teleport
+        promptUI.Hide();
 
         // Set as active scene
         SceneManager.SetActiveScene(targetScene);

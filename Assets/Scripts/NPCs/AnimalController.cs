@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class AnimalController : MonoBehaviour
+public class AnimalController : MonoBehaviour, IOnSceneActivated
 {
     public enum State
     {
@@ -24,13 +24,41 @@ public class AnimalController : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
 
     private State currentState;
+    private Coroutine stateRoutine;
 
-    private void Start()
+    private void Awake()
     {
         if (!animator) animator = GetComponentInChildren<Animator>();
         if (!agent) agent = GetComponent<NavMeshAgent>();
+    }
 
-        StartCoroutine(StateCycle());
+    private void Start()
+    {
+        InitialiseAnimals();
+    }
+
+    public void OnSceneActivated()
+    {
+        InitialiseAnimals();
+    }
+
+    private void InitialiseAnimals()
+    {
+        // Kill old behavior
+        if (stateRoutine != null)
+            StopCoroutine(stateRoutine);
+
+        // Reset NavMeshAgent safely
+        agent.ResetPath();
+        agent.isStopped = true;
+        agent.velocity = Vector3.zero;
+
+        // Reset animator
+        animator.Rebind();
+        animator.Update(0f);
+
+        // Restart behavior
+        stateRoutine = StartCoroutine(StateCycle());
     }
 
     private IEnumerator StateCycle()
