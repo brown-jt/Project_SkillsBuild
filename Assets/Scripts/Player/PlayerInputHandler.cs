@@ -83,7 +83,7 @@ public class PlayerInputHandler : MonoBehaviour
     /// <summary>
     /// Helper function to enable the action map when required
     /// </summary>
-    private void OnEnable()
+    public void EnablePlayerInput()
     {
         playerControls.FindActionMap(actionMapName).Enable();
     }
@@ -91,8 +91,17 @@ public class PlayerInputHandler : MonoBehaviour
     /// <summary>
     /// Helper function to disable the action map when required
     /// </summary>
-    private void OnDisable()
+    public void DisablePlayerInput()
     {
         playerControls.FindActionMap(actionMapName).Disable();
+
+        // Clear any cached input so character doesn't keep moving upon interaction
+        MovementInput = Vector2.zero;
+        RotationInput = Vector2.zero;
+        JumpTriggered = false;
+        SprintTriggered = false;
+        InteractTriggered = false;
+        AttackTriggered = false;
+
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -44,8 +45,11 @@ public class FirstPersonController : MonoBehaviour
 
     void Update()
     {
-        HandleMovement();
-        HandleRotation();
+        if (characterController.enabled)
+        {
+            HandleMovement();
+            HandleRotation();
+        }
     }
 
     /// <summary>
@@ -168,6 +172,24 @@ public class FirstPersonController : MonoBehaviour
         {
             // Reset vertical movement when starting to climb
             currentMovement.y = 0f;
+        }
+    }
+
+    /// <summary>
+    /// Public function to enable/disable player input and character controller
+    /// </summary>
+    /// <param name="enabled"></param>
+    public void SetInputEnabled(bool enabled)
+    {
+        if (enabled)
+        {
+            playerInputHandler.EnablePlayerInput();
+            characterController.enabled = true;
+        }
+        else
+        {
+            playerInputHandler.DisablePlayerInput();
+            characterController.enabled = false;
         }
     }
 }

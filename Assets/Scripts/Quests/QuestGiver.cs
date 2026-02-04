@@ -31,15 +31,19 @@ public class QuestGiver : InteractableItem
 
         if (quest == null)
         {
-            DialogSystem.Instance.StartDialog(null); // fallback idle dialog
+            DialogManager.Instance.StartDialog(null); // TODO: Idle NPC dialog if no quests
             return;
         }
 
+        // Quest not yet accepted
         if (!QuestManager.Instance.HasQuest(quest) &&
             !QuestManager.Instance.IsQuestCompleted(quest))
         {
             // Offer quest
-            DialogSystem.Instance.StartDialog(quest.startDialog);
+            DialogManager.Instance.StartDialog(quest.startDialog, () =>
+            {
+                // TODO: Add player choice to accept/decline quest
+            });
         }
         else if (QuestManager.Instance.HasQuest(quest))
         {
@@ -48,18 +52,18 @@ public class QuestGiver : InteractableItem
 
             if (instance.IsObjectivesComplete)
             {
-                DialogSystem.Instance.StartDialog(quest.completedDialog);
+                DialogManager.Instance.StartDialog(quest.completedDialog);
                 QuestManager.Instance.TurnInQuest(quest, npcId);
             }
             else
             {
-                DialogSystem.Instance.StartDialog(quest.inProgressDialog);
+                DialogManager.Instance.StartDialog(quest.inProgressDialog);
             }
         }
         else if (QuestManager.Instance.IsQuestCompleted(quest))
         {
             // Move to next quest in chain
-            DialogSystem.Instance.StartDialog(quest.completedDialog);
+            DialogManager.Instance.StartDialog(quest.completedDialog);
         }
     }
 }

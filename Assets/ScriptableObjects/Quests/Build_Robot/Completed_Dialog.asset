@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c513d81420ae4244ea5fa86c11a4a29b, type: 3}
   m_Name: Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
+  characterName: Jack
   lines:
   - Thanks so much! This will be a real help around the workshop.

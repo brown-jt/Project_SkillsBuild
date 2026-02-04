@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Dialog/Dialog Data")]
 public class DialogData : ScriptableObject
 {
-    [TextArea(3, 10)]
+    public string characterName;
+
+    [TextArea] 
     public List<string> lines;
 }

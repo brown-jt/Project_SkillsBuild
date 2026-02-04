@@ -9,7 +9,6 @@ public class ZoneManager : MonoBehaviour
 
     [Header("Zone Scene Names")]
     [SerializeField] private List<string> allZoneScenes; // all additive zones including Hub
-    [SerializeField] private string hubSceneName = "HubScene";
 
     [Header("Interact Prompt UI Reference")]
     [SerializeField] private InteractionPromptUI promptUI;

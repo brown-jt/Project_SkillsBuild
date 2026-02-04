@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c513d81420ae4244ea5fa86c11a4a29b, type: 3}
   m_Name: Start_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
+  characterName: Jack
   lines:
   - Howdy!
   - Fancy building me a small little robot? I need a helping hand around here.
