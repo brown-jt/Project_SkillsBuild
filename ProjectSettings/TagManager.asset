@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Item
   - Tree
   - PlayerSpawn
+  - Interactable
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - UI
   - Item
   - Animal
-  - 
+  - QuestNPC
   - 
   - 
   - 
