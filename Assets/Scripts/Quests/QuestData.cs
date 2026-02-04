@@ -1,12 +1,23 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+public enum ZoneId
+{
+    Hub,
+    Factory,
+    Forest,
+    Warehouse,
+    Security,
+    Museum
+}
+
 [CreateAssetMenu(menuName = "Quests/Quest Data")]
 public class QuestData : ScriptableObject
 {
     public string questId;
-    public string title;
+    public ZoneId zoneId;
 
+    public string title;
     [TextArea(3, 10)]
     public string description;
 

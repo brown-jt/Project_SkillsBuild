@@ -64,13 +64,6 @@ public class DialogManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        // If no more sentences and fully displayed, end dialog
-        if (sentences.Count == 0 && typingCoroutine == null)
-        {
-            EndDialog();
-            return;
-        }
-
         // If a sentence is being typed, finish and display immediately
         if (typingCoroutine != null && dialogText.text != currentSentence)
         {
@@ -80,6 +73,14 @@ public class DialogManager : MonoBehaviour
             return;
         }
 
+        // If no more sentences, end dialog
+        if (sentences.Count == 0)
+        {
+            EndDialog();
+            return;
+        }
+
+        // Otherwise display next sentence
         currentSentence = sentences.Dequeue();
         typingCoroutine = StartCoroutine(TypeSentence(currentSentence));
     }

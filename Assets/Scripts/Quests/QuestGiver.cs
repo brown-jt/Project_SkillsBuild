@@ -42,7 +42,8 @@ public class QuestGiver : InteractableItem
             // Offer quest
             DialogManager.Instance.StartDialog(quest.startDialog, () =>
             {
-                // TODO: Add player choice to accept/decline quest
+                // TODO: Add player choice to accept/decline quest but for now auto-accept
+                QuestManager.Instance.AcceptQuest(quest);
             });
         }
         else if (QuestManager.Instance.HasQuest(quest))

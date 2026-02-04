@@ -18,6 +18,7 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private string sprint = "Sprint";
     [SerializeField] private string interact = "Interact";
     [SerializeField] private string attack = "Attack";
+    [SerializeField] private string journal = "QuestJournal";
     #endregion
 
     private InputAction movementAction;
@@ -25,6 +26,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction jumpAction;
     private InputAction sprintAction;
     private InputAction interactAction;
+    private InputAction questJournalAction;
     public InputAction InteractAction => interactAction;
     private InputAction attackAction;
 
@@ -34,6 +36,10 @@ public class PlayerInputHandler : MonoBehaviour
     public bool SprintTriggered { get; private set; }
     public bool InteractTriggered { get; private set; }
     public bool AttackTriggered { get; private set; }
+    public bool QuestJournalTriggered { get; private set; }
+
+    // Singleton usage
+    public static PlayerInputHandler Instance;
 
     /// <summary>
     /// When loading script we ensure we find the correct action map
@@ -41,6 +47,8 @@ public class PlayerInputHandler : MonoBehaviour
     /// </summary>
     private void Awake()
     {
+        Instance = this;
+
         InputActionMap mapReference = playerControls.FindActionMap(actionMapName);
 
         movementAction = mapReference.FindAction(movement);
@@ -49,6 +57,7 @@ public class PlayerInputHandler : MonoBehaviour
         sprintAction = mapReference.FindAction(sprint);
         interactAction = mapReference.FindAction(interact);
         attackAction = mapReference.FindAction(attack);
+        questJournalAction = mapReference.FindAction(journal);
 
         SubscribeActionValuesToInputEvents();
     }
@@ -60,6 +69,9 @@ public class PlayerInputHandler : MonoBehaviour
 
         // One shot interact
         InteractTriggered = interactAction.WasPerformedThisFrame();
+
+        // One shot journal toggle
+        QuestJournalTriggered = questJournalAction.WasPerformedThisFrame();
     }
 
     /// <summary>

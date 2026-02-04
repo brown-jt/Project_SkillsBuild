@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Build_Robot_Quest
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questId: 1
+  zoneId: 1
   title: Construct a Small Robot
-  description: Sample description for the quest.
+  description: Placeholder description for the quest.
   objectives:
   - objectiveType: 1
     targetId: Robot_Small
     requiredAmount: 1
   rewards:
-    gold: 0
+    gold: 50
     experience: 0
     items: []
   nextQuest: {fileID: 0}

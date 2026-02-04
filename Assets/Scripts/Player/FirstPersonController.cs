@@ -30,8 +30,16 @@ public class FirstPersonController : MonoBehaviour
 
     private bool isClimbing = false;
 
+    // Instance
+    public static FirstPersonController Instance;
+
     //private bool iFramesActive = false;
     //private float iFramesTimer = 0.5f;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
