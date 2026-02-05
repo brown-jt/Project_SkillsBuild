@@ -46,7 +46,11 @@ public class QuestManager : MonoBehaviour
         if (HasQuest(data) || IsQuestCompleted(data)) return;
 
         // Add new quest instance to active quests
-        activeQuests.Add(new QuestInstance(data));
+        QuestInstance questInstance = new QuestInstance(data);
+        activeQuests.Add(questInstance);
+
+        // Refresh the quest log UI here
+        QuestJournalUI.Instance.RefreshQuestList();
     }
 
     public bool HasQuest(QuestData data)
@@ -114,5 +118,8 @@ public class QuestManager : MonoBehaviour
         completedQuests.Add(questInstance.questData.questId);
 
         GiveRewards(questInstance.questData.rewards);
+
+        // Ensuring we refresh the quest log UI after turning in a quest
+        QuestJournalUI.Instance.RefreshQuestList();
     }
 }

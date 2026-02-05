@@ -36,6 +36,11 @@ public class DialogManager : MonoBehaviour
         dialogPanel.SetActive(false);
     }
 
+    /// <summary>
+    /// Function that takes in DialogData and starts the dialog sequence. It also takes an optional callback that will be invoked when the dialog is complete.
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="onComplete"></param>
     public void StartDialog(DialogData data, System.Action onComplete = null)
     {
         if (data == null)
