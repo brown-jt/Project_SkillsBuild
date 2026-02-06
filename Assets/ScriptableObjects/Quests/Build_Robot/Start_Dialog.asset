@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   characterName: Jack
   lines:
-  - Thank goodness you're here. We are struggling for manpower at the moment.
-  - Are you able to build us a small robot quickly? It will help us out tremendously
-    with our workload.
-  - In return I can tell you all about Artificial Intelligence! What do you say?
+  - Thank goodness you're here. We're swamped for work right now.
+  - We've developed an AI module that could potentially automate a lot of our workload,
+    but we need a small robot to install it in for testing.
+  - Could you build one for us? In return I can tell you about Artificial Intelligence!

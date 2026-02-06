@@ -40,6 +40,7 @@ public class QuestJournalUI : MonoBehaviour
 
     private string currentTab = "Active";
     private bool hasSelectedQuest = false;
+    private QuestInstance selectedQuest = null;
 
     void Awake()
     {
@@ -152,6 +153,7 @@ public class QuestJournalUI : MonoBehaviour
 
         // Show the details panel and hide the "No active quest selected" message
         hasSelectedQuest = true;
+        selectedQuest = quest;
         noActiveQuestSelectedText.SetActive(false);
         activeQuestSelectedObject.SetActive(true);
     }
@@ -198,7 +200,7 @@ public class QuestJournalUI : MonoBehaviour
             if (hasQuests) hasAnyQuests = true;
         }
 
-        // Second to last if none of the roots have quests, show a "No active quests" message in the UI
+        // If none of the roots have quests, show a "No active quests" message in the UI
         noActiveQuestsMessageLeft.SetActive(!hasAnyQuests);
         noActiveQuestsMessageRight.SetActive(!hasAnyQuests);
 
@@ -207,6 +209,9 @@ public class QuestJournalUI : MonoBehaviour
         // However if there are active quests but no quest is selected, show a "No active quest selected" message in the details panel
         noActiveQuestSelectedText.SetActive(hasAnyQuests && !hasSelectedQuest);
         activeQuestSelectedObject.SetActive(hasSelectedQuest);
+
+        // Furthermore update the selected quest details if there is a selected quest, to reflect any changes in progress
+        if (hasSelectedQuest) ShowQuestDetails(selectedQuest);
     }
 
     private void PopulateQuestList(Transform[] roots, IEnumerable<QuestInstance> quests)

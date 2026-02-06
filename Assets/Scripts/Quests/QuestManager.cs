@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+using static UnityEditor.Progress;
 
 public class QuestManager : MonoBehaviour
 {
@@ -65,21 +66,25 @@ public class QuestManager : MonoBehaviour
 
     void HandleFoundItem(string itemId)
     {
+        Debug.Log($"Handling found item: {itemId}");
         UpdateObjectives(ObjectiveType.Find, itemId);
     }
 
     void HandleBuiltItem(string itemId)
     {
+        Debug.Log($"Handling built item: {itemId}");
         UpdateObjectives(ObjectiveType.Build, itemId);
     }
 
     void HandleAreaExplored(string areaId)
     {
+        Debug.Log($"Handling explored area: {areaId}");
         UpdateObjectives(ObjectiveType.Explore, areaId);
     }
 
     void HandleNPCTalked(string npcId)
     {
+        Debug.Log($"Handling NPC talked to: {npcId}");
         UpdateObjectives(ObjectiveType.TalkTo, npcId);
     }
 
@@ -87,15 +92,26 @@ public class QuestManager : MonoBehaviour
     {
         foreach (var quest in activeQuests)
         {
+            Debug.Log($"Checking quest: {quest.questData.name} for objective type: {type} and target ID: {targetId}");
             foreach (var objective in quest.objectivesProgress)
             {
+                Debug.Log($"Checking objective type: {objective.data.objectiveType} with given type: {type}");
+                Debug.Log($"Checking objective target: {objective.data.targetId} with given target: {targetId}");
+                Debug.Log($"Checking complete status of objective: {objective.IsComplete}");
                 if (objective.data.objectiveType == type && objective.data.targetId == targetId && !objective.IsComplete)
                 {
+                    Debug.Log("UPDATE OBJECTIVE PROGRESS");
                     objective.currentAmount++;
                     if (objective.currentAmount > objective.data.requiredAmount)
                     {
                         objective.currentAmount = objective.data.requiredAmount;
                     }
+                    // Ensuring we refresh the quest log UI after updating the objective progress
+                    QuestJournalUI.Instance.RefreshQuestList();
+                }
+                else
+                {
+                    Debug.Log("Objective does not match event criteria or is already complete.");
                 }
             }
         }
