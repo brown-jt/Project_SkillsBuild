@@ -6,11 +6,14 @@ public class QuestEntryUI : MonoBehaviour
 {
     [SerializeField] private Button button;
     [SerializeField] private TextMeshProUGUI titleText;
+    [SerializeField] private TextMeshProUGUI statusText;
 
     private QuestInstance boundQuest;
     private QuestJournalUI journalUI;
 
     private ColorBlock defaultButtonColours;
+    private readonly string inProgressColourHex = "#FFD166";
+    private readonly string completedColourHex = "#06D6A0";
 
     public void Bind(QuestInstance quest, QuestJournalUI journal)
     {
@@ -18,6 +21,7 @@ public class QuestEntryUI : MonoBehaviour
         journalUI = journal;
 
         titleText.text = quest.questData.title;
+        SetStatusText(quest.IsObjectivesComplete);
 
         button.onClick.AddListener(OnButtonClicked);
 
@@ -45,5 +49,14 @@ public class QuestEntryUI : MonoBehaviour
         {
             button.colors = defaultButtonColours;
         }
+    }
+
+    private void SetStatusText(bool isCompleted)
+    {
+        statusText.text = isCompleted ? "Done" : "In Progress";
+
+        string hexColour = isCompleted ? completedColourHex : inProgressColourHex;
+        Color colour = ColorUtility.TryParseHtmlString(hexColour, out var parsedColor) ? parsedColor : Color.white;
+        statusText.color = colour;
     }
 }

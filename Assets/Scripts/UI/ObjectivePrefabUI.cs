@@ -6,8 +6,8 @@ public class ObjectivePrefabUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI objectiveText;
     [SerializeField] private TextMeshProUGUI progressText;
 
-    string inProgressColourHex = "#FFD166";
-    string completedColourHex = "#06D6A0";
+    private readonly string inProgressColourHex = "#FFD166";
+    private readonly string completedColourHex = "#06D6A0";
 
     public void Bind(ObjectiveProgress objProgress)
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
@@ -8,6 +9,8 @@ public class QuestManager : MonoBehaviour
 
     public List<QuestInstance> activeQuests = new List<QuestInstance>();
     public HashSet<string> completedQuests = new HashSet<string>();
+
+    public event Action<QuestInstance> onQuestUpdated;
 
     private void Awake()
     {
@@ -52,6 +55,9 @@ public class QuestManager : MonoBehaviour
 
         // Refresh the quest log UI here
         QuestJournalUI.Instance.RefreshQuestList();
+
+        // Fire quest updated event
+        onQuestUpdated?.Invoke(questInstance);
     }
 
     public bool HasQuest(QuestData data)
@@ -108,6 +114,9 @@ public class QuestManager : MonoBehaviour
                     }
                     // Ensuring we refresh the quest log UI after updating the objective progress
                     QuestJournalUI.Instance.RefreshQuestList();
+
+                    // Fire quest updated event
+                    onQuestUpdated?.Invoke(quest);
                 }
                 else
                 {
@@ -137,5 +146,8 @@ public class QuestManager : MonoBehaviour
 
         // Ensuring we refresh the quest log UI after turning in a quest
         QuestJournalUI.Instance.RefreshQuestList();
+
+        // Fire quest updated event
+        onQuestUpdated?.Invoke(questInstance);
     }
 }
