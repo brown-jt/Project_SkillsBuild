@@ -10,20 +10,40 @@ public class QuestEntryUI : MonoBehaviour
     private QuestInstance boundQuest;
     private QuestJournalUI journalUI;
 
+    private ColorBlock defaultButtonColours;
+
     public void Bind(QuestInstance quest, QuestJournalUI journal)
     {
         boundQuest = quest;
         journalUI = journal;
 
-        Debug.Log($"Binding quest entry UI: {quest.questData.title} in zone {quest.questData.zoneId}");
-
         titleText.text = quest.questData.title;
 
         button.onClick.AddListener(OnButtonClicked);
+
+        defaultButtonColours = button.colors;
     }
 
     private void OnButtonClicked()
     {
         journalUI.ShowQuestDetails(boundQuest);
+        journalUI.OnQuestEntrySelection(this);
+    }
+
+    public void SetSelectedVisual(bool selected)
+    {
+        if (selected)
+        {
+            ColorBlock selectedBlock = defaultButtonColours;
+            selectedBlock.normalColor = defaultButtonColours.selectedColor;
+            selectedBlock.highlightedColor = defaultButtonColours.selectedColor;
+            selectedBlock.selectedColor = defaultButtonColours.selectedColor;
+
+            button.colors = selectedBlock;
+        }
+        else
+        {
+            button.colors = defaultButtonColours;
+        }
     }
 }

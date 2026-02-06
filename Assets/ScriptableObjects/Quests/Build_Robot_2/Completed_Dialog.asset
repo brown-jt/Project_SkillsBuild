@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c513d81420ae4244ea5fa86c11a4a29b, type: 3}
+  m_Name: Completed_Dialog
+  m_EditorClassIdentifier: Assembly-CSharp::DialogData
+  characterName: Oscar
+  lines:
+  - Wonderful! I can already see the improvments we are about to make.
+  - Much like last time, let me share some secrets with you about Artificial Intelligence.
+  - '[LEARNING CONTENT HERE]'
+  - Oh! Before I forget, since you've helped us out so much, take this badge. I am
+    sure others around here are in need of some help and you'll need that to get
+    around.
+  - Everyone you help will give you some information about Artificial Intelligence
+    in return. Thanks again!

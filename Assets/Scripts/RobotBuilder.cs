@@ -97,8 +97,8 @@ public class RobotBuilder : InteractableArea
         {
             Debug.Log("Robot is fully assembled!");
 
-            string questId = GetComponent<QuestTarget>()?.targetId ?? "unknown";
-            QuestEvents.ItemBuilt(questId);
+            string targetId = GetComponent<QuestTarget>()?.targetId ?? "unknown";
+            QuestEvents.ItemBuilt(targetId);
 
             IsInteractable = false;
         }

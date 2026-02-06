@@ -100,7 +100,7 @@ public class QuestManager : MonoBehaviour
                 Debug.Log($"Checking complete status of objective: {objective.IsComplete}");
                 if (objective.data.objectiveType == type && objective.data.targetId == targetId && !objective.IsComplete)
                 {
-                    Debug.Log("UPDATE OBJECTIVE PROGRESS");
+                    Debug.Log("UPDATING OBJECTIVE PROGRESS");
                     objective.currentAmount++;
                     if (objective.currentAmount > objective.data.requiredAmount)
                     {

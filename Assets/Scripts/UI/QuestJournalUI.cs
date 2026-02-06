@@ -1,7 +1,10 @@
+using System;
+using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class QuestJournalUI : MonoBehaviour
 {
@@ -141,7 +144,7 @@ public class QuestJournalUI : MonoBehaviour
         ClearChildren(objectivesRoot);
         ClearChildren(rewardsRoot);
 
-        // TODO: Populate objectives of quest
+        // Populate objectives of quest
         foreach (ObjectiveProgress objProgress in quest.objectivesProgress)
         {
             ObjectivePrefabUI objUI = Instantiate(objectivePrefab, objectivesRoot);
@@ -154,6 +157,7 @@ public class QuestJournalUI : MonoBehaviour
         // Show the details panel and hide the "No active quest selected" message
         hasSelectedQuest = true;
         selectedQuest = quest;
+
         noActiveQuestSelectedText.SetActive(false);
         activeQuestSelectedObject.SetActive(true);
     }
@@ -163,7 +167,7 @@ public class QuestJournalUI : MonoBehaviour
         for (int i = root.childCount - 1; i >= 0; i--)
         {
             Transform child = root.GetChild(i);
-            Destroy(child.gameObject);
+            DestroyImmediate(child.gameObject);
         }
     }
 
@@ -196,7 +200,6 @@ public class QuestJournalUI : MonoBehaviour
         {
             bool hasQuests = root.childCount > 0;
             root.parent.gameObject.SetActive(hasQuests);
-
             if (hasQuests) hasAnyQuests = true;
         }
 
@@ -212,6 +215,16 @@ public class QuestJournalUI : MonoBehaviour
 
         // Furthermore update the selected quest details if there is a selected quest, to reflect any changes in progress
         if (hasSelectedQuest) ShowQuestDetails(selectedQuest);
+
+        // Upon completing a quest, if the player is currently viewing that quest's details, let's remove the details and show the "No active quest selected" message, since that quest is no longer active
+        if (currentTab == "Active" && hasSelectedQuest && !QuestManager.Instance.activeQuests.Contains(selectedQuest))
+        {
+            hasSelectedQuest = false;
+            selectedQuest = null;
+
+            noActiveQuestSelectedText.SetActive(true);
+            activeQuestSelectedObject.SetActive(false);
+        }
     }
 
     private void PopulateQuestList(Transform[] roots, IEnumerable<QuestInstance> quests)
@@ -239,6 +252,18 @@ public class QuestJournalUI : MonoBehaviour
             }
             QuestEntryUI entry = Instantiate(questEntryPrefab, questRoot);
             entry.Bind(quest, this);
+            if (selectedQuest == quest) entry.SetSelectedVisual(true);
         }
+    }
+
+    public void OnQuestEntrySelection(QuestEntryUI selectedEntry)
+    {
+        // Deselect all other entries
+        QuestEntryUI[] allEntries = FindObjectsByType<QuestEntryUI>(FindObjectsSortMode.None);
+        foreach (QuestEntryUI entry in allEntries)
+        {
+            if (entry != selectedEntry) entry.SetSelectedVisual(false);
+        }
+        selectedEntry.SetSelectedVisual(true);
     }
 }

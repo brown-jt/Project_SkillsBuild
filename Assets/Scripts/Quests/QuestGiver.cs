@@ -5,6 +5,7 @@ public class QuestGiver : InteractableItem
 {
     public List<QuestData> questChain;
     public string npcId;
+    public DialogData idleDialog; // Optional dialog when no quests are available
 
     public QuestData GetCurrentQuest()
     {
@@ -31,7 +32,7 @@ public class QuestGiver : InteractableItem
 
         if (quest == null)
         {
-            DialogManager.Instance.StartDialog(null); // TODO: Idle NPC dialog if no quests
+            DialogManager.Instance.StartDialog(idleDialog); // TODO: Idle NPC dialog if no quests
             return;
         }
 
