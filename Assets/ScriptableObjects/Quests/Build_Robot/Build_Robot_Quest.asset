@@ -14,15 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questId: 1
   zoneId: 1
-  title: Construct a Small Robot
-  description: Placeholder description for the quest.
+  title: Automated Manpower
+  description: This factory is in need of some help! Build a small robot to help
+    the factory workers out. You can find the pieces on the conveyors, and the robot
+    assemblers towards where you entered.
   objectives:
   - objectiveType: 1
+    taskText: Build a Small Robot
     targetId: Robot_Small
     requiredAmount: 1
   rewards:
     gold: 50
-    experience: 0
+    experience: 100
     items: []
   nextQuest: {fileID: 0}
   startDialog: {fileID: 11400000, guid: b3a8d4b039455cb4fbd127854a0e68a5, type: 2}
