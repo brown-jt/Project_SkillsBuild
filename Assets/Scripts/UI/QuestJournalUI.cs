@@ -22,7 +22,6 @@ public class QuestJournalUI : MonoBehaviour
     public Transform museumActiveQuestsRoot;
     public Transform completedQuestsRoot;
     public Transform objectivesRoot;
-    public Transform rewardsRoot;
     private Transform[] roots;
 
     [Header("Displays to Toggle")]
@@ -34,7 +33,11 @@ public class QuestJournalUI : MonoBehaviour
     [Header("Content Prefabs")]
     public QuestEntryUI questEntryPrefab;
     public ObjectivePrefabUI objectivePrefab;
-    // Reward prefab
+
+    [Header("Rewards References")]
+    public TextMeshProUGUI goldRewardText;
+    public TextMeshProUGUI xpRewardText;
+    // TODO: Add item rewards here as well when that system is implemented
 
     [Header("Details Panel")]
     public TextMeshProUGUI questTitleText;
@@ -140,9 +143,8 @@ public class QuestJournalUI : MonoBehaviour
         questZoneText.text = $"{GetZoneCourse(quest.questData.zoneId)}\n<color=#888888><i>Zone: {quest.questData.zoneId}</i></color>";
         questDescriptionText.text = quest.questData.description;
 
-        // Clearing old quest objectives and rewards
+        // Clearing old quest objectives
         ClearChildren(objectivesRoot);
-        ClearChildren(rewardsRoot);
 
         // Populate objectives of quest
         foreach (ObjectiveProgress objProgress in quest.objectivesProgress)
@@ -151,8 +153,10 @@ public class QuestJournalUI : MonoBehaviour
             objUI.Bind(objProgress);
         }
 
-        // TODO: Populate rewards of quest using below reward data
+        // Alter rewards of quest using below reward data
         RewardData rewards = quest.questData.rewards;
+        goldRewardText.text = rewards.gold.ToString();
+        xpRewardText.text = rewards.experience.ToString();
 
         // Show the details panel and hide the "No active quest selected" message
         hasSelectedQuest = true;
