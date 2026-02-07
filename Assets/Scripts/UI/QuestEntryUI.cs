@@ -53,6 +53,12 @@ public class QuestEntryUI : MonoBehaviour
 
     private void SetStatusText(bool isCompleted)
     {
+        if (boundQuest.IsTurnedIn)
+        {
+            statusText.gameObject.SetActive(false);
+            return;
+        }
+
         statusText.text = isCompleted ? "Done" : "In Progress";
 
         string hexColour = isCompleted ? completedColourHex : inProgressColourHex;

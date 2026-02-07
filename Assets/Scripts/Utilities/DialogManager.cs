@@ -41,7 +41,7 @@ public class DialogManager : MonoBehaviour
     /// </summary>
     /// <param name="data"></param>
     /// <param name="onComplete"></param>
-    public void StartDialog(DialogData data, System.Action onComplete = null)
+    public void StartDialog(DialogData data, string name, System.Action onComplete = null)
     {
         if (data == null)
         {
@@ -54,7 +54,7 @@ public class DialogManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        characterNameText.text = data.characterName;
+        characterNameText.text = name;
         sentences.Clear();
         onDialogComplete = onComplete;
 

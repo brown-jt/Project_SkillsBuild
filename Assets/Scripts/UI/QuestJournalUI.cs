@@ -14,39 +14,73 @@ public class QuestJournalUI : MonoBehaviour
     [SerializeField] private InputActionReference questJournalAction;
     [SerializeField] private InputActionReference cancelAction;
 
-    [Header("Content Roots")]
+    [Header("Active Content Roots")]
     public Transform factoryActiveQuestsRoot;
     public Transform forestActiveQuestsRoot;
     public Transform warehouseActiveQuestsRoot;
     public Transform securityActiveQuestsRoot;
     public Transform museumActiveQuestsRoot;
-    public Transform completedQuestsRoot;
-    public Transform objectivesRoot;
-    private Transform[] roots;
+    private Transform[] activeRoots;
 
-    [Header("Displays to Toggle")]
+    [Header("Completed Content Roots")]
+    public Transform factoryCompletedQuestsRoot;
+    public Transform forestCompletedQuestsRoot;
+    public Transform warehouseCompletedQuestsRoot;
+    public Transform securityCompletedQuestsRoot;
+    public Transform museumCompletedQuestsRoot;
+    private Transform[] completedRoots;
+
+    private Transform[] allQuestroots;
+
+    [Header("Objectives Root")]
+    public Transform objectivesRoot;
+
+    [Header("Active Section gameobjects to toggle")]
     public GameObject noActiveQuestsMessageLeft;
     public GameObject noActiveQuestsMessageRight;
     public GameObject noActiveQuestSelectedText;
     public GameObject activeQuestSelectedObject;
 
-    [Header("Content Prefabs")]
-    public QuestEntryUI questEntryPrefab;
-    public ObjectivePrefabUI objectivePrefab;
+    [Header("Completed Section gameobjects to toggle")]
+    public GameObject noCompletedQuestsMessageLeft;
+    public GameObject noCompletedQuestsMessageRight;
+    public GameObject noCompletedQuestSelectedText;
+    public GameObject completedQuestSelectedObject;
+    [Space]
+    public GameObject rightPanelActive;
+    public GameObject rightPanelCompleted;
 
-    [Header("Rewards References")]
+    [Header("Active Rewards References")]
     public TextMeshProUGUI goldRewardText;
     public TextMeshProUGUI xpRewardText;
     // TODO: Add item rewards here as well when that system is implemented
 
-    [Header("Details Panel")]
+    [Header("Completed Rewards References")]
+    public TextMeshProUGUI completedGoldRewardText;
+    public TextMeshProUGUI completedXpRewardText;
+    // TODO: Add item rewards here as well when that system is implemented
+
+    [Header("Content Prefabs")]
+    public QuestEntryUI questEntryPrefab;
+    public ObjectivePrefabUI objectivePrefab;
+
+    [Header("Active Quest Details Panel")]
     public TextMeshProUGUI questTitleText;
     public TextMeshProUGUI questZoneText;
     public TextMeshProUGUI questDescriptionText;
 
+    [Header("Completed Quest Details Panel")]
+    public TextMeshProUGUI completedQuestTitleText;
+    public TextMeshProUGUI completedQuestZoneText;
+    public TextMeshProUGUI completedQuestDescriptionText;
+
     private string currentTab = "Active";
+
     private bool hasSelectedQuest = false;
     private QuestInstance selectedQuest = null;
+
+    private bool hasSelectedCompletedQuest = false;
+    private QuestInstance selectedCompletedQuest = null;
 
     void Awake()
     {
@@ -55,7 +89,7 @@ public class QuestJournalUI : MonoBehaviour
 
     private void Start()
     {
-        roots = new Transform[]
+        activeRoots = new Transform[]
         {
             factoryActiveQuestsRoot,
             forestActiveQuestsRoot,
@@ -63,6 +97,20 @@ public class QuestJournalUI : MonoBehaviour
             securityActiveQuestsRoot,
             museumActiveQuestsRoot
         };
+
+        completedRoots = new Transform[]
+        {
+            factoryCompletedQuestsRoot,
+            forestCompletedQuestsRoot,
+            warehouseCompletedQuestsRoot,
+            securityCompletedQuestsRoot,
+            museumCompletedQuestsRoot
+        };
+
+        // Combine all roots into a single array for easier management when clearing
+        allQuestroots = new Transform[activeRoots.Length + completedRoots.Length];
+        activeRoots.CopyTo(allQuestroots, 0);
+        completedRoots.CopyTo(allQuestroots, activeRoots.Length);
 
         // Upon game start, the quest journal should reflect any quests the player has already accepted, so we call RefreshQuestList to populate the UI
         // It should also start hidden
@@ -98,6 +146,10 @@ public class QuestJournalUI : MonoBehaviour
     
     private void OpenJournal()
     {
+        // Refresh the quest list to ensure the most up-to-date information is shown whenever the journal is opened.
+        // This is important in case there were any changes to quests while the journal was closed that weren't externally handled via events.
+        RefreshQuestList();
+
         PlayerInputHandler.Instance.DisablePlayerInput();
         questJournalPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
@@ -138,32 +190,56 @@ public class QuestJournalUI : MonoBehaviour
 
     public void ShowQuestDetails(QuestInstance quest)
     {
-        // Fill in the details panel with quest information
-        questTitleText.text = quest.questData.title;
-        questZoneText.text = $"{GetZoneCourse(quest.questData.zoneId)}\n<color=#888888><i>Zone: {quest.questData.zoneId}</i></color>";
-        questDescriptionText.text = quest.questData.description;
-
-        // Clearing old quest objectives
-        ClearChildren(objectivesRoot);
-
-        // Populate objectives of quest
-        foreach (ObjectiveProgress objProgress in quest.objectivesProgress)
+        if (currentTab == "Active")
         {
-            ObjectivePrefabUI objUI = Instantiate(objectivePrefab, objectivesRoot);
-            objUI.Bind(objProgress);
+            // ===== ACTIVE SECTION =====
+            // Fill in the active details panel with quest information
+            questTitleText.text = quest.questData.title;
+            questZoneText.text = $"{GetZoneCourse(quest.questData.zoneId)}\n<color=#888888><i>Zone: {quest.questData.zoneId}</i></color>";
+            questDescriptionText.text = quest.questData.description;
+
+            // Clearing old quest objectives
+            ClearChildren(objectivesRoot);
+
+            // Populate objectives of quest
+            foreach (ObjectiveProgress objProgress in quest.objectivesProgress)
+            {
+                ObjectivePrefabUI objUI = Instantiate(objectivePrefab, objectivesRoot);
+                objUI.Bind(objProgress);
+            }
+
+            // Alter rewards of quest using below reward data
+            RewardData rewards = quest.questData.rewards;
+            goldRewardText.text = rewards.gold.ToString();
+            xpRewardText.text = rewards.experience.ToString();
+
+            // Show the details panel and hide the "No active quest selected" message
+            hasSelectedQuest = true;
+            selectedQuest = quest;
+
+            noActiveQuestSelectedText.SetActive(false);
+            activeQuestSelectedObject.SetActive(true);
         }
+        else
+        {
+            // ===== COMPLETED SECTION =====
+            // Fill in the completed details panel with quest information
+            completedQuestTitleText.text = quest.questData.title;
+            completedQuestZoneText.text = $"{GetZoneCourse(quest.questData.zoneId)}\n<color=#888888><i>Zone: {quest.questData.zoneId}</i></color>";
+            completedQuestDescriptionText.text = quest.questData.description;
 
-        // Alter rewards of quest using below reward data
-        RewardData rewards = quest.questData.rewards;
-        goldRewardText.text = rewards.gold.ToString();
-        xpRewardText.text = rewards.experience.ToString();
+            // Alter rewards of quest using below reward data
+            RewardData rewards = quest.questData.rewards;
+            completedGoldRewardText.text = rewards.gold.ToString();
+            completedXpRewardText.text = rewards.experience.ToString();
 
-        // Show the details panel and hide the "No active quest selected" message
-        hasSelectedQuest = true;
-        selectedQuest = quest;
+            // Show the details panel and hide the "No completed quest selected" message
+            hasSelectedCompletedQuest = true;
+            selectedCompletedQuest = quest;
 
-        noActiveQuestSelectedText.SetActive(false);
-        activeQuestSelectedObject.SetActive(true);
+            noCompletedQuestSelectedText.SetActive(false);
+            completedQuestSelectedObject.SetActive(true);
+        }
     }
 
     private void ClearChildren(Transform root)
@@ -178,29 +254,33 @@ public class QuestJournalUI : MonoBehaviour
     public void SetCurrentTab(string tabName)
     {
         currentTab = tabName;
+        if (currentTab == "Active")
+        {
+            rightPanelCompleted.SetActive(false);
+            rightPanelActive.SetActive(true);
+        }
+        else if (currentTab == "Completed")
+        {
+            rightPanelActive.SetActive(false);
+            rightPanelCompleted.SetActive(true);
+        }
     }
 
     public void RefreshQuestList()
     {
-        foreach (Transform root in roots)
+        foreach (Transform root in allQuestroots)
         {
             ClearChildren(root);
         }
 
-        // Choose which quests to display based on current tab
-        if (currentTab == "Active")
-        {
-            // Check each zone and populate the corresponding root with active quests for that zone
-            PopulateQuestList(roots, QuestManager.Instance.activeQuests);
-        }
-        else if (currentTab == "Completed")
-        {
-            // TODO as current it's just a list of QuestIDs
-        }
+        // Check each zone and populate the corresponding root with active quests for that zone
+        PopulateQuestList(activeRoots, QuestManager.Instance.activeQuests);
+        PopulateQuestList(completedRoots, QuestManager.Instance.completedQuests);
 
+        // ======= ACTIVE SECTION =======
         // Check to see if a root has children, and if not, hide itself and title header by way of parent object
         bool hasAnyQuests = false;
-        foreach (Transform root in roots)
+        foreach (Transform root in activeRoots)
         {
             bool hasQuests = root.childCount > 0;
             root.parent.gameObject.SetActive(hasQuests);
@@ -229,6 +309,30 @@ public class QuestJournalUI : MonoBehaviour
             noActiveQuestSelectedText.SetActive(true);
             activeQuestSelectedObject.SetActive(false);
         }
+
+
+        // ======= COMPLETED SECTION =======
+        // Check to see if a root has children, and if not, hide itself and title header by way of parent object
+        bool hasAnyCompletedQuests = false;
+        foreach (Transform root in completedRoots)
+        {
+            bool hasQuests = root.childCount > 0;
+            root.parent.gameObject.SetActive(hasQuests);
+            if (hasQuests) hasAnyCompletedQuests = true;
+        }
+
+        // If none of the roots have quests, show a "No active quests" message in the UI
+        noCompletedQuestsMessageLeft.SetActive(!hasAnyCompletedQuests);
+        noCompletedQuestsMessageRight.SetActive(!hasAnyCompletedQuests);
+
+        if (!hasAnyQuests) hasSelectedCompletedQuest = false;
+
+        // However if there are active quests but no quest is selected, show a "No active quest selected" message in the details panel
+        noCompletedQuestSelectedText.SetActive(hasAnyCompletedQuests && !hasSelectedCompletedQuest);
+        completedQuestSelectedObject.SetActive(hasSelectedCompletedQuest);
+
+        // Furthermore update the selected quest details if there is a selected quest, to reflect any changes in progress
+        if (hasSelectedCompletedQuest) ShowQuestDetails(selectedCompletedQuest);
     }
 
     private void PopulateQuestList(Transform[] roots, IEnumerable<QuestInstance> quests)

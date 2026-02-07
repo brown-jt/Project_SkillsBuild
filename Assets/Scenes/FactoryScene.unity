@@ -6930,7 +6930,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3219855307692921870, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: m_Name
-      value: QuestNPC
+      value: NPC_Factory_Engineer_Jack
       objectReference: {fileID: 0}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: npcId
@@ -6938,6 +6938,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: itemName
+      value: Jack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
+      propertyPath: interactableName
       value: Jack
       objectReference: {fileID: 0}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
@@ -10214,20 +10218,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3219855307692921870, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: m_Name
-      value: QuestNPC_2
+      value: NPC_Factory_Engineer_Oscar
       objectReference: {fileID: 0}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: npcId
-      value: Oscar
+      value: NPC_Factory_Engineer_Oscar
       objectReference: {fileID: 0}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: itemName
-      value: Jorge
+      value: Oscar
       objectReference: {fileID: 0}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: idleDialog
       value: 
       objectReference: {fileID: 11400000, guid: 1f634ad9eaa6378438f9c159a7b0e096, type: 2}
+    - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
+      propertyPath: interactableName
+      value: Oscar
+      objectReference: {fileID: 0}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: interactionPrompt
       value: Talk To

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c513d81420ae4244ea5fa86c11a4a29b, type: 3}
+  m_Name: Start_Dialog
+  m_EditorClassIdentifier: Assembly-CSharp::DialogData
+  characterName: Ryan
+  lines:
+  - Shhhh! You must be new here..
+  - Outside our camp there's one animal that's different from the rest. We've tried
+    many times to approach it and gather intelligence on whether it is a threat or
+    not.
+  - Unfortunately we've had no success. Maybe you can give it a try for us? I'll
+    reward you with some information when you succeed.

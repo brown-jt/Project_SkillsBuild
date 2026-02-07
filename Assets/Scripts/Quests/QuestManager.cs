@@ -8,7 +8,7 @@ public class QuestManager : MonoBehaviour
     public static QuestManager Instance;
 
     public List<QuestInstance> activeQuests = new List<QuestInstance>();
-    public HashSet<string> completedQuests = new HashSet<string>();
+    public List<QuestInstance> completedQuests = new List<QuestInstance>();
 
     public event Action<QuestInstance> onQuestUpdated;
 
@@ -67,7 +67,7 @@ public class QuestManager : MonoBehaviour
 
     public bool IsQuestCompleted(QuestData data)
     {
-        return completedQuests.Contains(data.questId);
+        return completedQuests.Exists(q => q.questData == data);
     }
 
     void HandleFoundItem(string itemId)
@@ -140,7 +140,7 @@ public class QuestManager : MonoBehaviour
 
         questInstance.IsTurnedIn = true;
         activeQuests.Remove(questInstance);
-        completedQuests.Add(questInstance.questData.questId);
+        completedQuests.Add(questInstance);
 
         GiveRewards(questInstance.questData.rewards);
 
