@@ -86,15 +86,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "QuestJournal",
-                    "type": "Button",
-                    "id": "1f90992c-c256-4b94-95e3-943c438471c9",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -482,17 +473,6 @@
                     "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fa0d3fe7-261e-4e5f-93d7-19ca1e3fc207",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "QuestJournal",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -594,6 +574,15 @@
                     "name": "QuestJournal",
                     "type": "Button",
                     "id": "050f65e1-71fe-4d43-8b97-bd6cbdf7e815",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "cd6b4e85-ae74-4c72-8d4c-46080cef54b5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1027,6 +1016,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "QuestJournal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ba276ec-17b0-407b-abca-2eca70b5552b",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0008caf2-3ba7-4364-9f4e-6891caa3b1aa",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
