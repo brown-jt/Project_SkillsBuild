@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   characterName: Jack
   lines:
-  - How are things getting along?
+  - Is that small robot ready yet? We're eager to test our AI module.

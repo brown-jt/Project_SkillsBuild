@@ -12,19 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ee7723fadd87648a9bcd5b30571939, type: 3}
   m_Name: Build_Robot_Quest
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questId: 1
+  questId: Factory_1
   zoneId: 1
-  title: Construct a Small Robot
-  description: Placeholder description for the quest.
+  title: Automated Manpower
+  description: This factory is in need of some help! Build a small robot for the
+    factory workers to install an AI module inside. You can find the parts on the
+    conveyors, and the robot assemblers towards where you entered.
   objectives:
   - objectiveType: 1
-    targetId: Robot_Small
+    taskText: Build a Small Robot
+    targetId: Small_Robot
     requiredAmount: 1
   rewards:
     gold: 50
-    experience: 0
+    experience: 100
     items: []
-  nextQuest: {fileID: 0}
+  nextQuest: {fileID: 11400000, guid: 1ec80cbccca82c94293519bce6c0749c, type: 2}
   startDialog: {fileID: 11400000, guid: b3a8d4b039455cb4fbd127854a0e68a5, type: 2}
   inProgressDialog: {fileID: 11400000, guid: cc0bd2f3a2d59e54a835c4a5628bf479, type: 2}
   completedDialog: {fileID: 11400000, guid: 3465a103c3b24c743ae642c38131867d, type: 2}

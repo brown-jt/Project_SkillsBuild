@@ -36,7 +36,12 @@ public class DialogManager : MonoBehaviour
         dialogPanel.SetActive(false);
     }
 
-    public void StartDialog(DialogData data, System.Action onComplete = null)
+    /// <summary>
+    /// Function that takes in DialogData and starts the dialog sequence. It also takes an optional callback that will be invoked when the dialog is complete.
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="onComplete"></param>
+    public void StartDialog(DialogData data, string name, System.Action onComplete = null)
     {
         if (data == null)
         {
@@ -49,7 +54,7 @@ public class DialogManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        characterNameText.text = data.characterName;
+        characterNameText.text = name;
         sentences.Clear();
         onDialogComplete = onComplete;
 

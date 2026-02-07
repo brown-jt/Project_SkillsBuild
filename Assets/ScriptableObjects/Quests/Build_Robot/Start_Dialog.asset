@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   characterName: Jack
   lines:
-  - Howdy!
-  - Fancy building me a small little robot? I need a helping hand around here.
+  - Thank goodness you're here. We're swamped for work right now.
+  - We've developed an AI module that could potentially automate a lot of our workload,
+    but we need a small robot to install it in for testing.
+  - Could you build one for us? In return I can tell you about Artificial Intelligence!

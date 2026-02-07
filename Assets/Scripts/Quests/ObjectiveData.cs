@@ -10,6 +10,7 @@ public enum ObjectiveType
 public class ObjectiveData
 {
     public ObjectiveType objectiveType;
+    public string taskText;
     public string targetId;
     public int requiredAmount = 1;
 }

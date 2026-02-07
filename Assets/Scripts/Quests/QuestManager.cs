@@ -1,12 +1,16 @@
-using UnityEngine;
+using System;
 using System.Collections.Generic;
+using UnityEngine;
+using static UnityEditor.Progress;
 
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
 
     public List<QuestInstance> activeQuests = new List<QuestInstance>();
-    public HashSet<string> completedQuests = new HashSet<string>();
+    public List<QuestInstance> completedQuests = new List<QuestInstance>();
+
+    public event Action<QuestInstance> onQuestUpdated;
 
     private void Awake()
     {
@@ -46,7 +50,14 @@ public class QuestManager : MonoBehaviour
         if (HasQuest(data) || IsQuestCompleted(data)) return;
 
         // Add new quest instance to active quests
-        activeQuests.Add(new QuestInstance(data));
+        QuestInstance questInstance = new QuestInstance(data);
+        activeQuests.Add(questInstance);
+
+        // Refresh the quest log UI here
+        QuestJournalUI.Instance.RefreshQuestList();
+
+        // Fire quest updated event
+        onQuestUpdated?.Invoke(questInstance);
     }
 
     public bool HasQuest(QuestData data)
@@ -56,26 +67,30 @@ public class QuestManager : MonoBehaviour
 
     public bool IsQuestCompleted(QuestData data)
     {
-        return completedQuests.Contains(data.questId);
+        return completedQuests.Exists(q => q.questData == data);
     }
 
     void HandleFoundItem(string itemId)
     {
+        Debug.Log($"Handling found item: {itemId}");
         UpdateObjectives(ObjectiveType.Find, itemId);
     }
 
     void HandleBuiltItem(string itemId)
     {
+        Debug.Log($"Handling built item: {itemId}");
         UpdateObjectives(ObjectiveType.Build, itemId);
     }
 
     void HandleAreaExplored(string areaId)
     {
+        Debug.Log($"Handling explored area: {areaId}");
         UpdateObjectives(ObjectiveType.Explore, areaId);
     }
 
     void HandleNPCTalked(string npcId)
     {
+        Debug.Log($"Handling NPC talked to: {npcId}");
         UpdateObjectives(ObjectiveType.TalkTo, npcId);
     }
 
@@ -83,15 +98,29 @@ public class QuestManager : MonoBehaviour
     {
         foreach (var quest in activeQuests)
         {
+            Debug.Log($"Checking quest: {quest.questData.name} for objective type: {type} and target ID: {targetId}");
             foreach (var objective in quest.objectivesProgress)
             {
+                Debug.Log($"Checking objective type: {objective.data.objectiveType} with given type: {type}");
+                Debug.Log($"Checking objective target: {objective.data.targetId} with given target: {targetId}");
+                Debug.Log($"Checking complete status of objective: {objective.IsComplete}");
                 if (objective.data.objectiveType == type && objective.data.targetId == targetId && !objective.IsComplete)
                 {
+                    Debug.Log("UPDATING OBJECTIVE PROGRESS");
                     objective.currentAmount++;
                     if (objective.currentAmount > objective.data.requiredAmount)
                     {
                         objective.currentAmount = objective.data.requiredAmount;
                     }
+                    // Ensuring we refresh the quest log UI after updating the objective progress
+                    QuestJournalUI.Instance.RefreshQuestList();
+
+                    // Fire quest updated event
+                    onQuestUpdated?.Invoke(quest);
+                }
+                else
+                {
+                    Debug.Log("Objective does not match event criteria or is already complete.");
                 }
             }
         }
@@ -111,8 +140,14 @@ public class QuestManager : MonoBehaviour
 
         questInstance.IsTurnedIn = true;
         activeQuests.Remove(questInstance);
-        completedQuests.Add(questInstance.questData.questId);
+        completedQuests.Add(questInstance);
 
         GiveRewards(questInstance.questData.rewards);
+
+        // Ensuring we refresh the quest log UI after turning in a quest
+        QuestJournalUI.Instance.RefreshQuestList();
+
+        // Fire quest updated event
+        onQuestUpdated?.Invoke(questInstance);
     }
 }

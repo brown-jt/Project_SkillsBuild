@@ -579,6 +579,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2466298294029182000, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: targetId
+      value: Medium_Robot
+      objectReference: {fileID: 0}
     - target: {fileID: 3213021818955208900, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -647,6 +651,10 @@ PrefabInstance:
       propertyPath: rightLeg
       value: 
       objectReference: {fileID: 7517666503908869949}
+    - target: {fileID: 8567033808460139798, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: interactName
+      value: Medium Robot Assembler
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4292674565419600912, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}

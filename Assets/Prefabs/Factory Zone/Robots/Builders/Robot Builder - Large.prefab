@@ -828,6 +828,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5bd9b6f1d03e6254290a641886d2e88b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8567033808460139798}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5bd9b6f1d03e6254290a641886d2e88b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2466298294029182000}
   m_SourcePrefab: {fileID: 100100000, guid: 5bd9b6f1d03e6254290a641886d2e88b, type: 3}
 --- !u!1 &4994934747659314589 stripped
 GameObject:
@@ -867,6 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00877caa95ccc564c9c2ecc8efa40731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RobotBuilder
+  interactName: Large Robot Assembler
   interactionZone: {fileID: 7261075323630851634}
   interactionPrompt: Add Part
   interactionSound: {fileID: 8300000, guid: c77c99e076f0f8f449b9a82d1fbbd01d, type: 3}
@@ -878,6 +882,19 @@ MonoBehaviour:
   rightLeg: {fileID: 5863916613237149324}
   normalMaterial: {fileID: 2100000, guid: 40db2430827df4c42a289b97b08d3458, type: 2}
   outlineMaterial: {fileID: 2100000, guid: e72566dd3b5dc404290728e8b3c0729f, type: 2}
+--- !u!114 &2466298294029182000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994934747659314589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744763be83a2f047a283bba931a1b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestTarget
+  targetId: Large_Robot
 --- !u!4 &5627883375949610791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5bd9b6f1d03e6254290a641886d2e88b, type: 3}

@@ -15,7 +15,7 @@ public class QuestInstance
 
         foreach (var objectiveData in data.objectives)
         {
-            objectivesProgress.Add(new ObjectiveProgress { data = objectiveData });
+            objectivesProgress.Add(new ObjectiveProgress {data = objectiveData });
         }
     }
 }
