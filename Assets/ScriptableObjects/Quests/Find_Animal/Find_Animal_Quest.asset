@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questId: Forest_1
   zoneId: 2
-  title: Gather intel on an odd animal
+  title: Gather Intel on an Odd Animal
   description: The forest hunter has told me there's one animal out there in the
     woods that's different to the rest. He needs me to find it and approach it, before
     coming back to him.

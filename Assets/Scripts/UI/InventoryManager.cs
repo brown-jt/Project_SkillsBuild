@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -13,6 +14,10 @@ public class InventoryManager : MonoBehaviour
     // Currencies
     private int gold;
     public int Gold => gold;
+
+    // References
+    [Header("References")]
+    [SerializeField] private TextMeshProUGUI goldText;
 
     // Inventory
     public List<InventorySlot> inventorySlots = new List<InventorySlot>();
@@ -55,6 +60,7 @@ public class InventoryManager : MonoBehaviour
         if (amount <= 0) return;
 
         gold += amount;
+        goldText.text = gold.ToString();
         OnInventoryChanged?.Invoke();
     }
 
