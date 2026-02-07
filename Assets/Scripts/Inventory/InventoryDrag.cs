@@ -8,22 +8,31 @@ public class InventoryDrag : MonoBehaviour
     public Image dragIcon = null;
     private int draggedSlotIndex = -1;
 
+    public bool IsDragging => draggedSlotIndex != -1;
+
     private void Awake()
     {
         Instance = this;
-        dragIcon.enabled = false;
+        dragIcon.gameObject.SetActive(false);
     }
 
     public void BeginDrag(int slotIndex)
     {
-        draggedSlotIndex = slotIndex;
         var slot = InventoryManager.Instance.inventorySlots[slotIndex];
+        var slotUI = InventoryUI.Instance.slots[slotIndex];
 
         if (slot.IsEmpty) return;
 
-        // Maybe lower this transparency?
-        dragIcon.sprite = slot.itemData.icon;
-        dragIcon.enabled = true;
+        draggedSlotIndex = slotIndex;
+
+        slotUI.SetIconOpacity(0.5f);
+
+        if (dragIcon != null)
+        {
+            dragIcon.sprite = slot.itemData.icon;
+            dragIcon.gameObject.SetActive(true);
+            Cursor.visible = false;
+        }
     }
 
     public void Drag(Vector2 position)
@@ -46,8 +55,19 @@ public class InventoryDrag : MonoBehaviour
 
     public void EndDrag()
     {
-        dragIcon.sprite = null;
-        dragIcon.enabled = false;
+        if (dragIcon != null)
+        {
+            dragIcon.sprite = null;
+            dragIcon.gameObject.SetActive(false);
+            Cursor.visible = true;
+        }
+
+        if (draggedSlotIndex != -1)
+        {
+            var originalSlotUI = InventoryUI.Instance.slots[draggedSlotIndex];
+            originalSlotUI.SetIconOpacity(1f);
+        }
+
         draggedSlotIndex = -1;
     }
 }

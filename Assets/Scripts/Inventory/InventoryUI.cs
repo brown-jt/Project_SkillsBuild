@@ -58,6 +58,7 @@ public class InventoryUI : MonoBehaviour
 
     private void CloseInventory()
     {
+        ResetVisualsAll();
         PlayerInputHandler.Instance.EnablePlayerInput();
         inventoryPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
@@ -80,6 +81,14 @@ public class InventoryUI : MonoBehaviour
         foreach (InventorySlotUI slot in slots)
         {
             slot.Refresh();
+        }
+    }
+
+    public void ResetVisualsAll()
+    {
+        foreach (InventorySlotUI slot in slots)
+        {
+            slot.ResetVisuals();
         }
     }
 }

@@ -43,8 +43,9 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        inventorySlots[0].itemData = testItem;
-        inventorySlots[1].itemData = testItem2;
+        AddItem(testItem, 1);
+        AddItem(testItem2, 10);
+        AddItem(testItem2, 2);
 
         InventoryUI.Instance.RefreshAll();
     }
