@@ -21,7 +21,7 @@ public class InventoryManager : MonoBehaviour
 
     // Inventory
     public List<InventorySlot> inventorySlots = new List<InventorySlot>();
-    public int maxInventorySize = 49;
+    public int maxInventorySize = 25;
 
     // test
     public ItemData testItem;
@@ -51,6 +51,9 @@ public class InventoryManager : MonoBehaviour
         AddItem(testItem, 1);
         AddItem(testItem2, 10);
         AddItem(testItem2, 2);
+        AddItem(testItem2, 99);
+        AddItem(testItem2, 99);
+        AddItem(testItem2, 99);
 
         InventoryUI.Instance.RefreshAll();
     }

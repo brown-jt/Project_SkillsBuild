@@ -15,6 +15,13 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private Color normalColor;
     private Color hoverColor;
 
+    public RectTransform slotRect;
+
+    private void Awake()
+    {
+        slotRect = GetComponent<RectTransform>();
+    }
+
     private void Start()
     {
         background = GetComponent<Image>();
@@ -49,7 +56,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipUI.Instance.Show(InventoryManager.Instance.inventorySlots[slotIndex]);
+        TooltipUI.Instance.Show(InventoryManager.Instance.inventorySlots[slotIndex], slotRect);
 
         // For better feedback let's highlight hovered inventory slots
         background.color = hoverColor;
@@ -81,6 +88,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnDrop(PointerEventData eventData)
     {
         InventoryDrag.Instance.Drop(slotIndex);
+        TooltipUI.Instance.Show(InventoryManager.Instance.inventorySlots[slotIndex], slotRect);
     }
 
     public void SetIconOpacity(float alpha)
