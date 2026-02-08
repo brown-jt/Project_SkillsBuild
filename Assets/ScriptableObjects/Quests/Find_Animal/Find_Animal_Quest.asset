@@ -19,7 +19,7 @@ MonoBehaviour:
     woods that's different to the rest. He needs me to find it and approach it, before
     coming back to him.
   objectives:
-  - objectiveType: 0
+  - objectiveType: 2
     taskText: Find and approach the odd animal
     targetId: Odd_Animal
     requiredAmount: 1

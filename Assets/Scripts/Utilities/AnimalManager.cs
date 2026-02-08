@@ -4,8 +4,11 @@ public class AnimalManager : MonoBehaviour
 {
     [Header("Spawn Settings")]
     [SerializeField] private GameObject horseAnimal;
+    [SerializeField] private GameObject horseAnimalQuest;
     [SerializeField] private GameObject bisonAnimal;
+    [SerializeField] private GameObject bisonAnimalQuest;
     [SerializeField] private GameObject dogAnimal;
+    [SerializeField] private GameObject dogAnimalQuest;
     [Space]
     [SerializeField] private int minSpawn;
     [SerializeField] private int maxSpawn;
@@ -37,6 +40,17 @@ public class AnimalManager : MonoBehaviour
                 float scale = Random.Range(minScale, maxScale);
                 animal.transform.localScale *= scale;
             }
+        }
+
+        // For now just spawn the quest animal as part of this bigger function
+        SpawnQuestAnimal();
+    }
+
+    private void SpawnQuestAnimal()
+    {
+        if (NavMeshUtils.RandomPointOnNavMesh(out Vector3 pos))
+        {
+            var questAnimal = Instantiate(horseAnimalQuest, pos, Quaternion.identity, parentContainer);
         }
     }
 }

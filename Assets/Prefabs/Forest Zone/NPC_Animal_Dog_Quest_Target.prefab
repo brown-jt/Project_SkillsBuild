@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7973460647648630194
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1319002595113048209, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c4c5bc3cb133224f99ef852345cba3b, type: 2}
+    - target: {fileID: 2762638609157980846, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: m_Name
+      value: NPC_Animal_Dog_Quest_Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 3532124700038542404, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c4c5bc3cb133224f99ef852345cba3b, type: 2}
+    - target: {fileID: 3874195878185722011, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c4c5bc3cb133224f99ef852345cba3b, type: 2}
+    - target: {fileID: 4070231189048500981, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c4c5bc3cb133224f99ef852345cba3b, type: 2}
+    - target: {fileID: 5626593809878616877, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c4c5bc3cb133224f99ef852345cba3b, type: 2}
+    - target: {fileID: 5639081584561603747, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c4c5bc3cb133224f99ef852345cba3b, type: 2}
+    - target: {fileID: 6069965352126380380, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c4c5bc3cb133224f99ef852345cba3b, type: 2}
+    - target: {fileID: 6238187489564100361, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238187489564100361, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238187489564100361, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238187489564100361, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238187489564100361, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238187489564100361, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238187489564100361, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238187489564100361, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238187489564100361, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238187489564100361, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726698269417575917, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c4c5bc3cb133224f99ef852345cba3b, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2762638609157980846, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8560079886115346722}
+    - targetCorrespondingSourceObject: {fileID: 2762638609157980846, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5555035557380326916}
+    - targetCorrespondingSourceObject: {fileID: 2762638609157980846, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9035732176993476170}
+  m_SourcePrefab: {fileID: 100100000, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+--- !u!1 &5256176970445821724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2762638609157980846, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+  m_PrefabInstance: {fileID: 7973460647648630194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8560079886115346722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5256176970445821724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744763be83a2f047a283bba931a1b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestTarget
+  targetId: Odd_Animal
+--- !u!135 &5555035557380326916
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5256176970445821724}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!114 &9035732176993476170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5256176970445821724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc548fedd365394cbf85491a5217671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestExploreTrigger

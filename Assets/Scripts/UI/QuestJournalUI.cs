@@ -247,7 +247,7 @@ public class QuestJournalUI : MonoBehaviour
         for (int i = root.childCount - 1; i >= 0; i--)
         {
             Transform child = root.GetChild(i);
-            DestroyImmediate(child.gameObject);
+            Destroy(child.gameObject);
         }
     }
 

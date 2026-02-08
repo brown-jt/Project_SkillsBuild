@@ -257,8 +257,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   horseAnimal: {fileID: 5169529609504520118, guid: 5e1a0f54c88d8c64eb5a72d5b01f9ad5, type: 3}
+  horseAnimalQuest: {fileID: 6165870609008800590, guid: ae5e5c1808fee9b4392e441e5cb367fb, type: 3}
   bisonAnimal: {fileID: 622971656996459290, guid: 0ec58c770fa2f3d4082e28dc87e29ba3, type: 3}
+  bisonAnimalQuest: {fileID: 6458196120790020396, guid: 1fd00e8c8ede3b546bb2b9f86b44737b, type: 3}
   dogAnimal: {fileID: 2762638609157980846, guid: d9d77b0e3db43f74589ac5df0d3e8aa1, type: 3}
+  dogAnimalQuest: {fileID: 5256176970445821724, guid: 38b333b234abda6409ea23dbeb210c63, type: 3}
   minSpawn: 20
   maxSpawn: 30
   terrain: {fileID: 1587267588}
@@ -2563,6 +2566,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 75a5b6c09be1a594499ce39f09bacc09, type: 3}
       insertIndex: -1
       addedObject: {fileID: 319210102}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 75a5b6c09be1a594499ce39f09bacc09, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 319210103}
   m_SourcePrefab: {fileID: 100100000, guid: 75a5b6c09be1a594499ce39f09bacc09, type: 3}
 --- !u!4 &319210100 stripped
 Transform:
@@ -2596,6 +2602,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7640321492218759047, guid: 75a5b6c09be1a594499ce39f09bacc09, type: 3}
+--- !u!208 &319210103
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319210101}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.57, y: 1.14, z: 0.57}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0.13, y: -0.44, z: -0.01}
+  m_TimeToStationary: 0.5
 --- !u!1001 &320436537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9995,6 +10017,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 75a5b6c09be1a594499ce39f09bacc09, type: 3}
       insertIndex: -1
       addedObject: {fileID: 870292015}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 75a5b6c09be1a594499ce39f09bacc09, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 870292016}
   m_SourcePrefab: {fileID: 100100000, guid: 75a5b6c09be1a594499ce39f09bacc09, type: 3}
 --- !u!4 &870292013 stripped
 Transform:
@@ -10028,6 +10053,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7640321492218759047, guid: 75a5b6c09be1a594499ce39f09bacc09, type: 3}
+--- !u!208 &870292016
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870292014}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.78400004, y: 0.51000005, z: 0.56600004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.2, y: 0.51000005, z: -0.04}
+  m_TimeToStationary: 0.5
 --- !u!1 &901856555
 GameObject:
   m_ObjectHideFlags: 0
@@ -18821,6 +18862,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89c3f42cdd489a4f9012af1ef74b61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  goldText: {fileID: 0}
+  inventorySlots: []
+  maxInventorySize: 25
 --- !u!4 &1512354365
 Transform:
   m_ObjectHideFlags: 0
