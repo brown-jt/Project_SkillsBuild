@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemId: Large_Robot_Leg
   itemName: Large robot leg
-  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: f07b21ad2ba0fb543bf589ba64fef33e, type: 3}
   description: Part of a large robot
   stackable: 0
   maxStack: 1

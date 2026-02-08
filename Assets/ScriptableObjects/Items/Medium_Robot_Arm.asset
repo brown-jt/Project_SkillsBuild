@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemId: Medium_Robot_Arm
   itemName: Medium robot arm
-  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 1d5c12ef289f6d04ca185fdeccb5e71d, type: 3}
   description: Part of a medium robot
   stackable: 0
   maxStack: 1

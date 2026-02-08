@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemId: Small_Robot_Head
   itemName: Small robot head
-  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 52a99ca4761d259468d37b3d138e0f70, type: 3}
   description: Part of a small robot
   stackable: 0
   maxStack: 1
