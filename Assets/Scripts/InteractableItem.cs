@@ -19,4 +19,9 @@ public abstract class InteractableItem : MonoBehaviour
     }
 
     public abstract void Interact();
+
+    public void SetInteractableName(string name)
+    {
+        interactableName = name;
+    }
 }

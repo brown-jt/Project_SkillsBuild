@@ -93,6 +93,10 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: ec192ea6f4a99674e801bfba271249ea, type: 2}
+    - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: itemName
       value: Small Torso
       objectReference: {fileID: 0}

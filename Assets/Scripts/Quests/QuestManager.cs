@@ -129,7 +129,10 @@ public class QuestManager : MonoBehaviour
     void GiveRewards(RewardData rewards)
     {
         // Reward logic here, e.g., add gold, experience, items to player inventory
+        InventoryManager.Instance.AddGold(rewards.gold);
         Debug.Log($"Granted {rewards.gold} gold and {rewards.experience} XP.");
+
+        // TODO - Wire experience into the course experience progression bar whenever implemented
     }
 
     public void TurnInQuest(QuestData questData, string npcId)

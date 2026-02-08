@@ -15,11 +15,24 @@ public class ConveyorItem : InteractableItem
     [SerializeField] private float centeringThreshold = 0.05f;
     [SerializeField] private float centeringSpeedMultiplier = 1.5f;
 
+    [Header("Item Data")]
+    [SerializeField] private ItemData itemData;
+    [SerializeField] private int amount = 1;
+
     private bool isMoveable = true;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        if (itemData != null)
+        {
+            SetInteractableName(itemData.itemName);
+        }
+        else
+        {
+            SetInteractableName("No Item Data");
+        }
     }
 
     public void OnEnterConveyor(Conveyor conveyor)
@@ -127,8 +140,17 @@ public class ConveyorItem : InteractableItem
 
     public override void Interact()
     {
-        AudioSource.PlayClipAtPoint(InteractionSound, transform.position);
-        Debug.Log("Picked up Item: " + gameObject.name);
-        Destroy(gameObject);
+        bool added = InventoryManager.Instance.AddItem(itemData, amount);
+
+        if (added)
+        {
+            AudioSource.PlayClipAtPoint(InteractionSound, transform.position);
+            Debug.Log($"Picked up {amount}x {itemData.name}");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Inventory full!");
+        }
     }
 }

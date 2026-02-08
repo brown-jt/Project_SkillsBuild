@@ -73,6 +73,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: b8571ce9630db3d4d9eb675ddd6f3384, type: 2}
+    - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: itemName
       value: Small Arm
       objectReference: {fileID: 0}

@@ -1564,6 +1564,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1311898288}
     m_Modifications:
+    - target: {fileID: 1389080367623891613, guid: f68a88fcf6f48464586c894d5856f5d2, type: 3}
+      propertyPath: robotArmItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 42d1e5cfe76854c44818b39c15b4ff2a, type: 2}
+    - target: {fileID: 1389080367623891613, guid: f68a88fcf6f48464586c894d5856f5d2, type: 3}
+      propertyPath: robotLegItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 18f30f1e9f1832c41865d1fb25eb5421, type: 2}
+    - target: {fileID: 1389080367623891613, guid: f68a88fcf6f48464586c894d5856f5d2, type: 3}
+      propertyPath: robotHeadItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 88da488a806259f4c87b157178aa17cc, type: 2}
+    - target: {fileID: 1389080367623891613, guid: f68a88fcf6f48464586c894d5856f5d2, type: 3}
+      propertyPath: robotTorsoItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 66e0112b88995324b92ebb2024e456dc, type: 2}
     - target: {fileID: 1719931618907355170, guid: f68a88fcf6f48464586c894d5856f5d2, type: 3}
       propertyPath: m_Name
       value: Robot Builder - Medium
@@ -3927,6 +3943,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot Builder - Small
       objectReference: {fileID: 0}
+    - target: {fileID: 929354106098161539, guid: 2b6b123dc96f44c4796740cf57651762, type: 3}
+      propertyPath: robotArmItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: b8571ce9630db3d4d9eb675ddd6f3384, type: 2}
+    - target: {fileID: 929354106098161539, guid: 2b6b123dc96f44c4796740cf57651762, type: 3}
+      propertyPath: robotLegItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 60d57a713fea1dd4dbbb8b0c9fdff610, type: 2}
+    - target: {fileID: 929354106098161539, guid: 2b6b123dc96f44c4796740cf57651762, type: 3}
+      propertyPath: robotHeadItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: f08b5f84f6a73054c8bf79f352806590, type: 2}
+    - target: {fileID: 929354106098161539, guid: 2b6b123dc96f44c4796740cf57651762, type: 3}
+      propertyPath: robotTorsoItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: ec192ea6f4a99674e801bfba271249ea, type: 2}
     - target: {fileID: 6239595632729309777, guid: 2b6b123dc96f44c4796740cf57651762, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.8000002
@@ -14323,6 +14355,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot Builder - Large
       objectReference: {fileID: 0}
+    - target: {fileID: 8567033808460139798, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: robotArmItem
+      value: 
+      objectReference: {fileID: 11400000, guid: b8571ce9630db3d4d9eb675ddd6f3384, type: 2}
+    - target: {fileID: 8567033808460139798, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: robotLegItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a98ed9ef655e094abd4d6bdc40809fc, type: 2}
+    - target: {fileID: 8567033808460139798, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: robotHeadItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 573a9d3b1495bb54380029fd769a73d0, type: 2}
+    - target: {fileID: 8567033808460139798, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: robotTorsoItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 1800868b4d255a64498c93ebb2f9e236, type: 2}
+    - target: {fileID: 8567033808460139798, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: robotArmItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1fe21d1f5e86dee458ae8e953c169252, type: 2}
+    - target: {fileID: 8567033808460139798, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: robotLegItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a98ed9ef655e094abd4d6bdc40809fc, type: 2}
+    - target: {fileID: 8567033808460139798, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: robotHeadItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 573a9d3b1495bb54380029fd769a73d0, type: 2}
+    - target: {fileID: 8567033808460139798, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: robotTorsoItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1800868b4d255a64498c93ebb2f9e236, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
