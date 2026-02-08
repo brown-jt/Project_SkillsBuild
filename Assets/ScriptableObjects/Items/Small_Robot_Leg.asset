@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 711583a0ee6af3a4e82ca5a97a3dae4e, type: 3}
-  m_Name: Test 1
+  m_Name: Small_Robot_Leg
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Pouch
-  icon: {fileID: 21300000, guid: 0c84830b4b606f841ac1fccc6ff1d926, type: 3}
-  description: A nice pouch
-  stackable: 1
-  maxStack: 99
-  prefab: {fileID: 0}
+  itemId: Small_Robot_Leg
+  itemName: Small robot leg
+  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  description: Part of a small robot
+  stackable: 0
+  maxStack: 1
+  prefab: {fileID: 6392336958159363530, guid: 2843b014992bed945823c2cefdd38502, type: 3}

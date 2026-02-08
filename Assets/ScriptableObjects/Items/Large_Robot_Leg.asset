@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 711583a0ee6af3a4e82ca5a97a3dae4e, type: 3}
-  m_Name: Test
+  m_Name: Large_Robot_Leg
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Book
-  icon: {fileID: 21300000, guid: a53b2cce3d037004c829d31bf96bc675, type: 3}
-  description: A nice book
-  stackable: 1
-  maxStack: 99
-  prefab: {fileID: 0}
+  itemId: Large_Robot_Leg
+  itemName: Large robot leg
+  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  description: Part of a large robot
+  stackable: 0
+  maxStack: 1
+  prefab: {fileID: 5052092363877515615, guid: ce5ee8adeb11bb24bad26c0f998aceee, type: 3}

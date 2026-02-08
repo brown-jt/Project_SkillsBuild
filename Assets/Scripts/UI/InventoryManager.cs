@@ -23,10 +23,6 @@ public class InventoryManager : MonoBehaviour
     public List<InventorySlot> inventorySlots = new List<InventorySlot>();
     public int maxInventorySize = 25;
 
-    // test
-    public ItemData testItem;
-    public ItemData testItem2;
-
     private void Awake()
     {
         if (Instance == null)
@@ -48,13 +44,6 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        AddItem(testItem, 1);
-        AddItem(testItem2, 10);
-        AddItem(testItem2, 2);
-        AddItem(testItem2, 99);
-        AddItem(testItem2, 99);
-        AddItem(testItem2, 99);
-
         InventoryUI.Instance.RefreshAll();
     }
 
@@ -93,6 +82,7 @@ public class InventoryManager : MonoBehaviour
                     if (amount <= 0)
                     {
                         OnInventoryChanged?.Invoke();
+                        InventoryUI.Instance.RefreshAll();
                         return true;
                     }
                 }
@@ -110,12 +100,58 @@ public class InventoryManager : MonoBehaviour
                 if (amount <= 0)
                 {
                     OnInventoryChanged?.Invoke();
+                    InventoryUI.Instance.RefreshAll();
                     return true;
                 }
             }
         }
 
         // No space left in inventory
+        return false;
+    }
+    
+    public bool HasItem(ItemData item, int amount = 1)
+    {
+        int count = 0;
+
+        foreach (var slot in inventorySlots)
+        {
+            if (slot.itemData == item)
+            {
+                count += slot.quantity;
+                if (count >= amount) return true;
+            }
+        }
+
+        return false;
+    }
+
+    public bool RemoveItem(ItemData item, int amount = 1)
+    {
+        foreach (var slot in inventorySlots)
+        {
+            if (slot.itemData == item)
+            {
+                int toRemove = Mathf.Min(slot.quantity, amount);
+                slot.quantity -= toRemove;
+                amount -= toRemove;
+
+                // TODO: MAY NEED TO REVISIT - WILL THIS CLEAR PART STACKS EVEN IF REMOVING ALL QUANTITY FAILED?
+                if (slot.quantity <= 0)
+                {
+                    slot.itemData = null;
+                    slot.quantity = 0;
+                }
+
+                if (amount <= 0)
+                {
+                    OnInventoryChanged?.Invoke();
+                    InventoryUI.Instance.RefreshAll();
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 }

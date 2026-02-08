@@ -2,13 +2,19 @@ using UnityEngine;
 
 public class RobotBuilder : InteractableArea
 {
-    [Header("Robot Parts")]
+    [Header("Robot In-Game Model Parts")]
     [SerializeField] private GameObject head;
     [SerializeField] private GameObject torso;
     [SerializeField] private GameObject leftArm;
     [SerializeField] private GameObject rightArm;
     [SerializeField] private GameObject leftLeg;
     [SerializeField] private GameObject rightLeg;
+
+    [Header("Robot Parts ItemData")]
+    [SerializeField] private ItemData robotHeadItemData;
+    [SerializeField] private ItemData robotTorsoItemData;
+    [SerializeField] private ItemData robotArmItemData;
+    [SerializeField] private ItemData robotLegItemData;
 
     [Header("Materials")]
     [SerializeField] private Material normalMaterial;
@@ -91,7 +97,7 @@ public class RobotBuilder : InteractableArea
     {
         if (!IsInteractable) return;
 
-        TestPartAddition();
+        TryAddPart();
 
         if (HasAllParts())
         {
@@ -105,17 +111,39 @@ public class RobotBuilder : InteractableArea
     }
 
     // Debug helper function to test addition of parts
-    private void TestPartAddition()
+    private void TryAddPart()
     {
-        if (!hasHead) AddPart("head");
-        else if (!hasTorso) AddPart("torso");
-        else if (!hasLeftArm || !hasRightArm) AddPart("arm");
-        else if (!hasLeftLeg || !hasRightLeg) AddPart("leg");
-
-        if (InteractionSound != null)
+        if (!hasHead && HaveItem(robotHeadItemData))
         {
-            // Play sound just at center of robot for now
+            AddPart("head");
             AudioSource.PlayClipAtPoint(InteractionSound, torso.transform.position);
         }
+        else if (!hasTorso && HaveItem(robotTorsoItemData))
+        {
+            AddPart("torso");
+            AudioSource.PlayClipAtPoint(InteractionSound, torso.transform.position);
+        }
+        else if ((!hasLeftArm || !hasRightArm) && HaveItem(robotArmItemData))
+        {
+            AddPart("arm");
+            AudioSource.PlayClipAtPoint(InteractionSound, torso.transform.position);
+        }
+        else if ((!hasLeftLeg || !hasRightLeg) && HaveItem(robotLegItemData))
+        {
+            AddPart("leg");
+            AudioSource.PlayClipAtPoint(InteractionSound, torso.transform.position);
+        }
+    }
+
+    private bool HaveItem(ItemData requiredItem)
+    {
+        if (InventoryManager.Instance.HasItem(requiredItem, 1))
+        {
+            InventoryManager.Instance.RemoveItem(requiredItem, 1);
+            return true;
+        }
+
+        Debug.Log($"Missing required part: {requiredItem.itemName}");
+        return false;
     }
 }

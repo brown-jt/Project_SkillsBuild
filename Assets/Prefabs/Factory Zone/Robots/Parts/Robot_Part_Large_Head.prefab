@@ -73,6 +73,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -7070831255929112694, guid: 6af997bc9e63208459c22e7633b13539, type: 3}
     - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 573a9d3b1495bb54380029fd769a73d0, type: 2}
+    - target: {fileID: 6129482014124697566, guid: 08f1fbe2578acb94a87977efb44222fd, type: 3}
       propertyPath: itemName
       value: Large Head
       objectReference: {fileID: 0}
