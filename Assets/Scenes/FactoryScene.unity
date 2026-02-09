@@ -6485,7 +6485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8071688607372723204, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
       propertyPath: interactName
-      value: Return to main Hub
+      value: Return to Main Hub
       objectReference: {fileID: 0}
     - target: {fileID: 8071688607372723204, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
       propertyPath: returnSpawnID
