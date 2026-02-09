@@ -64,6 +64,7 @@ public class QuestGiver : InteractableItem
                 // TODO: Add player choice to accept/decline quest but for now auto-accept
                 QuestManager.Instance.AcceptQuest(quest);
                 UpdateQuestSigns();
+                FeedbackBannerUI.Instance.ShowBanner("Accepted Quest", quest.title);
             });
         }
         else if (QuestManager.Instance.HasQuest(quest))
@@ -77,6 +78,7 @@ public class QuestGiver : InteractableItem
                 {
                     QuestManager.Instance.TurnInQuest(quest, npcId);
                     UpdateQuestSigns();
+                    FeedbackBannerUI.Instance.ShowBanner("Completed Quest", quest.title);
                 });
             }
             else

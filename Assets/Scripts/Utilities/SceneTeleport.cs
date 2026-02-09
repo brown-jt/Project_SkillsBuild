@@ -9,5 +9,14 @@ public class SceneTeleport : InteractableArea
     {
         SpawnManager.Instance.SetNextSpawn(returnSpawnID, sceneName);
         ZoneManager.Instance.TeleportTo(sceneName, returnSpawnID);
+
+        if (sceneName == "HubScene")
+        {
+            FeedbackBannerUI.Instance.ShowBanner("Saved Progress", "Returned to Main Hub");
+        }
+        else
+        {
+            FeedbackBannerUI.Instance.ShowBanner("Entered Course", InteractName);
+        }
     }
 }
