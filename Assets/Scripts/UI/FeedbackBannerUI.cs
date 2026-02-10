@@ -9,6 +9,7 @@ public class FeedbackBannerUI : MonoBehaviour
     [Header("References")]
     public GameObject banner;
     public TextMeshProUGUI mainText;
+    public TextMeshProUGUI bonusText;
     public TextMeshProUGUI subText;
 
     [Header("Fade Settings")]
@@ -27,9 +28,10 @@ public class FeedbackBannerUI : MonoBehaviour
         banner.SetActive(false);
     }
 
-    public void ShowBanner(string mainTextVal, string subTextVal)
+    public void ShowBanner(string mainTextVal, string subTextVal, string bonusTextVal = "")
     {
         mainText.text = mainTextVal;
+        bonusText.text = bonusTextVal;
         subText.text = subTextVal;
 
         if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);

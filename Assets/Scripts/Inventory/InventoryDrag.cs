@@ -25,7 +25,7 @@ public class InventoryDrag : MonoBehaviour
 
         draggedSlotIndex = slotIndex;
 
-        slotUI.SetIconOpacity(0.5f);
+        slotUI.SetIconOpacity(0f);
 
         if (dragIcon != null)
         {

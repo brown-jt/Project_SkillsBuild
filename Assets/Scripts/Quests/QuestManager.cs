@@ -117,6 +117,9 @@ public class QuestManager : MonoBehaviour
 
                     // Fire quest updated event
                     onQuestUpdated?.Invoke(quest);
+
+                    // Show feedback banner
+                    FeedbackBannerUI.Instance.ShowBanner("Objective Updated", objective.data.taskText, quest.questData.title);
                 }
                 else
                 {
