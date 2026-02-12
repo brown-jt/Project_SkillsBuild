@@ -20,9 +20,11 @@ public class Terminal : InteractableItem
     {
         if (!IsInteractable) return;
 
+        PlayerInputHandler.Instance.DisablePlayerInput();
+        FirstPersonController.Instance.SetCameraLookLocked(false);
+        FirstPersonController.Instance.ResetCameraPitch();
         terminalUI.SetActive(true);
         cameraController.FocusOnTerminal(cameraFocusPoint);
-        PlayerInputHandler.Instance.DisablePlayerInput();
 
         ShowQuestion
         (
@@ -40,6 +42,7 @@ public class Terminal : InteractableItem
     {
         terminalUI.SetActive(false);
         cameraController.ReturnToPlayer();
+        FirstPersonController.Instance.SetCameraLookLocked(true);
         PlayerInputHandler.Instance.EnablePlayerInput();
     }
 

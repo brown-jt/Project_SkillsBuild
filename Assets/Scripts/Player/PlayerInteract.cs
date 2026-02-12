@@ -72,7 +72,7 @@ public class PlayerInteract : MonoBehaviour
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
-        int itemLayerMask = LayerMask.GetMask("Item", "QuestNPC");
+        int itemLayerMask = LayerMask.GetMask("Item", "QuestNPC", "ItemInteractable");
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange, itemLayerMask))
         {
             if (hit.collider.TryGetComponent(out InteractableItem interactableItem))
