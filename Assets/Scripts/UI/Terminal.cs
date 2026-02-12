@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Terminal : InteractableItem
 {
@@ -7,6 +8,7 @@ public class Terminal : InteractableItem
     [SerializeField] private Transform cameraFocusPoint;
     [SerializeField] private GameObject terminalUI;
     [SerializeField] private TerminalUIController uiController;
+    [SerializeField] private InputActionReference cancelAction;
 
     private CameraFocusController cameraController;
 
@@ -16,13 +18,37 @@ public class Terminal : InteractableItem
         terminalUI.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        cancelAction.action.Enable();
+        cancelAction.action.performed += OnCancel;
+    }
+
+    private void OnDisable()
+    {
+        cancelAction.action.performed -= OnCancel;
+        cancelAction.action.Disable();
+    }
+
+    private void OnCancel(InputAction.CallbackContext ctx)
+    {
+        ExitTerminal();
+    }
+
     public override void Interact()
     {
         if (!IsInteractable) return;
 
-        PlayerInputHandler.Instance.DisablePlayerInput();
-        FirstPersonController.Instance.SetCameraLookLocked(false);
+        // Disabling inputs
+        FirstPersonController.Instance.SetInputEnabled(false);
+        FirstPersonController.Instance.SetCameraLookLocked(true);
         FirstPersonController.Instance.ResetCameraPitch();
+
+        // Enabling mouse
+        Cursor.lockState = CursorLockMode.None; 
+        Cursor.visible = true;
+
+        // Enabling terminal UI and focusing camera
         terminalUI.SetActive(true);
         cameraController.FocusOnTerminal(cameraFocusPoint);
 
@@ -42,8 +68,12 @@ public class Terminal : InteractableItem
     {
         terminalUI.SetActive(false);
         cameraController.ReturnToPlayer();
-        FirstPersonController.Instance.SetCameraLookLocked(true);
-        PlayerInputHandler.Instance.EnablePlayerInput();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        FirstPersonController.Instance.SetCameraLookLocked(false);
+        FirstPersonController.Instance.SetInputEnabled(true);
     }
 
     public void ShowQuestion(string prompt, List<string> answers)
