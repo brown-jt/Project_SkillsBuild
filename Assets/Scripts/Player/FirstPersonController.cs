@@ -29,6 +29,7 @@ public class FirstPersonController : MonoBehaviour
     private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1);
 
     private bool isClimbing = false;
+    private bool lockCameraLook = false;
 
     // Instance
     public static FirstPersonController Instance;
@@ -162,6 +163,8 @@ public class FirstPersonController : MonoBehaviour
     /// </summary>
     private void HandleRotation()
     {
+        if (lockCameraLook) return;
+
         float mouseXRotation = playerInputHandler.RotationInput.x * mouseSensitivity;
         float mouseYRotation = playerInputHandler.RotationInput.y * mouseSensitivity;
 
@@ -199,5 +202,23 @@ public class FirstPersonController : MonoBehaviour
             playerInputHandler.DisablePlayerInput();
             characterController.enabled = false;
         }
+    }
+
+    /// <summary>
+    /// Public function to lock/unlock camera look
+    /// </summary>
+    /// <param name="locked"></param>
+    public void SetCameraLookLocked(bool locked)
+    {
+        lockCameraLook = locked;
+    }
+
+    /// <summary>
+    /// Public function to reset camera pitch to default
+    /// </summary>
+    public void ResetCameraPitch()
+    {
+        verticalRotation = 0f;
+        mainCamera.transform.localRotation = Quaternion.identity;
     }
 }
