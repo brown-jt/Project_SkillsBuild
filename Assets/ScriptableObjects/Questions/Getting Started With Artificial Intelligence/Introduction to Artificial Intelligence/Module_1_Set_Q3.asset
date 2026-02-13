@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
-  m_Name: Mod1_Q3
+  m_Name: Module_1_Set_Q3
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: Which of the following Narrow AI systems would you want to include when
     building the Broad AI system for this autonomous robot?

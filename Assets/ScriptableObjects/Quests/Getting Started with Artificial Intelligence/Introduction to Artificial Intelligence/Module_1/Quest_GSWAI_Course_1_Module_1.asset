@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ee7723fadd87648a9bcd5b30571939, type: 3}
+  m_Name: Quest_GSWAI_Course_1_Module_1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestData
+  questId: GSWAI_Course_1_Module_1
+  zoneId: 1
+  title: Introduction to Artificial Intelligence - Module 1
+  description: 'The worker has directed me to learn the content here: <link="https://mycoolcourse.com"><color=#4EA5FF><u>Getting
+    Started with Artificial Intelligence</u></color></link> inside the eLearning
+    course <i>Introduction to Artificial Intelligence</i> before proceeding with
+    anything else.
+
+
+    Once done, if I walk up and interact with the terminal,
+    I should be able to help program the robots with the correct information.'
+  objectives:
+  - objectiveType: 4
+    taskText: Help program the robots
+    targetId: Quiz_Terminal
+    requiredAmount: 1
+  rewards:
+    gold: 20
+    experience: 5
+    items: []
+  nextQuest: {fileID: 0}
+  startDialog: {fileID: 11400000, guid: b163446b43deeaf408fbce4d30d88dd2, type: 2}
+  inProgressDialog: {fileID: 11400000, guid: df79d6fd7b315d140968a7fed92cabce, type: 2}
+  completedDialog: {fileID: 11400000, guid: 21ff8d081efe7f24bb174d53514b61fb, type: 2}

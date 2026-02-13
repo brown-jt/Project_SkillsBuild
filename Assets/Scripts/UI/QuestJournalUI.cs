@@ -325,7 +325,7 @@ public class QuestJournalUI : MonoBehaviour
         noCompletedQuestsMessageLeft.SetActive(!hasAnyCompletedQuests);
         noCompletedQuestsMessageRight.SetActive(!hasAnyCompletedQuests);
 
-        if (!hasAnyQuests) hasSelectedCompletedQuest = false;
+        if (!hasAnyCompletedQuests) hasSelectedCompletedQuest = false;
 
         // However if there are active quests but no quest is selected, show a "No active quest selected" message in the details panel
         noCompletedQuestSelectedText.SetActive(hasAnyCompletedQuests && !hasSelectedCompletedQuest);

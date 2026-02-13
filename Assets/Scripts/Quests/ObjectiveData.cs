@@ -3,7 +3,8 @@ public enum ObjectiveType
     Find,
     Build,
     Explore,
-    TalkTo
+    TalkTo,
+    PassQuiz
 }
 
 [System.Serializable]

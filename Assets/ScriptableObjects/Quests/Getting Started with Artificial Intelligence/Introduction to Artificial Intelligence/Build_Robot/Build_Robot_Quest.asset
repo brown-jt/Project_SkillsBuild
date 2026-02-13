@@ -16,8 +16,9 @@ MonoBehaviour:
   zoneId: 1
   title: Automated Manpower
   description: This factory is in need of some help! Build a small robot for the
-    factory workers to install an AI module inside. You can find the parts on the
-    conveyors, and the robot assemblers towards where you entered.
+    factory workers to be able to install and programs AI modules inside of them.
+    You can find the parts on the conveyors, and the robot assemblers towards where
+    you entered.
   objectives:
   - objectiveType: 1
     taskText: Build a Small Robot
@@ -27,7 +28,7 @@ MonoBehaviour:
     gold: 50
     experience: 100
     items: []
-  nextQuest: {fileID: 11400000, guid: 1ec80cbccca82c94293519bce6c0749c, type: 2}
+  nextQuest: {fileID: 0}
   startDialog: {fileID: 11400000, guid: b3a8d4b039455cb4fbd127854a0e68a5, type: 2}
   inProgressDialog: {fileID: 11400000, guid: cc0bd2f3a2d59e54a835c4a5628bf479, type: 2}
   completedDialog: {fileID: 11400000, guid: 3465a103c3b24c743ae642c38131867d, type: 2}
