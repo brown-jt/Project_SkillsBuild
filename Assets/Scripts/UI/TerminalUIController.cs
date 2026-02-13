@@ -6,23 +6,49 @@ using System.Collections.Generic;
 public class TerminalUIController : MonoBehaviour
 {
     [Header("UI Panels")]
+    public GameObject startContents;
     public GameObject questionContents;
     public GameObject feedbackContents;
+    public GameObject endContents;
 
-    [Header("UI Elements")]
+    [Header("Start Panel Elements")]
+    public TextMeshProUGUI mainText;
+    public TextMeshProUGUI subText;
+
+    [Header("Question Panel Elements")]
     public TextMeshProUGUI questionText;
     public List<Button> optionButtons;
 
-    [Header("Feedback")]
+    [Header("Feedback Panel Elements")]
     public TextMeshProUGUI answerText;
     public TextMeshProUGUI feedbackText;
     public Button continueButton;
 
+    [Header("End Panel Elements")]
+    public TextMeshProUGUI passText;
+    public TextMeshProUGUI scoreText;
+    public Button retryButton;
+    public Button exitButton;
+
     private System.Action<int> onAnswerSelected;
+
+    public void QuizStart(string title, string subtitle)
+    {
+        questionContents.SetActive(false);
+        feedbackContents.SetActive(false);
+        endContents.SetActive(false);
+        startContents.SetActive(true);
+        mainText.text = title;
+        subText.text = subtitle;
+    }
 
     public void ShowQuestion(string prompt, List<string> options, System.Action<int> callback)
     {
+        SetButtonsInteractable(true);
+
+        startContents.SetActive(false);
         feedbackContents.SetActive(false);
+        endContents.SetActive(false);
         questionContents.SetActive(true);
 
         questionText.text = prompt;
@@ -54,6 +80,7 @@ public class TerminalUIController : MonoBehaviour
     public void ShowFeedback(bool correct, string message, System.Action onContinue)
     {
         questionContents.SetActive(false);
+        endContents.SetActive(false);
         feedbackContents.SetActive(true);
 
         answerText.text = correct ? "Correct!" : "Incorrect!";
@@ -67,14 +94,16 @@ public class TerminalUIController : MonoBehaviour
         });
     }
 
-    public void ShowFinalResult(string result)
+    public void ShowFinalResult(bool passed, string message)
     {
         questionContents.SetActive(false);
-        feedbackContents.SetActive(true);
+        feedbackContents.SetActive(false);
+        endContents.SetActive(true);
 
-        answerText.text = result;
+        passText.text = passed ? "Passed" : "Failed";
+        scoreText.text = message;
 
-        SetButtonsInteractable(false);
+        retryButton.gameObject.SetActive(!passed);
     }
 
     private void SetButtonsInteractable(bool state)

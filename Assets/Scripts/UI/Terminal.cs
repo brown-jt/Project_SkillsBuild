@@ -61,7 +61,7 @@ public class Terminal : InteractableItem
         terminalUI.SetActive(true);
         cameraController.FocusOnTerminal(cameraFocusPoint);
 
-        StartQuestionSet();
+        uiController.QuizStart("Test Title", $"You require {questionSet.passPercentage*100:F2}% to pass.");
     }
 
     public void ExitTerminal()
@@ -76,7 +76,7 @@ public class Terminal : InteractableItem
         FirstPersonController.Instance.SetInputEnabled(true);
     }
 
-    private void StartQuestionSet()
+    public void StartQuestionSet()
     {
         shuffledQuestions = new List<QuestionData>(questionSet.questions);
         shuffledQuestions = shuffledQuestions.OrderBy(q => Random.value).ToList();
@@ -117,11 +117,8 @@ public class Terminal : InteractableItem
         float score = (float)correctCount / shuffledQuestions.Count;
         bool passed = score >= questionSet.passPercentage;
 
-        string resultText =
-            passed
-                ? $"ACCESS GRANTED\nScore: {(score * 100f):0}%"
-                : $"ACCESS DENIED\nScore: {(score * 100f):0}%";
+        string scoreText = $"Score: {score*100:F2}% ({correctCount}/{shuffledQuestions.Count})";
 
-        uiController.ShowFinalResult(resultText);
+        uiController.ShowFinalResult(passed, scoreText);
     }
 }
