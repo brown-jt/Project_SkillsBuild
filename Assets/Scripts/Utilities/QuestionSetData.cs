@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Questions/QuestionSetData")]
 public class QuestionSetData : ScriptableObject
 {
+    [TextArea] public string moduleName;
+
     public List<QuestionData> questions;
 
     [Range(0f, 1f)]

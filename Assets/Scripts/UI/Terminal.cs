@@ -61,7 +61,12 @@ public class Terminal : InteractableItem
         terminalUI.SetActive(true);
         cameraController.FocusOnTerminal(cameraFocusPoint);
 
-        uiController.QuizStart("Test Title", $"You require {questionSet.passPercentage*100:F2}% to pass.");
+        uiController.QuizStart(
+            $"{questionSet.moduleName}", $"This is a {questionSet.questions.Count}-question quiz. " +
+            $"You must get {questionSet.passPercentage*100}% to pass it. Don’t worry though! " +
+            $"If you aren’t successful at first, you can review the course and retake the quiz " +
+            $"as many times as needed for your completion."
+        );
     }
 
     public void ExitTerminal()

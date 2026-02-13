@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
   m_Name: Module_1_Set
   m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'MODULE 1: What is Artificial Intelligence?'
   questions:
   - {fileID: 11400000, guid: 79d1d6a418420614b9017afadf004ab8, type: 2}
   - {fileID: 11400000, guid: 3147074da8098c14f8a3b8a7a72c76ef, type: 2}
