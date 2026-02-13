@@ -60,7 +60,6 @@ public class DialogManager : MonoBehaviour
 
         foreach (string line in data.lines)
         {
-            Debug.Log("Enqueuing line: " + line);
             sentences.Enqueue(line);
         }
 
@@ -92,8 +91,6 @@ public class DialogManager : MonoBehaviour
 
     private void EndDialog()
     {
-        Debug.Log("Dialog ended.");
-
         dialogPanel.SetActive(false);
         playerController.SetInputEnabled(true);
         Cursor.lockState = CursorLockMode.Locked;

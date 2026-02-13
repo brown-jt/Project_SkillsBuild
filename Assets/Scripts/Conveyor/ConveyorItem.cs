@@ -150,7 +150,7 @@ public class ConveyorItem : InteractableItem
         }
         else
         {
-            Debug.Log("Inventory full!");
+            FeedbackNotificationsUI.Instance.AddNotification("Unable to pickup. Inventory full.");
         }
     }
 }

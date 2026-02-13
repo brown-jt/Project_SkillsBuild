@@ -25,7 +25,7 @@ MonoBehaviour:
     I should be able to help program the robots with the correct information.'
   objectives:
   - objectiveType: 4
-    taskText: Help program the robots
+    taskText: Help feed the correct knowledge to the robots
     targetId: Quiz_Terminal
     requiredAmount: 1
   rewards:
