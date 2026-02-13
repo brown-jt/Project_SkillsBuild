@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Mod1_Q4
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: This robot has a slight malfunction we need to fix in its essential workflow.
+    Fill in the missing data. Artificial Intelligence (AI) refers to the ability
+    of a machine to _____ and _____.
+  answers:
+  - identify emotions, transfer data
+  - learn patterns, make predictions
+  - create algorithms, generalise information
+  - secure data, create algorithms
+  maxSelections: 1
+  correctAnswerIndices: 01000000
+  correctMessage: Artificial Intelligence (AI) refers to the ability of a machine
+    to learn patterns and make predictions. AI does not replace human decisions.
+    Instead, AI adds value to human judgement.
+  incorrectMessage: Artificial Intelligence (AI) refers to the ability of a machine
+    to learn patterns and make predictions. AI does not replace human decisions.
+    Instead, AI adds value to human judgement.

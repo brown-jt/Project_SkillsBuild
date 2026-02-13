@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,15 @@ public class Terminal : InteractableItem
     [SerializeField] private TerminalUIController uiController;
     [SerializeField] private InputActionReference cancelAction;
 
+    [Header("Question Content")]
+    [SerializeField] private QuestionSetData questionSet;
+
     private CameraFocusController cameraController;
+
+    // Internal question structure
+    private List<QuestionData> shuffledQuestions;
+    private int currentQuestionIndex;
+    private int correctCount;
 
     private void Start()
     {
@@ -52,16 +61,7 @@ public class Terminal : InteractableItem
         terminalUI.SetActive(true);
         cameraController.FocusOnTerminal(cameraFocusPoint);
 
-        ShowQuestion
-        (
-            "This is a test question designed to show upon interacting with the terminal", new List<string>
-            {
-                "Option One",
-                "Option Two",
-                "Option Three",
-                "Option Four",
-            }
-        );
+        StartQuestionSet();
     }
 
     public void ExitTerminal()
@@ -76,8 +76,52 @@ public class Terminal : InteractableItem
         FirstPersonController.Instance.SetInputEnabled(true);
     }
 
-    public void ShowQuestion(string prompt, List<string> answers)
+    private void StartQuestionSet()
     {
-        uiController.ShowQuestion(prompt, answers, (selectedIndex) => {});
+        shuffledQuestions = new List<QuestionData>(questionSet.questions);
+        shuffledQuestions = shuffledQuestions.OrderBy(q => Random.value).ToList();
+
+        currentQuestionIndex = 0;
+        correctCount = 0;
+
+        ShowCurrentQuestion();
+    }
+
+    private void ShowCurrentQuestion()
+    {
+        if (currentQuestionIndex >= shuffledQuestions.Count)
+        {
+            EndQuestionSet();
+            return;
+        }
+
+        QuestionData q = shuffledQuestions[currentQuestionIndex];
+
+        uiController.ShowQuestion(q.question, q.answers, selectedIndex =>
+        {
+            bool isCorrect = q.correctAnswerIndices.Contains(selectedIndex);
+
+            if (isCorrect)
+                correctCount++;
+
+            uiController.ShowFeedback(isCorrect, isCorrect ? q.correctMessage : q.incorrectMessage, () =>
+            {
+                currentQuestionIndex++;
+                ShowCurrentQuestion();
+            });
+        });
+    }
+
+    private void EndQuestionSet()
+    {
+        float score = (float)correctCount / shuffledQuestions.Count;
+        bool passed = score >= questionSet.passPercentage;
+
+        string resultText =
+            passed
+                ? $"ACCESS GRANTED\nScore: {(score * 100f):0}%"
+                : $"ACCESS DENIED\nScore: {(score * 100f):0}%";
+
+        uiController.ShowFinalResult(resultText);
     }
 }
