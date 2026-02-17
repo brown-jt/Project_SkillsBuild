@@ -142,8 +142,13 @@ public class QuestJournalUI : MonoBehaviour
 
         if (isOpen) CloseJournal();
         else OpenJournal();
+
+        if (selectedQuest != null)
+            Debug.Log("Currently selected quest: " + selectedQuest.questData.title);
+        else
+            Debug.Log("No currently selected quest.");
     }
-    
+
     private void OpenJournal()
     {
         // Refresh the quest list to ensure the most up-to-date information is shown whenever the journal is opened.
@@ -190,7 +195,7 @@ public class QuestJournalUI : MonoBehaviour
 
     public void ShowQuestDetails(QuestInstance quest)
     {
-        if (currentTab == "Active")
+        if (!quest.IsTurnedIn)
         {
             // ===== ACTIVE SECTION =====
             // Fill in the active details panel with quest information
@@ -269,9 +274,9 @@ public class QuestJournalUI : MonoBehaviour
     public void RefreshQuestList()
     {
         foreach (Transform root in allQuestroots)
-        {
-            ClearChildren(root);
-        }
+            {
+                ClearChildren(root);
+            }
 
         // Check each zone and populate the corresponding root with active quests for that zone
         PopulateQuestList(activeRoots, QuestManager.Instance.activeQuests);
@@ -360,7 +365,9 @@ public class QuestJournalUI : MonoBehaviour
             }
             QuestEntryUI entry = Instantiate(questEntryPrefab, questRoot);
             entry.Bind(quest, this);
+
             if (selectedQuest == quest) entry.SetSelectedVisual(true);
+            if (selectedCompletedQuest == quest) entry.SetSelectedVisual(true);
         }
     }
 
