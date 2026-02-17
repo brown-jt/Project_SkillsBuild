@@ -27,9 +27,9 @@ public static class QuestEvents
     {
         onNPCTalked?.Invoke(npcId);
     }
-    public static void QuizPassed(string npcId)
+    public static void QuizPassed(string quizId)
     {
-        onQuizPassed?.Invoke(npcId);
+        onQuizPassed?.Invoke(quizId);
     }
 
 }

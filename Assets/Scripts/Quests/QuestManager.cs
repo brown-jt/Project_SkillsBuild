@@ -29,6 +29,7 @@ public class QuestManager : MonoBehaviour
         QuestEvents.onBuiltItem += HandleBuiltItem;
         QuestEvents.onAreaExplored += HandleAreaExplored;
         QuestEvents.onNPCTalked += HandleNPCTalked;
+        QuestEvents.onQuizPassed += HandleQuizPassed;
     }
 
     private void OnDisable()
@@ -37,6 +38,7 @@ public class QuestManager : MonoBehaviour
         QuestEvents.onBuiltItem -= HandleBuiltItem;
         QuestEvents.onAreaExplored -= HandleAreaExplored;
         QuestEvents.onNPCTalked -= HandleNPCTalked;
+        QuestEvents.onQuizPassed -= HandleQuizPassed;
     }
 
     public QuestInstance GetQuestInstance(QuestData data)
@@ -92,6 +94,12 @@ public class QuestManager : MonoBehaviour
     {
         Debug.Log($"Handling NPC talked to: {npcId}");
         UpdateObjectives(ObjectiveType.TalkTo, npcId);
+    }
+
+    void HandleQuizPassed(string quizId)
+    {
+        Debug.Log($"Handling Quiz passed with ID: {quizId}");
+        UpdateObjectives(ObjectiveType.PassQuiz, quizId);
     }
 
     void UpdateObjectives(ObjectiveType type, string targetId)

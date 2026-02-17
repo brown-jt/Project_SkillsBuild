@@ -5,6 +5,7 @@ using UnityEngine;
 public class QuestionSetData : ScriptableObject
 {
     [TextArea] public string moduleName;
+    public string quizId;
 
     public List<QuestionData> questions;
 

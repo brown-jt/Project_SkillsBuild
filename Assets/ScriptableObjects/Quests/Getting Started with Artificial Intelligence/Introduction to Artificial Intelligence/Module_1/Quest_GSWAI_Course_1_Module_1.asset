@@ -26,7 +26,7 @@ MonoBehaviour:
   objectives:
   - objectiveType: 4
     taskText: Help feed the correct knowledge to the robots
-    targetId: Quiz_Terminal
+    targetId: GSWAI_Course_1_Module_1
     requiredAmount: 1
   rewards:
     gold: 20
@@ -36,3 +36,4 @@ MonoBehaviour:
   startDialog: {fileID: 11400000, guid: b163446b43deeaf408fbce4d30d88dd2, type: 2}
   inProgressDialog: {fileID: 11400000, guid: df79d6fd7b315d140968a7fed92cabce, type: 2}
   completedDialog: {fileID: 11400000, guid: 21ff8d081efe7f24bb174d53514b61fb, type: 2}
+  questionSet: {fileID: 11400000, guid: 551b5dbdb4de41e4a9d3200bdda19152, type: 2}

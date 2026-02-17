@@ -29,4 +29,6 @@ public class QuestData : ScriptableObject
     public DialogData startDialog;
     public DialogData inProgressDialog;
     public DialogData completedDialog;
+
+    public QuestionSetData questionSet = null;
 }

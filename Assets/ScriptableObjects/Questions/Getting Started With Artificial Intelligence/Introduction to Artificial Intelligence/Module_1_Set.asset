@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Module_1_Set
   m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
   moduleName: 'MODULE 1: What is Artificial Intelligence?'
+  quizId: GSWAI_Course_1_Module_1
   questions:
   - {fileID: 11400000, guid: 79d1d6a418420614b9017afadf004ab8, type: 2}
   - {fileID: 11400000, guid: 3147074da8098c14f8a3b8a7a72c76ef, type: 2}

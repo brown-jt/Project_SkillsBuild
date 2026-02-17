@@ -11,10 +11,11 @@ public class Terminal : InteractableItem
     [SerializeField] private TerminalUIController uiController;
     [SerializeField] private InputActionReference cancelAction;
 
-    [Header("Question Content")]
-    [SerializeField] private QuestionSetData questionSet;
+    private QuestionSetData questionSet;
 
     private CameraFocusController cameraController;
+
+    private QuestQuizTrigger quizTrigger;
 
     // Internal question structure
     private List<QuestionData> shuffledQuestions;
@@ -24,6 +25,7 @@ public class Terminal : InteractableItem
     private void Start()
     {
         cameraController = Camera.main.GetComponent<CameraFocusController>();
+        quizTrigger = GetComponent<QuestQuizTrigger>();
         terminalUI.SetActive(false);
     }
 
@@ -47,6 +49,21 @@ public class Terminal : InteractableItem
     public override void Interact()
     {
         if (!IsInteractable) return;
+
+        foreach (QuestInstance questInstance in QuestManager.Instance.activeQuests)
+        {
+            if (questInstance.questData.questionSet != null)
+            {
+                questionSet = questInstance.questData.questionSet;
+                break;
+            }
+        }
+
+        if (questionSet == null)
+        {
+            Debug.LogError("No Quests with QuestionSet data to show!");
+            return;
+        }
 
         // Disabling inputs
         FirstPersonController.Instance.SetInputEnabled(false);
@@ -122,7 +139,14 @@ public class Terminal : InteractableItem
         float score = (float)correctCount / shuffledQuestions.Count;
         bool passed = score >= questionSet.passPercentage;
 
-        string scoreText = $"Score: {score*100:F2}% ({correctCount}/{shuffledQuestions.Count})";
+        string scoreText = $"Score: {score * 100:F2}% ({correctCount}/{shuffledQuestions.Count})";
+
+        // If passed, we need to trigger the objective completion event for the quest that contains this question set
+        if (passed)
+        {
+            Debug.Log("Quiz passed! Triggering quest event...");
+            quizTrigger.Passed(questionSet.quizId);
+        }
 
         uiController.ShowFinalResult(passed, scoreText);
     }
