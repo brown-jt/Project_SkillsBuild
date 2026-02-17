@@ -146,6 +146,7 @@ public class Terminal : InteractableItem
         {
             Debug.Log("Quiz passed! Triggering quest event...");
             quizTrigger.Passed(questionSet.quizId);
+            questionSet = null;
         }
 
         uiController.ShowFinalResult(passed, scoreText);

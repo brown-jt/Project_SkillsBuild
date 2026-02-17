@@ -149,6 +149,11 @@ public class QuestJournalUI : MonoBehaviour
             Debug.Log("No currently selected quest.");
     }
 
+    public void CloseQuestJournal()
+    {
+        CloseJournal();
+    }
+
     private void OpenJournal()
     {
         // Refresh the quest list to ensure the most up-to-date information is shown whenever the journal is opened.
