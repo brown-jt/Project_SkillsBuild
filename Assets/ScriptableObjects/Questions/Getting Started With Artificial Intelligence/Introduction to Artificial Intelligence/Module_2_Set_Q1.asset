@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Module_2_Set_Q1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: In which era did the advancements in fields ranging from cancer research
+    to energy production show how its achievements impact people every day, and that
+    it has exponentially increasing abilities?
+  answers:
+  - The Era of Tabulation
+  - The Era of AI
+  - The Era of Industrialisation
+  - The Era of Programming
+  maxSelections: 1
+  correctAnswerIndices: 01000000
+  correctMessage: In the Era of AI, AI has proven its ability in fields ranging from
+    cancer research and big data analysis to defence systems and energy production.
+    Its achievements impact people every day and its abilities increase exponentially
+  incorrectMessage: In the Era of AI, AI has proven its ability in fields ranging
+    from cancer research and big data analysis to defence systems and energy production.
+    Its achievements impact people every day and its abilities increase exponentially

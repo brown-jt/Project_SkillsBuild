@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
-  m_Name: Module_4_Set
-  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
-  questions: []
-  passPercentage: 0.8
+  m_Script: {fileID: 11500000, guid: c513d81420ae4244ea5fa86c11a4a29b, type: 3}
+  m_Name: Progress_Dialog
+  m_EditorClassIdentifier: Assembly-CSharp::DialogData
+  lines:
+  - Remember, we need an 80% success rate minimum on these robots! Keep at it.

@@ -50,10 +50,13 @@ public class Terminal : InteractableItem
     {
         if (!IsInteractable) return;
 
+        Debug.Log("Checking active quests " + QuestManager.Instance.activeQuests.Count);
+
         foreach (QuestInstance questInstance in QuestManager.Instance.activeQuests)
         {
             if (questInstance.questData.questionSet != null)
             {
+                Debug.Log($"Found question set for quest: {questInstance.questData.title}");
                 questionSet = questInstance.questData.questionSet;
                 break;
             }
@@ -144,7 +147,6 @@ public class Terminal : InteractableItem
         // If passed, we need to trigger the objective completion event for the quest that contains this question set
         if (passed)
         {
-            Debug.Log("Quiz passed! Triggering quest event...");
             quizTrigger.Passed(questionSet.quizId);
             questionSet = null;
         }
