@@ -50,6 +50,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             icon.sprite = slot.itemData.icon;
             icon.enabled = true;
+            icon.SetNativeSize();
             quantityText.text = slot.quantity > 1 ? slot.quantity.ToString() : "";
         }
     }

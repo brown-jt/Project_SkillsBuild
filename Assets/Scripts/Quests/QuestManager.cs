@@ -141,7 +141,13 @@ public class QuestManager : MonoBehaviour
     {
         // Reward logic here, e.g., add gold, experience, items to player inventory
         InventoryManager.Instance.AddGold(rewards.gold);
-        Debug.Log($"Granted {rewards.gold} gold and {rewards.experience} XP.");
+        if (rewards.items.Count > 0)
+        {
+            foreach (var item in rewards.items)
+            {
+                InventoryManager.Instance.AddItem(item);
+            }
+        }
 
         // TODO - Wire experience into the course experience progression bar whenever implemented
     }
