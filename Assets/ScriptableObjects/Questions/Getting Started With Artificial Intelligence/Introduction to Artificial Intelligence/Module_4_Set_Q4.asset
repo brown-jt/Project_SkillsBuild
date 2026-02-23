@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Module_4_Set_Q4
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Fill in the blank. Machine learning can analyse _____ data more quickly
+    than a programmable computer can.
+  answers:
+  - supervised
+  - triangulated
+  - dark
+  - structured
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: A distinguishing feature of machine learning is that it can analyse
+    dark data, also known as unstructured data, much more quickly than a programmable
+    computer can.
+  incorrectMessage: A distinguishing feature of machine learning is that it can analyse
+    dark data, also known as unstructured data, much more quickly than a programmable
+    computer can.

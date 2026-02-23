@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Module_6_Set_Q4
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: What do AI researchers call the type of systems likely to emerge by 2050
+    and beyond?
+  answers:
+  - AI for Enterprise
+  - General AI
+  - Broad AI
+  - Universal AI
+  maxSelections: 1
+  correctAnswerIndices: 01000000
+  correctMessage: "AI researchers expect General AI to emerge around 2050. General
+    AI will enable supersmart bots and technologies to link AI with the Internet
+    of Things through \u201Cembodied cognition\u201D."
+  incorrectMessage: "AI researchers expect General AI to emerge around 2050. General
+    AI will enable supersmart bots and technologies to link AI with the Internet
+    of Things through \u201Cembodied cognition\u201D."

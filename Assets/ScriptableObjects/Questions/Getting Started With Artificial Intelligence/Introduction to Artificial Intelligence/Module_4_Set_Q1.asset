@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Module_4_Set_Q1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Why does machine learning find answers in unstructured data more quickly
+    than a programmable computer?
+  answers:
+  - Machine learning analyses every data combination.
+  - Machine learning assembles all the data into a table before calculating.
+  - Machine learning uses the most sophisticated program code.
+  - Machine learning can search every combination of factors very quickly.
+  maxSelections: 1
+  correctAnswerIndices: 03000000
+  correctMessage: Machine learning finds answers faster in unstructured data than
+    a programmable computer can because machine learning can very quickly work through
+    combinations of factors to find the best solution. Programmable computers work
+    best with structured data located in databases.
+  incorrectMessage: Machine learning finds answers faster in unstructured data than
+    a programmable computer can because machine learning can very quickly work through
+    combinations of factors to find the best solution. Programmable computers work
+    best with structured data located in databases.

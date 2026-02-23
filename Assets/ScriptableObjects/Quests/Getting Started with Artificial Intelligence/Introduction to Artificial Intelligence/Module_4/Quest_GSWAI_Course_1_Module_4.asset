@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63ee7723fadd87648a9bcd5b30571939, type: 3}
-  m_Name: Quest_GSWAI_Course_1_Module_2
+  m_Name: Quest_GSWAI_Course_1_Module_4
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questId: GSWAI_Course_1_Module_2
+  questId: GSWAI_Course_1_Module_4
   zoneId: 1
-  title: Introduction to Artificial Intelligence - Module 2
+  title: Introduction to Artificial Intelligence - Module 4
   description: 'The worker has directed me to learn the content here: <link="https://skillsbuild.org/college-students/course-catalog/getting-started-with-artificial-intelligence"><color=#4EA5FF><u>Getting
     Started with Artificial Intelligence</u></color></link> inside the eLearning
     course <i>Introduction to Artificial Intelligence</i> before proceeding with
@@ -25,15 +25,15 @@ MonoBehaviour:
     I should be able to help program the robots with the correct information.'
   objectives:
   - objectiveType: 4
-    taskText: Help install the correct historical information
-    targetId: GSWAI_Course_1_Module_2
+    taskText: Remove robot doubt about machine learning
+    targetId: GSWAI_Course_1_Module_4
     requiredAmount: 1
   rewards:
     gold: 20
     experience: 5
     items: []
   nextQuest: {fileID: 0}
-  startDialog: {fileID: 11400000, guid: 395b7cde7139b104f82a45cd31d28f2c, type: 2}
-  inProgressDialog: {fileID: 11400000, guid: 5ea627250f651c4449e38585c4a27f7c, type: 2}
-  completedDialog: {fileID: 11400000, guid: 22d3af3e89bdf0c41b865f60feed5661, type: 2}
-  questionSet: {fileID: 11400000, guid: b836f0c64d83cf44bb4b7842411b6f38, type: 2}
+  startDialog: {fileID: 11400000, guid: 6274fae3cac3d84409d5c9770c450cc0, type: 2}
+  inProgressDialog: {fileID: 11400000, guid: 9366c4dbd8db1a842af231e429e9ed1c, type: 2}
+  completedDialog: {fileID: 11400000, guid: 90ebddfc2404bf145b63e85d98d1adf7, type: 2}
+  questionSet: {fileID: 11400000, guid: 60f3b5ff22b6532488944afbec5335d4, type: 2}
