@@ -18,7 +18,7 @@ MonoBehaviour:
   - Broad AI
   - Future AI
   - General AI
-  - Narrow A
+  - Narrow AI
   maxSelections: 1
   correctAnswerIndices: 03000000
   correctMessage: "Recommendations are typically made using Narrow AI. Narrow AI
