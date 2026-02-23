@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ee7723fadd87648a9bcd5b30571939, type: 3}
+  m_Name: Quest_GSWAI_Final_Assessment
+  m_EditorClassIdentifier: Assembly-CSharp::QuestData
+  questId: GSWAI_Course_1_Final_Assessment
+  zoneId: 1
+  title: Introduction to Artificial Intelligence - Final Assessment
+  description: 'The worker has directed me to learn the content here: <link="https://skillsbuild.org/college-students/course-catalog/getting-started-with-artificial-intelligence"><color=#4EA5FF><u>Getting
+    Started with Artificial Intelligence</u></color></link> inside the eLearning
+    course <i>Introduction to Artificial Intelligence</i> before proceeding with
+    anything else.
+
+
+    Once done, if I walk up and interact with the terminal,
+    I should be able to help program the robots with the correct information.'
+  objectives:
+  - objectiveType: 4
+    taskText: Summarise all your findings
+    targetId: GSWAI_Course_1_Final_Assessment
+    requiredAmount: 1
+  rewards:
+    gold: 20
+    experience: 5
+    items:
+    - {fileID: 11400000, guid: c93df361852a5154c95793ce68bda90b, type: 2}
+  nextQuest: {fileID: 0}
+  startDialog: {fileID: 11400000, guid: 398ab0e065c75bc4faf04a26602c8340, type: 2}
+  inProgressDialog: {fileID: 11400000, guid: 74254a423dd0f9547bab27fa0d28c435, type: 2}
+  completedDialog: {fileID: 11400000, guid: ec4b7623be68d774c9f5f51150364636, type: 2}
+  questionSet: {fileID: 11400000, guid: 91cb508bc66564d4990961088bd08cff, type: 2}

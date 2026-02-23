@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Question_11
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Which of the following types of data is categorized as qualitative data,
+    and cannot be processed and analysed by conventional data tools and methods?
+  answers:
+  - Unstructured data
+  - Structured data
+  - Semi-structured data
+  - Data in a database
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: Unstructured data, sometimes referred to as dark data, lacks any
+    built-in organization or structure.
+  incorrectMessage: Not quite. Consider what type of data lacks built-in organization.

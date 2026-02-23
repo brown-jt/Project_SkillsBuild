@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Question_7
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Which of the following types of data can be analysed more quickly by
+    machine learning than by a programmable computer?
+  answers:
+  - Structured
+  - Organized
+  - Unstructured
+  - Systematic
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: "Machine learning can analyse unstructured data more quickly than
+    a programmable computer because machine learning doesn\u2019t rely on programming
+    instructions to work with unstructured data."
+  incorrectMessage: " Not quite. Consider the type of data that doesn\u2019t fit
+    neatly into rows and columns."

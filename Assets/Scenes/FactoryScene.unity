@@ -7181,7 +7181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: questChain.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: 'questChain.Array.data[0]'
@@ -7211,6 +7211,10 @@ PrefabInstance:
       propertyPath: 'questChain.Array.data[6]'
       value: 
       objectReference: {fileID: 11400000, guid: 8eed5f77f0906ce4c85aeb3ff4e96925, type: 2}
+    - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
+      propertyPath: 'questChain.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 823ba87fe7a77fa46842249da1dce22e, type: 2}
     - target: {fileID: 8237281633312649024, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6

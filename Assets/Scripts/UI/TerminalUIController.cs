@@ -35,6 +35,7 @@ public class TerminalUIController : MonoBehaviour
 
     private List<int> selectedIndexes;
     private int requiredSelections;
+    private int currentQuestionNumber;
 
     public void QuizStart(string title, string subtitle)
     {
@@ -44,6 +45,7 @@ public class TerminalUIController : MonoBehaviour
         startContents.SetActive(true);
         mainText.text = title;
         subText.text = subtitle;
+        currentQuestionNumber = 1; // Reset question number at start of quiz
     }
 
     public void ShowQuestion(string prompt, List<string> options, int numSelections, System.Action<List<int>> callback)
@@ -55,7 +57,7 @@ public class TerminalUIController : MonoBehaviour
         endContents.SetActive(false);
         questionContents.SetActive(true);
 
-        questionText.text = prompt;
+        questionText.text = $"Q{currentQuestionNumber}) {prompt}";
         onAnswerSelected = callback;
         requiredSelections = numSelections;
 
@@ -134,6 +136,7 @@ public class TerminalUIController : MonoBehaviour
     {
         SetButtonsInteractable(false);
         confirmButton.interactable = false;
+        currentQuestionNumber++;
 
         onAnswerSelected?.Invoke(new List<int>(selectedIndexes));
     }
@@ -165,6 +168,8 @@ public class TerminalUIController : MonoBehaviour
         scoreText.text = message;
 
         retryButton.gameObject.SetActive(!passed);
+
+        currentQuestionNumber = 1; // Reset question number at end of quiz (in case player has to retry)
     }
 
     private void SetButtonsInteractable(bool state)
