@@ -122,9 +122,9 @@ public class Terminal : InteractableItem
 
         QuestionData q = shuffledQuestions[currentQuestionIndex];
 
-        uiController.ShowQuestion(q.question, q.answers, selectedIndex =>
+        uiController.ShowQuestion(q.question, q.answers, q.maxSelections, selectedIndexes =>
         {
-            bool isCorrect = q.correctAnswerIndices.Contains(selectedIndex);
+            bool isCorrect = AreAnswersCorrect(selectedIndexes, q.correctAnswerIndices);
 
             if (isCorrect)
                 correctCount++;
@@ -152,5 +152,15 @@ public class Terminal : InteractableItem
         }
 
         uiController.ShowFinalResult(passed, scoreText);
+    }
+
+    private bool AreAnswersCorrect(List<int> selected, List<int> correct)
+    {
+        // Must select same number of answers
+        if (selected.Count != correct.Count)
+            return false;
+
+        // Compare ignoring order
+        return !selected.Except(correct).Any();
     }
 }
