@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
   m_Name: GSWTIAH_Module_2_Set
   m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
-  moduleName: 'MODULE 1: Threat Hunting'
+  moduleName: 'MODULE 2: Threat Hunting'
   quizId: GSWTIAH_Module_2
-  questions: []
+  questions:
+  - {fileID: 11400000, guid: 76a79be3fb885f547b25e2e74efa711d, type: 2}
+  - {fileID: 11400000, guid: b8b363734c0fcbb40b20e07664634e1b, type: 2}
+  - {fileID: 11400000, guid: d9d6053239238cb4f8bd2f70589baa3b, type: 2}
+  - {fileID: 11400000, guid: 7956052e6b7a6084b975775612a50d24, type: 2}
+  - {fileID: 11400000, guid: de0e8106dd651344db7213a43312d227, type: 2}
+  - {fileID: 11400000, guid: 66752e003df6b4047973d947fe83f264, type: 2}
+  - {fileID: 11400000, guid: 2f9c2343777720a42b8e4a67280179a3, type: 2}
+  - {fileID: 11400000, guid: 4208bd9953be0a1438b05c566449566d, type: 2}
   passPercentage: 0.7

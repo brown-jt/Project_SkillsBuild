@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: GSWTIAH_Module_3_Set
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'MODULE 3: Threat Map Worldwide View with IBM X-Force Exchange'
+  quizId: GSWTIAH_Module_3
+  questions:
+  - {fileID: 11400000, guid: 8d028eab0d8af37409e129ea53309a71, type: 2}
+  - {fileID: 11400000, guid: c0e7f2bd2ebdf8a4f879d36561c01240, type: 2}
+  - {fileID: 11400000, guid: 61ed27c4450067146b4ebbc7260e0246, type: 2}
+  - {fileID: 11400000, guid: 973c93c9ae20e9d449e612698a4fc34d, type: 2}
+  - {fileID: 11400000, guid: 9d092eb2905dcce4c83e644bb129aa36, type: 2}
+  passPercentage: 0.7
