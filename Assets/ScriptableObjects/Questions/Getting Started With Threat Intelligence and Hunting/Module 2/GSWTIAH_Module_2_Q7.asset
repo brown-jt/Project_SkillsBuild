@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWTIAH_Module_2_Q7
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "In cyber resilience the business priority is to support \u201Ccontinuous
+    availability\u201D, the expectation is of always-on systems with zero downtime,
+    and at the same time, our systems are more heterogeneous than ever. Which technologies
+    will be critical to solving this expectation and complexity?"
+  answers:
+  - Artificial Intelligence
+  - Predictive systems
+  - Orchestration as part of a software-defined resiliency story
+  - All of the above
+  maxSelections: 1
+  correctAnswerIndices: 03000000
+  correctMessage: Awesome!
+  incorrectMessage: Not quite there yet!

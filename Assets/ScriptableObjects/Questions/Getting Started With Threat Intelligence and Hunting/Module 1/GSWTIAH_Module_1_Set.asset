@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: GSWTIAH_Module_1_Set
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'MODULE 1: Threat Intelligence'
+  quizId: GSWTIAH_Module_1
+  questions:
+  - {fileID: 11400000, guid: 1440001f9a160dd46a349230e672a061, type: 2}
+  - {fileID: 11400000, guid: 65fc5d4430185784caba54fc380de8c8, type: 2}
+  - {fileID: 11400000, guid: 4d433860d1110b043906fd893c72c8a1, type: 2}
+  - {fileID: 11400000, guid: b07c97651c78dba469a1bf451495b0e2, type: 2}
+  - {fileID: 11400000, guid: ff2e81b15f8c85047ae87477cbda901c, type: 2}
+  - {fileID: 11400000, guid: b5947ac67ea930e41b9b30af2b23189b, type: 2}
+  - {fileID: 11400000, guid: e03e7007c11ee3c408eb81c4726383c8, type: 2}
+  - {fileID: 11400000, guid: 455e18de64be72a4eba8c030c47d1fa0, type: 2}
+  - {fileID: 11400000, guid: b42c3ad1a3f12e04f868dedf46860524, type: 2}
+  passPercentage: 0.7
