@@ -10,6 +10,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private InputActionReference cancelAction;
 
     public InventorySlotUI[] slots;
+    public RectTransform InventoryPanelRect => inventoryPanel.GetComponent<RectTransform>();
 
     private void Awake()
     {
