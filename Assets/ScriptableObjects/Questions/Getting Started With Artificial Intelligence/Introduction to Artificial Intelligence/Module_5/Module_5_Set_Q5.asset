@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Module_5_Set_Q5
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Which method of learning does an AI system use when it uses the process
+    of trial and error?
+  answers:
+  - Supervised learning
+  - Unsupervised learning
+  - Reinforcement learning
+  - Classical conditioning
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: "Reinforcement learning uses trial and error to allow systems to
+    learn. You\u2019ve probably had a similar experience when you win or lose while
+    you learn to play a game."
+  incorrectMessage: "Reinforcement learning uses trial and error to allow systems
+    to learn. You\u2019ve probably had a similar experience when you win or lose
+    while you learn to play a game."

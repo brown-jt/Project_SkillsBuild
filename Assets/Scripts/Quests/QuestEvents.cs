@@ -6,6 +6,7 @@ public static class QuestEvents
     public static Action<string> onBuiltItem;
     public static Action<string> onAreaExplored;
     public static Action<string> onNPCTalked;
+    public static Action<string> onQuizPassed;
 
     public static void ItemFound(string itemId)
     {
@@ -26,4 +27,9 @@ public static class QuestEvents
     {
         onNPCTalked?.Invoke(npcId);
     }
+    public static void QuizPassed(string quizId)
+    {
+        onQuizPassed?.Invoke(quizId);
+    }
+
 }

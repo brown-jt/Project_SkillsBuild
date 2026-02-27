@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: Module_6_Set
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'MODULE 6: How will machine learning transform human life?'
+  quizId: GSWAI_Course_1_Module_6
+  questions:
+  - {fileID: 11400000, guid: f1ef24a66e59ff84589d6c974f2f29fb, type: 2}
+  - {fileID: 11400000, guid: f8bdab2845528c84b8edf58be293095e, type: 2}
+  - {fileID: 11400000, guid: b29a7e05176fa4e4199686bec6d1d27a, type: 2}
+  - {fileID: 11400000, guid: cb84bbe3ca7cc924ebe7c2d36edb9661, type: 2}
+  - {fileID: 11400000, guid: bccf2751ca4680546bf673cbbb4f43e3, type: 2}
+  passPercentage: 0.8

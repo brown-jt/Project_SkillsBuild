@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Question_1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Which of the following describes how machine learning differs from classical
+    systems in structuring unstructured data?
+  answers:
+  - Machine learning relies on deterministic algorithms to process unstructured data.
+  - Machine learning offers probabilistic statements instead of binary decisions.
+  - Machine learning relies on human judgment to structure unstructured data.
+  - Machine learning constructs a predetermined structure of routes based on a database.
+  maxSelections: 1
+  correctAnswerIndices: 01000000
+  correctMessage: "Machine learning is probabilistic. It never says \u201CYES\u201D
+    or \u201CNO\u201D. Machine learning is analogue (like waves gradually going up
+    and down) rather than binary (like a coin flip)."
+  incorrectMessage: Not quite. Consider which of the options is more like waves gradually
+    going up and down than like a coin flip.

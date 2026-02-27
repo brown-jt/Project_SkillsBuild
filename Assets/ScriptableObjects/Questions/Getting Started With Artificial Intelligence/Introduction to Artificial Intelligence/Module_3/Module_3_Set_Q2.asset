@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Module_3_Set_Q2
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Fill in the blank. Data that is not completely raw and contains elements
+    such as tags and organizational metadata is known as _____.
+  answers:
+  - semi-structured data
+  - true data
+  - unstructured data
+  - structured data
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: "Semi-structured data is the \u201Cbridge\u201D between structured
+    and unstructured data. It does not have a predefined data model and is more complex
+    than structured data, yet easier to store than unstructured data. Semi-structured
+    data uses metadata to identify specific data characteristics and scale data into
+    records and preset fields."
+  incorrectMessage: "Semi-structured data is the \u201Cbridge\u201D between structured
+    and unstructured data. It does not have a predefined data model and is more complex
+    than structured data, yet easier to store than unstructured data. Semi-structured
+    data uses metadata to identify specific data characteristics and scale data into
+    records and preset fields."

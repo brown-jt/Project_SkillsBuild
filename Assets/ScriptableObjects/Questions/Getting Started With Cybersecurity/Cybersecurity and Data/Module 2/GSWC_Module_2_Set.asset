@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: GSWC_Module_2_Set
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'MODULE 2: Data Privacy'
+  quizId: GSWC_Course_1_Module_2
+  questions:
+  - {fileID: 11400000, guid: 8674c30e8d3ed004f83de9f8d144d746, type: 2}
+  - {fileID: 11400000, guid: 61bfc1f673b2e1d48950a7c9efedd135, type: 2}
+  - {fileID: 11400000, guid: 84fd3bd0291b3084a8398d8d45546fcb, type: 2}
+  - {fileID: 11400000, guid: 535fc7b17f6b4484fb70a4890b0abc74, type: 2}
+  - {fileID: 11400000, guid: b184f292d7fe58c4186d624b5d63418a, type: 2}
+  passPercentage: 0.8

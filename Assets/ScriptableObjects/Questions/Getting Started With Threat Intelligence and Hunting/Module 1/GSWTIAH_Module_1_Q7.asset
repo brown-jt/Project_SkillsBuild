@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWTIAH_Module_1_Q7
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'Why is it important to create an integrated security domain system?
+
+    [Select
+    Two]'
+  answers:
+  - "Until recently, organizations have responded to security concerns by deploying
+    a new tool to address each new risk. We\u2019ve observed one company was using
+    85 tools from 45 different software vendors! Now they have to install, configure,
+    manage, patch, upgrade, and pay for dozens of non-integrated solutions with limited
+    views of the landscape. "
+  - "Costly and complex fragmented security capabilities provide the visibility and
+    coordination needed to stop today\u2019s sophisticated attacks."
+  - The security portfolio structured around domains presents a less organized fashion
+    to make sense of threats using logs, data, threats, flows, packets, etc.
+  - Because it involves the partner ecosystem that allows collaboration across companies
+    and competitors, to understand global threats and data, and adapt to new threats.
+  - Because the traditional defense strategy is not to layer on another point-product
+    tool or technology to an already fragmented and disjointed IT environment.
+  maxSelections: 1
+  correctAnswerIndices: 0000000003000000
+  correctMessage: You're doing great!
+  incorrectMessage: Almost had it!

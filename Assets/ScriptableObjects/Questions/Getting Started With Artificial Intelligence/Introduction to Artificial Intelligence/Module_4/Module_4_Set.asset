@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: Module_4_Set
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'MODULE 4: Is machine learning the answer to the unstructured data
+    problem'
+  quizId: GSWAI_Course_1_Module_4
+  questions:
+  - {fileID: 11400000, guid: 3360d0f890a85ea41a7d357fa3982606, type: 2}
+  - {fileID: 11400000, guid: 408f6ee44d9bba242ab1faab3cf7dc53, type: 2}
+  - {fileID: 11400000, guid: 850c8a0b3e63adb46a18ac0c416804da, type: 2}
+  - {fileID: 11400000, guid: e1639f79a475f6b4ea0f277c15631163, type: 2}
+  - {fileID: 11400000, guid: 5141a25619da8324591e12313bdfbdf1, type: 2}
+  passPercentage: 0.8

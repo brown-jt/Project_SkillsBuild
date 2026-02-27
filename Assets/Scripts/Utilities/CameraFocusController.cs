@@ -13,13 +13,17 @@ public class CameraFocusController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!isFocusing) return;
+        if (!isFocusing || newParent == null) return;
 
-        // To ensure nothing can mess with the camera's orientation while focused, we lock 
-        // the X rotation to match the new parent (namely FirstPersonController's camera rig)
         Vector3 euler = transform.eulerAngles;
         euler.x = newParent.eulerAngles.x;
         transform.eulerAngles = euler;
+    }
+
+
+    private void Start()
+    {
+        originalParent = transform.parent;
     }
 
     public void FocusOnTerminal(Transform target)
@@ -33,6 +37,8 @@ public class CameraFocusController : MonoBehaviour
     public void ReturnToPlayer()
     {
         if (!isFocusing) return;
+
+        isFocusing = false;
         StartCoroutine(ReturnRoutine());
     }
 
@@ -79,21 +85,21 @@ public class CameraFocusController : MonoBehaviour
 
         float t = 0f;
         Vector3 startPos = transform.position;
+        Vector3 targetPos = originalPos;
+
         Quaternion startRot = transform.rotation;
+        Quaternion targetRot = originalRot;
 
         while (t < 1f)
         {
             t += Time.deltaTime * transitionSpeed;
-            transform.position = Vector3.Lerp(startPos, originalPos, t);
-            transform.rotation = Quaternion.Slerp(startRot, originalRot, t);
+            transform.position = Vector3.Lerp(startPos, targetPos, t);
+            transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
             yield return null;
         }
 
         transform.position = originalPos;
         transform.rotation = originalRot;
         transform.parent = originalParent;
-
-        isFocusing = false;
-        newParent = null;
     }
 }

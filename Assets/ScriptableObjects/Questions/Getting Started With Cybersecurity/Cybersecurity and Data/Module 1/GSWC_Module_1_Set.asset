@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: GSWC_Module_1_Set
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'MODULE 1: Introduction to cybersecurity'
+  quizId: GSWC_Course_1_Module_1
+  questions:
+  - {fileID: 11400000, guid: 5b955d9a28d20f246a6cec33e37878f3, type: 2}
+  - {fileID: 11400000, guid: de1d7e769123e8445bc2ca5b841a9255, type: 2}
+  - {fileID: 11400000, guid: d87c7972cd740a54695850ae3b289a28, type: 2}
+  - {fileID: 11400000, guid: 083431f1b816fce4a9abff470825ba49, type: 2}
+  - {fileID: 11400000, guid: cef18d408357bf243b46c854f678ee8e, type: 2}
+  passPercentage: 0.8

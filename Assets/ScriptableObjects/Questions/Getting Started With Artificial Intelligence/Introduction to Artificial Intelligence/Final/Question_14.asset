@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Question_14
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Which of the following is the level of AI that is more versatile, can
+    handle a wider range of related tasks, and is focused on integrating AI within
+    specific business processes?
+  answers:
+  - General AI
+  - Broad AI
+  - Narrow AI
+  maxSelections: 1
+  correctAnswerIndices: 01000000
+  correctMessage: Broad AI is a midpoint between Narrow AI and General AI and can
+    handle a wider range of related tasks than Narrow AI, while focusing on integrating
+    AI within specific business processes. Broad AI is not able to perform all of
+    the intellectual tasks that humans can.
+  incorrectMessage: Not quite. Consider which level of AI serves as a bridge between
+    more specialized AI systems and the hypothetical, more advanced level that has
+    the ability to do the intellectual tasks that humans can do.

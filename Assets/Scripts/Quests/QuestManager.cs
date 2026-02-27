@@ -29,6 +29,7 @@ public class QuestManager : MonoBehaviour
         QuestEvents.onBuiltItem += HandleBuiltItem;
         QuestEvents.onAreaExplored += HandleAreaExplored;
         QuestEvents.onNPCTalked += HandleNPCTalked;
+        QuestEvents.onQuizPassed += HandleQuizPassed;
     }
 
     private void OnDisable()
@@ -37,6 +38,7 @@ public class QuestManager : MonoBehaviour
         QuestEvents.onBuiltItem -= HandleBuiltItem;
         QuestEvents.onAreaExplored -= HandleAreaExplored;
         QuestEvents.onNPCTalked -= HandleNPCTalked;
+        QuestEvents.onQuizPassed -= HandleQuizPassed;
     }
 
     public QuestInstance GetQuestInstance(QuestData data)
@@ -94,6 +96,12 @@ public class QuestManager : MonoBehaviour
         UpdateObjectives(ObjectiveType.TalkTo, npcId);
     }
 
+    void HandleQuizPassed(string quizId)
+    {
+        Debug.Log($"Handling Quiz passed with ID: {quizId}");
+        UpdateObjectives(ObjectiveType.PassQuiz, quizId);
+    }
+
     void UpdateObjectives(ObjectiveType type, string targetId)
     {
         foreach (var quest in activeQuests)
@@ -133,7 +141,13 @@ public class QuestManager : MonoBehaviour
     {
         // Reward logic here, e.g., add gold, experience, items to player inventory
         InventoryManager.Instance.AddGold(rewards.gold);
-        Debug.Log($"Granted {rewards.gold} gold and {rewards.experience} XP.");
+        if (rewards.items.Count > 0)
+        {
+            foreach (var item in rewards.items)
+            {
+                InventoryManager.Instance.AddItem(item);
+            }
+        }
 
         // TODO - Wire experience into the course experience progression bar whenever implemented
     }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711583a0ee6af3a4e82ca5a97a3dae4e, type: 3}
+  m_Name: GSWAI_Gold_Medal
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemId: GSWAI_Gold_Medal
+  itemName: Gold Medal
+  icon: {fileID: 21300000, guid: 82ac18363a9372d4ea18464c413b077a, type: 3}
+  description: A gold medal awarded for the completion of the IBM Getting Started
+    with Artificial Intelligence eLearning course
+  stackable: 0
+  maxStack: 99
+  prefab: {fileID: 0}

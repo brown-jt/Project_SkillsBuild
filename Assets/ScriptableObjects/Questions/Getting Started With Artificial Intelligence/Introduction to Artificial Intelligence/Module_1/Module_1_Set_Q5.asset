@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Module_1_Set_Q5
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Complete the sentence. _____ performs tasks without human intervention
+    and completes mundane and repetitive tasks for humans, while _____ allows humans
+    to make final decisions after analysing data, reports, and other types of data."
+  answers:
+  - AI, augmented intelligence
+  - Augmented intelligence, Narrow AI
+  - Augmented intelligence, AI
+  - AI, Narrow AI
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: Thinking about the difference between AI and augmented intelligence,
+    AI performs tasks without human intervention and completes mundane and repetitive
+    tasks, while augmented intelligence does not participate in the actual decision
+    making. It allows humans to make the final decisions after they analyse data,
+    reports, and other types of data.
+  incorrectMessage: Thinking about the difference between AI and augmented intelligence,
+    AI performs tasks without human intervention and completes mundane and repetitive
+    tasks, while augmented intelligence does not participate in the actual decision
+    making. It allows humans to make the final decisions after they analyse data,
+    reports, and other types of data.

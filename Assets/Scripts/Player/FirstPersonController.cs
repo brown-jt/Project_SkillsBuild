@@ -22,6 +22,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private PlayerInputHandler playerInputHandler;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject crosshair;
     #endregion
 
     private Vector3 currentMovement;
@@ -196,11 +197,13 @@ public class FirstPersonController : MonoBehaviour
         {
             playerInputHandler.EnablePlayerInput();
             characterController.enabled = true;
+            crosshair.SetActive(true);
         }
         else
         {
             playerInputHandler.DisablePlayerInput();
             characterController.enabled = false;
+            crosshair.SetActive(false);
         }
     }
 
