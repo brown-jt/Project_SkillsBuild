@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
   m_Name: GSWC_Module_1_Q1
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
-  question: 
+  question: True or false? Cybersecurity experts consider hackers bypassing security
+    measures a malicious activity.
   answers:
-  - 
-  - 
-  - 
-  - 
+  - True
+  - False
   maxSelections: 1
-  correctAnswerIndices: 00000000
-  correctMessage: 
-  incorrectMessage: 
+  correctAnswerIndices: 01000000
+  correctMessage: A common misconception is that all hackers are attackers, people
+    who subvert security only for malicious purposes. But hackers hack for various
+    reasons, such as discovering how devices work and testing system security. Today,
+    many hackers are ethical hackers, or offensive security researchers. They work
+    with companies to ensure IT systems are safe and secure.
+  incorrectMessage: A common misconception is that all hackers are attackers, people
+    who subvert security only for malicious purposes. But hackers hack for various
+    reasons, such as discovering how devices work and testing system security. Today,
+    many hackers are ethical hackers, or offensive security researchers. They work
+    with companies to ensure IT systems are safe and secure.

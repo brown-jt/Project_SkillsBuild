@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
-  m_Name: GSWC_Module_1_Q3
+  m_Name: GSWC_Module_2_Q9
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
-  question: 'Which of the three key elements best fits the following statement?
+  question: 'Which of the following data types should the following be sorted into?
 
-    Your
-    workplace provides simple guidelines for protecting wifi-connected devices.'
+    Internal
+    processes'
   answers:
-  - People
-  - Processes
-  - Technology
+  - Public
+  - Proprietary
+  - Personally Indetifiable Information (PII)
+  - Protected Health Information (PHI)
   maxSelections: 1
   correctAnswerIndices: 01000000
   correctMessage: Awesome!

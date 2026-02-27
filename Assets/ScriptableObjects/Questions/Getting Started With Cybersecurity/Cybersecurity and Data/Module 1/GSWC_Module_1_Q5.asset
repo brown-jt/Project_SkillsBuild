@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
   m_Name: GSWC_Module_1_Q5
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
-  question: 
+  question: 'Which of the three key elements best fits the following statement?
+
+    An
+    up-to-date antivirus program is installed on your laptop.'
   answers:
-  - 
-  - 
-  - 
-  - 
+  - People
+  - Processes
+  - Technology
   maxSelections: 1
-  correctAnswerIndices: 00000000
-  correctMessage: 
-  incorrectMessage: 
+  correctAnswerIndices: 02000000
+  correctMessage: Awesome!
+  incorrectMessage: Keep learning you'll get there!

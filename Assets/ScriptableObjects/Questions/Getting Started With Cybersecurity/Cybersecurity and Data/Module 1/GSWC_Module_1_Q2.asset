@@ -12,13 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
   m_Name: GSWC_Module_1_Q2
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
-  question: 
+  question: "You download a game to your computer. But when you open the file, the
+    game doesn\u2019t start. Worse, your computer starts behaving like someone else
+    is controlling it. For example, the cursor moves by itself and clicks items on
+    the screen.\r\nWhat type of malware might be causing these issues?"
   answers:
-  - 
-  - 
-  - 
-  - 
+  - Trojan
+  - Ransomware
+  - Virus
+  - Worm
   maxSelections: 1
   correctAnswerIndices: 00000000
-  correctMessage: 
-  incorrectMessage: 
+  correctMessage: The game file is probably a trojan. A trojan is a seemingly helpful
+    program designed to secretly give attackers access to the device. Attackers disguise
+    trojans as benign programs or files such as games. Once you run the trojan, the
+    attacker can perform malicious actions such as controlling your computer remotely.
+  incorrectMessage: The game file is probably a trojan. A trojan is a seemingly helpful
+    program designed to secretly give attackers access to the device. Attackers disguise
+    trojans as benign programs or files such as games. Once you run the trojan, the
+    attacker can perform malicious actions such as controlling your computer remotely.
