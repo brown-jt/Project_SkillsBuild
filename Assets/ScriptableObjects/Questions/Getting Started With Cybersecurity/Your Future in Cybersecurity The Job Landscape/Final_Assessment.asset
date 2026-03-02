@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: Final_Assessment
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 
+  quizId: GSWC_Course_2_Final_Assessment
+  questions:
+  - {fileID: 11400000, guid: f60522bce5c0faa49b808621595bf2c4, type: 2}
+  - {fileID: 11400000, guid: 1c0d69e2ec0177840b665b0d8e4c14a7, type: 2}
+  - {fileID: 11400000, guid: c381da833e9d19d4c99ed534b4cbbb9d, type: 2}
+  - {fileID: 11400000, guid: 140f471ff1a660f4082579dd40be6f4f, type: 2}
+  - {fileID: 11400000, guid: d855ebc8b2c38e4479a353a357dc308a, type: 2}
+  passPercentage: 0.8

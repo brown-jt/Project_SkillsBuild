@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWD_Course_1_Final_Assessment_Q8
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'BigTech deployed a new mobile app to its customers and as a result has
+    generated much more data about customers than before.
+
+    What characteristic
+    of big data does this scenario describe?'
+  answers:
+  - Veracity
+  - Velocity
+  - Volume
+  - Variety
+  - Value
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: In this scenario, the amount of data has grown in quantity after
+    deploying the new mobile app.
+  incorrectMessage: Not quite. In this scenario, consider how adding another source
+    of data affects the quantity of data.

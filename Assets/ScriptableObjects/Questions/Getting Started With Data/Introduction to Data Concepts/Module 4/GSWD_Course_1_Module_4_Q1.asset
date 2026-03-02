@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWD_Course_1_Module_4_Q1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: In which step did Charles share that he is careful to follow the company
+    guidelines when storing data for security purposes?
+  answers:
+  - Clean
+  - Collect
+  - Analyze
+  - Visualize
+  maxSelections: 1
+  correctAnswerIndices: 01000000
+  correctMessage: "In the Collect step to analyze data, it\u2019s important to collect
+    the right data from existing and new sources that is needed to answer the business
+    question and securely store it according to proper business practices."
+  incorrectMessage: "In the Collect step to analyze data, it\u2019s important to
+    collect the right data from existing and new sources that is needed to answer
+    the business question and securely store it according to proper business practices."

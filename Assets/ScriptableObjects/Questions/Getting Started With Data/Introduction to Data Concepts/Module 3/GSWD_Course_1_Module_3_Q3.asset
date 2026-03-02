@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWD_Course_1_Module_3_Q3
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Which type of analytics drills down the trends and patterns to identify
+    the causes of problems?
+  answers:
+  - Diagnostic analytics
+  - Descriptive analytics
+  - Prescriptive analytics
+  - Predictive analytics
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: "This is diagnostic analytics to answer the question, \u201CWhy
+    is it happening?\u201D"
+  incorrectMessage: "This is diagnostic analytics to answer the question, \u201CWhy
+    is it happening?\u201D"

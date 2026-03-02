@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Q2
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "Byteware Solutions is a small tech startup that recently experienced
+    a data breach. After resolving the incident, the company\u2019s cybersecurity
+    expert runs vulnerability scans to check for any remaining vulnerabilities. But
+    for extra assurance, the company hires Mateus, an outside cybersecurity consultant.
+    Mateus uses real hacking techniques to test system and network security. He discovers
+    several vulnerabilities that the vulnerability scans missed and reports his findings.\r\nWhich
+    cybersecurity role does Mateus have in this scenario?"
+  answers:
+  - 'Malware analyst  '
+  - 'Network security architect  '
+  - 'Penetration tester  '
+  - 'Digital forensics investigator   '
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: "In this scenario, Mateus is a penetration tester or pen tester.
+    A pen tester simulates real hacking techniques to find vulnerabilities in an
+    organization\u2019s digital systems that attackers can exploit. Often, they uncover
+    vulnerabilities missed by vulnerability scans and other assessments. After pen
+    testing is complete, they report their findings to the organization."
+  incorrectMessage: "Not quite. Consider which cybersecurity role involves simulating
+    real hacking techniques to find vulnerabilities in an organization\u2019s digital
+    systems."

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWD_Course_1_Module_2_Q2
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Fill in the blank. The _____ of big data refers to the ability to obtain
+    monetary, medical, social, or personal benefits from the data.
+  answers:
+  - Volume
+  - Velocity
+  - Value
+  - Veracity
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: Value refers to the ability to turn data into value. Having access
+    to big data is pointless unless you can turn it into value. Value can be profit.
+    It can also be medical or social benefits, or customer, employee, or personal
+    satisfaction.
+  incorrectMessage: Value refers to the ability to turn data into value. Having access
+    to big data is pointless unless you can turn it into value. Value can be profit.
+    It can also be medical or social benefits, or customer, employee, or personal
+    satisfaction.

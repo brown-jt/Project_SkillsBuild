@@ -15,9 +15,16 @@ MonoBehaviour:
   moduleName: 'MODULE 2: Data Privacy'
   quizId: GSWC_Course_1_Module_2
   questions:
-  - {fileID: 11400000, guid: 8674c30e8d3ed004f83de9f8d144d746, type: 2}
-  - {fileID: 11400000, guid: 61bfc1f673b2e1d48950a7c9efedd135, type: 2}
   - {fileID: 11400000, guid: 84fd3bd0291b3084a8398d8d45546fcb, type: 2}
-  - {fileID: 11400000, guid: 535fc7b17f6b4484fb70a4890b0abc74, type: 2}
-  - {fileID: 11400000, guid: b184f292d7fe58c4186d624b5d63418a, type: 2}
-  passPercentage: 0.8
+  - {fileID: 11400000, guid: 282e7e0d7f06ade478878b3ca6ddaa75, type: 2}
+  - {fileID: 11400000, guid: 9a8078ad0f311d742958acc648400612, type: 2}
+  - {fileID: 11400000, guid: dee8743afeb807e4ab26bc33b212ec40, type: 2}
+  - {fileID: 11400000, guid: 5f04261db9beb3748b02a6ecb48f06f3, type: 2}
+  - {fileID: 11400000, guid: 43d83c37349e084478f0f8e9e9e57263, type: 2}
+  - {fileID: 11400000, guid: fe31d1235987c5a44939745575ba1ec1, type: 2}
+  - {fileID: 11400000, guid: 6a0fc7e217dabe845baf7d2d8aef60b7, type: 2}
+  - {fileID: 11400000, guid: 5082e2e70449f4448adb15821b854357, type: 2}
+  - {fileID: 11400000, guid: f051fb4f95c9a224a90000977316c6ce, type: 2}
+  - {fileID: 11400000, guid: 38e01167cd923ae45a755bbcc59a7069, type: 2}
+  - {fileID: 11400000, guid: 02783b8bec179a44d87c4acba40958ec, type: 2}
+  passPercentage: 0

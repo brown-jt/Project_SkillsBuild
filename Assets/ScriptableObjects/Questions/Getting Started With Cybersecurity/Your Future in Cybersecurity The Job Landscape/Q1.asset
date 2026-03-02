@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Q1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "Thembi designs, maintains, and builds her organization\u2019s cybersecurity
+    architecture. She monitors systems and networks for unusual activities and investigates
+    any that she discovers. She also tests system and network security regularly
+    to find any vulnerabilities.\r\nWhich cybersecurity role does Thembi serve in
+    her organization?"
+  answers:
+  - Cybersecurity engineer
+  - Digital forensics investigator
+  - Penetration tester
+  - Security software developer
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: "In this scenario, Thembi is a cybersecurity engineer. A cybersecurity
+    engineer\u2019s primary responsibility is to design, build, and maintain security
+    architectures to protect sensitive information from cyberthreats. They constantly
+    monitor the infrastructure for unusual activities and investigate security breaches.
+    They also conduct routine testing and simulations to identify and mitigate any
+    vulnerabilities."
+  incorrectMessage: Not quite. Consider which cybersecurity role involves designing,
+    building, and maintaining security architectures to protect sensitive information
+    from cyberthreats.
