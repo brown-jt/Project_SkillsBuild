@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Lesson_1_Q3
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'Saeeda is leading a team building a generative AI model for a healthcare
+    project. The team wants the AI model to eventually generate realistic patient
+    case notes for training medical students.
+
+    What occurs in the first step
+    of the generative AI process?'
+  answers:
+  - AI analyzes this data, looking for patterns and relationships between the different
+    pieces of information.
+  - AI is fed a large amount of data. This could be anything from images and sounds
+    to text and numbers.
+  - AI uses what it has learned to create something new. The neural network generates
+    new outputs by inputting a random seed value.
+  maxSelections: 1
+  correctAnswerIndices: 01000000
+  correctMessage: Generative AI must be trained on large datasets before it can create
+    new outputs.
+  incorrectMessage: Not quite. Consider that without processing the inputs, the AI
+    cannot produce accurate or relevant content.

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Final_Assessment_Q1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'A product development team is struggling to analyze thousands of customer
+    feedback entries to identify recurring issues and feature requests, so they turn
+    to generative AI to automatically summarize and categorize the data.
+
+    What
+    generative AI task is the team performing?'
+  answers:
+  - Problem solving
+  - Content creation
+  - Idea generation
+  - Personalization
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: The team is using generative AI to solve a problem that involves
+    patterns.
+  incorrectMessage: Not quite. Consider that the team is having difficulty with this
+    task.

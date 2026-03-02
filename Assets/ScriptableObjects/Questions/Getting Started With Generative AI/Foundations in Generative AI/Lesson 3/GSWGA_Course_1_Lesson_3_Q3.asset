@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Lesson_3_Q3
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'The instructional design team uses AI to update course materials, tailoring
+    them to learner groups, including entry-level professionals and multilingual
+    speakers.
+
+    Which generative AI task is the team performing?'
+  answers:
+  - Content creation
+  - Problem solving
+  - Idea generation
+  - Personalization
+  maxSelections: 1
+  correctAnswerIndices: 03000000
+  correctMessage: This example illustrates how generative AI can tailor content to
+    meet the different needs of various audiences.
+  incorrectMessage: Not quite. Consider which generative AI task customizes content
+    for different audiences and their respective needs.

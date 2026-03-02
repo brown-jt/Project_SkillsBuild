@@ -12,7 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
   m_Name: GSWD_Course_1_Final_Assessment_Set
   m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
-  moduleName: 
+  moduleName: Getting Started with Data - Final Assessment
   quizId: GSWD_Course_1_Final_Assessment
-  questions: []
+  questions:
+  - {fileID: 11400000, guid: 153c7bba5618a24449cdaee82694708f, type: 2}
+  - {fileID: 11400000, guid: 94bea1492fdb5314f92a69566921c84a, type: 2}
+  - {fileID: 11400000, guid: f1eb1a45f4e8f9b45a272fc1b37e930e, type: 2}
+  - {fileID: 11400000, guid: b8dd00b511b15a94c988e74ca534ab39, type: 2}
+  - {fileID: 11400000, guid: 90d9f6e7810b0a0419fd09924d851f0f, type: 2}
+  - {fileID: 11400000, guid: 46aa75e6ab459e040a8758735ef400a3, type: 2}
+  - {fileID: 11400000, guid: ccc510e6a03f7d44d8a6d05959bf78d1, type: 2}
+  - {fileID: 11400000, guid: f077a245d5a651540b39dedd71ef2a0a, type: 2}
+  - {fileID: 11400000, guid: b52c552d60ecab44d8045fac90a2afa6, type: 2}
+  - {fileID: 11400000, guid: 92badb31c90296d46bb7f46574a31195, type: 2}
+  - {fileID: 11400000, guid: f99b0f059d9accb4894e01e6ed09cc1b, type: 2}
+  - {fileID: 11400000, guid: e4a2031333e848346a9f29766ae4664f, type: 2}
+  - {fileID: 11400000, guid: f842578dd5a26a94492837c3d740d530, type: 2}
+  - {fileID: 11400000, guid: fa48a9835346ce34aa8b5b1c2e43a420, type: 2}
+  - {fileID: 11400000, guid: 184f2b3b441b0b845a44b61555b5e897, type: 2}
   passPercentage: 0.8

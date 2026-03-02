@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Final_Assessment_Q3
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "Ekon needs a brief summary of the key points in a blog post he is writing.
+    He prompts, \u201CSummarize this blog post.\u201D Although the output is brief,
+    he wants it provided as a list of bullets.\r\nWhat is the best refinement technique
+    Ekon can apply to the prompt to generate the output he wants?"
+  answers:
+  - Adding a constraint related to the tone of the response
+  - Adding the role the AI should take and expertise that should be used
+  - Adding the format the output should take
+  - Adding background information to contextualize the request
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: Refining prompts by specifying the output, such as format or structure,
+    helps generative AI create appropriate responses.
+  incorrectMessage: Not quite. Consider what refinement helps the AI tool structure
+    the output.

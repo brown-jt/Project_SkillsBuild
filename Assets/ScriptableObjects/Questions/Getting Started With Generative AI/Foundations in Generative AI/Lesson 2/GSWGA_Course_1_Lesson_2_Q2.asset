@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Lesson_2_Q2
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: What step in the process involves the LLM forecasting based on the prompt,
+    its training data, and the statistical patterns it has learned?
+  answers:
+  - Input prompt
+  - Tokenization
+  - Contextual understanding
+  - Prediction
+  - Output generation
+  maxSelections: 1
+  correctAnswerIndices: 03000000
+  correctMessage: The model predicts the next most likely token, one token at a time,
+    rapidly chaining them together.
+  incorrectMessage: Not quite. Consider that the prompt can forecast after analysis.

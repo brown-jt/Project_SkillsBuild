@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Final_Assessment_Q6
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "Freyja uses a generative AI tool to draft marketing content, prompting
+    it to \u201CWrite a short description of ABC smartwatch.\u201D She's dissatisfied
+    with the result because it lacks details relevant to the target audience.\r\nWhat
+    is the best refinement technique Freyja can apply to the prompt to generate the
+    output she wants?"
+  answers:
+  - Adding the role the AI should take and expertise that should be used
+  - Adding the format the output should take
+  - Adding background information to contextualize the request
+  - Adding a constraint limiting the length of the response
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: Refining prompts by adding the role AI should take enables AI to
+    generate responses that are appropriate for the audience.
+  incorrectMessage: Not quite. Consider what refinement helps the AI tool create
+    content relevant to this customer.

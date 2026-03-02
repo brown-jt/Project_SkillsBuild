@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Lesson_4_Q2
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "Sara has been asked to create three slides that provide an overview
+    of the previous quarter\u2019s financial results, which will be included in an
+    executive presentation. She enters the prompt, \u201CCreate a PowerPoint presentation
+    with financial results of the previous quarter.\u201D The AI tool responds with
+    a 15-page, detailed presentation. \r\nWhat is the best refinement Sara can apply
+    to the prompt to generate what she needs? "
+  answers:
+  - 'Adding a constraint setting a limit to the length of the presentation '
+  - 'Adding information about how the output should be structured '
+  - 'Adding more information about task  '
+  - 'Adding the role the AI should take and expertise that should be used '
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: 'Because this task is complex, adding more detail, such as the
+    level of detail and number of slides needed, should enable the AI tool to generate
+    a response that Sara needs.  '
+  incorrectMessage: 'Not quite. Consider the complexity of the output Sara needs
+    the AI tool to generate for her. '

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Lesson_3_Q4
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'The technical support team uses AI to compose responses to common e-learning
+    platform issues, facilitating prompt replies while maintaining a consistent tone
+    across all support agents.
+
+    Which generative AI task is the team performing?'
+  answers:
+  - Content creation
+  - Problem solving
+  - Idea generation
+  - Personalization
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: This example demonstrates that AI can generate new content by using
+    patterns learned from a context description.
+  incorrectMessage: Not quite. Consider which generative AI task produces original
+    materials, such as text, images, or designs.
