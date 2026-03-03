@@ -17,13 +17,13 @@ MonoBehaviour:
     is provided in paragraph form.   \r\nWhat refinement technique should Anya apply
     to the prompt to generate the output she wants? "
   answers:
-  - Adding background information
-  - Adding a constraint limiting the length of the response
   - Adding the role the AI should take and expertise that should be used
+  - Adding a constraint limiting the length of the response
   - Adding the format the output should take
+  - Adding information about the tone wanted in the response
   maxSelections: 1
   correctAnswerIndices: 02000000
   correctMessage: 'Refining prompts by adding an explanation of the output wanted
     enables AI to generate responses that are correctly formatted.  '
-  incorrectMessage: 'Not quite. Consider the prompt refinement that would structure
-    the response.  '
+  incorrectMessage: 'Not quite. Consider the prompt refinement that would make the
+    response appropriate for the audience. '

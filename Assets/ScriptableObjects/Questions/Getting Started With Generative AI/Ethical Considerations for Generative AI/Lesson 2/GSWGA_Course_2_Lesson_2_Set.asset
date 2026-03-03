@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: GSWGA_Course_2_Lesson_2_Set
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'LESSON 2: Managing the ethics of AI inputs for data'
+  quizId: GSWGA_Course_2_Lesson_2
+  questions:
+  - {fileID: 11400000, guid: 013f810db41117542aaae3b51dddc718, type: 2}
+  - {fileID: 11400000, guid: a319d7220067eae47b5808b7059ed5d5, type: 2}
+  - {fileID: 11400000, guid: 05ef54e477685914cba7e849f4ee88b0, type: 2}
+  - {fileID: 11400000, guid: 6d2f0e8e8d585694599f5c83c5b7728f, type: 2}
+  - {fileID: 11400000, guid: a0cac7e8006d5994f98241cee530a2ce, type: 2}
+  - {fileID: 11400000, guid: bf468da67cd7f7f4cbc6dc32c66f9753, type: 2}
+  passPercentage: 0

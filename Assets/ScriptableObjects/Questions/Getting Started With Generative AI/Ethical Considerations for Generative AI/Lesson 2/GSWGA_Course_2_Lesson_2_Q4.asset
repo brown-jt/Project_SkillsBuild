@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_2_Lesson_2_Q4
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'Choose the ethical consideration or risk the following scenario best
+    demonstrates.
+
+    A company encrypts customer data used for AI training to prevent
+    unauthorized access and breaches.
+
+'
+  answers:
+  - Data privacy and confidentiality
+  - Fairness
+  - Compliance with data usage rights
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: Protecting sensitive information and proper safeguards, such as
+    anonymization and encryption, are key aspects of data privacy and confidentiality.
+  incorrectMessage: Not quite. Consider which ethical area focuses on securing and
+    protecting personal data from exposure.

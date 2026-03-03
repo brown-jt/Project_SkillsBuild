@@ -25,5 +25,5 @@ MonoBehaviour:
   correctAnswerIndices: 02000000
   correctMessage: Refining prompts by adding the role AI should take enables AI to
     generate responses that are appropriate for the audience.
-  incorrectMessage: Not quite. Consider the prompt refinement that would make the
-    response appropriate for the audience.
+  incorrectMessage: Not quite. Consider the prompt refinement that would structure
+    the response.

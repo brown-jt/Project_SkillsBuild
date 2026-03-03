@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_3_Lesson_1_Q1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'Which LLM use case best fits the following scenario?
+
+    A company
+    wants to handle customer inquiries 24x7, allowing users to ask questions about
+    product availability and returns, and get personalized recommendations in their
+    preferred language.'
+  answers:
+  - Virtual assistants
+  - Sentiment analysis
+  - Personalization
+  - Question answering
+  - Code generation and explanation
+  - Text extraction and analysis
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: LLM-powered virtual assistants enable round-the-clock customer
+    support, improving customer satisfaction and engagement.
+  incorrectMessage: Not quite. Consider which use case involves automating customer
+    interactions with AI-driven responses.

@@ -16,8 +16,8 @@ MonoBehaviour:
     short video scripts. His team collects and inputs hundreds of sample scripts,
     images, and audio clips into the AI tool.
 
-    What is the next step of the
-    generative AI process?'
+    What is the next step of the generative
+    AI process?'
   answers:
   - AI analyzes this data, looking for patterns and relationships between the different
     pieces of information.
@@ -30,5 +30,5 @@ MonoBehaviour:
   correctMessage: AI identifies patterns and connections in the data. The neural
     network is trained on examples of the type of output it should produce, such
     as text or images.
-  incorrectMessage: Not quite. Consider that AI cannot generate meaningful outputs
-    without being trained.
+  incorrectMessage: Not quite. Consider that without processing the inputs, the AI
+    cannot produce accurate or relevant content.

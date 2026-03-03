@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_2_Lesson_1_Q1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'Choose the ethical pillar the following scenario best demonstrates.
+
+    An
+    AI-powered hiring platform is designed to include diverse demographics in its
+    training data, reducing biases in job recommendations.'
+  answers:
+  - Transparency
+  - Accountability
+  - Fairness
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: Fairness emphasizes minimizing bias, promoting inclusivity and
+    equitable treatment across groups.
+  incorrectMessage: Not quite. Consider which ethical consideration focuses on reducing
+    bias and promoting equitable outcomes in AI tools.

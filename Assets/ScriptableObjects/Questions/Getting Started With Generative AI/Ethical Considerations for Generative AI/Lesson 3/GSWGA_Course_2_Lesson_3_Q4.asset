@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_2_Lesson_3_Q4
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'What ethical implication does the following scenario best explain?
+
+    A
+    company implements filters to block AI-generated outputs that include offensive
+    language or hate speech.'
+  answers:
+  - Transparency
+  - Accountability
+  - Managing bias
+  - Respecting intellectual property and privacy
+  - Preventing harmful and inaccurate content
+  maxSelections: 1
+  correctAnswerIndices: 04000000
+  correctMessage: Preventing harmful and inaccurate content promotes AI-generated
+    material that is safe, reliable, and does not mislead or harm users.
+  incorrectMessage: Not quite. Consider which concept explains how AI-generated content
+    can be monitored and adjusted to prevent misinformation and offensive outputs.

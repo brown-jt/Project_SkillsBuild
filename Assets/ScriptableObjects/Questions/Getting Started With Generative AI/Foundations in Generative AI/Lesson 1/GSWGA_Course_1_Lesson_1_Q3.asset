@@ -29,5 +29,5 @@ MonoBehaviour:
   correctAnswerIndices: 01000000
   correctMessage: Generative AI must be trained on large datasets before it can create
     new outputs.
-  incorrectMessage: Not quite. Consider that without processing the inputs, the AI
-    cannot produce accurate or relevant content.
+  incorrectMessage: Not quite. Consider that AI cannot generate meaningful outputs
+    without being trained.

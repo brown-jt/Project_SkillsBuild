@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: GSWGA_Course_2_Lesson_1_Set
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'LESSON 1: Ethics in the use of Generative AI'
+  quizId: GSWGA_Course_2_Lesson_1
+  questions:
+  - {fileID: 11400000, guid: f1a169b050f1f4e43afa358cc2021488, type: 2}
+  - {fileID: 11400000, guid: aca6c67adfc4d1644ac4350f7da392ba, type: 2}
+  - {fileID: 11400000, guid: c6b54c0d8b93e6945bfb7bfd8a2c2acc, type: 2}
+  - {fileID: 11400000, guid: 5d51d464ba776a44aae2df769dc18294, type: 2}
+  - {fileID: 11400000, guid: 07c2e8af1f4f56b4fb57b267bbc76f1c, type: 2}
+  - {fileID: 11400000, guid: f559adc8bce1b9e458bc52c01f87c05d, type: 2}
+  passPercentage: 0
