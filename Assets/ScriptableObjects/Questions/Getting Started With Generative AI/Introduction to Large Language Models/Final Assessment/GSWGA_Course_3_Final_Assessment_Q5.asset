@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
   m_Name: GSWGA_Course_3_Final_Assessment_Q5
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
-  question: 
+  question: 'A product team asks the LLM to classify customer reviews as positive
+    or negative but finds that the model misclassifies certain reviews. They later
+    realize their prompt provided no examples of positive or negative classifications.
+
+    Which
+    prompting technique would best resolve this issue?'
   answers:
-  - 
-  - 
-  - 
-  - 
+  - Use simple and direct language
+  - Define the task clearly
+  - Include examples
+  - Be specific
   maxSelections: 1
-  correctAnswerIndices: 00000000
-  correctMessage: 
-  incorrectMessage: 
+  correctAnswerIndices: 02000000
+  correctMessage: Providing examples helps guide the LLM toward consistent and accurate
+    classifications.
+  incorrectMessage: Not quite. Consider which technique helps clarify expectations
+    by illustrating desired outputs with examples.

@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
   moduleName: Introduction to Large Language Models - Final Assessment
   quizId: GSWGA_Course_3_Final_Assessment
-  questions: []
+  questions:
+  - {fileID: 11400000, guid: c6bc1026228e460409516bb7e466a619, type: 2}
+  - {fileID: 11400000, guid: aabc19c99b2ef154fb3d62daba67eac0, type: 2}
+  - {fileID: 11400000, guid: fc7463601e501bf4d90c8fcf68b0a767, type: 2}
+  - {fileID: 11400000, guid: ef7f5a34e206af64bbff3afca2c71730, type: 2}
+  - {fileID: 11400000, guid: 64dd879d1eb2e2b4e94ae3a2c33e9d37, type: 2}
   passPercentage: 0.8

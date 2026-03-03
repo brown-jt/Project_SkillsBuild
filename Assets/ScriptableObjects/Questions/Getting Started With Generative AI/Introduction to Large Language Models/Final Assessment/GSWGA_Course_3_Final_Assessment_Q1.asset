@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
   m_Name: GSWGA_Course_3_Final_Assessment_Q1
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
-  question: 
+  question: 'An e-commerce company wants to provide personalized shopping experiences
+    for its customers by offering product recommendations based on individual preferences
+    and purchase history.
+
+    Which use case for large language models applies
+    to this scenario?'
   answers:
-  - 
-  - 
-  - 
-  - 
+  - Personalization
+  - Sentiment analysis
+  - Virtual assistants
+  - Text extraction and analysis
   maxSelections: 1
   correctAnswerIndices: 00000000
-  correctMessage: 
-  incorrectMessage: 
+  correctMessage: Personalization uses LLMs to analyze user behavior and deliver
+    tailored recommendations, creating unique experiences for individual users.
+  incorrectMessage: Not quite. Consider which use case focuses on delivering tailored
+    experiences based on user preferences and behavior.

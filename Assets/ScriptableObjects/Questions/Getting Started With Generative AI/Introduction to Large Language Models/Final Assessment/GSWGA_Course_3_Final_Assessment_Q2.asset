@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
   m_Name: GSWGA_Course_3_Final_Assessment_Q2
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
-  question: 
+  question: 'A global e-commerce company needs to analyze customer reviews to identify
+    trends and provide summarized insights that improve their marketing strategies.
+
+    Which
+    IBM Granite model should the company use to complete this task?'
   answers:
-  - 
-  - 
-  - 
-  - 
+  - Granite Guardian
+  - Granite Instruct
+  - Granite Code
+  - Granite Multilingual
   maxSelections: 1
-  correctAnswerIndices: 00000000
-  correctMessage: 
-  incorrectMessage: 
+  correctAnswerIndices: 01000000
+  correctMessage: Granite Instruct is designed for natural language tasks such as
+    analyzing text and summarizing insights, making it the ideal choice for this
+    task.
+  incorrectMessage: Not quite. Consider which model aligns best with analysis of
+    reviews and identifying trends.
