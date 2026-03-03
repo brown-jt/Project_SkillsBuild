@@ -20,4 +20,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d87c7972cd740a54695850ae3b289a28, type: 2}
   - {fileID: 11400000, guid: 083431f1b816fce4a9abff470825ba49, type: 2}
   - {fileID: 11400000, guid: cef18d408357bf243b46c854f678ee8e, type: 2}
-  passPercentage: 0.8
+  passPercentage: 0

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: GSWGA_Course_1_Final_Assessment
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: Foundations in Generative AI - Final Assessment
+  quizId: GSWGA_Course_1_Final_Assessment
+  questions:
+  - {fileID: 11400000, guid: 96160cdc1153f6a47a98956cea11a1d8, type: 2}
+  - {fileID: 11400000, guid: b71ea09c17f5d8045aa0a81010be46cb, type: 2}
+  - {fileID: 11400000, guid: 33acf75ad801f314eba7a9b95d29877e, type: 2}
+  - {fileID: 11400000, guid: 256087a7aa7e2404a86463e6be297448, type: 2}
+  - {fileID: 11400000, guid: 6330220fb9c94e44ba55b9fa0165e1b7, type: 2}
+  - {fileID: 11400000, guid: be29299f1d2b3504eba0583ed27c590b, type: 2}
+  - {fileID: 11400000, guid: 824a2b927d0e71d4a8e36fb2766bca34, type: 2}
+  - {fileID: 11400000, guid: 628b6d7e32858a54ab7ebbb297a53d48, type: 2}
+  - {fileID: 11400000, guid: 969e6c8cd8d4b584aa994fa09521024f, type: 2}
+  - {fileID: 11400000, guid: 92bee2a6f91e00843b524fb75988ab40, type: 2}
+  passPercentage: 0.8

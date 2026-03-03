@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_2_Final_Assessment_Q3
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'An AI-powered hiring tool is designed to screen job applicants based
+    on previous successful hires. However, the AI tool favors candidates similar
+    to past hires because it was trained on past hiring patterns that lacked diversity.
+
+    What
+    ethical risk does this scenario highlight?'
+  answers:
+  - Privacy violation
+  - Misuse of personal data
+  - Lack of fairness
+  - Limited data security
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: 'AI tools must use diverse training data to prevent biased outcomes. '
+  incorrectMessage: Not quite. Consider how the AI tool's training data influences
+    its hiring recommendations.

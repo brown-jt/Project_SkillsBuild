@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Lesson_3_Q2
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'The customer support team uses AI to identify different reasons why
+    learners are dropping out midway through courses. The AI also suggests ideas
+    to reduce drop-off.
+
+    Which generative AI task is the team performing?'
+  answers:
+  - Content creation
+  - Problem solving
+  - Idea generation
+  - Personalization
+  maxSelections: 1
+  correctAnswerIndices: 01000000
+  correctMessage: This example illustrates how generative AI identifies several possible
+    root causes and solutions for a problem.
+  incorrectMessage: Not quite. Consider which generative AI task suggests different
+    ways to answer a question or work out an issue.

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Lesson_2_Q1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "What step in the process involves breaking the prompt into small units
+    such as \u201Ccatchy\u201D, \u201Ctagline\u201D, \u201Ceco-friendly\u201D, and
+    \u201Ccampaign\u201D?"
+  answers:
+  - Input prompt
+  - Tokenization
+  - Contextual understanding
+  - Prediction
+  - Output generation
+  maxSelections: 1
+  correctAnswerIndices: 01000000
+  correctMessage: The prompt is broken down into tokens, or small units, to help
+    the model interpret and process the input.
+  incorrectMessage: Not quite. Consider that the prompt is being prepared for analysis.

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: GSWGA_Course_2_Final_Assessment
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: Ethical Considerations for Generative AI - Final Assessment
+  quizId: GSWGA_Course_2_Final_Assessment
+  questions:
+  - {fileID: 11400000, guid: 461f5eef25aa81647a05808c1cdb3d8a, type: 2}
+  - {fileID: 11400000, guid: 3a0bfd47c9d5ae149adffcad76babe06, type: 2}
+  - {fileID: 11400000, guid: 3ebbb707bed9af743826d05d171c162a, type: 2}
+  - {fileID: 11400000, guid: 7e9e8aeb1d9175f49a8b414af16a7e9e, type: 2}
+  - {fileID: 11400000, guid: 4059473f97ed3e54eb213bba1994d9a3, type: 2}
+  passPercentage: 0.8

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWD_Course_1_Final_Assessment_Q14
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: Which of the following statements about the importance of data in our
+    world is NOT correct?
+  answers:
+  - Data is one of the most valuable assets organizations can have, whether it's
+    in business, finance, healthcare, retail, technology, or marketing, and more.
+  - Nonprofit organizations, governments, and academic institutions cannot use data
+    that can help solve challenges faced by the people they serve.
+  - Data insights can help drive the business forward for success by potentially
+    cutting costs, increasing profits, and finding new innovations.
+  maxSelections: 1
+  correctAnswerIndices: 01000000
+  correctMessage: Data has the potential to help all organizations solve problems,
+    whether they are for profit or not.
+  incorrectMessage: Not quite. Consider that data has potential value to all organizations.

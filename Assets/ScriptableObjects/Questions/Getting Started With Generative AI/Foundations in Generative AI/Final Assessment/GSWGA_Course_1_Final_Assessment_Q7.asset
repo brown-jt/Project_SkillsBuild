@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Final_Assessment_Q7
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "Lorenzo asks an LLM to help him draft a professional email to his manager.
+    He types, \u201CWrite a polite email requesting a one-on-one meeting with my
+    manager next week.\u201D The system analyzes his request, interprets the tone,
+    and generates a clear, formal draft email.\r\nWhich step of the LLM process is
+    happening when the system determines Lorezo\u2019s intent and tone?"
+  answers:
+  - Tokenization
+  - Prediction
+  - Contextual understanding
+  - Output generation
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: The model is contextually understanding the prompt, interpreting
+    tone, grammar, and meaning.
+  incorrectMessage: Not quite. Consider the step where the LLM examines how words
+    relate to each other rather than just individual words.

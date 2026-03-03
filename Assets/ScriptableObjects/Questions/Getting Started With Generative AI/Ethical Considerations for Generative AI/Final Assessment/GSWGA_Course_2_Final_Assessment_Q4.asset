@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_2_Final_Assessment_Q4
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'A company launches an AI-powered resume screening tool to help with
+    hiring. However, the tool consistently favors candidates from certain universities,
+    despite efforts to provide balanced training data.
+
+    What ethical concept
+    is most relevant in addressing this issue?'
+  answers:
+  - Managing bias
+  - Providing transparency
+  - Protecting intellectual property
+  - 'Safeguarding privacy  '
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: Managing bias involves identifying and mitigating unfair treatment
+    in AI decisions, such as biased hiring recommendations.
+  incorrectMessage: Not quite. Consider which concept focuses on checking that AI-generated
+    decisions do not favor certain groups unfairly.

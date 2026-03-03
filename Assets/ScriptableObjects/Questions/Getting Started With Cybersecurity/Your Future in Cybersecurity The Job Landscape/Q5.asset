@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: Q5
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'Emma is a cybersecurity professional at an international organization.
+    Throughout a typical day, Emma uses various baseline cybersecurity skills, including
+    security assurance.
+
+    Which of the following tasks relates to security assurance?'
+  answers:
+  - Confirming the identity of someone trying to access protected data
+  - Encoding sensitive data that her department shares with others
+  - Identifying and analyzing potential threats to computer systems
+  - Verifying that the firewall protects the network effectively
+  maxSelections: 1
+  correctAnswerIndices: 03000000
+  correctMessage: Security assurance involves verifying that security controls effectively
+    protect networks and devices from threats. In this scenario, Emma might use her
+    security assurance skills to verify that the firewall functions appropriately
+    to protect the network.
+  incorrectMessage: Not quite. Consider which baseline skill involves determining
+    whether networks and devices have adequate protection from threats.

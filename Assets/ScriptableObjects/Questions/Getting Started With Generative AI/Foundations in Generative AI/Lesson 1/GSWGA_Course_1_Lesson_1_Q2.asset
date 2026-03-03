@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Lesson_1_Q2
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'Karan works for a media company that wants to use generative AI to create
+    short video scripts. His team collects and inputs hundreds of sample scripts,
+    images, and audio clips into the AI tool.
+
+    What is the next step of the generative
+    AI process?'
+  answers:
+  - AI analyzes this data, looking for patterns and relationships between the different
+    pieces of information.
+  - AI is fed a large amount of data. This could be anything from images and sounds
+    to text and numbers.
+  - AI uses what it has learned to create something new. The neural network generates
+    new outputs by inputting a random seed value.
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: AI identifies patterns and connections in the data. The neural
+    network is trained on examples of the type of output it should produce, such
+    as text or images.
+  incorrectMessage: Not quite. Consider that without processing the inputs, the AI
+    cannot produce accurate or relevant content.

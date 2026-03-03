@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_3_Lesson_1_Q5
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'Which LLM use case best fits the following scenario?
+
+    A logistics
+    team reviews supplier contracts faster by extracting key clauses and identifying
+    discrepancies with the help of AI-powered tools.'
+  answers:
+  - Virtual assistants
+  - Sentiment analysis
+  - Personalization
+  - Question answering
+  - Code generation and explanation
+  - Text extraction and analysis
+  maxSelections: 1
+  correctAnswerIndices: 05000000
+  correctMessage: LLM-powered text extraction and analysis enable faster processing
+    of unstructured text, such as contracts, improving accuracy and decision making.
+  incorrectMessage: Not quite. Consider which use case involves extracting and organizing
+    key information from documents.

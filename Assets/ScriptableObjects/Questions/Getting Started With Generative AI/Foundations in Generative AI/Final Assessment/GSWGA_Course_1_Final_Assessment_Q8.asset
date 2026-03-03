@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Final_Assessment_Q8
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'A social media team needs to write 100 product descriptions for a new
+    online catalog within a short time. They want a tool that can quickly draft the
+    descriptions so the team can focus more on campaign strategy.
+
+    Which task
+    is generative AI best suited for in this situation?'
+  answers:
+  - Creating content drafts at scale
+  - Personalizing product descriptions for different types of customers
+  - Solving complex logic problems
+  - Generating innovative ideas for new products
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: Generative AI excels at content creation, which will help the team
+    produce drafts of product descriptions quickly and efficiently.
+  incorrectMessage: Not quite. Consider that the team has identified the products
+    for which it needs descriptions.

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_3_Final_Assessment_Q3
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'A software development team at a tech company needs to generate efficient
+    code for automating routine tasks. The team also wants to explain complex code
+    to help new members onboard quickly.
+
+    Which IBM Granite model is best suited
+    for this task?'
+  answers:
+  - Granite Japanese
+  - Granite Multilingual
+  - Granite Instruct
+  - Granite Code
+  maxSelections: 1
+  correctAnswerIndices: 03000000
+  correctMessage: Granite Code is specifically designed to help developers generate,
+    debug, and explain code efficiently.
+  incorrectMessage: Not quite. Consider which model aligns best with the software
+    development needs described for this task.

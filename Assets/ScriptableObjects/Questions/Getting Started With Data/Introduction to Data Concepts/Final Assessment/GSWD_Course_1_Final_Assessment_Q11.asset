@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWD_Course_1_Final_Assessment_Q11
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "You're a data analyst for a company and have gathered a large data set.
+    Your next step is to \u201Cwrangle\u201D the data to make sure it doesn\u2019t
+    have missing or inaccurate values.\r\nIn what step of the data analysis process
+    is data \u201Cwrangled?\u201D"
+  answers:
+  - Collect
+  - Visualize
+  - Analyze
+  - Clean
+  maxSelections: 1
+  correctAnswerIndices: 03000000
+  correctMessage: "After you\u2019ve collected the data, the next step is to ensure
+    it is in a usable format, which is an iterative process."
+  incorrectMessage: Not quite. Consider that the data you collected might not be
+    in a usable format and ready for the next step in the data analysis process.

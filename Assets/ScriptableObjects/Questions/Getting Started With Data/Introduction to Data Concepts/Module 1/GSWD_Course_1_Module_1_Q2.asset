@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWD_Course_1_Module_1_Q2
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'While reviewing a spreadsheet with customer information, you see that
+    one of the columns contains data for the marital status of the customers.
+
+    What
+    type of data is this?'
+  answers:
+  - Ordinal
+  - Nominal
+  - Discrete
+  - Continuous
+  maxSelections: 1
+  correctAnswerIndices: 01000000
+  correctMessage: "This is nominal data, since it\u2019s not numerical, but rather
+    labels a variable. In this case, the variable is a customer\u2019s marital status.  "
+  incorrectMessage: "This is nominal data, since it\u2019s not numerical, but rather
+    labels a variable. In this case, the variable is a customer\u2019s marital status.  "

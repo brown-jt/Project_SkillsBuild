@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: GSWGA_Course_3_Lesson_2_Set
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'LESSON 2: Types of IBM Granite models'
+  quizId: GSWGA_Course_3_Lesson_2
+  questions:
+  - {fileID: 11400000, guid: 4ad8156a665ed454c8f61d30887dd461, type: 2}
+  - {fileID: 11400000, guid: 745bbbc58642baf4ca4eafd1379fca14, type: 2}
+  - {fileID: 11400000, guid: 9e3851a2790de924bba183683db1e8b6, type: 2}
+  - {fileID: 11400000, guid: 856a821ede7961941b20039e2f31ec9a, type: 2}
+  passPercentage: 0

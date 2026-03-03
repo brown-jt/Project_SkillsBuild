@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWD_Course_1_Final_Assessment_Q10
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'A credit card company database has the names of card holders, dates
+    card holders make purchases, and the type of payment method used.
+
+    What
+    kind of data is this?'
+  answers:
+  - Ordinal data
+  - Qualitative data
+  - Unstructured data
+  - Structured data
+  maxSelections: 1
+  correctAnswerIndices: 03000000
+  correctMessage: This type of information can be organized and worked with, for
+    example, sorting information by a specific characteristic.
+  incorrectMessage: 'Not quite. Consider how this information is organized and how
+    data analysts could work with it.  '

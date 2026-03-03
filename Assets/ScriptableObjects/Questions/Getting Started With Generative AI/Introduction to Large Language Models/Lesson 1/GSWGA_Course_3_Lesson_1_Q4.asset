@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_3_Lesson_1_Q4
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: 'Which LLM use case best fits the following scenario?
+
+    Developers
+    automate routine tasks such as generating inventory update code and use AI to
+    add explanations to existing code for better team onboarding.'
+  answers:
+  - Virtual assistants
+  - Sentiment analysis
+  - Personalization
+  - Question answering
+  - Code generation and explanation
+  - Text extraction and analysis
+  maxSelections: 1
+  correctAnswerIndices: 04000000
+  correctMessage: LLMs streamline coding tasks by automating code generation and
+    explaining complex scripts to enhance productivity.
+  incorrectMessage: Not quite. Consider which use case supports developers by automating
+    code writing and providing clarity on existing code.

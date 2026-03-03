@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_3_Final_Assessment_Q4
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "A team requests the LLM to summarize a customer service email but receives
+    vague and unhelpful responses. Upon review, they find the prompt was simply:
+    \u201CSummarize this.\u201D\r\nWhich prompting technique should the team use
+    to improve the quality of the response?"
+  answers:
+  - Be specific
+  - Define the task clearly
+  - Use simple and direct language
+  - Include examples
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: Adding details such as the format and focus would refine the output.
+  incorrectMessage: Not quite. Consider which technique involves narrowing the scope
+    of the task by specifying elements like format, tone, or focus.

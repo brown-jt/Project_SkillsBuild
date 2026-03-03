@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Lesson_4_Q1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "Anya wants a list of the key points made in a transcript. She prompts
+    the AI tool to \u201CGive me a summary of this transcript.\u201D The response
+    is provided in paragraph form.   \r\nWhat refinement technique should Anya apply
+    to the prompt to generate the output she wants? "
+  answers:
+  - Adding the role the AI should take and expertise that should be used
+  - Adding a constraint limiting the length of the response
+  - Adding the format the output should take
+  - Adding information about the tone wanted in the response
+  maxSelections: 1
+  correctAnswerIndices: 02000000
+  correctMessage: 'Refining prompts by adding an explanation of the output wanted
+    enables AI to generate responses that are correctly formatted.  '
+  incorrectMessage: 'Not quite. Consider the prompt refinement that would make the
+    response appropriate for the audience. '

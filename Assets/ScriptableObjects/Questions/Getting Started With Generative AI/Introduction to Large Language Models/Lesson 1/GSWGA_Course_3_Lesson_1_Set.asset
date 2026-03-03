@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: GSWGA_Course_3_Lesson_1_Set
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'LESSON 1: Overview of Large Language Models'
+  quizId: GSWGA_Course_3_Lesson_1
+  questions:
+  - {fileID: 11400000, guid: 1a7eae6f5df613942b38e8012dc3c0fe, type: 2}
+  - {fileID: 11400000, guid: 2570c5f10e08e91439e442ad0912fb32, type: 2}
+  - {fileID: 11400000, guid: 8135ffd6e9ba4bc409aa0e09575cdde6, type: 2}
+  - {fileID: 11400000, guid: 4f6e788cdb602f74290d9c02becdb38c, type: 2}
+  - {fileID: 11400000, guid: cb071653e2f5d5f4eb06cac5cb0a6871, type: 2}
+  - {fileID: 11400000, guid: dcaa3ae2a26c945419c519b87df3eec8, type: 2}
+  passPercentage: 0

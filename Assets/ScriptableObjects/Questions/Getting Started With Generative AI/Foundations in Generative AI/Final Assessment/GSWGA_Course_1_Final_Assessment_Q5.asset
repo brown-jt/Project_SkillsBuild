@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507d679efa283143b52308c9a6a3292, type: 3}
+  m_Name: GSWGA_Course_1_Final_Assessment_Q5
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  question: "Rina types into an LLM, \u201CExplain how solar panels work in three
+    simple sentences.\u201D The system breaks her input into smaller parts, processes
+    them, and then begins producing the response one word at a time until the response
+    is complete.\r\nWhich step of the LLM process is happening when the system produces
+    the response word by word until the response is complete?"
+  answers:
+  - Prediction
+  - Output generation
+  - Tokenization
+  - Contextual understanding
+  maxSelections: 1
+  correctAnswerIndices: 00000000
+  correctMessage: Here the LLM is in the prediction step, generating the output word
+    by word until the response is complete.
+  incorrectMessage: Not quite. Consider that the system is forecasting the response.

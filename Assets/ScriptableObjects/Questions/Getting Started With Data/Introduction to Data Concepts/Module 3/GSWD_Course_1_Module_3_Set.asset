@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3900ee01c8f12564ba1e8f66ab4dc73a, type: 3}
+  m_Name: GSWD_Course_1_Module_3_Set
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionSetData
+  moduleName: 'MODULE 3: Types of Data Analytics'
+  quizId: GSWD_Course_1_Module_3
+  questions:
+  - {fileID: 11400000, guid: e4fa52cbee27f364ab94bdc9ab109904, type: 2}
+  - {fileID: 11400000, guid: ac15195dda5dd6f4295062c79abde91b, type: 2}
+  - {fileID: 11400000, guid: 938e7c532e45bd54d92d3a2bd8aa79e6, type: 2}
+  - {fileID: 11400000, guid: 6a2be1049ff0e9f47b38db1af4e8f509, type: 2}
+  passPercentage: 0.75
