@@ -73,6 +73,6 @@ public class HoldableItem : InteractableItem
     /// </summary>
     public override void Interact()
     {
-        // Interaction is now handled by PlayerInteract
+        // Interaction is handled by PlayerInteract
     }
 }

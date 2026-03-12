@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TruckController : MonoBehaviour
@@ -36,7 +37,21 @@ public class TruckController : MonoBehaviour
 
     void OpenDoors()
     {
+        StartCoroutine(OpenDoorsCoroutine());
+    }
+
+    IEnumerator OpenDoorsCoroutine()
+    {
         animator.SetTrigger("OpenLeftDoor");
         animator.SetTrigger("OpenRightDoor");
+        yield return new WaitForSeconds(2f);
+
+
+
+        QuestionBoxSpawner spawner = GetComponentInParent<QuestionBoxSpawner>();
+        if (spawner != null)
+        {
+            spawner.SpawnBoxes();
+        }
     }
 }
