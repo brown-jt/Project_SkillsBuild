@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HoldableItem : InteractableItem
+public abstract class HoldableItem : InteractableItem
 {
     [Header("Holdable Settings")]
     [SerializeField] private Vector3 localPositionOffset = Vector3.zero;
@@ -45,6 +45,8 @@ public class HoldableItem : InteractableItem
         // Play feedback
         if (InteractionSound != null)
             AudioSource.PlayClipAtPoint(InteractionSound, transform.position);
+
+        OnPickedUp();
     }
 
     /// <summary>
@@ -66,6 +68,18 @@ public class HoldableItem : InteractableItem
         }
 
         isHeld = false;
+
+        OnDropped();
+    }
+
+    protected virtual void OnPickedUp()
+    {
+        // Override in derived classes for custom pickup behavior
+    }
+
+    protected virtual void OnDropped()
+    {
+        // Override in derived classes for custom drop behavior
     }
 
     /// <summary>

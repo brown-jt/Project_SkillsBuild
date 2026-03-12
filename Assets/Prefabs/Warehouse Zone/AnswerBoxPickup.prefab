@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4701419078336524035}
   - component: {fileID: 7847565677920821344}
   - component: {fileID: 1639346189637430744}
-  - component: {fileID: 6904271003526881067}
   - component: {fileID: 4998439438276871602}
   m_Layer: 10
   m_Name: AnswerBoxPickup
@@ -85,23 +84,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0.25, z: 0}
---- !u!114 &6904271003526881067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229394969351889528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee759c3c308cd8943965e022ed18abc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoldableItem
-  interactableName: Box
-  interactionPrompt: Pick Up
-  interactionSound: {fileID: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &4998439438276871602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa572fd1108d0043abbde2542d225ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  interactableName: Box
+  interactionPrompt: Pick Up
+  interactionSound: {fileID: 0}
+  localPositionOffset: {x: 0, y: 0, z: 0}
+  localRotationOffset: {x: 0, y: 0, z: 0}
   questionText: {fileID: 1969109794156429429}
 --- !u!1 &2009569129126176779
 GameObject:
