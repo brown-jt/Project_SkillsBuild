@@ -10,6 +10,13 @@ public class PlayerInteract : MonoBehaviour
     [Header("Interaction Settings")]
     [SerializeField] private float interactRange = 3f;
 
+    [Header("Holdable Item Settings")]
+    [SerializeField] private Transform holdPoint;
+    private HoldableItem currentlyHeldItem;
+
+    public bool IsHoldingItem => currentlyHeldItem != null;
+    public HoldableItem HeldItem => currentlyHeldItem;
+
     private PlayerInputHandler inputHandler;
     private InteractableArea currentArea;
     private InteractableItem currentItem;
@@ -21,6 +28,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void Update()
     {
+        HandleDropInput();
         HandleAreaInteration();
         HandleItemInteraction();
     }
@@ -72,7 +80,7 @@ public class PlayerInteract : MonoBehaviour
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
-        int itemLayerMask = LayerMask.GetMask("Item", "QuestNPC", "ItemInteractable");
+        int itemLayerMask = LayerMask.GetMask("Item", "QuestNPC", "ItemInteractable", "HoldableItem");
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange, itemLayerMask))
         {
             if (hit.collider.TryGetComponent(out InteractableItem interactableItem))
@@ -87,7 +95,15 @@ public class PlayerInteract : MonoBehaviour
                 // Interact if key pressed
                 if (interactableItem.IsInteractable && inputHandler.InteractTriggered)
                 {
-                    interactableItem.Interact();
+                    // Check to see if it's a holdable item and handle pick up differently else normal interaction
+                    if (interactableItem is HoldableItem holdableItem)
+                    {
+                        PickUpItem(holdableItem);
+                    }
+                    else
+                    {
+                        interactableItem.Interact();
+                    }
 
                     // For now, hide prompt after any item interaction
                     // TODO - Handle differently for pick up vs other interactions
@@ -103,6 +119,35 @@ public class PlayerInteract : MonoBehaviour
         {
             currentItem = null;
             promptUI.Hide();
+        }
+    }
+
+    public void PickUpItem(HoldableItem item)
+    {
+        if (currentlyHeldItem != null)
+        {
+            FeedbackNotificationsUI.Instance.AddNotification("You are already holding something!");
+            return;
+        }
+
+        currentlyHeldItem = item;
+        currentlyHeldItem.PickUp(holdPoint);
+    }
+
+    public void DropHeldItem()
+    {
+        if (currentlyHeldItem != null)
+        {
+            currentlyHeldItem.Drop();
+            currentlyHeldItem = null;
+        }
+    }
+
+    private void HandleDropInput()
+    {
+        if (IsHoldingItem && inputHandler.DropTriggered)
+        {
+            DropHeldItem();
         }
     }
 }
