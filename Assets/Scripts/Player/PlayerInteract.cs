@@ -85,6 +85,17 @@ public class PlayerInteract : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out InteractableItem interactableItem))
             {
+                // Check if interactable first
+                if (!interactableItem.IsInteractable)
+                {
+                    if (currentItem != null)
+                    {
+                        currentItem = null;
+                        promptUI.Hide();
+                    }
+                    return;
+                }
+
                 // Show prompt
                 if (currentItem != interactableItem)
                 {
@@ -93,7 +104,7 @@ public class PlayerInteract : MonoBehaviour
                 }
 
                 // Interact if key pressed
-                if (interactableItem.IsInteractable && inputHandler.InteractTriggered)
+                if (inputHandler.InteractTriggered)
                 {
                     // Check to see if it's a holdable item and handle pick up differently else normal interaction
                     if (interactableItem is HoldableItem holdableItem)
