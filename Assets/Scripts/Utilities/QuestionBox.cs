@@ -9,6 +9,9 @@ public class QuestionBox : HoldableItem
 
     private QuestionData questionData;
     private QuestionSign[] questionSigns;
+    private Shelf[] questionShelves;
+
+    public QuestionData QuestionData => questionData;
 
     public void Initialise(QuestionData questionData)
     {
@@ -19,6 +22,11 @@ public class QuestionBox : HoldableItem
         questionSigns = FindObjectsByType<QuestionSign>(FindObjectsSortMode.None)
             .OrderBy(sign => int.Parse(sign.name.Split('_').Last()))
             .ToArray();
+
+        // Find and cache all question shelves in the scene and sorting them by their name as ending _1 -> _5
+        questionShelves = FindObjectsByType<Shelf>(FindObjectsSortMode.None)
+            .OrderBy(sign => int.Parse(sign.name.Split('_').Last()))
+            .ToArray();
     }
 
     protected override void OnPickedUp()
@@ -27,6 +35,7 @@ public class QuestionBox : HoldableItem
         for (int i = 0; i < questionData.answers.Count; i++)
         {
             questionSigns[i].SetAnswer(questionData.answers[i]);
+            questionShelves[i].SetAnswer(questionData.answers[i]);
         }
     }
 
