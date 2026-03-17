@@ -3,13 +3,11 @@ using System.Collections;
 
 public class QuestionBoxSpawner : MonoBehaviour
 {
-    public GameObject questionBoxPrefab; // Assign your box prefab here
-    public Transform spawnPoint; // Assign the empty spawn point at truck back
-    public float pushForce = 500f; // Adjust for how fast you want boxes to shoot
-    public float spawnDelay = 0.25f; // Delay between each box spawn for better visual effect
-
-    // Debug test question set
-    public QuestionSetData questionSet;
+    public GameObject questionBoxPrefab;
+    public Transform spawnPoint;
+    public float pushForce = 500f;
+    public float spawnDelay = 0.25f;
+    public WarehouseQuizManager quizManager;
 
     public void SpawnBoxes()
     {
@@ -18,12 +16,14 @@ public class QuestionBoxSpawner : MonoBehaviour
 
     private IEnumerator SpawnBoxesCoroutine()
     {
-        int boxCount = questionSet != null ? questionSet.questions.Count : 0;
+        int boxCount = quizManager.questionSet != null ? quizManager.questionSet.questions.Count : 0;
+
+        quizManager.StartQuiz(); // Start the quiz timer when spawning boxes
 
         for (int i = 0; i < boxCount; i++)
         {
             GameObject box = Instantiate(questionBoxPrefab, spawnPoint.position, spawnPoint.rotation);
-            box.GetComponent<QuestionBox>().Initialise(questionSet.questions[i]); // Pass question data to box
+            box.GetComponent<QuestionBox>().Initialise(quizManager.questionSet.questions[i]); // Pass question data to box
 
             if (box.TryGetComponent<Rigidbody>(out var rb))
             {

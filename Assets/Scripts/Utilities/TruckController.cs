@@ -7,7 +7,7 @@ public class TruckController : MonoBehaviour
     public Transform stopPoint;
 
     private Animator animator;
-    private bool isReversing = true;
+    private bool isReversing = false;
 
     private void Start()
     {
@@ -22,7 +22,12 @@ public class TruckController : MonoBehaviour
         }
     }
 
-    void ReverseTruck()
+    public void StartReversing()
+    {
+        isReversing = true;
+    }
+
+    private void ReverseTruck()
     {
         transform.Translate(Vector3.back * reverseSpeed * Time.deltaTime);
 
@@ -45,8 +50,6 @@ public class TruckController : MonoBehaviour
         animator.SetTrigger("OpenLeftDoor");
         animator.SetTrigger("OpenRightDoor");
         yield return new WaitForSeconds(2f);
-
-
 
         QuestionBoxSpawner spawner = GetComponentInParent<QuestionBoxSpawner>();
         if (spawner != null)
