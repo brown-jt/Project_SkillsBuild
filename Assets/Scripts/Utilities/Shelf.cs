@@ -5,6 +5,7 @@ public class Shelf : InteractableItem
 {
     private PlayerInteract playerInteract;
     private string answer;
+    public QuestionSign[] questionSigns;
 
     private void Start()
     {
@@ -14,7 +15,7 @@ public class Shelf : InteractableItem
 
     private void Update()
     {
-        if (playerInteract.IsHoldingItem)
+        if (playerInteract.IsHoldingItem && answer != string.Empty)
         {
             IsInteractable = true;
         }
@@ -53,7 +54,10 @@ public class Shelf : InteractableItem
         int correctIndex = data.correctAnswerIndices.FirstOrDefault();
         string correctAnswer = data.answers[correctIndex];
 
-        if (answer == correctAnswer) FeedbackNotificationsUI.Instance.AddNotification("Correct! " + data.correctMessage, 10);
-        else FeedbackNotificationsUI.Instance.AddNotification("Incorrect! " + data.incorrectMessage, 10);
+        foreach (QuestionSign sign in questionSigns)
+        {
+            if (answer == correctAnswer) sign.SetText("<color=green><size=125%>Correct!</color></size>\n" + data.correctMessage);
+            else sign.SetText("<color=red><size=125%>Incorrect!</color></size>\n" + data.incorrectMessage);
+        }
     }
 }

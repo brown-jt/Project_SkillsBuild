@@ -32,23 +32,30 @@ public class QuestionBox : HoldableItem
     protected override void OnPickedUp()
     {
         // Set the answer on all question signs when picked up
-        for (int i = 0; i < questionData.answers.Count; i++)
+        for (int i = 0; i < questionSigns.Length; i++)
         {
-            questionSigns[i].SetAnswer(questionData.answers[i]);
-            questionShelves[i].SetAnswer(questionData.answers[i]);
+            if (i >= questionData.answers.Count)
+            {
+                questionSigns[i].Clear();
+                questionShelves[i].SetAnswer(string.Empty);
+            }
+            else
+            {
+                questionSigns[i].SetText(questionData.answers[i]);
+                questionShelves[i].SetAnswer(questionData.answers[i]);
+            }
         }
     }
 
     protected override void OnDropped()
     {
         // Clear the answer on all question signs when dropped
-         if (questionSigns != null)
-         {
-             foreach (var sign in questionSigns)
-             {
-                 sign.Clear();
-             }
+        if (questionSigns != null)
+        {
+            foreach (var sign in questionSigns)
+            {
+                sign.Clear();
+            }
         }
     }
-
 }

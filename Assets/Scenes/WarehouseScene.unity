@@ -332,6 +332,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8194391059785546505, guid: 32d345feff310364c8359ecae1179298, type: 3}
   m_PrefabInstance: {fileID: 41154275}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &41154277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5844827963887986988, guid: 32d345feff310364c8359ecae1179298, type: 3}
+  m_PrefabInstance: {fileID: 41154275}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea6c45e914d5da428f22a9bf3ab798b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &78720504
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +467,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf_3
       objectReference: {fileID: 0}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: questionSigns.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3476255460419227116}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1191039469}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2062681889}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[3]'
+      value: 
+      objectReference: {fileID: 41154277}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1303140141}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2418,6 +2453,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8194391059785546505, guid: 32d345feff310364c8359ecae1179298, type: 3}
   m_PrefabInstance: {fileID: 1191039467}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1191039469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5844827963887986988, guid: 32d345feff310364c8359ecae1179298, type: 3}
+  m_PrefabInstance: {fileID: 1191039467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea6c45e914d5da428f22a9bf3ab798b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &1279475383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2560,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8194391059785546505, guid: 32d345feff310364c8359ecae1179298, type: 3}
   m_PrefabInstance: {fileID: 1303140139}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1303140141 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5844827963887986988, guid: 32d345feff310364c8359ecae1179298, type: 3}
+  m_PrefabInstance: {fileID: 1303140139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea6c45e914d5da428f22a9bf3ab798b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &1355486809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2805,6 +2862,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf_5
       objectReference: {fileID: 0}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: questionSigns.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3476255460419227116}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1191039469}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2062681889}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[3]'
+      value: 
+      objectReference: {fileID: 41154277}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1303140141}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4497,6 +4578,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf_4
       objectReference: {fileID: 0}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: questionSigns.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: 'questionSigns.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3476255460419227116}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: 'questionSigns.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1191039469}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: 'questionSigns.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2062681889}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: 'questionSigns.Array.data[3]'
+      value: 
+      objectReference: {fileID: 41154277}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: 'questionSigns.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1303140141}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4574,6 +4679,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8194391059785546505, guid: 32d345feff310364c8359ecae1179298, type: 3}
   m_PrefabInstance: {fileID: 2062681887}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2062681889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5844827963887986988, guid: 32d345feff310364c8359ecae1179298, type: 3}
+  m_PrefabInstance: {fileID: 2062681887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea6c45e914d5da428f22a9bf3ab798b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &2084233499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4972,6 +5088,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: questionSigns.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: 'questionSigns.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3476255460419227116}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: 'questionSigns.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1191039469}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: 'questionSigns.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2062681889}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: 'questionSigns.Array.data[3]'
+      value: 
+      objectReference: {fileID: 41154277}
+    - target: {fileID: 6752841637559699226, guid: deabf373ffd7c544bb1686657b876a0e, type: 3}
+      propertyPath: 'questionSigns.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1303140141}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5111,6 +5251,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32d345feff310364c8359ecae1179298, type: 3}
+--- !u!114 &3476255460419227116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5844827963887986988, guid: 32d345feff310364c8359ecae1179298, type: 3}
+  m_PrefabInstance: {fileID: 3476255460419227115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea6c45e914d5da428f22a9bf3ab798b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!33 &3885810236683429085
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5254,6 +5405,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf_1
       objectReference: {fileID: 0}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: questionSigns.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3476255460419227116}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1191039469}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2062681889}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[3]'
+      value: 
+      objectReference: {fileID: 41154277}
+    - target: {fileID: 8140648615214897380, guid: 787b5e61c1cfd764fafb9fde711f8105, type: 3}
+      propertyPath: 'questionSigns.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1303140141}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
