@@ -434,4 +434,3 @@ MonoBehaviour:
   canvasGroup: {fileID: 3125033695468908384}
   fadeInDuration: 0.25
   fadeOutDuration: 0.25
-  timeVisible: 2

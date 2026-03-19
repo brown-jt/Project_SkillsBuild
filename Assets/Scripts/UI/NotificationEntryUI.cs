@@ -11,20 +11,19 @@ public class NotificationEntryUI : MonoBehaviour
     [Header("Fade Settings")]
     public float fadeInDuration = 0.25f;
     public float fadeOutDuration = 0.25f;
-    public float timeVisible = 2.0f;
 
     private Coroutine fadeCoroutine;
 
-    public void SetMessage(string message)
+    public void SetMessage(string message, float timeVisible = 2.0f)
     {
         messageText.text = message;
 
         if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
 
-        fadeCoroutine = StartCoroutine(FadeInOutRoutine());
+        fadeCoroutine = StartCoroutine(FadeInOutRoutine(timeVisible));
     }
 
-    IEnumerator FadeInOutRoutine()
+    IEnumerator FadeInOutRoutine(float timeVisible)
     {
         // Fade in
         yield return Fade(0f, 1f, true);

@@ -11,10 +11,10 @@ public class FeedbackNotificationsUI : MonoBehaviour
         Instance = this;
     }
 
-    public void AddNotification(string message)
+    public void AddNotification(string message, float seconds = 2.0f)
     {
         GameObject notification = Instantiate(notificationPrefab, notificationsRoot);
         NotificationEntryUI entryUI = notification.GetComponent<NotificationEntryUI>();
-        entryUI.SetMessage(message);
+        entryUI.SetMessage(message, seconds);
     }
 }
