@@ -1,27 +1,29 @@
-CREATE TABLE IF NOT EXISTS players 
-(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  level INTEGER DEFAULT 1,
-  experience INTEGER DEFAULT 0
-);
-
-CREATE TABLE IF NOT EXISTS items
-(
-  id INTEGER PRIMARY KEY,
-  name TEXT NOT NULL,
-  description TEXT,
-  max_stack INTEGER DEFAULT 1,                         -- Maximum qty in a stack
-  value INTEGER DEFAULT 0                              -- Gold value of item
-);
-
 CREATE TABLE IF NOT EXISTS inventory
 (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,                -- Allows for easy look-up and differentiation between multiple stacks of same item
-  player_id INTEGER NOT NULL,
-  item_id INTEGER NOT NULL,
-  quantity INTEGER DEFAULT 1,
-  slot_index INTEGER,                                  -- Slot in the inventory
-  FOREIGN KEY (player_id) REFERENCES players(id),
-  FOREIGN KEY (item_id) REFERENCES items(id)
+  slot_index INTEGER PRIMARY KEY AUTOINCREMENT, -- slot in the inventory
+  item_id TEXT NOT NULL,
+  quantity INTEGER NOT NULL DEFAULT 1
 );
+
+CREATE TABLE IF NOT EXISTS zones
+(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL
+);
+
+-- Quests will have the ID of the scriptable object in Unity for easy referencing
+CREATE TABLE IF NOT EXISTS quests
+(
+  quest_id TEXT PRIMARY KEY NOT NULL,
+  zone_id INTEGER NOT NULL,
+  started BOOLEAN DEFAULT FALSE,
+  completed BOOLEAN DEFAULT FALSE,
+  FOREIGN KEY (zone_id) REFERENCES zones(id)
+);
+
+-- Insertions into the zones these will always be the same
+INSERT INTO zones VALUES (1, "Factory");
+INSERT INTO zones VALUES (2, "Warehouse");
+INSERT INTO zones VALUES (3, "Museum");
+INSERT INTO zones VALUES (4, "Security");
+INSERT INTO zones VALUES (5, "Forest");

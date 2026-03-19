@@ -12,6 +12,7 @@ public class InventoryManager : MonoBehaviour
     public event Action OnInventoryChanged;
 
     // Currencies
+    // TODO: Store in database in future
     private int gold;
     public int Gold => gold;
 
@@ -19,7 +20,7 @@ public class InventoryManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private TextMeshProUGUI goldText;
 
-    // Inventory
+    // Inventory UI slots for rendering and drag/drop functionality
     public List<InventorySlot> inventorySlots = new List<InventorySlot>();
     public int maxInventorySize = 25;
 
@@ -44,6 +45,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
+        RefreshInventorySlotsFromDB();
         InventoryUI.Instance.RefreshAll();
     }
 
@@ -68,59 +70,29 @@ public class InventoryManager : MonoBehaviour
 
     public bool AddItem(ItemData item, int amount = 1)
     {
-        // Stackable items
-        if (item.stackable)
+        bool added = DatabaseManager.Instance.AddToInventory(item, amount);
+
+        if (added)
         {
-            foreach (var slot in inventorySlots)
-            {
-                if (slot.itemData == item && slot.quantity < item.maxStack)
-                {
-                    int spaceLeft = item.maxStack - slot.quantity;
-                    int toAdd = Mathf.Min(spaceLeft, amount);
-                    slot.quantity += toAdd;
-                    amount -= toAdd;
-                    if (amount <= 0)
-                    {
-                        OnInventoryChanged?.Invoke();
-                        InventoryUI.Instance.RefreshAll();
-                        return true;
-                    }
-                }
-            }
+            RefreshInventorySlotsFromDB();
+            OnInventoryChanged?.Invoke();
         }
 
-        // Non-stackable or remaining stackable items
-        foreach (var slot in inventorySlots)
-        {
-            if (slot.IsEmpty)
-            {
-                slot.itemData = item;
-                slot.quantity = Mathf.Min(amount, item.stackable ? item.maxStack : 1);
-                amount -= slot.quantity;
-                if (amount <= 0)
-                {
-                    OnInventoryChanged?.Invoke();
-                    InventoryUI.Instance.RefreshAll();
-                    return true;
-                }
-            }
-        }
-
-        // No space left in inventory
-        return false;
+        return added;
     }
     
     public bool HasItem(ItemData item, int amount = 1)
     {
-        int count = 0;
+        var inventoryDict = DatabaseManager.Instance.LoadInventory();
 
-        foreach (var slot in inventorySlots)
+        if (inventoryDict.TryGetValue(item, out var stacks))
         {
-            if (slot.itemData == item)
+            int total = 0;
+            foreach (var stack in stacks)
             {
-                count += slot.quantity;
-                if (count >= amount) return true;
+                total += stack.amount;
             }
+            return total >= amount;
         }
 
         return false;
@@ -128,30 +100,43 @@ public class InventoryManager : MonoBehaviour
 
     public bool RemoveItem(ItemData item, int amount = 1)
     {
+        bool removed = DatabaseManager.Instance.RemoveFromInventory(item, amount);
+
+        if (removed)
+        {
+            RefreshInventorySlotsFromDB();
+            OnInventoryChanged?.Invoke();
+        }
+
+        return removed;
+    }
+
+    public void RefreshInventorySlotsFromDB()
+    {
+        // Firstly clear all slots
         foreach (var slot in inventorySlots)
         {
-            if (slot.itemData == item)
+            slot.Clear();
+        }
+
+        // Load each inventory item from database and populate slots
+        var inventoryDict = DatabaseManager.Instance.LoadInventory();
+
+        foreach (var kvp in inventoryDict)
+        {
+            ItemData item = kvp.Key;
+            var stacks = kvp.Value;
+
+            foreach (var stack in stacks)
             {
-                int toRemove = Mathf.Min(slot.quantity, amount);
-                slot.quantity -= toRemove;
-                amount -= toRemove;
+                // Map slot_index to UI slot (capped to maxInventorySize)
+                int uiSlot = stack.slot_index-1 % maxInventorySize;
 
-                // TODO: MAY NEED TO REVISIT - WILL THIS CLEAR PART STACKS EVEN IF REMOVING ALL QUANTITY FAILED?
-                if (slot.quantity <= 0)
-                {
-                    slot.itemData = null;
-                    slot.quantity = 0;
-                }
-
-                if (amount <= 0)
-                {
-                    OnInventoryChanged?.Invoke();
-                    InventoryUI.Instance.RefreshAll();
-                    return true;
-                }
+                inventorySlots[uiSlot].itemData = item;
+                inventorySlots[uiSlot].quantity = stack.amount;
             }
         }
 
-        return false;
+        InventoryUI.Instance.RefreshAll();
     }
 }
