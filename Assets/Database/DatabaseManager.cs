@@ -19,11 +19,24 @@ public class DatabaseManager : MonoBehaviour
     private Dictionary<string, ItemData> _itemsDictionary;
 
     // Internal representation of the inventory table
+    [Table("Inventory")]
     public class InventoryRow
     {
+        [PrimaryKey]
         public int slot_index { get; set; }
         public string item_id { get; set; }
-        public int amount { get; set; }
+        public int quantity { get; set; }
+    }
+
+    // Internal representation of the quests table
+    [Table("Quests")]
+    public class QuestRow
+    {
+        [PrimaryKey]
+        public string quest_id { get; set; }
+        public int zone_id { get; set; }
+        public bool accepted { get; set; }
+        public bool completed { get; set; }
     }
 
     private void Awake()
@@ -118,19 +131,29 @@ public class DatabaseManager : MonoBehaviour
             else Debug.LogWarning($"Duplicate item ID found: {item.itemId}. Skipping.");
         }
 
-        Debug.Log($"Loaded {_itemsDictionary.Count} items into the items runtime dictionary.");
-
         // Load quest scriptable objects from Resources folder
         QuestData[] allQuests = Resources.LoadAll<QuestData>("Quests");
 
-        foreach (var item in allQuests) 
+        foreach (var quest in allQuests) 
         {
-            if (!_questsDictionary.ContainsKey(item.questId)) _questsDictionary[item.questId] = item;
-            else Debug.LogWarning($"Duplicate quest ID found: {item.questId}. Skipping.");
+            if (!_questsDictionary.ContainsKey(quest.questId))
+            {
+                _questsDictionary[quest.questId] = quest;
+                // For quests we also want to ensure the database is aware of them so we add them to the Quests table if they don't already exist
+                try
+                {
+                    _db.Execute(
+                        "INSERT OR IGNORE INTO Quests (quest_id, zone_id) VALUES (?, ?)",
+                        quest.questId, (int)quest.zoneId
+                    );
+                }
+                catch (SQLiteException ex)
+                {
+                    Debug.LogError($"Error inserting quest into database: {ex.Message}");
+                }
+            }
+            else Debug.LogWarning($"Duplicate quest ID found: {quest.questId}. Skipping.");
         }
-
-        Debug.Log($"Loaded {_questsDictionary.Count} quests into the quests runtime dictionary.");
-
     }
 
     private void OnDestroy()
@@ -141,7 +164,7 @@ public class DatabaseManager : MonoBehaviour
 
     #region Helper functions to access database
 
-    public bool AddToInventory(ItemData item, int quantity = 1)
+    public bool AddToInventory(ItemData item, int slotIndex, int quantity)
     {
         if (item == null || quantity <= 0) return false;
 
@@ -152,9 +175,9 @@ public class DatabaseManager : MonoBehaviour
 
             foreach (var stack in stacks)
             {
-                if (stack.amount < item.maxStack)
+                if (stack.quantity < item.maxStack)
                 {
-                    int spaceLeft = item.maxStack - stack.amount;
+                    int spaceLeft = item.maxStack - stack.quantity;
                     int quantityToAdd = Mathf.Min(spaceLeft, quantity);
 
                     _db.Execute(
@@ -178,8 +201,8 @@ public class DatabaseManager : MonoBehaviour
             int quantityToAdd = item.stackable ? Mathf.Min(item.maxStack, quantity) : 1;
 
             _db.Execute(
-                "INSERT INTO Inventory (item_id, quantity) VALUES (?, ?)", 
-                item.itemId, quantityToAdd
+                "INSERT INTO Inventory (slot_index, item_id, quantity) VALUES (?, ?, ?)", 
+                slotIndex, item.itemId, quantityToAdd
             );
 
             quantity -= quantityToAdd;
@@ -207,9 +230,9 @@ public class DatabaseManager : MonoBehaviour
         {
             if (quantity <= 0) break;
 
-            int toRemove = Mathf.Min(stack.amount, quantity);
+            int toRemove = Mathf.Min(stack.quantity, quantity);
 
-            if (stack.amount == toRemove)
+            if (stack.quantity == toRemove)
             {
                 _db.Execute(
                     "DELETE FROM Inventory WHERE slot_index = ?",
@@ -230,6 +253,63 @@ public class DatabaseManager : MonoBehaviour
         return quantity <= 0;
     }
 
+    public void ClearInventorySlot(int slotIndex)
+    {
+        _db.Execute(
+            "DELETE FROM Inventory WHERE slot_index = ?",
+            slotIndex
+        );
+    }
+
+    public void SwapInventorySlots(int slotA, int slotB)
+    {
+        _db.RunInTransaction(() =>
+        {
+            var slotAData = _db.Find<InventoryRow>(slotA);
+            var slotBData = _db.Find<InventoryRow>(slotB);
+
+            if (slotAData == null && slotBData == null)
+            {
+                // Both slots are empty, nothing to swap
+                return;
+            }
+
+            else if (slotAData != null && slotBData != null)
+            {
+                // Both slots have items, swap their data
+                string tempItemId = slotAData.item_id;
+                int tempQuantity = slotAData.quantity;
+
+                _db.Execute(
+                    "UPDATE Inventory SET item_id = ?, quantity = ? WHERE slot_index = ?",
+                    slotBData.item_id, slotBData.quantity, slotAData.slot_index
+                );
+                _db.Execute(
+                    "UPDATE Inventory SET item_id = ?, quantity = ? WHERE slot_index = ?",
+                    tempItemId, tempQuantity, slotBData.slot_index
+                );
+            }
+
+            else if (slotAData != null)
+            {
+                // Slot A has an item and Slot B is empty, move A to B
+                _db.Execute(
+                    "UPDATE Inventory SET slot_index = ? WHERE slot_index = ?",
+                    slotB, slotA
+                );
+            }
+
+            else if (slotBData != null)
+            {
+                // Slot B has an item and Slot A is empty, move B to A
+                _db.Execute(
+                    "UPDATE Inventory SET slot_index = ? WHERE slot_index = ?",
+                    slotA, slotB
+                );
+            }
+        });
+    }
+
     public Dictionary<ItemData, List<InventoryRow>> LoadInventory()
     {
         var res = new Dictionary<ItemData, List<InventoryRow>>();
@@ -246,6 +326,85 @@ public class DatabaseManager : MonoBehaviour
             else
             {
                 Debug.LogWarning($"Item ID {row.item_id} in inventory does not exist in items dictionary. Skipping.");
+            }
+        }
+
+        return res;
+    }
+
+    public bool AcceptQuest(QuestData quest)
+    {
+        if (quest == null) return false;
+
+        try
+        {
+            _db.Execute(
+                "UPDATE Quests SET active = 1 WHERE quest_id = ?",
+                quest.questId
+            );
+            return true;
+        }
+        catch (SQLiteException ex)
+        {
+            Debug.LogError($"Error accepting quest: {ex.Message}");
+            return false;
+        }
+    }
+
+    public bool CompleteQuest(QuestData quest)
+    {
+        if (quest == null) return false;
+        try
+        {
+            _db.Execute(
+                "UPDATE Quests SET completed = 1, active = 0 WHERE quest_id = ?",
+                quest.questId
+            );
+            return true;
+        }
+        catch (SQLiteException ex)
+        {
+            Debug.LogError($"Error completing quest: {ex.Message}");
+            return false;
+        }
+    }
+
+    public List<QuestData> LoadActiveQuests()
+    {
+        var res = new List<QuestData>();
+
+        var rows = _db.Query<QuestRow>("SELECT * FROM Quests WHERE active = 1 AND completed = 0");
+
+        foreach (var row in rows)
+        {
+            if (_questsDictionary.TryGetValue(row.quest_id, out var questInstance))
+            {
+                if (!res.Contains(questInstance)) res.Add(questInstance);
+            }
+            else
+            {
+                Debug.LogWarning($"Quest ID {row.quest_id} in quests table does not exist in runtime quest dictionary. Skipping.");
+            }
+        }
+
+        return res;
+    }
+
+    public List<QuestData> LoadCompletedQuests()
+    {
+        var res = new List<QuestData>();
+
+        var rows = _db.Query<QuestRow>("SELECT * FROM Quests WHERE completed = 1 AND active = 0");
+
+        foreach (var row in rows)
+        {
+            if (_questsDictionary.TryGetValue(row.quest_id, out var questInstance))
+            {
+                if (!res.Contains(questInstance)) res.Add(questInstance);
+            }
+            else
+            {
+                Debug.LogWarning($"Quest ID {row.quest_id} in quests table does not exist in runtime quest dictionary. Skipping.");
             }
         }
 

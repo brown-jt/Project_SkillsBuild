@@ -48,8 +48,12 @@ public class InventoryDrag : MonoBehaviour
         var slotA = InventoryManager.Instance.inventorySlots[draggedSlotIndex];
         var slotB = InventoryManager.Instance.inventorySlots[targetSlotIndex];
         
+        // Swap in-game item data
         (slotA.itemData, slotB.itemData) = (slotB.itemData, slotA.itemData);
         (slotA.quantity, slotB.quantity) = (slotB.quantity, slotA.quantity);
+
+        // Sync with database
+        DatabaseManager.Instance.SwapInventorySlots(draggedSlotIndex, targetSlotIndex);
 
         InventoryUI.Instance.RefreshAll();
     }
@@ -105,12 +109,13 @@ public class InventoryDrag : MonoBehaviour
         ItemData itemToDrop = slot.itemData;
 
         // Remove from inventory
-        slot.itemData = null;
-        slot.quantity = 0;
+        slot.Clear();
 
+        // Sync with database
+        DatabaseManager.Instance.ClearInventorySlot(slotIndex);
+
+        // Simulate dropping in front of player
         Transform player = PlayerInputHandler.Instance.transform;
-
-        // Small forward offset
         float forwardOffset = 0.2f;
 
         // Spawn slightly above ground so it falls naturally

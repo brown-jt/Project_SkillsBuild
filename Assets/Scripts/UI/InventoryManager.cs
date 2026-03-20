@@ -49,28 +49,36 @@ public class InventoryManager : MonoBehaviour
         InventoryUI.Instance.RefreshAll();
     }
 
-    public void AddGold(int amount)
+    public void AddGold(int quantity)
     {
-        if (amount <= 0) return;
+        if (quantity <= 0) return;
 
-        gold += amount;
+        gold += quantity;
         goldText.text = gold.ToString();
         OnInventoryChanged?.Invoke();
     }
 
-    public bool RemoveGold(int amount)
+    public bool RemoveGold(int quantity)
     {
-        if (amount <= 0) return false;
-        if (gold < amount) return false;
+        if (quantity <= 0) return false;
+        if (gold < quantity) return false;
 
-        gold -= amount;
+        gold -= quantity;
         OnInventoryChanged?.Invoke();
         return true;
     }
 
-    public bool AddItem(ItemData item, int amount = 1)
+    public bool AddItem(ItemData item, int quantity = 1)
     {
-        bool added = DatabaseManager.Instance.AddToInventory(item, amount);
+        int slotIndexToAdd = GetFirstEmptySlotIndex();
+
+        if (slotIndexToAdd == -1)
+        {
+            Debug.LogWarning("No empty inventory slot available!");
+            return false;
+        }
+
+        bool added = DatabaseManager.Instance.AddToInventory(item, slotIndexToAdd, quantity);
 
         if (added)
         {
@@ -81,7 +89,7 @@ public class InventoryManager : MonoBehaviour
         return added;
     }
     
-    public bool HasItem(ItemData item, int amount = 1)
+    public bool HasItem(ItemData item, int quantity = 1)
     {
         var inventoryDict = DatabaseManager.Instance.LoadInventory();
 
@@ -90,17 +98,17 @@ public class InventoryManager : MonoBehaviour
             int total = 0;
             foreach (var stack in stacks)
             {
-                total += stack.amount;
+                total += stack.quantity;
             }
-            return total >= amount;
+            return total >= quantity;
         }
 
         return false;
     }
 
-    public bool RemoveItem(ItemData item, int amount = 1)
+    public bool RemoveItem(ItemData item, int quantity = 1)
     {
-        bool removed = DatabaseManager.Instance.RemoveFromInventory(item, amount);
+        bool removed = DatabaseManager.Instance.RemoveFromInventory(item, quantity);
 
         if (removed)
         {
@@ -130,13 +138,24 @@ public class InventoryManager : MonoBehaviour
             foreach (var stack in stacks)
             {
                 // Map slot_index to UI slot (capped to maxInventorySize)
-                int uiSlot = stack.slot_index-1 % maxInventorySize;
+                int uiSlot = stack.slot_index % maxInventorySize;
 
                 inventorySlots[uiSlot].itemData = item;
-                inventorySlots[uiSlot].quantity = stack.amount;
+                inventorySlots[uiSlot].quantity = stack.quantity;
             }
         }
 
         InventoryUI.Instance.RefreshAll();
+    }
+
+    private int GetFirstEmptySlotIndex()
+    {
+        for (int i = 0; i < inventorySlots.Count; i++)
+        {
+            if (inventorySlots[i].IsEmpty)
+                return i;
+        }
+
+        return -1; // No empty slot
     }
 }

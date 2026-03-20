@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS inventory
 (
-  slot_index INTEGER PRIMARY KEY AUTOINCREMENT, -- slot in the inventory
+  slot_index INTEGER PRIMARY KEY, -- slot in the inventory
   item_id TEXT NOT NULL,
   quantity INTEGER NOT NULL DEFAULT 1
 );
@@ -16,14 +16,15 @@ CREATE TABLE IF NOT EXISTS quests
 (
   quest_id TEXT PRIMARY KEY NOT NULL,
   zone_id INTEGER NOT NULL,
-  started BOOLEAN DEFAULT FALSE,
+  active BOOLEAN DEFAULT FALSE,
   completed BOOLEAN DEFAULT FALSE,
   FOREIGN KEY (zone_id) REFERENCES zones(id)
 );
 
 -- Insertions into the zones these will always be the same
+INSERT INTO zones VALUES (0, "Hub");
 INSERT INTO zones VALUES (1, "Factory");
-INSERT INTO zones VALUES (2, "Warehouse");
-INSERT INTO zones VALUES (3, "Museum");
+INSERT INTO zones VALUES (2, "Forest");
+INSERT INTO zones VALUES (3, "Warehouse");
 INSERT INTO zones VALUES (4, "Security");
-INSERT INTO zones VALUES (5, "Forest");
+INSERT INTO zones VALUES (5, "Museum");
