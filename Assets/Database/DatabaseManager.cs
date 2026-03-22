@@ -39,6 +39,18 @@ public class DatabaseManager : MonoBehaviour
         public bool completed { get; set; }
     }
 
+    // Internal representation of the quest objectives table
+    [Table("QuestObjectives")]
+    public class QuestObjectiveRow
+    {
+        [PrimaryKey, AutoIncrement]
+        public int id { get; set; }
+        public string quest_id { get; set; }
+        public int objective_index { get; set; }
+        public int current_amount { get; set; }
+        public bool is_complete { get; set; }
+    }
+
     private void Awake()
     {
         // Ensure singleton
@@ -409,6 +421,64 @@ public class DatabaseManager : MonoBehaviour
         }
 
         return res;
+    }
+
+    public bool AddQuestObjectives(QuestInstance questInstance)
+    {
+        if (questInstance == null || questInstance.questData == null) return false;
+
+        try
+        {
+            for (var i = 0; i < questInstance.questData.objectives.Count; i++)
+            {
+                var objective = questInstance.questData.objectives[i];
+                _db.Execute(
+                    "INSERT INTO Quest_Objectives (quest_id, objective_index, current_amount, is_complete) VALUES (?, ?, ?, ?)",
+                    questInstance.questData.questId, i, 0, false
+                );
+            }
+            return true;
+        }
+        catch (SQLiteException ex)
+        {
+            Debug.LogError($"Error adding quest objectives: {ex.Message}");
+            return false;
+        }
+    }
+
+    public bool UpdateObjectiveProgress(QuestInstance questInstance, int objectiveIndex, int newAmount, bool isComplete)
+    {
+        if (questInstance == null || questInstance.questData == null) return false;
+        try
+        {
+            _db.Execute(
+                "UPDATE Quest_Objectives SET current_amount = ?, is_complete = ? WHERE quest_id = ? AND objective_index = ?",
+                newAmount, isComplete, questInstance.questData.questId, objectiveIndex
+            );
+            return true;
+        }
+        catch (SQLiteException ex)
+        {
+            Debug.LogError($"Error updating quest objective: {ex.Message}");
+            return false;
+        }
+    }
+
+    public List<QuestObjectiveRow> LoadQuestObjectives(string questId)
+    {
+        try
+        {
+            var rows = _db.Query<QuestObjectiveRow>(
+                "SELECT * FROM Quest_Objectives WHERE quest_id = ? ORDER BY objective_index ASC",
+                questId
+            );
+            return rows;
+        }
+        catch (SQLiteException ex)
+        {
+            Debug.LogError($"Error loading quest objectives: {ex.Message}");
+            return new List<QuestObjectiveRow>();
+        }
     }
 
     #endregion

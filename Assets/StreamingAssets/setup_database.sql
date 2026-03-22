@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS inventory
 (
   slot_index INTEGER PRIMARY KEY, -- slot in the inventory
-  item_id TEXT NOT NULL,
+  item_id TEXT NOT NULL, -- ID of the scriptable object
   quantity INTEGER NOT NULL DEFAULT 1
 );
 
@@ -19,6 +19,18 @@ CREATE TABLE IF NOT EXISTS quests
   active BOOLEAN DEFAULT FALSE,
   completed BOOLEAN DEFAULT FALSE,
   FOREIGN KEY (zone_id) REFERENCES zones(id)
+);
+
+-- To track quest objectives and their progress
+CREATE TABLE IF NOT EXISTS quest_objectives
+(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  quest_id TEXT NOT NULL,
+  objective_index INTEGER NOT NULL,
+  current_amount INTEGER NOT NULL DEFAULT 0,
+  is_complete BOOLEAN NOT NULL DEFAULT FALSE,
+  FOREIGN KEY (quest_id) REFERENCES quests(quest_id),
+  UNIQUE (quest_id, objective_index)
 );
 
 -- Insertions into the zones these will always be the same
