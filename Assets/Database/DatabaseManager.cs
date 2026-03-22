@@ -18,6 +18,8 @@ public class DatabaseManager : MonoBehaviour
     private Dictionary<string, QuestData> _questsDictionary;
     private Dictionary<string, ItemData> _itemsDictionary;
 
+    public Dictionary<string, ItemData> ItemsDict => _itemsDictionary;
+
     // Internal representation of the inventory table
     [Table("Inventory")]
     public class InventoryRow
@@ -322,23 +324,16 @@ public class DatabaseManager : MonoBehaviour
         });
     }
 
-    public Dictionary<ItemData, List<InventoryRow>> LoadInventory()
+    public Dictionary<string, List<InventoryRow>> LoadInventory()
     {
-        var res = new Dictionary<ItemData, List<InventoryRow>>();
+        var res = new Dictionary<string, List<InventoryRow>>();
 
         var rows = _db.Query<InventoryRow>("SELECT * FROM Inventory");
 
         foreach (var row in rows)
         {
-            if (_itemsDictionary.TryGetValue(row.item_id, out var itemData))
-            {
-                if (!res.ContainsKey(itemData)) res[itemData] = new List<InventoryRow>();
-                res[itemData].Add(row);
-            }
-            else
-            {
-                Debug.LogWarning($"Item ID {row.item_id} in inventory does not exist in items dictionary. Skipping.");
-            }
+            if (!res.ContainsKey(row.item_id)) res[row.item_id] = new List<InventoryRow>();
+            res[row.item_id].Add(row);
         }
 
         return res;

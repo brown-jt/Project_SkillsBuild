@@ -93,7 +93,7 @@ public class InventoryManager : MonoBehaviour
     {
         var inventoryDict = DatabaseManager.Instance.LoadInventory();
 
-        if (inventoryDict.TryGetValue(item, out var stacks))
+        if (inventoryDict.TryGetValue(item.itemId, out var stacks))
         {
             int total = 0;
             foreach (var stack in stacks)
@@ -132,8 +132,15 @@ public class InventoryManager : MonoBehaviour
 
         foreach (var kvp in inventoryDict)
         {
-            ItemData item = kvp.Key;
+            string itemId = kvp.Key;
             var stacks = kvp.Value;
+
+            // Get item data from database runtime dictionary
+            if (!DatabaseManager.Instance.ItemsDict.TryGetValue(itemId, out var item))
+            {
+                Debug.LogError($"Item ID {itemId} not found in item data dictionary!");
+                continue;
+            }
 
             foreach (var stack in stacks)
             {
