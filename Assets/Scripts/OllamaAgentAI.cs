@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class OllamaAgentAI : InteractableItem
 {
@@ -12,7 +14,7 @@ public class OllamaAgentAI : InteractableItem
     private void Start()
     {
         promptName ??= InteractableName;
-        prompt = $"You are a {promptName} in a RPG world based on helping teach a player about different learning courses. You are currently in a {zone} zone helping teach the {course} course.";
+        ResetBasePrompt();
     }
 
     public override void Interact()
@@ -21,6 +23,7 @@ public class OllamaAgentAI : InteractableItem
         bool questStarted = FinishPromptWithQuestionData();
 
         // Call OllamaManger or provide feedback to player if no relevant quests with question data are active
+        Debug.Log(prompt);
         if (questStarted) OllamaManager.Instance.GenerateResponse(prompt, OnResponseReceived);
         else DialogManager.Instance.StartDialog(DialogDataHelper.CreateDialogDataFromText("You are currently not on any active quests in this zone that I can help with. Try accepting a quest first!"), InteractableName);
     }
@@ -28,7 +31,7 @@ public class OllamaAgentAI : InteractableItem
     private bool FinishPromptWithQuestionData()
     {
         questionSet = null;
-        prompt = $"You are a {promptName} in a RPG world based on helping teach a player about different learning courses. You are currently in a {zone} zone helping teach the {course} course.";
+        ResetBasePrompt();
 
         foreach (QuestInstance questInstance in QuestManager.Instance.activeQuests)
         {
@@ -45,11 +48,13 @@ public class OllamaAgentAI : InteractableItem
             return false;
         }
 
-        prompt += $" The player is currently stuck on the following questions: ";
+        prompt += $" The player is on quest involving the following questions and answers:";
 
-        for (int i = 0; i < questionSet.questions.Count; i++)
+        // Before passing questions to LLM I will shuffle to further increase the chance of varying hints
+        List<QuestionData> questionsShuffled = questionSet.questions.OrderBy(q => UnityEngine.Random.value).ToList();
+
+        foreach (QuestionData q in questionsShuffled)
         {
-            QuestionData q = questionSet.questions[i];
             if (q.correctAnswerIndices.Count > 1)
             {
                 // Multiple answers
@@ -61,23 +66,52 @@ public class OllamaAgentAI : InteractableItem
                     if (j < q.correctAnswerIndices.Count - 1)
                         answers += ", ";
                 }
-                prompt += $" Q{i+1}: {q.question} - Answers are {answers}.";
+                prompt += $" Question: {q.question} - Answers: {answers}.";
             }
             else
             {
                 // Single answer
                 string answer = q.answers[q.correctAnswerIndices[0]];
-                prompt += $" Q{i+1}: {q.question} - Answer is {answer}.";
+                prompt += $" Question: {q.question} - Answer: {answer}.";
             }
         }
 
-        prompt += $" Can you give a descriptive single sentence explaining one of these answers to the player to help them understand the material better? Ensure you give it in the context of a {promptName} that a player inte";
+        prompt += " Randomly select one of the questions listed above and provide a **single-sentence hint** that:" +
+          " 1) includes the correct answer **exactly as written**," +
+          " 2) explains why it is correct in context," +
+          " 3) is phrased differently each time," +
+          " 4) is concise, friendly, and informative," +
+          " 5) does not mention the AI's name, the course, the zone, or the object being interacted with." +
+          " Only provide the hint sentence, nothing else." +
+          " Do not use speech marks or answer a question directly for the player.";
+
         return true;
+    }
+
+    private void ResetBasePrompt()
+    {
+        prompt = $"You are an in-game source of guidance for the {course} course in the {zone} zone of an RPG." +
+            " Your task is to help the player understand the answers to their questions by giving clear, concise and friendly hints.";
     }
 
     private void OnResponseReceived(string response)
     {
-        DialogData aiDialog = DialogDataHelper.CreateDialogDataFromText(response);
+        string cleanedResponse = CleanOllamaResponse(response);
+
+        DialogData aiDialog = DialogDataHelper.CreateDialogDataFromText(cleanedResponse);
+
         DialogManager.Instance.StartDialog(aiDialog, InteractableName);
+    }
+
+    private string CleanOllamaResponse(string response)
+    {
+        if (string.IsNullOrEmpty(response)) return response;
+
+        // Removing common Ollama finish markers
+        response = response.Replace("<|fim_suffix|>", "");
+        response = response.Replace("<|fim_middle|>", "");
+        response = response.Replace("<|fim_prefix|>", ""); // sometimes appears
+
+        return response.Trim();
     }
 }
