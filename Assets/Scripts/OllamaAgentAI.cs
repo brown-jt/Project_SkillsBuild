@@ -83,7 +83,8 @@ public class OllamaAgentAI : InteractableItem
           " 4) is concise, friendly, and informative," +
           " 5) does not mention the AI's name, the course, the zone, or the object being interacted with." +
           " Only provide the hint sentence, nothing else." +
-          " Do not use speech marks or answer a question directly for the player.";
+          " If the answer cannot be explained independently such as just '80%', use the question for more information and create your response." +
+          " Do not use speech marks or answer a question directly for the player. Do not use the word Hint: or Answer: at the start of your sentence, it should be **only the single-sentence hint**.";
 
         return true;
     }
