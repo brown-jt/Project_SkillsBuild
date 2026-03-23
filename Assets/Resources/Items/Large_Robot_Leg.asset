@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711583a0ee6af3a4e82ca5a97a3dae4e, type: 3}
+  m_Name: Large_Robot_Leg
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemId: Large_Robot_Leg
+  itemName: Large robot leg
+  icon: {fileID: 21300000, guid: f07b21ad2ba0fb543bf589ba64fef33e, type: 3}
+  description: Part of a large robot
+  stackable: 0
+  maxStack: 1
+  prefab: {fileID: 5052092363877515615, guid: ce5ee8adeb11bb24bad26c0f998aceee, type: 3}

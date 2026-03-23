@@ -137,7 +137,11 @@ public class QuestGiver : InteractableItem
 
     private void OnQuestUpdated(QuestInstance quest)
     {
-        if (quest.questData != null && questChain.Contains(quest.questData))
+        if (quest.questData == null) return;
+
+        bool isInChain = questChain.Exists(q => q.questId == quest.questData.questId);
+
+        if (isInChain)
         {
             UpdateQuestSigns();
         }

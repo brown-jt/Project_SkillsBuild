@@ -1,7 +1,9 @@
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class QuestManager : MonoBehaviour
 {
@@ -21,6 +23,11 @@ public class QuestManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        LoadQuestsFromDatabase();
     }
 
     private void OnEnable()
@@ -43,7 +50,7 @@ public class QuestManager : MonoBehaviour
 
     public QuestInstance GetQuestInstance(QuestData data)
     {
-        return activeQuests.Find(q => q.questData == data);
+        return activeQuests.Find(q => q.questData.questId == data.questId);
     }
 
     public void AcceptQuest(QuestData data)
@@ -58,18 +65,38 @@ public class QuestManager : MonoBehaviour
         // Refresh the quest log UI here
         QuestJournalUI.Instance.RefreshQuestList();
 
+        // Sync with database
+        DatabaseManager.Instance.AcceptQuest(data);
+        DatabaseManager.Instance.AddQuestObjectives(questInstance);
+
+        // Fire quest updated event
+        onQuestUpdated?.Invoke(questInstance);
+    }
+
+    private void LoadQuest(QuestData data, List<ObjectiveProgress> objectivesProgress)
+    {
+        if (data == null) return;
+
+        QuestInstance questInstance = new QuestInstance(data);
+
+        // Replacing default objective progress with loaded progress from database
+        questInstance.objectivesProgress = objectivesProgress;
+
+        // Adding the loaded quest instance to active quests without checking for duplicates since this is only called during initial load from database
+        activeQuests.Add(questInstance);
+
         // Fire quest updated event
         onQuestUpdated?.Invoke(questInstance);
     }
 
     public bool HasQuest(QuestData data)
     {
-        return activeQuests.Exists(q => q.questData == data);
+        return activeQuests.Exists(q => q.questData.questId == data.questId);
     }
 
     public bool IsQuestCompleted(QuestData data)
     {
-        return completedQuests.Exists(q => q.questData == data);
+        return completedQuests.Exists(q => q.questData.questId == data.questId);
     }
 
     void HandleFoundItem(string itemId)
@@ -106,28 +133,30 @@ public class QuestManager : MonoBehaviour
     {
         foreach (var quest in activeQuests)
         {
-            Debug.Log($"Checking quest: {quest.questData.name} for objective type: {type} and target ID: {targetId}");
-            foreach (var objective in quest.objectivesProgress)
+            for(int i = 0; i < quest.objectivesProgress.Count; i++)
             {
-                Debug.Log($"Checking objective type: {objective.data.objectiveType} with given type: {type}");
-                Debug.Log($"Checking objective target: {objective.data.targetId} with given target: {targetId}");
-                Debug.Log($"Checking complete status of objective: {objective.IsComplete}");
+                var objective = quest.objectivesProgress[i];
+
                 if (objective.data.objectiveType == type && objective.data.targetId == targetId && !objective.IsComplete)
                 {
-                    Debug.Log("UPDATING OBJECTIVE PROGRESS");
+                    // Update objective progress
                     objective.currentAmount++;
                     if (objective.currentAmount > objective.data.requiredAmount)
                     {
                         objective.currentAmount = objective.data.requiredAmount;
                     }
-                    // Ensuring we refresh the quest log UI after updating the objective progress
-                    QuestJournalUI.Instance.RefreshQuestList();
 
-                    // Fire quest updated event
-                    onQuestUpdated?.Invoke(quest);
+                    // Save objective progress to database
+                    DatabaseManager.Instance.UpdateObjectiveProgress(quest, i, objective.currentAmount, objective.IsComplete);
 
-                    // Show feedback banner
-                    FeedbackBannerUI.Instance.ShowBanner("Objective Updated", objective.data.taskText, quest.questData.title);
+                    if (objective.IsComplete)
+                    {
+                        // Fire quest updated event
+                        onQuestUpdated?.Invoke(quest);
+
+                        // Show feedback banner
+                        FeedbackBannerUI.Instance.ShowBanner("Objective Updated", objective.data.taskText, quest.questData.title);
+                    }
                 }
                 else
                 {
@@ -135,6 +164,9 @@ public class QuestManager : MonoBehaviour
                 }
             }
         }
+
+        // Ensuring we refresh the quest log UI after updating the objective progress
+        QuestJournalUI.Instance.RefreshQuestList();
     }
 
     void GiveRewards(RewardData rewards)
@@ -167,7 +199,61 @@ public class QuestManager : MonoBehaviour
         // Ensuring we refresh the quest log UI after turning in a quest
         QuestJournalUI.Instance.RefreshQuestList();
 
+        // Sync with database
+        DatabaseManager.Instance.CompleteQuest(questData);
+
         // Fire quest updated event
         onQuestUpdated?.Invoke(questInstance);
+    }
+
+    private void LoadQuestsFromDatabase()
+    {
+        // Active quests
+        var activeQuestDatas = DatabaseManager.Instance.LoadActiveQuests();
+        foreach (var questData in activeQuestDatas)
+        {
+            List<DatabaseManager.QuestObjectiveRow> dbQuestObjectiveRows = DatabaseManager.Instance.LoadQuestObjectives(questData.questId);
+            List<ObjectiveProgress> questObjectives = ConvertDbRowsToObjectiveProgress(questData, dbQuestObjectiveRows);
+
+            if (questData != null) LoadQuest(questData, questObjectives);
+        }
+
+        // Completed quests are a little different as we don't want to complete a second time and give rewards again, so we just add them to the completed list without accepting
+        var completedQuestDatas = DatabaseManager.Instance.LoadCompletedQuests();
+        foreach (var questData in completedQuestDatas)
+        {
+            if (questData != null)
+            {
+                QuestInstance instance = new QuestInstance(questData) { IsTurnedIn = true };
+                completedQuests.Add(instance);
+                onQuestUpdated?.Invoke(instance);
+            }
+        }
+
+        // Ensure UI is up to date after loading quests
+        QuestJournalUI.Instance.RefreshQuestList();
+    }
+
+    private List<ObjectiveProgress> ConvertDbRowsToObjectiveProgress(QuestData questData, List<DatabaseManager.QuestObjectiveRow> dbRows)
+    {
+        var progressList = new List<ObjectiveProgress>();
+
+        // Make sure the order matches QuestData.objectives
+        for (int i = 0; i < questData.objectives.Count; i++)
+        {
+            var objData = questData.objectives[i];
+            var progress = new ObjectiveProgress { data = objData };
+
+            // Find the matching row in dbRows
+            var dbRow = dbRows.FirstOrDefault(r => r.objective_index == i);
+            if (dbRow != null)
+            {
+                progress.currentAmount = dbRow.current_amount;
+            }
+
+            progressList.Add(progress);
+        }
+
+        return progressList;
     }
 }

@@ -17,7 +17,7 @@ public class ConveyorItem : InteractableItem
 
     [Header("Item Data")]
     [SerializeField] private ItemData itemData;
-    [SerializeField] private int amount = 1;
+    [SerializeField] private int quantity = 1;
 
     private bool isMoveable = true;
 
@@ -140,13 +140,13 @@ public class ConveyorItem : InteractableItem
 
     public override void Interact()
     {
-        bool added = InventoryManager.Instance.AddItem(itemData, amount);
+        bool added = InventoryManager.Instance.AddItem(itemData, quantity);
 
         if (added)
         {
             AudioSource.PlayClipAtPoint(InteractionSound, transform.position);
             Destroy(gameObject);
-            FeedbackNotificationsUI.Instance.AddNotification($"{amount}x {itemData.itemName} added to inventory");
+            FeedbackNotificationsUI.Instance.AddNotification($"{quantity}x {itemData.itemName} added to inventory");
         }
         else
         {
