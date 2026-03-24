@@ -529,7 +529,7 @@ public class DatabaseManager : MonoBehaviour
     public void UpdateAIResponseUsage(int id, int currentUsage)
     {
         int newUsage = currentUsage + 1;
-        bool isActive = newUsage >= HINT_MAX_USAGE;
+        bool isActive = newUsage < HINT_MAX_USAGE;
 
         try
         {

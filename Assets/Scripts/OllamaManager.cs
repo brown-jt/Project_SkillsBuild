@@ -44,7 +44,7 @@ public class OllamaManager : MonoBehaviour
         if (string.IsNullOrWhiteSpace(prompt))
         {
             Debug.LogWarning("OllamaManager: Prompt is empty. Skipping LLM request.");
-            callback?.Invoke("The NPC has nothing to say.");
+            callback?.Invoke("The NPC has nothing to say. (Empty prompt)");
             return;
         }
 

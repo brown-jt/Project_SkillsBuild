@@ -49,8 +49,8 @@ CREATE TABLE IF NOT EXISTS question_hints
   question_index INTEGER NOT NULL,
   response TEXT NOT NULL,
   created_at TEXT NOT NULL,
-  last_used_at TEXT NOT NULL,
+  last_used_at TEXT,
   usage_count INTEGER DEFAULT 0,
-  is_active BOOLEAN DEFAULT FALSE,
+  is_active BOOLEAN DEFAULT TRUE,
   FOREIGN KEY (quest_id) REFERENCES quests(quest_id)
 )

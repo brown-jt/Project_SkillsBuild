@@ -9,8 +9,7 @@ public class QuestionHintAIService : MonoBehaviour
 {
     public static QuestionHintAIService Instance;
 
-    private const int MIN_HINTS = 1;
-    private const int MAX_HINTS = 3;
+    private const int MIN_HINTS = 2;
 
     private void Awake()
     {

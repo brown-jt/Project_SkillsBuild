@@ -71,6 +71,9 @@ public class QuestManager : MonoBehaviour
 
         // Fire quest updated event
         onQuestUpdated?.Invoke(questInstance);
+
+        // Pre-generating some AI hints for the questions within the quest
+        PreGenerateQuestionHintsForQuest(questInstance);
     }
 
     private void LoadQuest(QuestData data, List<ObjectiveProgress> objectivesProgress)
@@ -255,5 +258,42 @@ public class QuestManager : MonoBehaviour
         }
 
         return progressList;
+    }
+
+    private void PreGenerateQuestionHintsForQuest(QuestInstance questInstance)
+    {
+        if (questInstance == null || questInstance.questData.questionSet == null) return;
+
+        QuestionSetData questionSet = questInstance.questData.questionSet;
+
+        for (int i = 0; i < questionSet.questions.Count; i++)
+        {
+            QuestionData question = questionSet.questions[i];
+            int index = i;
+
+            string prompt = BuildPromptForQuestion(question);
+            OllamaManager.Instance.GenerateResponse(prompt, (res) =>
+            {
+                DatabaseManager.Instance.InsertAIResponse(questInstance.questData.questId, index, res);
+            });
+        }
+    }
+
+    private string BuildPromptForQuestion(QuestionData question)
+    {
+        string answer = string.Join(", ", question.correctAnswerIndices.ConvertAll(i => question.answers[i]));
+
+        return
+            $"You are an in-game guide helping a player.\n" +
+            "The player is on a quest involving the following question that you need to help:\n" +
+            $"Question: {question.question}\n" +
+            $"Answer: {answer}\n\n" +
+            "Provide **ONE single-sentence hint** that:\n" +
+            "- includes the answer **exactly as written**\n" +
+            "- explains why it is correct in context\n" +
+            "- is phrased differently each time\n" +
+            "- does not mention the AI's name, the course, the zone, or the object being interacted with.\n\n" +
+            "If the answer cannot be explained independently such as just '80%', use the question for more information and create your response.\n" +
+            "Do not label it. Do not use quotes.";
     }
 }

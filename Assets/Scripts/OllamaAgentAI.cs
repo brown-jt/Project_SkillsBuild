@@ -9,90 +9,72 @@ public class OllamaAgentAI : InteractableItem
     [SerializeField] private string promptName; // Optional name to use in the prompt instead of the InteractableName
 
     private QuestionSetData questionSet;
-    private string prompt;
+    private int questionIndex = 0;
 
     private void Start()
     {
         promptName ??= InteractableName;
-        ResetBasePrompt();
     }
 
     public override void Interact()
     {
-        // Complete the prompt with the question data from the player's active quests in this zone
-        bool questStarted = FinishPromptWithQuestionData();
+        // Firstly find the active quest in this zone with questions attached
+        QuestInstance questInstance = FindActiveQuestWithQuestions();
+        if (questInstance == null)
+        {
+            // If no quest return some empty placeholder dialog non AI-generated for now
+            DialogManager.Instance.StartDialog(DialogDataHelper.CreateDialogDataFromText("You are currently not on any active quests in this zone that I can help with. Try accepting a quest first!"), InteractableName);
+            return;
+        }
 
-        // Call OllamaManger or provide feedback to player if no relevant quests with question data are active
-        Debug.Log(prompt);
-        if (questStarted) OllamaManager.Instance.GenerateResponse(prompt, OnResponseReceived);
-        else DialogManager.Instance.StartDialog(DialogDataHelper.CreateDialogDataFromText("You are currently not on any active quests in this zone that I can help with. Try accepting a quest first!"), InteractableName);
+        if (questionSet != null && questionSet != questInstance.questData.questionSet)
+        {
+            // New question set being assigned so we will need to reset questionIndex
+            questionIndex = -1;
+        }
+
+        questionSet = questInstance.questData.questionSet;
+
+        // Randomly setting the starting index for the questions
+        if (questionIndex == -1) questionIndex = Random.Range(0, questionSet.questions.Count);
+
+        // Picking one question to generate a hint for in this interaction sequence and display as dialog
+        QuestionData question = questionSet.questions[questionIndex];
+        string prompt = BuildPromptForQuestion(question);
+        QuestionHintAIService.Instance.GetQuestionHint(questInstance.questData.questId, questionIndex, prompt, OnResponseReceived);
+
+        // Moving index up by one
+        questionIndex = (questionIndex + 1) % questionSet.questions.Count;
     }
 
-    private bool FinishPromptWithQuestionData()
+    private QuestInstance FindActiveQuestWithQuestions()
     {
-        questionSet = null;
-        ResetBasePrompt();
-
-        foreach (QuestInstance questInstance in QuestManager.Instance.activeQuests)
+        foreach (QuestInstance quest in QuestManager.Instance.activeQuests)
         {
-            if (questInstance.questData.zoneId == zone && questInstance.questData.questionSet != null)
+            if (quest.questData.zoneId == zone && quest.questData.questionSet != null)
             {
-                questionSet = questInstance.questData.questionSet;
-                break;
+                return quest;
             }
         }
-
-        if (questionSet == null || questionSet.questions.Count == 0)
-        {
-            Debug.Log("The player currently has no active quests in this zone with question data, so the Ollama Agent will not provide any information.");
-            return false;
-        }
-
-        prompt += $" The player is on quest involving the following questions and answers:";
-
-        // Before passing questions to LLM I will shuffle to further increase the chance of varying hints
-        List<QuestionData> questionsShuffled = questionSet.questions.OrderBy(q => UnityEngine.Random.value).ToList();
-
-        foreach (QuestionData q in questionsShuffled)
-        {
-            if (q.correctAnswerIndices.Count > 1)
-            {
-                // Multiple answers
-                string answers = "";
-                for (int j = 0; j < q.correctAnswerIndices.Count; j++)
-                {
-                    string answer = q.answers[q.correctAnswerIndices[j]];
-                    answers += answer;
-                    if (j < q.correctAnswerIndices.Count - 1)
-                        answers += ", ";
-                }
-                prompt += $" Question: {q.question} - Answers: {answers}.";
-            }
-            else
-            {
-                // Single answer
-                string answer = q.answers[q.correctAnswerIndices[0]];
-                prompt += $" Question: {q.question} - Answer: {answer}.";
-            }
-        }
-
-        prompt += " Randomly select one of the questions listed above and provide a **single-sentence hint** that:" +
-          " 1) includes the correct answer **exactly as written**," +
-          " 2) explains why it is correct in context," +
-          " 3) is phrased differently each time," +
-          " 4) is concise, friendly, and informative," +
-          " 5) does not mention the AI's name, the course, the zone, or the object being interacted with." +
-          " Only provide the hint sentence, nothing else." +
-          " If the answer cannot be explained independently such as just '80%', use the question for more information and create your response." +
-          " Do not use speech marks or answer a question directly for the player. Do not use the word Hint: or Answer: at the start of your sentence, it should be **only the single-sentence hint**.";
-
-        return true;
+        return null;
     }
 
-    private void ResetBasePrompt()
+    private string BuildPromptForQuestion(QuestionData question)
     {
-        prompt = $"You are an in-game source of guidance for the {course} course in the {zone} zone of an RPG." +
-            " Your task is to help the player understand the answers to their questions by giving clear, concise and friendly hints.";
+        string answer = string.Join(", ", question.correctAnswerIndices.ConvertAll(i => question.answers[i]));
+
+        return 
+            $"You are a {promptName} in a {zone} setting teaching the course called {course}.\n" +
+            "The player is on a quest involving the following question that you need to help:\n" +
+            $"Question: {question.question}\n" +
+            $"Answer: {answer}\n\n" +
+            "Provide **ONE single-sentence hint** that:\n" +
+            "- includes the answer **exactly as written**\n" +
+            "- explains why it is correct in context\n" +
+            "- is phrased differently each time\n" +
+            "- does not mention the AI's name, the course, the zone, or the object being interacted with.\n\n" +
+            "If the answer cannot be explained independently such as just '80%', use the question for more information and create your response.\n" +
+            "Do not label it. Do not use quotes.";
     }
 
     private void OnResponseReceived(string response)
