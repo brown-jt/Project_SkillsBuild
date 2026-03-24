@@ -19,7 +19,7 @@ public class CallTruck : InteractableItem
 
         foreach (QuestInstance questInstance in QuestManager.Instance.activeQuests)
         {
-            if (questInstance.questData.questionSet != null)
+            if (questInstance.questData.questionSet != null && questInstance.questData.zoneId == ZoneId.Warehouse)
             {
                 Debug.Log($"Found question set for quest: {questInstance.questData.title}");
                 quizManager.questionSet = questInstance.questData.questionSet;

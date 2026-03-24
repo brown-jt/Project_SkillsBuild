@@ -53,6 +53,24 @@ public class DatabaseManager : MonoBehaviour
         public bool is_complete { get; set; }
     }
 
+    // Internal representation of the question hints table
+    [Table("QuestionHints")]
+    public class QuestionHintRow
+    {
+        [PrimaryKey, AutoIncrement]
+        public int id { get; set; }
+        public string quest_id { get; set; }
+        public int question_index { get; set; }
+        public string response { get; set; }
+        public string created_at { get; set; }
+        public string last_used_at { get; set; }
+        public int usage_count { get; set; }
+    }
+
+    // Max usage of question hint before retired - Keeping for analytical purposes
+    private const int HINT_MAX_USAGE = 3;
+
+
     private void Awake()
     {
         // Ensure singleton
@@ -473,6 +491,57 @@ public class DatabaseManager : MonoBehaviour
         {
             Debug.LogError($"Error loading quest objectives: {ex.Message}");
             return new List<QuestObjectiveRow>();
+        }
+    }
+
+    public List<QuestionHintRow> GetAIResponses(string questId, int questionIndex)
+    {
+        try
+        {
+            return _db.Query<QuestionHintRow>(
+                "SELECT * FROM Question_Hints WHERE quest_id = ? AND question_index = ? AND is_active = 1",
+                questId, questionIndex
+            );
+        }
+        catch (SQLiteException ex)
+        {
+            Debug.LogError($"Error fetching AI responses: {ex.Message}");
+            return new List<QuestionHintRow>();
+        }
+    }
+
+    public void InsertAIResponse(string questId, int questionIndex, string response)
+    {
+        try
+        {
+            string currentTime = DateTime.UtcNow.ToString("o");
+            _db.Execute(
+                "INSERT INTO Question_Hints (quest_id, question_index, response, created_at, usage_count) VALUES (?, ?, ?, ?, 0)",
+                questId, questionIndex, response, currentTime
+            );
+        }
+        catch (SQLiteException ex)
+        {
+            Debug.LogError($"Error inserting AI response: {ex.Message}");
+        }
+    }
+
+    public void UpdateAIResponseUsage(int id, int currentUsage)
+    {
+        int newUsage = currentUsage + 1;
+        bool isActive = newUsage >= HINT_MAX_USAGE;
+
+        try
+        {
+            string currentTime = DateTime.UtcNow.ToString("o");
+            _db.Execute(
+                "UPDATE Question_Hints SET usage_count = ?, last_used_at = ?, is_active = ? WHERE id = ?",
+                newUsage, currentTime, isActive, id
+            );
+        }
+        catch (SQLiteException ex)
+        {
+            Debug.LogError($"Error updating usage of AI response: {ex.Message}");
         }
     }
 
