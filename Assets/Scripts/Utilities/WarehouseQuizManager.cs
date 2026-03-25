@@ -1,11 +1,9 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
 public class WarehouseQuizManager : MonoBehaviour
 {
-    [Header("Quiz Settings")]
-    public QuestionSetData questionSet;
-
     [Header("Default Minigame Rewards")]
     [SerializeField] private int goldReward = 100;
     [SerializeField] private float experienceReward = 50.0f;
@@ -16,10 +14,20 @@ public class WarehouseQuizManager : MonoBehaviour
 
     private float timer = 0.0f;
     private bool quizActive = false;
+    private QuestQuizTrigger quizTrigger;
+
+    // To change current question set
+    public QuestionSetData questionSet;
+
+    // Score tracking
+    private int totalQuestions;
+    private int answeredQuestions;
+    private int correctAnswers;
 
     private void Start()
     {
         timerUI.SetActive(false);
+        quizTrigger = GetComponent<QuestQuizTrigger>();
     }
 
     private void Update()
@@ -48,11 +56,51 @@ public class WarehouseQuizManager : MonoBehaviour
         timerUI.SetActive(true);
         quizActive = true;
         timer = 0.0f;
+
+        totalQuestions = questionSet.questions.Count;
     }
 
-    public void EndQuiz()
+    public void EndQuiz(bool passed)
     {
         quizActive = false;
-        // TODO: Determine rewards based on performance (e.g., time taken, correct answers)
+
+        if (passed)
+        {
+            quizTrigger.Passed(questionSet.quizId);
+            questionSet = null;
+            // TODO: Determine rewards based on performance (e.g., time taken, correct answers)
+        }
+    }
+
+    private void CheckQuizCompleted()
+    {
+        if (answeredQuestions >= totalQuestions)
+        {
+            float score = (float)correctAnswers / totalQuestions;
+            bool passed = score >= questionSet.passPercentage;
+
+            string scoreText = $"Score: {score * 100:F2}% ({correctAnswers}/{totalQuestions})";
+
+            // If passed, we need to trigger the objective completion event for the quest that contains this question set
+            EndQuiz(passed);
+        }
+    }
+
+    public void SubmitAnswer(string answer, QuestionData questionData, Shelf shelf)
+    {
+        answeredQuestions++;
+
+        // Assuming only one correct answer for simplicity for now
+        // TODO: Handle multiple correct answers somehow later
+        int correctIndex = questionData.correctAnswerIndices.FirstOrDefault();
+        string correctAnswer = questionData.answers[correctIndex];
+
+        bool isCorrect = answer == correctAnswer;
+
+        if (isCorrect) correctAnswers++;
+
+        shelf.DisplayResult(isCorrect, questionData);
+
+        CheckQuizCompleted();
     }
 }
