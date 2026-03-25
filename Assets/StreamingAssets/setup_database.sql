@@ -11,6 +11,14 @@ CREATE TABLE IF NOT EXISTS zones
   name TEXT NOT NULL
 );
 
+-- Insertions into the zones these will always be the same
+INSERT INTO zones VALUES (0, "Hub");
+INSERT INTO zones VALUES (1, "Factory");
+INSERT INTO zones VALUES (2, "Forest");
+INSERT INTO zones VALUES (3, "Warehouse");
+INSERT INTO zones VALUES (4, "Security");
+INSERT INTO zones VALUES (5, "Museum");
+
 -- Quests will have the ID of the scriptable object in Unity for easy referencing
 CREATE TABLE IF NOT EXISTS quests
 (
@@ -33,10 +41,16 @@ CREATE TABLE IF NOT EXISTS quest_objectives
   UNIQUE (quest_id, objective_index)
 );
 
--- Insertions into the zones these will always be the same
-INSERT INTO zones VALUES (0, "Hub");
-INSERT INTO zones VALUES (1, "Factory");
-INSERT INTO zones VALUES (2, "Forest");
-INSERT INTO zones VALUES (3, "Warehouse");
-INSERT INTO zones VALUES (4, "Security");
-INSERT INTO zones VALUES (5, "Museum");
+-- To cache AI responses for questions within a quest
+CREATE TABLE IF NOT EXISTS question_hints
+(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  quest_id TEXT NOT NULL,
+  question_index INTEGER NOT NULL,
+  response TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  last_used_at TEXT,
+  usage_count INTEGER DEFAULT 0,
+  is_active BOOLEAN DEFAULT TRUE,
+  FOREIGN KEY (quest_id) REFERENCES quests(quest_id)
+)

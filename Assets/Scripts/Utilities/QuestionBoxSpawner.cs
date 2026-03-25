@@ -9,6 +9,8 @@ public class QuestionBoxSpawner : MonoBehaviour
     public float spawnDelay = 0.25f;
     public WarehouseQuizManager quizManager;
 
+    [SerializeField] private TruckController truckController;
+
     public void SpawnBoxes()
     {
         StartCoroutine(SpawnBoxesCoroutine());
@@ -39,5 +41,7 @@ public class QuestionBoxSpawner : MonoBehaviour
             // Wait before spawning the next box
             yield return new WaitForSeconds(spawnDelay);
         }
+
+        truckController.StartDriving();
     }
 }

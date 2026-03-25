@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class TruckController : MonoBehaviour
 {
-    public float reverseSpeed = 2.0f;
-    public Transform stopPoint;
+    public float moveSpeed = 2.0f;
+    public Transform reverseStopPoint;
+    public Transform forwardsStopPoint;
 
     private Animator animator;
-    private bool isReversing = false;
+
+    private bool isMoving = false;
+    private int moveDirection; // 1 = forwards and -1 = reverse
 
     private void Start()
     {
@@ -16,27 +19,38 @@ public class TruckController : MonoBehaviour
 
     void Update()
     {
-        if (isReversing)
+        if (isMoving)
         {
-            ReverseTruck();
+            MoveTruck();
         }
     }
 
     public void StartReversing()
     {
-        isReversing = true;
+        moveDirection = -1;
+        isMoving = true;
     }
 
-    private void ReverseTruck()
+    public void StartDriving()
     {
-        transform.Translate(Vector3.back * reverseSpeed * Time.deltaTime);
+        moveDirection = 1;
+        isMoving = true;
+    }
 
-        float distanceToStopPoint = Vector3.Distance(transform.position, stopPoint.position);
+    private void MoveTruck()
+    {
+        transform.Translate(Vector3.forward * moveDirection * moveSpeed * Time.deltaTime);
+
+        Transform stopPointToUse = moveDirection == 1 ? forwardsStopPoint : reverseStopPoint;
+
+        float distanceToStopPoint = Vector3.Distance(transform.position, stopPointToUse.position);
 
         if (distanceToStopPoint < 0.5f)
         {
-            isReversing = false;
-            OpenDoors();
+            isMoving = false;
+
+            // Only call if reversing
+            if (moveDirection == -1) OpenDoors();
         }
     }
 

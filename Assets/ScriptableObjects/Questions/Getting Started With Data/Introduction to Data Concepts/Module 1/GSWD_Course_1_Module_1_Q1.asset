@@ -17,10 +17,10 @@ MonoBehaviour:
     Select
     the two that apply.'
   answers:
-  - "It\u2019s organized into rows and columns in a spreadsheet or database."
-  - Examples can include names, dates, and addresses.
-  - Examples can include images, text messages, and social media posts.
-  - "It\u2019s raw data that is stored in its original, undefined format."
+  - "It\u2019s organized into rows and columns in a spreadsheet or database"
+  - Examples can include names, dates, and addresses
+  - Examples can include images, text messages, and social media posts
+  - "It\u2019s raw data that is stored in its original, undefined format"
   maxSelections: 2
   correctAnswerIndices: 0000000001000000
   correctMessage: "Keep in mind that structured data is well-organized. It\u2019s
