@@ -9088,6 +9088,7 @@ Transform:
   - {fileID: 4471030408487747384}
   - {fileID: 996720864}
   - {fileID: 1181494890}
+  - {fileID: 1815111939}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1051666909
@@ -14440,7 +14441,7 @@ Transform:
   m_GameObject: {fileID: 1572578920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -2.5, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16924,6 +16925,100 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1815111938
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1049445275}
+    m_Modifications:
+    - target: {fileID: 2681561383916046879, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_Name
+      value: ToMuseum
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407048663731710775, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: spawnID
+      value: Factory
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042884663353659253, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042884663353659253, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042884663353659253, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042884663353659253, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042884663353659253, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042884663353659253, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042884663353659253, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042884663353659253, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042884663353659253, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042884663353659253, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071688607372723204, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: sceneName
+      value: MuseumScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071688607372723204, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: interactName
+      value: Getting Started with Generative AI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071688607372723204, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: returnSpawnID
+      value: Museum
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071688607372723204, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: interactionPrompt
+      value: Start Learning
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077061476838702107, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077061476838702107, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077061476838702107, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+--- !u!4 &1815111939 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6042884663353659253, guid: 1988d2b39a83cc34684816f17fa5710d, type: 3}
+  m_PrefabInstance: {fileID: 1815111938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1818581686
 GameObject:
   m_ObjectHideFlags: 0
@@ -17701,6 +17796,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e943222ee85d041892ec1df22b0d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!1 &1845888632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1845888634}
+  - component: {fileID: 1845888633}
+  m_Layer: 0
+  m_Name: MuseumSpawnPoint
+  m_TagString: PlayerSpawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1845888633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845888632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5966095a299546547ac147f3e4762914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpawnPoint
+  spawnID: Museum
+--- !u!4 &1845888634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845888632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 2.5, y: 0, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1861645904
 GameObject:
   m_ObjectHideFlags: 0
@@ -20706,7 +20846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7347039845415930234, guid: dc961844a8b5d1d4c95d7bd0ad8fc0ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7347039845415930234, guid: dc961844a8b5d1d4c95d7bd0ad8fc0ad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20714,7 +20854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7347039845415930234, guid: dc961844a8b5d1d4c95d7bd0ad8fc0ad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.934
+      value: 1.9339998
       objectReference: {fileID: 0}
     - target: {fileID: 7347039845415930234, guid: dc961844a8b5d1d4c95d7bd0ad8fc0ad, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20881,6 +21021,7 @@ SceneRoots:
   - {fileID: 1818581688}
   - {fileID: 630760041}
   - {fileID: 1572578922}
+  - {fileID: 1845888634}
   - {fileID: 1519906624}
   - {fileID: 1049445275}
   - {fileID: 553257257}
