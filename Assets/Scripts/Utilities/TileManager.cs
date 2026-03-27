@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -175,7 +176,7 @@ public class TileManager : MonoBehaviour
         tile.currentPosition = emptyPos;
 
         // Move visually
-        tile.transform.position = GridToWorld(emptyPos);
+        StartCoroutine(MoveTileSmoothly(tile, GridToWorld(emptyPos), 0.2f));
 
         // Update empty space
         emptyPos = oldPos;
@@ -186,5 +187,20 @@ public class TileManager : MonoBehaviour
         return transform.position
              + transform.right * (-gridPos.x * tileSpacing)
              + transform.up * (-gridPos.y * tileSpacing);
+    }
+
+    private IEnumerator MoveTileSmoothly(Tile tile, Vector3 targetPos, float duration)
+    {
+        Vector3 startPos = tile.transform.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            tile.transform.position = Vector3.Lerp(startPos, targetPos, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        tile.transform.position = targetPos;
     }
 }
