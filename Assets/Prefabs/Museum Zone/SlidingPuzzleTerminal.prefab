@@ -133,9 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f87debbacc7cf74ca83fd90fac527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TileManager
-  tilePrefab: {fileID: 7055078292094244524, guid: cedc57735cbce8243983cb636cb5acb6, type: 3}
+  tilePrefab: {fileID: 1660964583792316068, guid: cedc57735cbce8243983cb636cb5acb6, type: 3}
   gridSize: 3
   tileSpacing: 0.11
+  fullImage: {fileID: 2800000, guid: cb195e621e5464c4eac081d6490549ed, type: 3}
 --- !u!1 &5835558246880211237
 GameObject:
   m_ObjectHideFlags: 0

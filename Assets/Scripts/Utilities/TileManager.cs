@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +9,11 @@ public class TileManager : MonoBehaviour
     [SerializeField] private int gridSize = 3;
     [SerializeField] private float tileSpacing = 0.11f;
 
+    [SerializeField] private Texture2D fullImage;
+
     private Tile[,] grid;
+    private Texture2D[,] tileTextures;
+
     private Vector2Int emptyPos;
 
     private Camera mainCamera;
@@ -16,6 +21,11 @@ public class TileManager : MonoBehaviour
     private void Start()
     {
         GenerateGrid();
+        if (fullImage != null)
+        {
+            SplitImage();
+            AssignTexturesToTiles();
+        }
     }
 
     private void Update()
@@ -28,7 +38,7 @@ public class TileManager : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 Tile tile = hit.collider.GetComponent<Tile>();
-                if (tile != null) tile.OnClick();
+                if (tile != null) TryMoveTile(tile);
             }
         }
     }
@@ -42,7 +52,7 @@ public class TileManager : MonoBehaviour
         {
             for (int y = 0; y < gridSize; y++)
             {
-                // Skip the bottom-right slot (empty)
+                // Skip the bottom-right slot (empty) but ensure we assign the emptyPos to track
                 if (x == gridSize - 1 && y == gridSize - 1)
                 {
                     emptyPos = new Vector2Int(x, y);
@@ -55,6 +65,7 @@ public class TileManager : MonoBehaviour
                                  + transform.up * (-y * tileSpacing);    // down along parent's Y axis
 
                 GameObject tileObj = Instantiate(tilePrefab, worldPos, transform.rotation, transform);
+                tileObj.transform.localRotation = Quaternion.Euler(0f, 180f, 0f); // Flip the tile to face upwards
 
                 Tile tile = tileObj.GetComponent<Tile>();
                 if (tile == null)
@@ -67,6 +78,69 @@ public class TileManager : MonoBehaviour
                 tile.currentPosition = new Vector2Int(x, y);
 
                 grid[x, y] = tile;
+            }
+        }
+    }
+
+    private void SplitImage()
+    {
+        if (fullImage == null)
+        {
+            Debug.LogError("No puzzle image assigned!");
+            return;
+        }
+
+        tileTextures = new Texture2D[gridSize, gridSize];
+
+        int tileWidth = fullImage.width / gridSize;
+        int tileHeight = fullImage.height / gridSize;
+
+        for (int x = 0; x < gridSize; x++)
+        {
+            for (int y = 0; y < gridSize; y++)
+            {
+                // Skip the bottom-right slot (empty)
+                if (x == gridSize - 1 && y == gridSize - 1) continue;
+
+                // Create a new Texture2D for this tile
+                Texture2D tileTexture = new Texture2D(tileWidth, tileHeight);
+
+                // Copy pixels from full image
+                // Flip Y because Unity textures start at bottom-left
+                Color[] pixels = fullImage.GetPixels(
+                    x * tileWidth,
+                    fullImage.height - (y + 1) * tileHeight,
+                    tileWidth,
+                    tileHeight
+                );
+
+                tileTexture.SetPixels(pixels);
+                tileTexture.Apply();
+
+                tileTextures[x, y] = tileTexture;
+            }
+        }
+    }
+
+    private void AssignTexturesToTiles()
+    {
+        for (int x = 0; x < gridSize; x++)
+        {
+            for (int y = 0; y < gridSize; y++)
+            {
+                Tile tile = grid[x, y];
+                if (tile == null) continue; // empty tile
+
+                MeshRenderer rend = tile.GetComponent<MeshRenderer>();
+                if (rend != null)
+                {
+                    // Create a new material with Unlit/Texture shader
+                    Material mat = new Material(Shader.Find("Unlit/Texture"));
+                    mat.mainTexture = tileTextures[x, y];
+
+                    // Assign to renderer
+                    rend.material = mat;
+                }
             }
         }
     }
