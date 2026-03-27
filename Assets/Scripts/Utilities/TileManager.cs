@@ -1,5 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,12 +12,16 @@ public class TileManager : MonoBehaviour
 
     [SerializeField] private Texture2D fullImage;
 
+    [SerializeField] private int scrambleMoves = 20;
+
     private Tile[,] grid;
     private Texture2D[,] tileTextures;
 
     private Vector2Int emptyPos;
 
     private Camera mainCamera;
+
+    private bool isSolved = false;
 
     private void Start()
     {
@@ -26,12 +30,13 @@ public class TileManager : MonoBehaviour
         {
             SplitImage();
             AssignTexturesToTiles();
+            ScrambleTiles(scrambleMoves);
         }
     }
 
     private void Update()
     {
-        if (mainCamera == null) return;
+        if (mainCamera == null || isSolved) return;
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
@@ -146,6 +151,20 @@ public class TileManager : MonoBehaviour
         }
     }
 
+    private void ScrambleTiles(int moves)
+    {
+        for (int i = 0; i < moves; i++)
+        {
+            List<Tile> neighbourTiles = GetAdjacentTilesFromEmpty();
+
+            if (neighbourTiles.Count > 0)
+            {
+                Tile randomTile = neighbourTiles[Random.Range(0, neighbourTiles.Count)];
+                MoveTileInstantly(randomTile);
+            }
+        }
+    }
+
     public void SetCamera(Camera cam)
     {
         mainCamera = cam;
@@ -180,6 +199,27 @@ public class TileManager : MonoBehaviour
 
         // Update empty space
         emptyPos = oldPos;
+
+        // Check to see if all tiles are in correct positions
+        isSolved = CheckIfComplete();
+    }
+
+    private void MoveTileInstantly(Tile tile)
+    {
+        Vector2Int oldPos = tile.currentPosition;
+
+        // Update grid
+        grid[emptyPos.x, emptyPos.y] = tile;
+        grid[oldPos.x, oldPos.y] = null;
+
+        // Update tile data
+        tile.currentPosition = emptyPos;
+
+        // Move instantly instead of using coroutine
+        tile.transform.position = GridToWorld(emptyPos);
+
+        // Update empty space
+        emptyPos = oldPos;
     }
 
     private Vector3 GridToWorld(Vector2Int gridPos)
@@ -187,6 +227,45 @@ public class TileManager : MonoBehaviour
         return transform.position
              + transform.right * (-gridPos.x * tileSpacing)
              + transform.up * (-gridPos.y * tileSpacing);
+    }
+
+    private bool CheckIfComplete()
+    {
+        foreach (Tile tile in grid)
+        {
+            if (tile != null && tile.currentPosition != tile.correctPosition) return false;
+        }
+
+        FeedbackBannerUI.Instance.ShowBanner("Puzzle Complete!", "You have successfully solved this puzzle and submitted an answer.");
+
+        return true;
+    }
+
+    private List<Tile> GetAdjacentTilesFromEmpty()
+    {
+        List<Tile> neighbours = new List<Tile>();
+
+        Vector2Int[] directions =
+        {
+        Vector2Int.up,
+        Vector2Int.down,
+        Vector2Int.left,
+        Vector2Int.right
+    };
+
+        foreach (var dir in directions)
+        {
+            Vector2Int checkPos = emptyPos + dir;
+
+            if (checkPos.x >= 0 && checkPos.x < gridSize &&
+                checkPos.y >= 0 && checkPos.y < gridSize)
+            {
+                Tile tile = grid[checkPos.x, checkPos.y];
+                if (tile != null) neighbours.Add(tile);
+            }
+        }
+
+        return neighbours;
     }
 
     private IEnumerator MoveTileSmoothly(Tile tile, Vector3 targetPos, float duration)
