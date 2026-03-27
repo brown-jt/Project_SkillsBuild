@@ -428,6 +428,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: fullImage
+      value: 
+      objectReference: {fileID: 2800000, guid: b251bfe3a8a09e44493f2a023a76d2d3, type: 3}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
       propertyPath: tileSpacing
       value: 0.118
       objectReference: {fileID: 0}

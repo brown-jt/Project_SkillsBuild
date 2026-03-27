@@ -14,6 +14,8 @@ public class SlidingPuzzleTerminal : InteractableItem
 
     private QuestQuizTrigger quizTrigger;
 
+    private ZoneId thisZone = ZoneId.Museum;
+
     private void Start()
     {
         cameraController = Camera.main.GetComponent<CameraFocusController>();
@@ -45,7 +47,7 @@ public class SlidingPuzzleTerminal : InteractableItem
 
         foreach (QuestInstance questInstance in QuestManager.Instance.activeQuests)
         {
-            if (questInstance.questData.questionSet != null)
+            if (questInstance.questData.zoneId == thisZone && questInstance.questData.questionSet != null)
             {
                 Debug.Log($"Found question set for quest: {questInstance.questData.title}");
                 questionSet = questInstance.questData.questionSet;
@@ -56,7 +58,7 @@ public class SlidingPuzzleTerminal : InteractableItem
         if (questionSet == null)
         {
             Debug.LogError("No Quests with QuestionSet data to show!");
-            return;
+            //return;
         }
 
         // Disabling inputs
@@ -71,7 +73,7 @@ public class SlidingPuzzleTerminal : InteractableItem
         // Enabling terminal UI and focusing camera
         cameraController.FocusOnTerminal(cameraFocusPoint);
 
-        // Sending camera to terminal
+        // Sending camera to tile manager for on click events via raycasting
         if (tileManager != null) tileManager.SetCamera(Camera.main);
     }
 
