@@ -12,7 +12,7 @@ public class Tile : MonoBehaviour
         manager = FindFirstObjectByType<TileManager>();
     }
 
-    private void OnMouseDown()
+    public void OnClick()
     {
         if (manager != null) manager.TryMoveTile(this);
     }

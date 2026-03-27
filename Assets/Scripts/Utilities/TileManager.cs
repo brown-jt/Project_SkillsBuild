@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TileManager : MonoBehaviour
 {
@@ -10,9 +11,26 @@ public class TileManager : MonoBehaviour
     private Tile[,] grid;
     private Vector2Int emptyPos;
 
+    private Camera mainCamera;
+
     private void Start()
     {
         GenerateGrid();
+    }
+
+    private void Update()
+    {
+        if (mainCamera == null) return;
+
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                Tile tile = hit.collider.GetComponent<Tile>();
+                if (tile != null) tile.OnClick();
+            }
+        }
     }
 
     private void GenerateGrid()
@@ -53,6 +71,11 @@ public class TileManager : MonoBehaviour
         }
     }
 
+    public void SetCamera(Camera cam)
+    {
+        mainCamera = cam;
+    }
+
     private bool IsAdjacent(Vector2Int tilePos, Vector2Int emptyPos)
     {
         return Mathf.Abs(tilePos.x - emptyPos.x) + Mathf.Abs(tilePos.y - emptyPos.y) == 1;
@@ -84,8 +107,10 @@ public class TileManager : MonoBehaviour
         emptyPos = oldPos;
     }
 
-    private Vector3 GridToWorld(Vector2Int pos)
+    private Vector3 GridToWorld(Vector2Int gridPos)
     {
-        return transform.position + new Vector3(pos.x * tileSpacing, 0f, pos.y * tileSpacing);
+        return transform.position
+             + transform.right * (-gridPos.x * tileSpacing)
+             + transform.up * (-gridPos.y * tileSpacing);
     }
 }

@@ -725,6 +725,7 @@ MonoBehaviour:
   interactionSound: {fileID: 0}
   cameraFocusPoint: {fileID: 5873228729973221682}
   cancelAction: {fileID: 7727032971491509709, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  tileManager: {fileID: 8825343790501738515}
 --- !u!65 &7896889912790402604
 BoxCollider:
   m_ObjectHideFlags: 0

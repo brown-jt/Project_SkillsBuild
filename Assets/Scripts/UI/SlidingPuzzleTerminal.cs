@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +6,7 @@ public class SlidingPuzzleTerminal : InteractableItem
     [Header("Terminal Setup")]
     [SerializeField] private Transform cameraFocusPoint;
     [SerializeField] private InputActionReference cancelAction;
+    [SerializeField] private TileManager tileManager;
 
     private QuestionSetData questionSet;
 
@@ -71,6 +70,9 @@ public class SlidingPuzzleTerminal : InteractableItem
 
         // Enabling terminal UI and focusing camera
         cameraController.FocusOnTerminal(cameraFocusPoint);
+
+        // Sending camera to terminal
+        if (tileManager != null) tileManager.SetCamera(Camera.main);
     }
 
     public void ExitTerminal()
@@ -82,5 +84,7 @@ public class SlidingPuzzleTerminal : InteractableItem
 
         FirstPersonController.Instance.SetCameraLookLocked(false);
         FirstPersonController.Instance.SetInputEnabled(true);
+
+        if (tileManager != null) tileManager.SetCamera(null);
     }
 }
