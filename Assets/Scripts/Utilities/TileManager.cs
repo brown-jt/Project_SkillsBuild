@@ -22,6 +22,9 @@ public class TileManager : MonoBehaviour
     private Camera mainCamera;
 
     private bool isSolved = false;
+    public bool IsSolved => isSolved;
+
+    public System.Action OnComplete;
 
     private void Start()
     {
@@ -236,7 +239,7 @@ public class TileManager : MonoBehaviour
             if (tile != null && tile.currentPosition != tile.correctPosition) return false;
         }
 
-        FeedbackBannerUI.Instance.ShowBanner("Puzzle Complete!", "You have successfully solved this puzzle and submitted an answer.");
+        OnComplete?.Invoke();
 
         return true;
     }

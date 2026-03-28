@@ -1178,7 +1178,6 @@ GameObject:
   - component: {fileID: 5527186189089895483}
   - component: {fileID: 8731222908777380812}
   - component: {fileID: 7896889912790402604}
-  - component: {fileID: 7338523997072342404}
   m_Layer: 9
   m_Name: SlidingPuzzleTerminal
   m_TagString: Untagged
@@ -1224,6 +1223,7 @@ MonoBehaviour:
   cameraFocusPoint: {fileID: 5873228729973221682}
   cancelAction: {fileID: 7727032971491509709, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   tileManager: {fileID: 8825343790501738515}
+  answerText: {fileID: 5433282663123398446}
 --- !u!65 &7896889912790402604
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1245,18 +1245,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6, y: 0.67923725, z: 0.3}
   m_Center: {x: 0, y: 0.33961862, z: 0.060000002}
---- !u!114 &7338523997072342404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8870964412863105377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea55ad23645ee847945e156739af672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuestQuizTrigger
 --- !u!1 &8932918491752519120
 GameObject:
   m_ObjectHideFlags: 0

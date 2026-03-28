@@ -1,0 +1,680 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3695821375569654885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2855300059591707205}
+  - component: {fileID: 5853202090231179988}
+  - component: {fileID: 4189689340299366846}
+  m_Layer: 0
+  m_Name: PaintingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2855300059591707205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3695821375569654885}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1200319104031358866}
+  - {fileID: 6580278619618403974}
+  - {fileID: 3571309362492369098}
+  - {fileID: 9186007100993833282}
+  - {fileID: 385716371240623507}
+  - {fileID: 8852058047411043536}
+  - {fileID: 2760681394887176425}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5853202090231179988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3695821375569654885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5aba40cbb0a4e3419cccc6b9f6f4218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  relevantQuizId: GSWGA_Course_1_Lesson_1
+  painting: {fileID: 7702455053362212751}
+  puzzleTerminals:
+  - {fileID: 7984551176953375089}
+  - {fileID: 292976444704433981}
+  - {fileID: 5396520434789009077}
+  - {fileID: 3514316828913554020}
+  - {fileID: 5712773879527306023}
+  - {fileID: 1427891141919899422}
+  questQuizTrigger: {fileID: 4189689340299366846}
+--- !u!114 &4189689340299366846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3695821375569654885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea55ad23645ee847945e156739af672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestQuizTrigger
+--- !u!1001 &1721881407599809213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2855300059591707205}
+    m_Modifications:
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18284847
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.84526
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.87540996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: fullImage
+      value: 
+      objectReference: {fileID: 2800000, guid: bf6f704617a3a54488c34df49c2445dc, type: 3}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: tileSpacing
+      value: 0.118
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: scrambleMoves
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870964412863105377, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_Name
+      value: SlidingPuzzleTerminal_1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+--- !u!4 &6580278619618403974 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 1721881407599809213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7984551176953375089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 1721881407599809213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be89b1209c38eac4f847d4c302e286ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlidingPuzzleTerminal
+--- !u!1001 &3733416230318636409
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2855300059591707205}
+    m_Modifications:
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18284847
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.84526
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12458998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: fullImage
+      value: 
+      objectReference: {fileID: 2800000, guid: b251bfe3a8a09e44493f2a023a76d2d3, type: 3}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: tileSpacing
+      value: 0.118
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: scrambleMoves
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870964412863105377, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_Name
+      value: SlidingPuzzleTerminal_3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+--- !u!114 &5396520434789009077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 3733416230318636409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be89b1209c38eac4f847d4c302e286ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlidingPuzzleTerminal
+--- !u!4 &9186007100993833282 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 3733416230318636409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3921598894851967211
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2855300059591707205}
+    m_Modifications:
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18284847
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.84526
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.12459
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: fullImage
+      value: 
+      objectReference: {fileID: 2800000, guid: d696b4d7930e5c84c84d75481546f636, type: 3}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: tileSpacing
+      value: 0.118
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: scrambleMoves
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870964412863105377, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_Name
+      value: SlidingPuzzleTerminal_5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+--- !u!114 &5712773879527306023 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 3921598894851967211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be89b1209c38eac4f847d4c302e286ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlidingPuzzleTerminal
+--- !u!4 &8852058047411043536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 3921598894851967211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5327428990954924456
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2855300059591707205}
+    m_Modifications:
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18284847
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.84526
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.62459
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: fullImage
+      value: 
+      objectReference: {fileID: 2800000, guid: bb9c24673f067c845a8fae9e680c7c42, type: 3}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: tileSpacing
+      value: 0.118
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: scrambleMoves
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870964412863105377, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_Name
+      value: SlidingPuzzleTerminal_4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+--- !u!4 &385716371240623507 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 5327428990954924456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3514316828913554020 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 5327428990954924456}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be89b1209c38eac4f847d4c302e286ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlidingPuzzleTerminal
+--- !u!1001 &7708873470983161042
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2855300059591707205}
+    m_Modifications:
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18284844
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.84526
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.6245898
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: fullImage
+      value: 
+      objectReference: {fileID: 2800000, guid: d696b4d7930e5c84c84d75481546f636, type: 3}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: tileSpacing
+      value: 0.118
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: scrambleMoves
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870964412863105377, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_Name
+      value: SlidingPuzzleTerminal_6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+--- !u!114 &1427891141919899422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 7708873470983161042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be89b1209c38eac4f847d4c302e286ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlidingPuzzleTerminal
+--- !u!4 &2760681394887176425 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 7708873470983161042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7948789976803328097
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2855300059591707205}
+    m_Modifications:
+    - target: {fileID: 4996996994791307778, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_Name
+      value: Painting
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144459550549295091, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.41316843
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144459550549295091, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.50474
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144459550549295091, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.38262132
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144459550549295091, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144459550549295091, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144459550549295091, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144459550549295091, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144459550549295091, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144459550549295091, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144459550549295091, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4996996994791307778, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7702455053362212751}
+  m_SourcePrefab: {fileID: 100100000, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+--- !u!114 &22272208410541547 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7926588412488859018, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+  m_PrefabInstance: {fileID: 7948789976803328097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!4 &1200319104031358866 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9144459550549295091, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+  m_PrefabInstance: {fileID: 7948789976803328097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3104985739234294371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4996996994791307778, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+  m_PrefabInstance: {fileID: 7948789976803328097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7702455053362212751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104985739234294371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8e0bab451e59d45a7d9dca54770cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  paintingText: {fileID: 22272208410541547}
+--- !u!1001 &9023899185191558385
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2855300059591707205}
+    m_Modifications:
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18284847
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.84526
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.37541002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: fullImage
+      value: 
+      objectReference: {fileID: 2800000, guid: e524c08b77acd63458be6051bd1ffa2e, type: 3}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: tileSpacing
+      value: 0.118
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: scrambleMoves
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870964412863105377, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: m_Name
+      value: SlidingPuzzleTerminal_2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+--- !u!114 &292976444704433981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 9023899185191558385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be89b1209c38eac4f847d4c302e286ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlidingPuzzleTerminal
+--- !u!4 &3571309362492369098 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 9023899185191558385}
+  m_PrefabAsset: {fileID: 0}
