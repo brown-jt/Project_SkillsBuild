@@ -42,7 +42,7 @@ public class SlidingPuzzleTerminal : InteractableItem
 
     public override void Interact()
     {
-        if (!IsInteractable || puzzleFinished) return;
+        if (!IsInteractable || puzzleFinished || associatedAnswer == string.Empty) return;
 
         // Disabling inputs
         FirstPersonController.Instance.SetInputEnabled(false);
@@ -73,18 +73,15 @@ public class SlidingPuzzleTerminal : InteractableItem
         if (tileManager != null) tileManager.SetCamera(null);
     }
 
-    public void SetAnswerText(string answer)
+    public void SetAnswer(string answer)
     {
         answerText.text = answer;
-    }
-    
-    public void SetPuzzleAssociatedAnswer(string answer)
-    {
         associatedAnswer = answer;
     }
 
     public void Clear()
     {
+        associatedAnswer = string.Empty;
         answerText.text = "Out of Order";
     }
 }

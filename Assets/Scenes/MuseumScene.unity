@@ -375,6 +375,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintingManager (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5853202090231179988, guid: de3d48d7fc64b4648a4e61362a6ce3a1, type: 3}
+      propertyPath: relevantQuizId
+      value: GSWGA_Course_1_Lesson_2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

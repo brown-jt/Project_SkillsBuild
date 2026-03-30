@@ -22,10 +22,16 @@ public class MuseumQuizManager : MonoBehaviour
         quizTrigger = GetComponent<QuestQuizTrigger>();
     }
 
+    private void OnEnable()
+    {
+        QuestManager.Instance.onQuestUpdated += OnQuestUpdated;
+    }
+
     public void SetQuestionSet(QuestionSetData questionSet)
     {
         this.questionSet = questionSet;
         OnMuseumQuestionSetChanged?.Invoke();
+        StartQuiz();
     }
 
     public void StartQuiz()
@@ -42,6 +48,18 @@ public class MuseumQuizManager : MonoBehaviour
         {
             quizTrigger.Passed(questionSet.quizId);
             questionSet = null;
+        }
+    }
+
+    private void OnQuestUpdated(QuestInstance quest)
+    {
+        if (quest.questData.zoneId == ZoneId.Museum && !quest.IsTurnedIn && quest.questData.questionSet != null)
+        {
+            SetQuestionSet(quest.questData.questionSet);
+        }
+        else
+        {
+            // TODO if required to handle
         }
     }
 

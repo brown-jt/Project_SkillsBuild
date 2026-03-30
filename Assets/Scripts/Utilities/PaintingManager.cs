@@ -12,6 +12,8 @@ public class PaintingManager : MonoBehaviour
     private int currentQuestionIndex;
     [SerializeField] private QuestQuizTrigger questQuizTrigger;
 
+    public AutoCenterChildren autoCenter;
+
     private void Awake()
     {
         museumQuizManager = FindFirstObjectByType<MuseumQuizManager>();
@@ -29,10 +31,12 @@ public class PaintingManager : MonoBehaviour
 
     private void CheckQuestionSet()
     {
+        Debug.Log("CHECKING QUESTION SET: " + museumQuizManager.QuestionSet.quizId);
         if (museumQuizManager.QuestionSet.quizId == relevantQuizId)
         {
             questionSet = museumQuizManager.QuestionSet;
             currentQuestionIndex = 0;
+            StartQuiz();
         }
     }
 
@@ -46,13 +50,14 @@ public class PaintingManager : MonoBehaviour
             if (i >= currentQuestion.answers.Count)
             {
                 puzzleTerminals[i].Clear();
-                puzzleTerminals[i].SetPuzzleAssociatedAnswer(string.Empty);
+                puzzleTerminals[i].gameObject.SetActive(false);
             }
             else
             {
-                puzzleTerminals[i].SetAnswerText(currentQuestion.answers[i]);
-                puzzleTerminals[i].SetPuzzleAssociatedAnswer(currentQuestion.answers[i]);
+                puzzleTerminals[i].gameObject.SetActive(true);
+                puzzleTerminals[i].SetAnswer(currentQuestion.answers[i]);
             }
         }
+        autoCenter.Recenter();
     }
 }
