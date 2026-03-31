@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using UnityEngine;
+using System.Collections;
 
 public class MuseumQuizManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class MuseumQuizManager : MonoBehaviour
 
     // Action to subscribe to for paintings/puzzle terminals
     public Action OnMuseumQuestionSetChanged;
+    public Action OnQuizPassed;
     private QuestQuizTrigger quizTrigger;
 
     // Score tracking
@@ -47,17 +49,11 @@ public class MuseumQuizManager : MonoBehaviour
         }
     }
 
-    public void EndQuiz(bool passed)
+    public void EndQuiz(Painting painting)
     {
-        if (passed)
-        {
-            quizTrigger.Passed(questionSet.quizId);
-            questionSet = null;
-        }
-        else
-        {
-            // TODO: Reset quiz state to try again
-        }
+        OnQuizPassed?.Invoke();
+        questionSet = null;
+        StartCoroutine(CompletePainting(painting));
     }
 
     private void OnQuestUpdated(QuestInstance quest)
@@ -72,7 +68,7 @@ public class MuseumQuizManager : MonoBehaviour
         }
     }
 
-    private void CheckQuizCompleted()
+    private void CheckQuizCompleted(Painting painting)
     {
         if (answeredQuestions >= totalQuestions)
         {
@@ -81,8 +77,17 @@ public class MuseumQuizManager : MonoBehaviour
 
             string scoreText = $"Score: {score * 100:F2}% ({correctAnswers}/{totalQuestions})";
 
-            // If passed, we need to trigger the objective completion event for the quest that contains this question set
-            EndQuiz(passed);
+            if (passed)
+            {
+                quizTrigger.Passed(questionSet.quizId);
+                painting.DisplayEnd($"Quiz Passed! {scoreText}");
+                EndQuiz(painting);
+            }
+            else
+            {
+                // Handle quiz failure, e.g., reset progress or allow retry
+                painting.DisplayEnd($"Quiz Failed!\n{scoreText}\nClick the button to try again.");
+            }
         }
     }
 
@@ -99,6 +104,20 @@ public class MuseumQuizManager : MonoBehaviour
 
         painting.DisplayResult(isCorrect, questionData);
 
-        CheckQuizCompleted();
+        StartCoroutine(DelayedCheckCompletion(painting));
+    }
+
+    private IEnumerator CompletePainting(Painting painting)
+    {
+        yield return new WaitForSeconds(5f);
+
+        painting.DisplayCompleted();
+    }
+
+    private IEnumerator DelayedCheckCompletion(Painting painting)
+    {
+        yield return new WaitForSeconds(5f);
+
+        CheckQuizCompleted(painting);
     }
 }

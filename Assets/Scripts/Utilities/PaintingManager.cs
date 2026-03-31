@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PaintingManager : MonoBehaviour
 {
-    public string relevantQuizId;
+    public QuestData relevantQuest;
     public Painting painting;
     public List<SlidingPuzzleTerminal> puzzleTerminals;
+    [SerializeField] private ConfirmAnswerButton confirmButton;
 
     private QuestionSetData questionSet;
     private MuseumQuizManager museumQuizManager;
@@ -21,24 +22,49 @@ public class PaintingManager : MonoBehaviour
         museumQuizManager = FindFirstObjectByType<MuseumQuizManager>();
     }
 
+    private void Start()
+    {
+        CheckIfCompleted();
+    }
+
     private void OnEnable()
     {
         museumQuizManager.OnMuseumQuestionSetChanged += CheckQuestionSet;
+        museumQuizManager.OnQuizPassed += HideObjects;
     }
 
     private void OnDisable()
     {
         museumQuizManager.OnMuseumQuestionSetChanged -= CheckQuestionSet;
+        museumQuizManager.OnQuizPassed += HideObjects;
     }
 
     private void CheckQuestionSet()
     {
-        if (museumQuizManager.QuestionSet.quizId == relevantQuizId)
+        if (museumQuizManager.QuestionSet.quizId == relevantQuest.questionSet.quizId)
         {
             questionSet = museumQuizManager.QuestionSet;
             currentQuestionIndex = 0;
             ShowQuestion();
         }
+    }
+
+    private void CheckIfCompleted()
+    {
+        if (QuestManager.Instance.IsQuestCompleted(relevantQuest) || QuestManager.Instance.AreQuestObjectivesComplete(relevantQuest))
+        {
+            HideObjects();
+            painting.DisplayCompleted();
+        }
+    }
+
+    private void HideObjects()
+    {
+        foreach (var terminal in puzzleTerminals)
+        {
+            terminal.gameObject.SetActive(false);
+        }
+        confirmButton.gameObject.SetActive(false);
     }
 
     private void ShowQuestion()
@@ -94,21 +120,18 @@ public class PaintingManager : MonoBehaviour
 
         currentQuestionIndex++;
 
-        Invoke(nameof(GoToQuestion), 5f); // Delay to allow feedback to be seen
+        if (currentQuestionIndex < questionSet.questions.Count) Invoke(nameof(GoToQuestion), 5f); // Delay to allow feedback to be seen
     }
 
     private void GoToQuestion()
     {
-        if (currentQuestionIndex >= questionSet.questions.Count)
+        if (currentQuestionIndex < questionSet.questions.Count)
         {
-            return;
+            foreach (var terminal in puzzleTerminals)
+            {
+                terminal.Reset();
+            }
+            ShowQuestion();
         }
-
-        foreach (var terminal in puzzleTerminals)
-        {
-            terminal.Reset();
-        }
-
-        ShowQuestion();
     }
 }
