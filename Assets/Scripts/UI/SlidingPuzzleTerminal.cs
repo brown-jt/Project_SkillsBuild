@@ -9,12 +9,14 @@ public class SlidingPuzzleTerminal : InteractableItem
     [SerializeField] private InputActionReference cancelAction;
     [SerializeField] private TileManager tileManager;
     [SerializeField] private TextMeshProUGUI answerText;
+    [SerializeField] private PaintingManager paintingManager;
 
     private CameraFocusController cameraController;
 
-    private string associatedAnswer;
+    private int associatedAnswerIndex;
+    public int AssociatedAnswerIndex => associatedAnswerIndex;
 
-    private bool puzzleFinished => tileManager.IsSolved;
+    public bool IsSelected => tileManager.IsSolved;
 
     private void Start()
     {
@@ -25,14 +27,16 @@ public class SlidingPuzzleTerminal : InteractableItem
     {
         cancelAction.action.Enable();
         cancelAction.action.performed += OnCancel;
-        tileManager.OnComplete += ExitTerminal;
+        tileManager.OnSolved += OnSolved;
+        tileManager.OnUnsolved += OnUnsolved;
     }
 
     private void OnDisable()
     {
         cancelAction.action.performed -= OnCancel;
         cancelAction.action.Disable();
-        tileManager.OnComplete -= ExitTerminal;
+        tileManager.OnSolved -= OnSolved;
+        tileManager.OnUnsolved -= OnUnsolved;
     }
 
     private void OnCancel(InputAction.CallbackContext ctx)
@@ -40,9 +44,26 @@ public class SlidingPuzzleTerminal : InteractableItem
         ExitTerminal();
     }
 
+    private void OnSolved()
+    {
+        UpdateVisuals(true);
+        ExitTerminal();
+    }
+
+    private void OnUnsolved()
+    {
+        UpdateVisuals(false);
+    }
+
     public override void Interact()
     {
-        if (!IsInteractable || puzzleFinished || associatedAnswer == string.Empty) return;
+        if (!IsInteractable || associatedAnswerIndex == -1) return;
+
+        if (!paintingManager.CanSelectMoreAnswers() && !IsSelected)
+        {
+            FeedbackNotificationsUI.Instance.AddNotification("You cannot select more answers. Deselect one by unsolving the puzzle to be able to choose another.");
+            return;
+        }
 
         // Disabling inputs
         FirstPersonController.Instance.SetInputEnabled(false);
@@ -50,7 +71,7 @@ public class SlidingPuzzleTerminal : InteractableItem
         FirstPersonController.Instance.ResetCameraPitch();
 
         // Enabling mouse
-        Cursor.lockState = CursorLockMode.None; 
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
         // Enabling terminal UI and focusing camera
@@ -73,15 +94,35 @@ public class SlidingPuzzleTerminal : InteractableItem
         if (tileManager != null) tileManager.SetCamera(null);
     }
 
-    public void SetAnswer(string answer)
+    public void SetAnswer(string answer, int answerIndex)
     {
         answerText.text = answer;
-        associatedAnswer = answer;
+        associatedAnswerIndex = answerIndex;
     }
 
     public void Clear()
     {
-        associatedAnswer = string.Empty;
         answerText.text = "Out of Order";
+        associatedAnswerIndex = -1;
+    }
+
+    private void UpdateVisuals(bool selected)
+    {
+        if (selected)
+        {
+            answerText.color = Color.green;
+        }
+        else
+        {
+            answerText.color = Color.white;
+        }
+    }
+
+    public void Reset()
+    {
+        answerText.text = "";
+        associatedAnswerIndex = -1;
+        tileManager.ResetPuzzle();
+        UpdateVisuals(false);
     }
 }

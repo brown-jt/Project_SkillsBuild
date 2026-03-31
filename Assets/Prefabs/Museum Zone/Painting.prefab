@@ -111,6 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9144459550549295091}
+  - component: {fileID: 336459703621873646}
   m_Layer: 0
   m_Name: Painting
   m_TagString: Untagged
@@ -135,6 +136,19 @@ Transform:
   - {fileID: 7290781802669086960}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &336459703621873646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996996994791307778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8e0bab451e59d45a7d9dca54770cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  paintingText: {fileID: 7926588412488859018}
 --- !u!1 &6817841675795317376
 GameObject:
   m_ObjectHideFlags: 0

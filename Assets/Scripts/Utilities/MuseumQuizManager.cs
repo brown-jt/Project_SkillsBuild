@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -16,6 +17,9 @@ public class MuseumQuizManager : MonoBehaviour
     private int totalQuestions;
     private int answeredQuestions;
     private int correctAnswers;
+    private int currentQustionIndex;
+    
+    public int CurrentQuestionIndex => currentQustionIndex;
 
     private void Start()
     {
@@ -39,6 +43,7 @@ public class MuseumQuizManager : MonoBehaviour
         if (questionSet != null)
         {
             totalQuestions = questionSet.questions.Count;
+            currentQustionIndex = 0;
         }
     }
 
@@ -49,11 +54,15 @@ public class MuseumQuizManager : MonoBehaviour
             quizTrigger.Passed(questionSet.quizId);
             questionSet = null;
         }
+        else
+        {
+            // TODO: Reset quiz state to try again
+        }
     }
 
     private void OnQuestUpdated(QuestInstance quest)
     {
-        if (quest.questData.zoneId == ZoneId.Museum && !quest.IsTurnedIn && quest.questData.questionSet != null)
+        if (quest.questData.zoneId == ZoneId.Museum && quest.questData.questionSet != null && !quest.IsTurnedIn && !quest.IsObjectivesComplete)
         {
             SetQuestionSet(quest.questData.questionSet);
         }
@@ -77,16 +86,14 @@ public class MuseumQuizManager : MonoBehaviour
         }
     }
 
-    public void SubmitAnswer(string answer, QuestionData questionData, Painting painting)
+    public void SubmitAnswer(List<int> selectedIndices, QuestionData questionData, Painting painting)
     {
         answeredQuestions++;
 
-        // Assuming only one correct answer for simplicity for now
-        // TODO: Handle multiple correct answers somehow later
-        int correctIndex = questionData.correctAnswerIndices.FirstOrDefault();
-        string correctAnswer = questionData.answers[correctIndex];
-
-        bool isCorrect = answer == correctAnswer;
+        // Checking contents against correct answer indices where order doesn't matter
+        bool isCorrect = selectedIndices
+            .OrderBy(x => x)
+            .SequenceEqual(questionData.correctAnswerIndices.OrderBy(x => x));
 
         if (isCorrect) correctAnswers++;
 

@@ -12,7 +12,7 @@ public class TileManager : MonoBehaviour
 
     [SerializeField] private Texture2D fullImage;
 
-    [SerializeField] private int scrambleMoves = 20;
+    [SerializeField] private int scrambleMoves = 30;
 
     private Tile[,] grid;
     private Texture2D[,] tileTextures;
@@ -24,7 +24,8 @@ public class TileManager : MonoBehaviour
     private bool isSolved = false;
     public bool IsSolved => isSolved;
 
-    public System.Action OnComplete;
+    public System.Action OnSolved;
+    public System.Action OnUnsolved;
 
     private void Start()
     {
@@ -34,12 +35,18 @@ public class TileManager : MonoBehaviour
             SplitImage();
             AssignTexturesToTiles();
             ScrambleTiles(scrambleMoves);
+
+            // In the unlikely event that the scramble results in a solved puzzle, keep scrambling until it's not solved
+            while (CheckIfComplete())
+            {
+                ScrambleTiles(scrambleMoves);
+            }
         }
     }
 
     private void Update()
     {
-        if (mainCamera == null || isSolved) return;
+        if (mainCamera == null) return;
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
@@ -203,8 +210,15 @@ public class TileManager : MonoBehaviour
         // Update empty space
         emptyPos = oldPos;
 
-        // Check to see if all tiles are in correct positions
+        // Check solved state after the move
+        bool wasSolved = isSolved;
         isSolved = CheckIfComplete();
+
+        // If was solved but now isn't, trigger unsolved event
+        if (wasSolved && !isSolved)
+        {
+            OnUnsolved?.Invoke();
+        }
     }
 
     private void MoveTileInstantly(Tile tile)
@@ -239,8 +253,7 @@ public class TileManager : MonoBehaviour
             if (tile != null && tile.currentPosition != tile.correctPosition) return false;
         }
 
-        OnComplete?.Invoke();
-
+        OnSolved?.Invoke();
         return true;
     }
 
@@ -269,6 +282,31 @@ public class TileManager : MonoBehaviour
         }
 
         return neighbours;
+    }
+
+    public void ResetPuzzle()
+    {
+        // We may not have spawned the grid yet if Reset is called before Start, so generate if needed
+        // This is due to hiding the terminals if not X answers, which can cause Reset to be called before Start
+        if (grid == null)
+        {
+            GenerateGrid();
+            if (fullImage != null)
+            {
+                SplitImage();
+                AssignTexturesToTiles();
+            }
+        }
+        ScrambleTiles(scrambleMoves);
+
+        // In the unlikely event that the scramble results in a solved puzzle, keep scrambling until it's not solved
+        while (CheckIfComplete())
+        {
+            ScrambleTiles(scrambleMoves);
+        }
+
+        // Reset to a non-solved state after scrambling
+        isSolved = false;
     }
 
     private IEnumerator MoveTileSmoothly(Tile tile, Vector3 targetPos, float duration)
