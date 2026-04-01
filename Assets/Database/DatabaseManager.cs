@@ -19,6 +19,7 @@ public class DatabaseManager : MonoBehaviour
     private Dictionary<string, ItemData> _itemsDictionary;
 
     public Dictionary<string, ItemData> ItemsDict => _itemsDictionary;
+    public Dictionary<string, QuestData> QuestsDict => _questsDictionary;
 
     // Internal representation of the inventory table
     [Table("Inventory")]

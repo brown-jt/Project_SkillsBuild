@@ -178,19 +178,19 @@ public class QuestManager : MonoBehaviour
         QuestJournalUI.Instance.RefreshQuestList();
     }
 
-    void GiveRewards(RewardData rewards)
+    void GiveRewards(QuestData data)
     {
         // Reward logic here, e.g., add gold, experience, items to player inventory
-        InventoryManager.Instance.AddGold(rewards.gold);
-        if (rewards.items.Count > 0)
+        InventoryManager.Instance.AddGold(data.rewards.gold);
+        if (data.rewards.items.Count > 0)
         {
-            foreach (var item in rewards.items)
+            foreach (var item in data.rewards.items)
             {
                 InventoryManager.Instance.AddItem(item);
             }
         }
 
-        // TODO - Wire experience into the course experience progression bar whenever implemented
+        ExperienceManager.Instance.AddExperience(data.zoneId, data.rewards.experience);
     }
 
     public void TurnInQuest(QuestData questData, string npcId)
@@ -203,7 +203,7 @@ public class QuestManager : MonoBehaviour
         activeQuests.Remove(questInstance);
         completedQuests.Add(questInstance);
 
-        GiveRewards(questInstance.questData.rewards);
+        GiveRewards(questInstance.questData);
 
         // Ensuring we refresh the quest log UI after turning in a quest
         QuestJournalUI.Instance.RefreshQuestList();
