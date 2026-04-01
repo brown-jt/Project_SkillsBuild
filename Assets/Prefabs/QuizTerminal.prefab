@@ -5509,7 +5509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68ec992203651249980d5d91e8ef228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  interactableName: Robot Terminal
+  interactableName: Quiz Terminal
   interactionPrompt: Interact
   interactionSound: {fileID: 0}
   cameraFocusPoint: {fileID: 5873228729973221682}

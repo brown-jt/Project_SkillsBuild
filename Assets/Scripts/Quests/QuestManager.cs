@@ -101,6 +101,12 @@ public class QuestManager : MonoBehaviour
     {
         return completedQuests.Exists(q => q.questData.questId == data.questId);
     }
+    
+    public bool AreQuestObjectivesComplete(QuestData data)
+    {
+        QuestInstance instance = GetQuestInstance(data);
+        return instance != null && instance.IsObjectivesComplete;
+    }
 
     void HandleFoundItem(string itemId)
     {
