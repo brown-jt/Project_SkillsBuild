@@ -13,6 +13,7 @@ public class QuestManager : MonoBehaviour
     public List<QuestInstance> completedQuests = new List<QuestInstance>();
 
     public event Action<QuestInstance> onQuestUpdated;
+    public event Action DatabaseQuestsLoaded;
 
     private void Awake()
     {
@@ -241,6 +242,7 @@ public class QuestManager : MonoBehaviour
 
         // Ensure UI is up to date after loading quests
         QuestJournalUI.Instance.RefreshQuestList();
+        DatabaseQuestsLoaded?.Invoke();
     }
 
     private List<ObjectiveProgress> ConvertDbRowsToObjectiveProgress(QuestData questData, List<DatabaseManager.QuestObjectiveRow> dbRows)

@@ -20,6 +20,30 @@ public class ExperienceManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void OnEnable()
+    {
+        QuestManager.Instance.DatabaseQuestsLoaded += DatabaseQuestsLoaded;
+    }
+
+    private void OnDisable()
+    {
+        QuestManager.Instance.DatabaseQuestsLoaded -= DatabaseQuestsLoaded;
+    }
+
+    private void DatabaseQuestsLoaded()
+    {
+        // Initialise bars before adding experience to ensure they are ready to receive updates
+        GSWAI.InitialiseBar();
+        GSWD.InitialiseBar();
+        GSWGA.InitialiseBar();
+
+        foreach (QuestInstance quest in QuestManager.Instance.completedQuests)
+        {
+            QuestData questData = quest.questData;
+            AddExperience(questData.zoneId, questData.rewards.experience);
+        }
+    }
+
     public void AddExperience(ZoneId zoneId, int experience)
     {
         switch (zoneId)
@@ -35,5 +59,4 @@ public class ExperienceManager : MonoBehaviour
                 break;
         }
     }
-
 }

@@ -12,13 +12,11 @@ public class ProgressionBar : MonoBehaviour
     private int currentExperience;
     private int maxExperience;
 
-    private void Start()
+    public void InitialiseBar()
     {
-        SetMaxExperience();
-    }
+        maxExperience = 0;
+        currentExperience = 0;
 
-    private void SetMaxExperience()
-    {
         Dictionary<string, QuestData> quests = DatabaseManager.Instance.QuestsDict;
 
         foreach (QuestData quest in quests.Values)
@@ -30,7 +28,7 @@ public class ProgressionBar : MonoBehaviour
         }
 
         slider.maxValue = maxExperience;
-        slider.value = 0; // Initialize the slider value to 0 at the start
+        slider.value = 0;
         percentageText.text = FormatCurrentExperienceAsPercentage();
     }
 
@@ -39,6 +37,8 @@ public class ProgressionBar : MonoBehaviour
         currentExperience += experience;
         slider.value = currentExperience;
         percentageText.text = FormatCurrentExperienceAsPercentage();
+
+        Debug.Log($"Added {experience} experience to {zoneId}. Current: {currentExperience}/{maxExperience} ({FormatCurrentExperienceAsPercentage()})");
     }
 
     private string FormatCurrentExperienceAsPercentage()

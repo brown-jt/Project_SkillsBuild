@@ -11555,8 +11555,8 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.241
+  m_WholeNumbers: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11634,7 +11634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProgressionBar
   percentageText: {fileID: 1956375226}
   slider: {fileID: 1163940509}
-  zoneId: 1
+  zoneId: 3
 --- !u!114 &1164353960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14810,8 +14810,8 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.241
+  m_WholeNumbers: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -15507,8 +15507,8 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.241
+  m_WholeNumbers: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -16473,7 +16473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProgressionBar
   percentageText: {fileID: 1969584837}
   slider: {fileID: 1474936569}
-  zoneId: 1
+  zoneId: 5
 --- !u!114 &1599984376
 MonoBehaviour:
   m_ObjectHideFlags: 0
