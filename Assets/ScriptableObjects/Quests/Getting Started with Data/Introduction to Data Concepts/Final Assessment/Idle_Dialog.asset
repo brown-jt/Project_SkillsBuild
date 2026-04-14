@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c513d81420ae4244ea5fa86c11a4a29b, type: 3}
   m_Name: Idle_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
+  characterName: Oscar
   lines:
-  - If you are stuck, try talking to someone else or interacting with an informational
-    item. I am sure they'll provide useful information.
+  - == IDLE == Hopefully can be some AI generated content later on.
