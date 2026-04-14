@@ -27,10 +27,11 @@ MonoBehaviour:
     targetId: Large_Robot
     requiredAmount: 1
   rewards:
-    gold: 175
-    experience: 100
+    gold: 200
+    experience: 50
     items: []
   nextQuest: {fileID: 0}
   startDialog: {fileID: 11400000, guid: 4e0731ad041c7304bb640b0c5890de87, type: 2}
   inProgressDialog: {fileID: 11400000, guid: bf9d5d4bc46ec054b8465228010e638c, type: 2}
   completedDialog: {fileID: 11400000, guid: 9489c07c1c1da0346880221de6243958, type: 2}
+  questionSet: {fileID: 0}

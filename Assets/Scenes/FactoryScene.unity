@@ -7186,35 +7186,35 @@ PrefabInstance:
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: 'questChain.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 0391372d99452434a8204ecd69f0d06c, type: 2}
+      objectReference: {fileID: 11400000, guid: 9d060649e792ca74fb6449424bca0025, type: 2}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: 'questChain.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 6d1fa02e3705bb0429f73829473c21e6, type: 2}
+      objectReference: {fileID: 11400000, guid: 148fee1ebf01ca64db06a96874972427, type: 2}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: 'questChain.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 2c40c90277664244090dff1499229d76, type: 2}
+      objectReference: {fileID: 11400000, guid: 7ad945b0948ca714b8c838afe8d9bfbf, type: 2}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: 'questChain.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 93b2377a6508c594890d2008102eb194, type: 2}
+      objectReference: {fileID: 11400000, guid: 8c64b120e42ba2c4c83629307bb64793, type: 2}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: 'questChain.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: c8959175bbc0f444b803edbc8f19627f, type: 2}
+      objectReference: {fileID: 11400000, guid: 63c69082a3af68b4ab0a3ac7d89818b1, type: 2}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: 'questChain.Array.data[5]'
       value: 
-      objectReference: {fileID: 11400000, guid: 518f98b02b0d807459b60885d9e58f80, type: 2}
+      objectReference: {fileID: 11400000, guid: 03a1adc0d695f1c47a6b94942abb81f7, type: 2}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: 'questChain.Array.data[6]'
       value: 
-      objectReference: {fileID: 11400000, guid: 8eed5f77f0906ce4c85aeb3ff4e96925, type: 2}
+      objectReference: {fileID: 11400000, guid: c30ea5cfcd668e24b826160dc74cb631, type: 2}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: 'questChain.Array.data[7]'
       value: 
-      objectReference: {fileID: 11400000, guid: 823ba87fe7a77fa46842249da1dce22e, type: 2}
+      objectReference: {fileID: 11400000, guid: 460a8799710ddb646827c7a5826434c1, type: 2}
     - target: {fileID: 8237281633312649024, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6
@@ -10844,7 +10844,7 @@ PrefabInstance:
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: 'questChain.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 1ec80cbccca82c94293519bce6c0749c, type: 2}
+      objectReference: {fileID: 11400000, guid: 246fd711207aaac418baef14bff9b6e8, type: 2}
     - target: {fileID: 8237281633312649024, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.6750001

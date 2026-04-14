@@ -15538,7 +15538,7 @@ PrefabInstance:
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: 'questChain.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: fcc0ac25aecfd2a4992d213134833379, type: 2}
+      objectReference: {fileID: 11400000, guid: 3d94f16a3b2a08a42bb88def7599f4c5, type: 2}
     - target: {fileID: 8237281633312649024, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.925

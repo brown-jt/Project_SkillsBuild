@@ -25,8 +25,8 @@ MonoBehaviour:
     targetId: Small_Robot
     requiredAmount: 1
   rewards:
-    gold: 50
-    experience: 100
+    gold: 100
+    experience: 50
     items: []
   nextQuest: {fileID: 0}
   startDialog: {fileID: 11400000, guid: b3a8d4b039455cb4fbd127854a0e68a5, type: 2}
