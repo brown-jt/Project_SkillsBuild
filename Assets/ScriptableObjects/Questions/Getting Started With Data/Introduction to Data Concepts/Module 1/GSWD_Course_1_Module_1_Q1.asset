@@ -15,7 +15,7 @@ MonoBehaviour:
   question: 'Which of the following conclusions can you make about structured data?
 
     Select
-    the two that apply.'
+    one of the two that apply.'
   answers:
   - "It\u2019s organized into rows and columns in a spreadsheet or database"
   - Examples can include names, dates, and addresses

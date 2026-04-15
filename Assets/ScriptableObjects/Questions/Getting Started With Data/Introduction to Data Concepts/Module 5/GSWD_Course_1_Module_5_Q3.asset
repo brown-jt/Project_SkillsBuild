@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: 'What is the purpose of a data visualization?
 
-    Select the two that
-    apply.'
+    Select one of the
+    two that apply.'
   answers:
   - 'Organize data in a usable format, such as a spreadsheet, for people to easily
     access.  '
