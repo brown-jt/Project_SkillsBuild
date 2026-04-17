@@ -51,10 +51,10 @@ public class TileManager : MonoBehaviour
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, ~LayerMask.GetMask("ItemInteractable")))
             {
                 Tile tile = hit.collider.GetComponent<Tile>();
-                if (tile != null) TryMoveTile(tile);
+                if (tile != null && tile.owner == this) TryMoveTile(tile);
             }
         }
     }
@@ -90,6 +90,7 @@ public class TileManager : MonoBehaviour
                     continue;
                 }
 
+                tile.owner = this;
                 tile.correctPosition = new Vector2Int(x, y);
                 tile.currentPosition = new Vector2Int(x, y);
 
