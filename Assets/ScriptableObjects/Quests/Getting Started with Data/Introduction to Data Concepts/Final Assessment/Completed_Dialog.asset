@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - Not bad for your first attempt.
+  - Fantastic work! That's the first set of deliveries completed!
+  - I knew I could count on you, please, take this as a token of our appreciation.

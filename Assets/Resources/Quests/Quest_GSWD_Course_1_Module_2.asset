@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questId: GSWD_Course_1_Module_2
   zoneId: 3
-  title: TODO
+  title: Data Entry Apprentice
   description: 'The warehouse manager has asked me to stock the shelves correctly,
     using information found around the warehouse, or alternatively, here: <link="https://skillsbuild.org/college-students/course-catalog/getting-started-with-data"><color=#4EA5FF><u>Getting
     Started with Data</u></color></link> inside the eLearning course <i>Introduction
@@ -26,7 +26,7 @@ MonoBehaviour:
     on the correct shelves.'
   objectives:
   - objectiveType: 4
-    taskText: TODO
+    taskText: Stock Shelves Correctly
     targetId: GSWD_Course_1_Module_2
     requiredAmount: 1
   rewards:
@@ -34,7 +34,7 @@ MonoBehaviour:
     experience: 25
     items: []
   nextQuest: {fileID: 0}
-  startDialog: {fileID: 0}
-  inProgressDialog: {fileID: 0}
-  completedDialog: {fileID: 0}
+  startDialog: {fileID: 11400000, guid: 21befb287bee678408bc78bde8a4d82a, type: 2}
+  inProgressDialog: {fileID: 11400000, guid: 920ba99e1f8748d42ae6a8c6da04762f, type: 2}
+  completedDialog: {fileID: 11400000, guid: b1bfd0a7d36496444a68330da4c097d7, type: 2}
   questionSet: {fileID: 11400000, guid: 399694d2eb3394540a6ad994348405d9, type: 2}

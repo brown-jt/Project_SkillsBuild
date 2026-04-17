@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questId: GSWD_Course_1_Final_Assessment
   zoneId: 3
-  title: TODO
+  title: Data Entry Master
   description: 'The warehouse manager has asked me to stock the shelves correctly,
     using information found around the warehouse, or alternatively, here: <link="https://skillsbuild.org/college-students/course-catalog/getting-started-with-data"><color=#4EA5FF><u>Getting
     Started with Data</u></color></link> inside the eLearning course <i>Introduction
@@ -26,15 +26,16 @@ MonoBehaviour:
     on the correct shelves.'
   objectives:
   - objectiveType: 4
-    taskText: TODO
+    taskText: Stock Final Delivery Correctly
     targetId: GSWD_Course_1_Final_Assessment
     requiredAmount: 1
   rewards:
     gold: 100
     experience: 25
-    items: []
+    items:
+    - {fileID: 11400000, guid: de8e3894453dbba4686e6fbfda485b11, type: 2}
   nextQuest: {fileID: 0}
-  startDialog: {fileID: 0}
-  inProgressDialog: {fileID: 0}
-  completedDialog: {fileID: 0}
+  startDialog: {fileID: 11400000, guid: 2d1097331ec8c8f42be2be3423b29244, type: 2}
+  inProgressDialog: {fileID: 11400000, guid: 1eb75a321addf6d4baaa1414e732830e, type: 2}
+  completedDialog: {fileID: 11400000, guid: 50f2020c9bc1cd4438797d98da952c81, type: 2}
   questionSet: {fileID: 11400000, guid: 85d4538449fb2404aa5e9b4ded0b2293, type: 2}

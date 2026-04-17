@@ -187,6 +187,7 @@ public class QuestManager : MonoBehaviour
         {
             foreach (var item in data.rewards.items)
             {
+                FeedbackNotificationsUI.Instance.AddNotification($"You received: {item.itemName}");
                 InventoryManager.Instance.AddItem(item);
             }
         }

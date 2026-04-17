@@ -56,6 +56,8 @@ public class WarehouseQuizManager : MonoBehaviour
     {
         timer = 0.0f;
         totalQuestions = questionSet.questions.Count;
+        answeredQuestions = 0;
+        correctAnswers = 0;
 
         statusUI.text = $"Pass Percentage: {questionSet.passPercentage * 100}%\n" +
                         $"Current Score: {correctAnswers}/{totalQuestions}";
