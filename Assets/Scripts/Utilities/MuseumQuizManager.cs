@@ -77,6 +77,8 @@ public class MuseumQuizManager : MonoBehaviour
 
             string scoreText = $"Score: {score * 100:F2}% ({correctAnswers}/{totalQuestions})";
 
+            painting.ClearExtraText();
+
             if (passed)
             {
                 quizTrigger.Passed(questionSet.quizId);
@@ -89,6 +91,8 @@ public class MuseumQuizManager : MonoBehaviour
                 painting.DisplayEnd($"Quiz Failed!\n{scoreText}\nClick the button to try again.");
             }
         }
+
+        painting.SetProgress(correctAnswers, totalQuestions);
     }
 
     public void SubmitAnswer(List<int> selectedIndices, QuestionData questionData, Painting painting)

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63ee7723fadd87648a9bcd5b30571939, type: 3}
-  m_Name: Quest_GSWGA_Course_1_Lesson_1
+  m_Name: Quest_GSWGA_Course_1_Lesson_2
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questId: GSWGA_Course_1_Lesson_1
+  questId: GSWGA_Course_1_Lesson_2
   zoneId: 5
-  title: Novice Puzzle Enthusiast
+  title: Gallery Puzzle Solver
   description: 'The museum curator has asked me to solve the puzzles underneath the
     paintings correctly, using information found around the museum, or alternatively,
     here: <link="https://skillsbuild.org/college-students/course-catalog/getting-started-with-generative-ai"><color=#4EA5FF><u>Getting
@@ -27,14 +27,14 @@ MonoBehaviour:
   objectives:
   - objectiveType: 4
     taskText: Finish the painting
-    targetId: GSWGA_Course_1_Lesson_1
+    targetId: GSWGA_Course_1_Lesson_2
     requiredAmount: 1
   rewards:
     gold: 100
     experience: 25
     items: []
   nextQuest: {fileID: 0}
-  startDialog: {fileID: 11400000, guid: 3eb74470aee4b314db07c9fedd57d6bf, type: 2}
-  inProgressDialog: {fileID: 11400000, guid: a0e4dccc7eec75840b53c7542cedacb3, type: 2}
-  completedDialog: {fileID: 11400000, guid: 229f4e4efb683bf4095d4deac55fefa6, type: 2}
-  questionSet: {fileID: 11400000, guid: a89d1ecbbe385214db41cb3789e0136f, type: 2}
+  startDialog: {fileID: 11400000, guid: 9d58909618a35564c971b8f3c92c6895, type: 2}
+  inProgressDialog: {fileID: 11400000, guid: e8d9b27c092469e4087e54c54bcba79f, type: 2}
+  completedDialog: {fileID: 11400000, guid: f83f7d8dfeeec3941afa3efc951732e4, type: 2}
+  questionSet: {fileID: 11400000, guid: 888972a214b221245a7daf168fe42260, type: 2}

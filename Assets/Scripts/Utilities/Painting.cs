@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class Painting : MonoBehaviour
 {
-    public TextMeshProUGUI paintingText;
+    public TextMeshProUGUI mainText;
+    public TextMeshProUGUI questionNumberText;
+    public TextMeshProUGUI progressText;
+    public GameObject activeText;
     public GameObject staticPassText;
     public GameObject unstartedText;
     public GameObject terminalsParent;
@@ -11,7 +14,7 @@ public class Painting : MonoBehaviour
 
     private void Awake()
     {
-        paintingText.text = "";
+        mainText.text = "";
         unstartedText.SetActive(true);
         terminalsParent.SetActive(false);
         button.SetActive(false);
@@ -19,7 +22,7 @@ public class Painting : MonoBehaviour
 
     public void DisplayQuestion(QuestionData data)
     {
-        paintingText.text = data.question;
+        mainText.text = data.question;
         unstartedText.SetActive(false);
         terminalsParent.SetActive(true);
         button.SetActive(true);
@@ -28,33 +31,43 @@ public class Painting : MonoBehaviour
     {
         if (correct)
         {
-            paintingText.text = "<color=green><size=125%>Correct!</color></size>\n" + data.correctMessage;
+            mainText.text = "<color=green><size=125%>Correct!</color></size>\n" + data.correctMessage;
         }
         else
         {
-            paintingText.text = "<color=red><size=125%>Incorrect!</color></size>\n" + data.incorrectMessage;
+            mainText.text = "<color=red><size=125%>Incorrect!</color></size>\n" + data.incorrectMessage;
         }
         button.SetActive(false);
     }
 
     public void DisplayEnd(string message)
     {
-        paintingText.text = message;
+        mainText.text = message;
         button.SetActive(false);
     }
 
     public void DisplayCompleted()
     {
-        paintingText.text = "";
+        mainText.text = "";
         unstartedText.SetActive(false);
         terminalsParent.SetActive(false);
         button.SetActive(false);
         staticPassText.SetActive(true);
     }
 
-    public void ClearText()
+    public void ClearExtraText()
     {
-        paintingText = null;
+        progressText.text = "";
+        questionNumberText.text = "";
     }
 
+    public void SetQuestionNumber(int number, int total)
+    {
+        questionNumberText.text = $"Question {number} of {total}"; 
+    }
+
+    public void SetProgress(int correct, int total)
+        {
+            progressText.text = $"Correct Answers: {correct}/{total} ({(float)correct / total * 100:F2}%)";
+    }
 }

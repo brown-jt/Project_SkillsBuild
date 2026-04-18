@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63ee7723fadd87648a9bcd5b30571939, type: 3}
-  m_Name: Quest_GSWGA_Course_1_Lesson_1
+  m_Name: Quest_GSWGA_Course_1_Final_Assessment
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questId: GSWGA_Course_1_Lesson_1
+  questId: GSWGA_Course_1_Final_Assessment
   zoneId: 5
-  title: Novice Puzzle Enthusiast
+  title: Master of the Sliding Puzzle
   description: 'The museum curator has asked me to solve the puzzles underneath the
     paintings correctly, using information found around the museum, or alternatively,
     here: <link="https://skillsbuild.org/college-students/course-catalog/getting-started-with-generative-ai"><color=#4EA5FF><u>Getting
@@ -27,14 +27,15 @@ MonoBehaviour:
   objectives:
   - objectiveType: 4
     taskText: Finish the painting
-    targetId: GSWGA_Course_1_Lesson_1
+    targetId: GSWGA_Course_1_Final_Assessment
     requiredAmount: 1
   rewards:
-    gold: 100
-    experience: 25
-    items: []
+    gold: 250
+    experience: 50
+    items:
+    - {fileID: 11400000, guid: d881eeb6b95bf9b4a950702bb7f007de, type: 2}
   nextQuest: {fileID: 0}
-  startDialog: {fileID: 11400000, guid: 3eb74470aee4b314db07c9fedd57d6bf, type: 2}
-  inProgressDialog: {fileID: 11400000, guid: a0e4dccc7eec75840b53c7542cedacb3, type: 2}
-  completedDialog: {fileID: 11400000, guid: 229f4e4efb683bf4095d4deac55fefa6, type: 2}
-  questionSet: {fileID: 11400000, guid: a89d1ecbbe385214db41cb3789e0136f, type: 2}
+  startDialog: {fileID: 11400000, guid: bb865ad7e55d30440a1909c562c82ed0, type: 2}
+  inProgressDialog: {fileID: 11400000, guid: 4d386462e5d5666488f63d40eb2f8f46, type: 2}
+  completedDialog: {fileID: 11400000, guid: d6b07375ba171004183fa6ac5ccc11fc, type: 2}
+  questionSet: {fileID: 11400000, guid: 37c611b7edcff2d4c8f5ffefa62979a2, type: 2}
