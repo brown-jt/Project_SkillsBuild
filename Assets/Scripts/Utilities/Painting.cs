@@ -6,6 +6,7 @@ public class Painting : MonoBehaviour
     public TextMeshProUGUI mainText;
     public TextMeshProUGUI questionNumberText;
     public TextMeshProUGUI progressText;
+    public TextMeshProUGUI passRateText;
     public GameObject activeText;
     public GameObject staticPassText;
     public GameObject unstartedText;
@@ -59,6 +60,7 @@ public class Painting : MonoBehaviour
     {
         progressText.text = "";
         questionNumberText.text = "";
+        passRateText.text = "";
     }
 
     public void SetQuestionNumber(int number, int total)
@@ -67,7 +69,13 @@ public class Painting : MonoBehaviour
     }
 
     public void SetProgress(int correct, int total)
-        {
-            progressText.text = $"Correct Answers: {correct}/{total} ({(float)correct / total * 100:F2}%)";
+    {
+        progressText.text = $"Correct Answers: {correct}/{total} ({(float)correct / total * 100:F2}%)";
+    }
+
+    public void SetPassRate(float passPercentage)
+    {
+        if (passPercentage > 0) passRateText.text = $"Pass Rate: {passPercentage * 100:F2}%";
+        else passRateText.text = "Practice Only. No pass rate. Finished upon completion.";
     }
 }

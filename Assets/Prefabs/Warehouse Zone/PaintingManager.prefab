@@ -1184,6 +1184,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5585740376397352633}
     - target: {fileID: 336459703621873646, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: passRateText
+      value: 
+      objectReference: {fileID: 6326822643458496253}
+    - target: {fileID: 336459703621873646, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
       propertyPath: progressText
       value: 
       objectReference: {fileID: 3940519158834319116}
@@ -1203,6 +1207,30 @@ PrefabInstance:
       propertyPath: questionNumberText
       value: 
       objectReference: {fileID: 7662063536343558650}
+    - target: {fileID: 1133308968095877949, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133308968095877949, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133308968095877949, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133308968095877949, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133308968095877949, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133308968095877949, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1245123490227401054, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
       propertyPath: m_ChildForceExpandWidth
       value: 0
@@ -1447,6 +1475,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2579242182795120344, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
   m_PrefabInstance: {fileID: 7948789976803328097}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6326822643458496253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4144057069385914012, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
+  m_PrefabInstance: {fileID: 7948789976803328097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!114 &7662063536343558650 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 295786694445590939, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}

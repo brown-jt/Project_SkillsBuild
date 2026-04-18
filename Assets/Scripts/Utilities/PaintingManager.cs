@@ -72,6 +72,12 @@ public class PaintingManager : MonoBehaviour
         QuestionData currentQuestion = questionSet.questions[currentQuestionIndex];
         painting.DisplayQuestion(currentQuestion);
         painting.SetQuestionNumber(currentQuestionIndex + 1, questionSet.questions.Count);
+        if (currentQuestionIndex == 0)
+        {
+            painting.SetPassRate(questionSet.passPercentage);
+            painting.SetProgress(0, questionSet.questions.Count);
+        }
+
         // Set the answer on all puzzle terminals
         for (int i = 0; i < puzzleTerminals.Count; i++)
         {
