@@ -12,6 +12,7 @@ public class Painting : MonoBehaviour
     public GameObject unstartedText;
     public GameObject terminalsParent;
     public GameObject button;
+    public PaintingManager paintingManager;
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class Painting : MonoBehaviour
         terminalsParent.SetActive(false);
         button.SetActive(false);
         staticPassText.SetActive(true);
+        paintingManager.ToggleSpotLights(true);
     }
 
     public void ClearExtraText()

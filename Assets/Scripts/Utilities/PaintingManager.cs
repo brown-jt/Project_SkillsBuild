@@ -8,6 +8,7 @@ public class PaintingManager : MonoBehaviour
     public Painting painting;
     public List<SlidingPuzzleTerminal> puzzleTerminals;
     [SerializeField] private ConfirmAnswerButton confirmButton;
+    public GameObject[] spotLights;
 
     private QuestionSetData questionSet;
     private MuseumQuizManager museumQuizManager;
@@ -24,6 +25,7 @@ public class PaintingManager : MonoBehaviour
 
     private void Start()
     {
+        ToggleSpotLights(false);
         CheckIfCompleted();
     }
 
@@ -55,6 +57,7 @@ public class PaintingManager : MonoBehaviour
         {
             HideObjects();
             painting.DisplayCompleted();
+            ToggleSpotLights(true);
         }
     }
 
@@ -139,6 +142,14 @@ public class PaintingManager : MonoBehaviour
                 terminal.Reset();
             }
             ShowQuestion();
+        }
+    }
+
+    public void ToggleSpotLights(bool isActive)
+    {
+        foreach (var spotLight in spotLights)
+        {
+            spotLight.SetActive(isActive);
         }
     }
 }
