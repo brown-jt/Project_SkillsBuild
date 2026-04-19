@@ -9,6 +9,7 @@ public class Painting : MonoBehaviour
     public TextMeshProUGUI passRateText;
     public GameObject activeText;
     public GameObject staticPassText;
+    public TextMeshProUGUI staticPassTextName;
     public GameObject unstartedText;
     public GameObject terminalsParent;
     public GameObject button;
@@ -51,6 +52,7 @@ public class Painting : MonoBehaviour
     public void DisplayCompleted()
     {
         mainText.text = "";
+        SetQuestionSetName(paintingManager.relevantQuest.questionSet.moduleName);
         unstartedText.SetActive(false);
         terminalsParent.SetActive(false);
         button.SetActive(false);
@@ -78,6 +80,11 @@ public class Painting : MonoBehaviour
     public void SetPassRate(float passPercentage)
     {
         if (passPercentage > 0) passRateText.text = $"Pass Rate: {passPercentage * 100:F2}%";
-        else passRateText.text = "Practice Only. No pass rate. Finished upon completion.";
+        else passRateText.text = "Practice Only. Always pass.";
+    }
+
+    private void SetQuestionSetName(string name)
+    {
+        staticPassTextName.text = $"{name}\nPuzzle completed";
     }
 }

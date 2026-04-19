@@ -91,8 +91,6 @@ public class MuseumQuizManager : MonoBehaviour
                 painting.DisplayEnd($"Quiz Failed!\n{scoreText}\nClick the button to try again.");
             }
         }
-
-        painting.SetProgress(correctAnswers, totalQuestions);
     }
 
     public void SubmitAnswer(List<int> selectedIndices, QuestionData questionData, Painting painting)
@@ -107,6 +105,7 @@ public class MuseumQuizManager : MonoBehaviour
         if (isCorrect) correctAnswers++;
 
         painting.DisplayResult(isCorrect, questionData);
+        painting.SetProgress(correctAnswers, totalQuestions);
 
         StartCoroutine(DelayedCheckCompletion(painting));
     }
