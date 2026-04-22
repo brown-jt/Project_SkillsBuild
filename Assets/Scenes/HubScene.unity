@@ -29010,9 +29010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   allZoneScenes:
   - FactoryScene
-  - ForestScene
   - WarehouseScene
-  - SecurityScene
   - MuseumScene
   promptUI: {fileID: 814304803}
 --- !u!4 &1198330849
