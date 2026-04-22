@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerInputHandler))]
 public class PlayerInteract : MonoBehaviour

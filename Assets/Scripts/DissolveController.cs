@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
 
-public class DissolveController : MonoBehaviour
+public class DissolveController : InteractableItem
 {
-    [SerializeField] private float dissolveSpeed = 1f;
+    [SerializeField] private float dissolveSpeed = 0.25f;
     public List<Material> mats;
     private float dissolveAmount = 0f;
     private bool isDissolving = false;
@@ -19,8 +19,6 @@ public class DissolveController : MonoBehaviour
             mats.Add(renderers[i].material);
             mats.ElementAt(i).SetFloat("_DissolveAmount", 0f);
         }
-
-        StartCoroutine(StartDissolveCoroutine());
     }
 
     private void Update()
@@ -33,6 +31,12 @@ public class DissolveController : MonoBehaviour
         {
             mat.SetFloat("_Dissolve_Amount", dissolveAmount);
         }
+
+        if (dissolveAmount >= 1f)
+        {
+            isDissolving = false;
+            Destroy(gameObject);
+        }
     }
 
     public void StartDissolve()
@@ -40,10 +44,8 @@ public class DissolveController : MonoBehaviour
         isDissolving = true;
     }
 
-    private IEnumerator StartDissolveCoroutine()
+    public override void Interact()
     {
-        yield return new WaitForSeconds(10f);
-
         StartDissolve();
     }
 }
