@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SceneTeleport : InteractableArea
+public class SceneTeleportSign : InteractableItem
 {
     [SerializeField] private string sceneName;
     [SerializeField] private string returnSpawnID;
@@ -9,15 +9,15 @@ public class SceneTeleport : InteractableArea
         SpawnManager.Instance.SetNextSpawn(returnSpawnID, sceneName);
         ZoneManager.Instance.TeleportTo(sceneName, returnSpawnID);
 
+        Debug.Log($"Teleporting to {sceneName} with spawn ID {returnSpawnID}");
+
         if (sceneName == "HubScene")
         {
             FeedbackBannerUI.Instance.ShowBanner("Saved Progress", "Returned to Main Hub");
         }
         else
         {
-            FeedbackBannerUI.Instance.ShowBanner("Entered Course", InteractName);
+            FeedbackBannerUI.Instance.ShowBanner("Entered Course", InteractableName);
         }
-
-        IsInteractable = false; // Prevent multiple interactions until player leaves and re-enters the area
     }
 }
