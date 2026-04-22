@@ -14,16 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questId: GSWGA_Course_1_Lesson_1
   zoneId: 5
-  title: Novice Painter
-  description: TODO
+  title: Novice Puzzle Enthusiast
+  description: 'The museum curator has asked me to solve the puzzles underneath the
+    paintings correctly, using information found around the museum, or alternatively,
+    here: <link="https://skillsbuild.org/college-students/course-catalog/getting-started-with-generative-ai"><color=#4EA5FF><u>Getting
+    Started with Generative AI</u></color></link> inside the eLearning course <i>Foundations
+    in Generative AI</i>.
+
+
+    Once done, if I walk up and interact with a puzzle
+    stand, I should be able to solve it by sliding the tiles and completing the shape.'
   objectives:
   - objectiveType: 4
     taskText: Finish the painting
     targetId: GSWGA_Course_1_Lesson_1
     requiredAmount: 1
   rewards:
-    gold: 1000
-    experience: 10
+    gold: 100
+    experience: 25
     items: []
   nextQuest: {fileID: 0}
   startDialog: {fileID: 11400000, guid: 3eb74470aee4b314db07c9fedd57d6bf, type: 2}

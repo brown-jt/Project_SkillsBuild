@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Progress_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - Timer is ticking! A fast time leads to greater rewards.
+  - If you are stuck, try talking to someone else or interacting with an informational
+    item. I am sure they'll provide useful information.

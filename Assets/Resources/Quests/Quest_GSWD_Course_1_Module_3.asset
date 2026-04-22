@@ -14,11 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questId: GSWD_Course_1_Module_3
   zoneId: 3
-  title: TODO
-  description: TODO
+  title: Data Entry Specialist
+  description: 'The warehouse manager has asked me to stock the shelves correctly,
+    using information found around the warehouse, or alternatively, here: <link="https://skillsbuild.org/college-students/course-catalog/getting-started-with-data"><color=#4EA5FF><u>Getting
+    Started with Data</u></color></link> inside the eLearning course <i>Introduction
+    to Data Concepts</i> before proceeding with anything else.
+
+
+    Once done, if
+    I walk up and press the button, a truck should arrive and I can stack the boxes
+    on the correct shelves.'
   objectives:
   - objectiveType: 4
-    taskText: TODO
+    taskText: Stock Shelves Correctly
     targetId: GSWD_Course_1_Module_3
     requiredAmount: 1
   rewards:
@@ -26,7 +34,7 @@ MonoBehaviour:
     experience: 25
     items: []
   nextQuest: {fileID: 0}
-  startDialog: {fileID: 0}
-  inProgressDialog: {fileID: 0}
-  completedDialog: {fileID: 0}
+  startDialog: {fileID: 11400000, guid: b95882f604c375543bbcc02791e7b83e, type: 2}
+  inProgressDialog: {fileID: 11400000, guid: 2bbdcdd5ef39e6d43b22c1d0f0bc8035, type: 2}
+  completedDialog: {fileID: 11400000, guid: 1ec54bd1dd8783d4ba0aa9128d8ad1b9, type: 2}
   questionSet: {fileID: 11400000, guid: 252e6cfa721307d4a85c172361fa9889, type: 2}

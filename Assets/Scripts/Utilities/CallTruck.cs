@@ -34,5 +34,6 @@ public class CallTruck : InteractableItem
         }
 
         ReverseTruck();
+        FeedbackNotificationsUI.Instance.AddNotification("Delivery truck has been called! Get ready for the quiz!", 4f);
     }
 }

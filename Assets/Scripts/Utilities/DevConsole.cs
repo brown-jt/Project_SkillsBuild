@@ -128,5 +128,6 @@ public class DevConsole : MonoBehaviour
         // Add item
         InventoryManager.Instance.AddItem(itemToAdd, quantity);
         Log($"Added {quantity}x {itemToAdd.itemName}");
+        FeedbackNotificationsUI.Instance.AddNotification($"Added {quantity}x {itemToAdd.itemName}");
     }
 }

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - Not bad for your first attempt.
+  - 'I can see you''re getting the hang of this. Well done. '
+  - There's more work for you so come talk to me again soon.

@@ -10,6 +10,7 @@ public class WarehouseQuizManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject timerUI;
+    [SerializeField] private TextMeshProUGUI statusUI;
     [SerializeField] private TextMeshProUGUI timerText;
 
     private float timer = 0.0f;
@@ -53,22 +54,34 @@ public class WarehouseQuizManager : MonoBehaviour
 
     public void StartQuiz()
     {
-        timerUI.SetActive(true);
-        quizActive = true;
         timer = 0.0f;
-
         totalQuestions = questionSet.questions.Count;
+        answeredQuestions = 0;
+        correctAnswers = 0;
+
+        statusUI.text = $"Pass Percentage: {questionSet.passPercentage * 100}%\n" +
+                        $"Current Score: {correctAnswers}/{totalQuestions}";
+
+        quizActive = true;
+        timerUI.SetActive(true);
     }
 
     public void EndQuiz(bool passed)
     {
         quizActive = false;
+        timerUI.SetActive(false);
 
         if (passed)
         {
             quizTrigger.Passed(questionSet.quizId);
             questionSet = null;
             // TODO: Determine rewards based on performance (e.g., time taken, correct answers)
+        }
+
+        else
+        {
+            var gotPercentage = (float)correctAnswers / totalQuestions * 100;
+            FeedbackBannerUI.Instance.ShowBanner("Minigame Failed!", "Press the button to call the truck when ready to try again!", $"You got {gotPercentage}% correct. You needed {questionSet.passPercentage * 100}% to pass.");
         }
     }
 
@@ -100,6 +113,9 @@ public class WarehouseQuizManager : MonoBehaviour
         if (isCorrect) correctAnswers++;
 
         shelf.DisplayResult(isCorrect, questionData);
+
+        statusUI.text = $"Pass Percentage: {questionSet.passPercentage*100}%\n" +
+                        $"Current Score: {correctAnswers}/{totalQuestions}";
 
         CheckQuizCompleted();
     }

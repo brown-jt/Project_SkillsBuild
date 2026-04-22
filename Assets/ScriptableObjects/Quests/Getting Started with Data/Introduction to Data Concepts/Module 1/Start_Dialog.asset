@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: Start_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - Quiz time! Good luck!
+  - We're struggling to stock our warehouse at the moment. Something about pay cuts
+    and less manpower.
+  - It would be great if you could help us out!
+  - Remember, the boxes need to go on the correct shelves. The screen above the shelf
+    will tell you the answer, the question will be on the box.
+  - When ready, push the button to the right of the big door to call the next delivery
+    truck. Make sure to be quick!
