@@ -27,4 +27,12 @@ public abstract class InteractableArea : MonoBehaviour
         interactionZone = GetComponent<BoxCollider>();
         interactionZone.isTrigger = true;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isInteractable = true;
+        }
+    }
 }

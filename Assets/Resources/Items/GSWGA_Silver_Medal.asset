@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711583a0ee6af3a4e82ca5a97a3dae4e, type: 3}
   m_Name: GSWGA_Silver_Medal
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemId: GSWD_Silver_Medal
+  itemId: GSWGA_Silver_Medal
   itemName: Silver Medal
   icon: {fileID: 21300000, guid: cf3c1871a1d59ba4da9609de68cd3821, type: 3}
   description: A silver medal awarded for the majority completion of the IBM Getting
-    Started with Data eLearning course
+    Started with Generative AI eLearning course
   stackable: 0
   maxStack: 99
   prefab: {fileID: 0}
