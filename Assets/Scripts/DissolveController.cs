@@ -9,6 +9,7 @@ public class DissolveController : InteractableItem
     public List<Material> mats;
     private float dissolveAmount = 0f;
     private bool isDissolving = false;
+    public RobotStaticMover mover;
 
     private void Start()
     {
@@ -46,6 +47,6 @@ public class DissolveController : InteractableItem
 
     public override void Interact()
     {
-        StartDissolve();
+        mover.StartWalking();
     }
 }
