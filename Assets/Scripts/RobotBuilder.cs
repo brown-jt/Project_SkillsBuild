@@ -20,16 +20,29 @@ public class RobotBuilder : InteractableArea
     [SerializeField] private Material normalMaterial;
     [SerializeField] private Material outlineMaterial;
 
+    [Header("Robot Refs")]
+    [SerializeField] private RobotStaticMover rsm;
+
     private bool hasTorso = false;
     private bool hasHead = false;
     private bool hasLeftArm = false;
     private bool hasRightArm = false;
     private bool hasLeftLeg = false;
     private bool hasRightLeg = false;
+    private bool IsComplete => hasTorso && hasHead && hasLeftArm && hasRightArm && hasLeftLeg && hasRightLeg;
 
     private void Awake()
     {
         RefreshRobot();
+    }
+
+    private void Update()
+    {
+        if (IsComplete && !rsm.IsWalking)
+        {
+            Debug.Log("Robot complete! Starting to walk...");
+            rsm.StartWalking();
+        }
     }
 
     private void RefreshRobot()

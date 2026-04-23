@@ -655,6 +655,10 @@ PrefabInstance:
       propertyPath: interactName
       value: Medium Robot Assembler
       objectReference: {fileID: 0}
+    - target: {fileID: 8567033808460139798, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: normalMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a6a200ed15c2ac459fb0b1b35c6a8db, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4292674565419600912, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}

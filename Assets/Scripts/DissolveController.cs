@@ -1,15 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using System.Collections;
 
-public class DissolveController : InteractableItem
+public class DissolveController : MonoBehaviour
 {
     [SerializeField] private float dissolveSpeed = 0.25f;
-    public List<Material> mats;
+    private readonly List<Material> mats = new();
     private float dissolveAmount = 0f;
     private bool isDissolving = false;
-    public RobotStaticMover mover;
 
     private void Start()
     {
@@ -43,10 +41,5 @@ public class DissolveController : InteractableItem
     public void StartDissolve()
     {
         isDissolving = true;
-    }
-
-    public override void Interact()
-    {
-        mover.StartWalking();
     }
 }

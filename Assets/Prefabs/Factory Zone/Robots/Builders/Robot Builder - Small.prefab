@@ -623,6 +623,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3949895144814013520, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      propertyPath: m_Name
+      value: Robot_Small_Dissolve
+      objectReference: {fileID: 0}
     - target: {fileID: 8249849418335444905, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
       propertyPath: m_Name
       value: Robot Builder - Small
@@ -663,10 +667,49 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8481007855812579455, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 790521295762640710}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3949895144814013520, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8826645090185447367}
+    - targetCorrespondingSourceObject: {fileID: 3949895144814013520, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4945609011535166684}
   m_SourcePrefab: {fileID: 100100000, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
 --- !u!4 &1131277397150059242 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8481007855812579455, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
   m_PrefabInstance: {fileID: 8791463500054485653}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5535299758356346565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3949895144814013520, guid: d0efd017f1db0ac4883c7d2195ed89fe, type: 3}
+  m_PrefabInstance: {fileID: 8791463500054485653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8826645090185447367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535299758356346565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725da7db7908f73458e2510d22a98c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RobotStaticMover
+  movementPoints: []
+  moveSpeed: 1
+--- !u!114 &4945609011535166684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535299758356346565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e1bca21851a6d44b5ff2db8613fa90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DissolveController
+  dissolveSpeed: 0.25
+  mover: {fileID: 0}

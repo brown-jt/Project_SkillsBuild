@@ -5,9 +5,12 @@ public class RobotStaticMover : MonoBehaviour
 
     public Transform[] movementPoints;
     public float moveSpeed = 1f;
+    public DissolveController dissolveController;
 
     private int currentPoint = 0;
     private bool walking = false;
+
+    public bool IsWalking => walking;
 
     private void Update()
     {
@@ -22,7 +25,11 @@ public class RobotStaticMover : MonoBehaviour
 
             if (currentPoint == 2) walking = false;
 
-            else if (currentPoint >= movementPoints.Length) Destroy(gameObject);
+            else if (currentPoint >= movementPoints.Length)
+            {
+                walking = false;
+                dissolveController.StartDissolve();
+            }
         }
     }
 
