@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RobotBuilder : InteractableArea
 {
@@ -22,6 +24,13 @@ public class RobotBuilder : InteractableArea
 
     [Header("Robot Refs")]
     [SerializeField] private RobotStaticMover rsm;
+    [SerializeField] private GameObject replacementRobot;
+    [SerializeField] private Transform[] movementPoints;
+
+    [Header("Related Quest")]
+    [SerializeField] private QuestData relatedQuest;
+
+    private GameObject oldRobot;
 
     private bool hasTorso = false;
     private bool hasHead = false;
@@ -36,12 +45,44 @@ public class RobotBuilder : InteractableArea
         RefreshRobot();
     }
 
+    private void Start()
+    {
+        rsm.GetComponent<Animator>().enabled = false; // Start with animator disabled until complete
+        if (QuestManager.Instance.IsQuestCompleted(relatedQuest))
+        {
+            hasHead = true;
+            hasTorso = true;
+            hasLeftArm = true;
+            hasRightArm = true;
+            hasLeftLeg = true;
+            hasRightLeg = true;
+        }
+        RefreshRobot();
+    }
+
     private void Update()
     {
-        if (IsComplete && !rsm.IsWalking)
+        if (gameObject.scene != SceneManager.GetActiveScene()) return;
+
+        if (oldRobot != null && oldRobot.Equals(null))
+        {
+            oldRobot = null;
+        }
+
+        if (IsComplete && IsInteractable)
+        {
+            IsInteractable = false;
+            rsm.GetComponent<Animator>().enabled = true; // Enable animator when robot is complete
+        }
+
+        if (IsComplete && !rsm.IsBuilt && oldRobot == null)
         {
             Debug.Log("Robot complete! Starting to walk...");
-            rsm.StartWalking();
+            var resetPos = rsm.gameObject.transform.position;
+            var resetRot = rsm.gameObject.transform.rotation;
+            rsm.Build();
+            oldRobot = rsm.gameObject;
+            StartCoroutine(DelayedReplacement(resetPos, resetRot));
         }
     }
 
@@ -156,5 +197,16 @@ public class RobotBuilder : InteractableArea
 
         Debug.Log($"Missing required part: {requiredItem.itemName}");
         return false;
+    }
+
+    IEnumerator DelayedReplacement(Vector3 position, Quaternion rotation)
+    {
+        yield return new WaitForSeconds(1f); // Wait for 1 second before replacing
+        if (replacementRobot != null)
+        {
+            var newRobot = Instantiate(replacementRobot, position, rotation, gameObject.transform.parent);
+            rsm = newRobot.GetComponentInChildren<RobotStaticMover>(); // Update reference to new robot
+            rsm.SetMovementPoints(movementPoints); // Set movement points for new robot
+        }
     }
 }

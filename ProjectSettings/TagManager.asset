@@ -9,6 +9,7 @@ TagManager:
   - Interactable
   - Item
   - PlayerHoldPoint
+  - Robot
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - ItemInteractable
   - HoldableItem
   - Light
-  - 
+  - Ignore
   - 
   - 
   - 

@@ -4,22 +4,16 @@ using System.Linq;
 
 public class DissolveController : MonoBehaviour
 {
-    [SerializeField] private float dissolveSpeed = 0.25f;
-    private readonly List<Material> mats = new();
+    [SerializeField] private float dissolveSpeed = 0.2f;
+    public List<Material> mats = new();
     private float dissolveAmount = 0f;
     private bool isDissolving = false;
 
     private void Start()
     {
-        Renderer[] renderers = GetComponentsInChildren<Renderer>();
-
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            mats.Add(renderers[i].material);
-            mats.ElementAt(i).SetFloat("_DissolveAmount", 0f);
-        }
+        dissolveSpeed = 0.2f;
+        dissolveAmount = 0f;
     }
-
     private void Update()
     {
         if (!isDissolving) return;
@@ -31,7 +25,7 @@ public class DissolveController : MonoBehaviour
             mat.SetFloat("_Dissolve_Amount", dissolveAmount);
         }
 
-        if (dissolveAmount >= 1f)
+        if (dissolveAmount >= 0.7f)
         {
             isDissolving = false;
             Destroy(gameObject);
@@ -40,6 +34,14 @@ public class DissolveController : MonoBehaviour
 
     public void StartDissolve()
     {
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            mats.Add(renderers[i].material);
+            mats.ElementAt(i).SetFloat("_DissolveAmount", 0f);
+        }
+
         isDissolving = true;
     }
 }

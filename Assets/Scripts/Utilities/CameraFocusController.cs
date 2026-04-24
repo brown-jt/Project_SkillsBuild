@@ -11,6 +11,8 @@ public class CameraFocusController : MonoBehaviour
     private Quaternion originalRot;
     private bool isFocusing;
 
+    private int focusChain = 0;
+
     private void LateUpdate()
     {
         if (!isFocusing || newParent == null) return;
@@ -28,8 +30,6 @@ public class CameraFocusController : MonoBehaviour
 
     public void FocusOnTerminal(Transform target)
     {
-        if (isFocusing) return;
-
         newParent = target;
         StartCoroutine(FocusRoutine());
     }
@@ -39,16 +39,21 @@ public class CameraFocusController : MonoBehaviour
         if (!isFocusing) return;
 
         isFocusing = false;
+        focusChain = 0;
         StartCoroutine(ReturnRoutine());
     }
 
     private IEnumerator FocusRoutine()
     {
         isFocusing = true;
+        focusChain++;
 
-        originalParent = transform.parent;
-        originalPos = transform.position;
-        originalRot = transform.rotation;
+        if (focusChain == 1)
+        {
+            originalParent = transform.parent;
+            originalPos = transform.position;
+            originalRot = transform.rotation;
+        }
 
         transform.parent = null;
 
@@ -76,8 +81,6 @@ public class CameraFocusController : MonoBehaviour
         transform.rotation = targetRot;
         transform.parent = newParent;
     }
-
-
 
     private IEnumerator ReturnRoutine()
     {
