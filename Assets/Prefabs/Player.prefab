@@ -81,7 +81,7 @@ MonoBehaviour:
   climbSpeed: 2
   jumpForce: 4
   gravityMultiplier: 1
-  mouseSensitivity: 0.1
+  mouseSensitivity: 50
   upDownLookRange: 80
   characterController: {fileID: 1121594179055304080}
   mainCamera: {fileID: 3861825727178229770}

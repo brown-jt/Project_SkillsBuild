@@ -135,4 +135,12 @@ public class PlayerInputHandler : MonoBehaviour
     {
         uiMap.Disable();
     }
+
+    /// <summary>
+    /// Helper function to check to see if the player input action map is currently enabled
+    /// </summary>
+    public bool IsPlayerInputEnabled()
+    {
+        return playerControls.FindActionMap(actionMapName).enabled;
+    }
 }

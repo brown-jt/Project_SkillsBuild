@@ -120,7 +120,7 @@ public class TileManager : MonoBehaviour
                 if (x == gridSize - 1 && y == gridSize - 1) continue;
 
                 // Create a new Texture2D for this tile
-                Texture2D tileTexture = new Texture2D(tileWidth, tileHeight);
+                Texture2D tileTexture = new Texture2D(tileWidth, tileHeight, TextureFormat.RGBA32, false);
 
                 // Copy pixels from full image
                 // Flip Y because Unity textures start at bottom-left
@@ -151,9 +151,9 @@ public class TileManager : MonoBehaviour
                 MeshRenderer rend = tile.GetComponent<MeshRenderer>();
                 if (rend != null)
                 {
-                    // Create a new material with Unlit/Texture shader
-                    Material mat = new Material(Shader.Find("Unlit/Texture"));
-                    mat.mainTexture = tileTextures[x, y];
+                    // Create a new material with URP shader
+                    Material mat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+                    mat.SetTexture("_BaseMap", tileTextures[x, y]);
 
                     // Assign to renderer
                     rend.material = mat;

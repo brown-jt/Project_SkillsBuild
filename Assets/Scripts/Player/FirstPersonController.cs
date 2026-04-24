@@ -14,7 +14,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float gravityMultiplier = 1.0f;
 
     [Header("Look Parameters")]
-    [SerializeField] private float mouseSensitivity = 0.1f;
+    [SerializeField] private float mouseSensitivity = 50f;
     [SerializeField] private float upDownLookRange = 80f;
 
     [Header("References")]
@@ -31,6 +31,7 @@ public class FirstPersonController : MonoBehaviour
 
     private bool isClimbing = false;
     private bool lockCameraLook = false;
+    public float MouseSensitivity => mouseSensitivity;
 
     // Instance
     public static FirstPersonController Instance;
@@ -163,8 +164,8 @@ public class FirstPersonController : MonoBehaviour
     {
         if (lockCameraLook) return;
 
-        float mouseXRotation = playerInputHandler.RotationInput.x * mouseSensitivity;
-        float mouseYRotation = playerInputHandler.RotationInput.y * mouseSensitivity;
+        float mouseXRotation = playerInputHandler.RotationInput.x * mouseSensitivity * Time.deltaTime;
+        float mouseYRotation = playerInputHandler.RotationInput.y * mouseSensitivity * Time.deltaTime;
 
         ApplyHorizontalRotation(mouseXRotation);
         ApplyVerticalRotation(mouseYRotation);
@@ -220,5 +221,10 @@ public class FirstPersonController : MonoBehaviour
     {
         verticalRotation = 0f;
         mainCamera.transform.localRotation = Quaternion.identity;
+    }
+
+    public void SetMouseSensitivity(float sensitivity)
+    {
+        mouseSensitivity = sensitivity;
     }
 }

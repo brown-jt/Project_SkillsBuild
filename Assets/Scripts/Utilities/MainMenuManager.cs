@@ -11,6 +11,7 @@ public class MainMenuManager : MonoBehaviour
         GameUI.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        MainMenuUI.SetActive(true);
     }
 
     public void StartGame()

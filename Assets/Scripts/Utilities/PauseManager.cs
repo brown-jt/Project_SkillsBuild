@@ -5,10 +5,12 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject helpMenuUI;
+    [SerializeField] private GameObject settingsMenuUI;
     [SerializeField] private InputActionReference pauseAction;
 
     private bool isPaused = false;
     private bool isHelpMenuOpen = false;
+    private bool isSettingsMenuOpen = false;
 
     private void Start()
     {
@@ -41,26 +43,25 @@ public class PauseManager : MonoBehaviour
 
     private void ToggleMenu(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Pause button pressed");
+        if (!PlayerInputHandler.Instance.IsPlayerInputEnabled()) return;
+
         if (isHelpMenuOpen)
         {
-            Debug.Log("Help menu is open, closing it instead of toggling pause");
             // If help menu is open, close it instead of toggling pause
             CloseHelpMenu();
             return;
         }
 
-        if (isPaused)
+        else if (isSettingsMenuOpen)
         {
-            ResumeGame();
-            Debug.Log("Resuming game");
+            // If settings menu is open, close it instead of toggling pause
+            CloseSettingsMenu();
+            return;
         }
 
-        else
-        {
-            PauseGame();
-            Debug.Log("Pausing game");
-        }
+        else if (isPaused) ResumeGame();
+
+        else PauseGame();
     }
 
     private void PauseGame()
@@ -97,6 +98,19 @@ public class PauseManager : MonoBehaviour
         isHelpMenuOpen = false;
     }
 
+    public void OpenSettingsMenu()
+    {
+        pauseMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(true);
+        isSettingsMenuOpen = true;
+    }
+
+    public void CloseSettingsMenu()
+    {
+        settingsMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
+        isSettingsMenuOpen = false;
+    }
     public void QuitGame()
     {
         Application.Quit();
