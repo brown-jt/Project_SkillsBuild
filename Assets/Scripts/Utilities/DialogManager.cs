@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class DialogManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class DialogManager : MonoBehaviour
     private string currentSentence;
 
     private System.Action onDialogComplete;
+    public InputActionReference cancelAction;
 
     private void Awake()
     {
@@ -29,6 +31,26 @@ public class DialogManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        cancelAction.action.Enable();
+        cancelAction.action.performed += CancelDialog;
+    }
+
+    private void OnDisable()
+    {
+        cancelAction.action.performed -= CancelDialog;
+        cancelAction.action.Disable();
+    }
+
+    private void CancelDialog(InputAction.CallbackContext ctx)
+    {
+        dialogPanel.SetActive(false);
+        playerController.SetInputEnabled(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Start()
