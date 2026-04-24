@@ -7,6 +7,7 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         PlayerInputHandler.Instance.DisablePlayerInput();
+        PlayerInputHandler.Instance.DisablePlayerUIInput();
         FirstPersonController.Instance.SetCameraLookLocked(true);
         GameUI.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
@@ -19,6 +20,7 @@ public class MainMenuManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         PlayerInputHandler.Instance.EnablePlayerInput();
+        PlayerInputHandler.Instance.EnablePlayerUIInput();
         FirstPersonController.Instance.SetCameraLookLocked(false);
         GameUI.SetActive(true);
         MainMenuUI.SetActive(false);
