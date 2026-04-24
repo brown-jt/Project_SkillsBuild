@@ -27,6 +27,8 @@ public class Terminal : InteractableItem
     private int currentQuestionIndex;
     private int correctCount;
 
+    private bool quizActive = false;
+
     private void Awake()
     {
         scannerTriggerRelay.OnEnter += OnScannerEnter;
@@ -115,17 +117,23 @@ public class Terminal : InteractableItem
         terminalUI.SetActive(true);
         cameraController.FocusOnTerminal(cameraFocusPoint);
 
-        uiController.QuizStart(
+        if (currentQuestionIndex == 0 && !quizActive) // Only show start message if we haven't started the quiz yet
+            uiController.QuizStart(
             $"{questionSet.moduleName}", $"This is a {questionSet.questions.Count}-question quiz. " +
             $"You must get {questionSet.passPercentage*100}% to pass it. Don’t worry though! " +
             $"If you aren’t successful at first, you can review the course and retake the quiz " +
             $"as many times as needed for your completion."
         );
+
+        else ShowCurrentQuestion();
+
+        quizActive = true;
     }
 
     public void ExitTerminal()
     {
-        terminalUI.SetActive(false);
+        if (!quizActive) terminalUI.SetActive(false);
+
         cameraController.ReturnToPlayer();
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -187,6 +195,8 @@ public class Terminal : InteractableItem
 
         HandleRobotInScanner(passed);
         uiController.ShowFinalResult(passed, scoreText);
+        quizActive = false;
+        currentQuestionIndex = 0;
     }
 
     private bool AreAnswersCorrect(List<int> selected, List<int> correct)
@@ -215,10 +225,12 @@ public class Terminal : InteractableItem
     {
         cameraController.FocusOnTerminal(failCinematicFocusPoint);
         PlayerInputHandler.Instance.DisablePlayerInput();
+        PlayerInputHandler.Instance.DisablePlayerUIInput();
 
         yield return new WaitForSeconds(4f);
 
-        cameraController.FocusOnTerminal(cameraFocusPoint);
         PlayerInputHandler.Instance.EnablePlayerInput();
+        PlayerInputHandler.Instance.EnablePlayerUIInput();
+        cameraController.FocusOnTerminal(cameraFocusPoint);
     }
 }

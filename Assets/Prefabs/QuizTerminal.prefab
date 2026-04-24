@@ -5546,11 +5546,11 @@ MonoBehaviour:
   interactionPrompt: Interact
   interactionSound: {fileID: 0}
   cameraFocusPoint: {fileID: 5873228729973221682}
-  failCinematicFocusPoint: {fileID: 0}
+  failCinematicFocusPoint: {fileID: 2722937880390796056}
   terminalUI: {fileID: 288930368967376055}
   uiController: {fileID: 3213836559309452309}
   cancelAction: {fileID: 7727032971491509709, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  scannerTriggerRelay: {fileID: 0}
+  scannerTriggerRelay: {fileID: 4266640023855303440}
 --- !u!65 &7896889912790402604
 BoxCollider:
   m_ObjectHideFlags: 0

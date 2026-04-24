@@ -75,7 +75,7 @@ public class RobotBuilder : InteractableArea
             rsm.GetComponent<Animator>().enabled = true; // Enable animator when robot is complete
         }
 
-        if (IsComplete && !rsm.IsBuilt && oldRobot == null)
+        if (IsComplete && !rsm.IsBuilt && oldRobot == null && replacementRobot.name == "Small_Robot_Dissolve")
         {
             Debug.Log("Robot complete! Starting to walk...");
             var resetPos = rsm.gameObject.transform.position;
