@@ -45,9 +45,6 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         // Ensure animator knows we are grounded and speed 0 at start
         //animator.SetBool("IsGrounded", true);
         animator.SetFloat("Speed", 0f);
