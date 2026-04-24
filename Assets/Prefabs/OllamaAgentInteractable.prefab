@@ -386,6 +386,7 @@ MonoBehaviour:
   zone: 0
   course: 'Getting Started with '
   promptName: '{zone} NPC'
+  hintIndicator: {fileID: 7037760257827074595}
 --- !u!65 &3638970520945602164
 BoxCollider:
   m_ObjectHideFlags: 0

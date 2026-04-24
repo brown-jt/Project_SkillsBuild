@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,9 +8,11 @@ public class Terminal : InteractableItem
 {
     [Header("Terminal Setup")]
     [SerializeField] private Transform cameraFocusPoint;
+    [SerializeField] private Transform failCinematicFocusPoint;
     [SerializeField] private GameObject terminalUI;
     [SerializeField] private TerminalUIController uiController;
     [SerializeField] private InputActionReference cancelAction;
+    [SerializeField] private TriggerRelay scannerTriggerRelay;
 
     private QuestionSetData questionSet;
 
@@ -17,10 +20,20 @@ public class Terminal : InteractableItem
 
     private QuestQuizTrigger quizTrigger;
 
+    private GameObject robotInScanner;
+
     // Internal question structure
     private List<QuestionData> shuffledQuestions;
     private int currentQuestionIndex;
     private int correctCount;
+
+    private bool quizActive = false;
+
+    private void Awake()
+    {
+        scannerTriggerRelay.OnEnter += OnScannerEnter;
+        scannerTriggerRelay.OnExit += OnScannerExit;
+    }
 
     private void Start()
     {
@@ -41,6 +54,24 @@ public class Terminal : InteractableItem
         cancelAction.action.Disable();
     }
 
+    private void OnScannerEnter(Collider other)
+    {
+        if (other.CompareTag("Robot"))
+        {
+            Debug.Log($"Entered: {other.name}");
+            robotInScanner = other.gameObject;
+        }
+    }
+
+    private void OnScannerExit(Collider other)
+    {
+        if (other.CompareTag("Robot"))
+        {
+            Debug.Log($"Exited: {other.name}");
+            robotInScanner = null;
+        }
+    }
+
     private void OnCancel(InputAction.CallbackContext ctx)
     {
         ExitTerminal();
@@ -49,12 +80,17 @@ public class Terminal : InteractableItem
     public override void Interact()
     {
         if (!IsInteractable) return;
+        if (!robotInScanner) 
+        {
+            FeedbackNotificationsUI.Instance.AddNotification("Please wait for a robot to enter the scanner before accessing the terminal.", 5f);
+            return;
+        }
 
         Debug.Log("Checking active quests " + QuestManager.Instance.activeQuests.Count);
 
         foreach (QuestInstance questInstance in QuestManager.Instance.activeQuests)
         {
-            if (questInstance.questData.questionSet != null)
+            if (questInstance.questData.questionSet != null && questInstance.questData.zoneId == ZoneId.Factory)
             {
                 Debug.Log($"Found question set for quest: {questInstance.questData.title}");
                 questionSet = questInstance.questData.questionSet;
@@ -81,17 +117,23 @@ public class Terminal : InteractableItem
         terminalUI.SetActive(true);
         cameraController.FocusOnTerminal(cameraFocusPoint);
 
-        uiController.QuizStart(
+        if (currentQuestionIndex == 0 && !quizActive) // Only show start message if we haven't started the quiz yet
+            uiController.QuizStart(
             $"{questionSet.moduleName}", $"This is a {questionSet.questions.Count}-question quiz. " +
             $"You must get {questionSet.passPercentage*100}% to pass it. Don’t worry though! " +
             $"If you aren’t successful at first, you can review the course and retake the quiz " +
             $"as many times as needed for your completion."
         );
+
+        else ShowCurrentQuestion();
+
+        quizActive = true;
     }
 
     public void ExitTerminal()
     {
-        terminalUI.SetActive(false);
+        if (!quizActive) terminalUI.SetActive(false);
+
         cameraController.ReturnToPlayer();
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -151,7 +193,10 @@ public class Terminal : InteractableItem
             questionSet = null;
         }
 
+        HandleRobotInScanner(passed);
         uiController.ShowFinalResult(passed, scoreText);
+        quizActive = false;
+        currentQuestionIndex = 0;
     }
 
     private bool AreAnswersCorrect(List<int> selected, List<int> correct)
@@ -162,5 +207,30 @@ public class Terminal : InteractableItem
 
         // Compare ignoring order
         return !selected.Except(correct).Any();
+    }
+
+    private void HandleRobotInScanner(bool passed)
+    {
+        if (robotInScanner == null) return;
+
+        if (passed) robotInScanner.GetComponent<RobotStaticMover>().StartWalking();
+        else
+        {
+            StartCoroutine(FailCinematic());
+            robotInScanner.GetComponent<DissolveController>().StartDissolve();
+        }
+    }
+
+    private IEnumerator FailCinematic()
+    {
+        cameraController.FocusOnTerminal(failCinematicFocusPoint);
+        PlayerInputHandler.Instance.DisablePlayerInput();
+        PlayerInputHandler.Instance.DisablePlayerUIInput();
+
+        yield return new WaitForSeconds(4f);
+
+        PlayerInputHandler.Instance.EnablePlayerInput();
+        PlayerInputHandler.Instance.EnablePlayerUIInput();
+        cameraController.FocusOnTerminal(cameraFocusPoint);
     }
 }

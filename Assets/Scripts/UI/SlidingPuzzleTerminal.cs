@@ -18,7 +18,7 @@ public class SlidingPuzzleTerminal : InteractableItem
 
     public bool IsSelected => tileManager.IsSolved;
 
-    private void Start()
+    private void Awake()
     {
         cameraController = Camera.main.GetComponent<CameraFocusController>();
     }

@@ -10,6 +10,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     [Header("Action Map Name Reference")]
     [SerializeField] private string actionMapName = "Player";
+    [SerializeField] private string actionMapName2 = "UI";
 
     [Header("Action Name References")]
     [SerializeField] private string movement = "Move";
@@ -29,6 +30,8 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction dropAction;
     public InputAction InteractAction => interactAction;
     private InputAction attackAction;
+
+    private InputActionMap uiMap;
 
     public Vector2 MovementInput { get; private set; }
     public Vector2 RotationInput { get; private set; }
@@ -50,6 +53,7 @@ public class PlayerInputHandler : MonoBehaviour
         Instance = this;
 
         InputActionMap mapReference = playerControls.FindActionMap(actionMapName);
+        uiMap = playerControls.FindActionMap(actionMapName2);
 
         movementAction = mapReference.FindAction(movement);
         rotationAction = mapReference.FindAction(rotation);
@@ -101,6 +105,14 @@ public class PlayerInputHandler : MonoBehaviour
     }
 
     /// <summary>
+    /// Helper function to enable the UI action map when required
+    /// </summary>
+    public void EnablePlayerUIInput()
+    {
+        uiMap.Enable();
+    }
+
+    /// <summary>
     /// Helper function to disable the action map when required
     /// </summary>
     public void DisablePlayerInput()
@@ -114,5 +126,13 @@ public class PlayerInputHandler : MonoBehaviour
         SprintTriggered = false;
         InteractTriggered = false;
         AttackTriggered = false;
+    }
+
+    /// <summary>
+    /// Helper function to disable the UI action map when required
+    /// </summary>
+    public void DisablePlayerUIInput()
+    {
+        uiMap.Disable();
     }
 }

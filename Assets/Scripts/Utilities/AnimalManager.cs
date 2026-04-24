@@ -30,12 +30,13 @@ public class AnimalManager : MonoBehaviour
     private void SpawnAnimals()
     {
         int numberToSpawn = Random.Range(minSpawn, maxSpawn);
+        GameObject[] animalPrefabs = new GameObject[] { horseAnimal, bisonAnimal, dogAnimal };
 
         for (int i = 0; i < numberToSpawn; i++)
         {
             if (NavMeshUtils.RandomPointOnNavMesh(out Vector3 pos))
             {
-                var animal = Instantiate(horseAnimal, pos, Quaternion.identity, parentContainer);
+                var animal = Instantiate(animalPrefabs[i % animalPrefabs.Length], pos, Quaternion.identity, parentContainer);
 
                 float scale = Random.Range(minScale, maxScale);
                 animal.transform.localScale *= scale;
@@ -43,7 +44,7 @@ public class AnimalManager : MonoBehaviour
         }
 
         // For now just spawn the quest animal as part of this bigger function
-        SpawnQuestAnimal();
+        //SpawnQuestAnimal();
     }
 
     private void SpawnQuestAnimal()

@@ -5746,6 +5746,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
+      propertyPath: zone
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
+      propertyPath: course
+      value: Getting Started with Data
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
+      propertyPath: promptName
+      value: Warehouse NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
+      propertyPath: interactableName
+      value: Kevin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

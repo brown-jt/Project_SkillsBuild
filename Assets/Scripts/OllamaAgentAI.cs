@@ -7,6 +7,7 @@ public class OllamaAgentAI : InteractableItem
     [SerializeField] private ZoneId zone;
     [SerializeField] private string course;
     [SerializeField] private string promptName; // Optional name to use in the prompt instead of the InteractableName
+    [SerializeField] private GameObject hintIndicator;
 
     private QuestionSetData questionSet;
     private int questionIndex = 0;
@@ -14,6 +15,16 @@ public class OllamaAgentAI : InteractableItem
     private void Start()
     {
         promptName ??= InteractableName;
+        hintIndicator.SetActive(false);
+    }
+
+    private void Update()
+    {
+        {
+            // Show hint indicator if player is on an active quest in this zone with questions
+            bool hasActiveQuestWithQuestions = FindActiveQuestWithQuestions() != null;
+            hintIndicator.SetActive(hasActiveQuestWithQuestions);
+        }
     }
 
     public override void Interact()
