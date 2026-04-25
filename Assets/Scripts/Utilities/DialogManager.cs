@@ -22,6 +22,8 @@ public class DialogManager : MonoBehaviour
     private System.Action onDialogComplete;
     public InputActionReference cancelAction;
 
+    public GameObject keybindsUI;
+
     private void Awake()
     {
         if (Instance != null)
@@ -48,6 +50,7 @@ public class DialogManager : MonoBehaviour
     private void CancelDialog(InputAction.CallbackContext ctx)
     {
         dialogPanel.SetActive(false);
+        keybindsUI.SetActive(true);
         playerController.SetInputEnabled(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -72,6 +75,7 @@ public class DialogManager : MonoBehaviour
         }
 
         dialogPanel.SetActive(true);
+        keybindsUI.SetActive(false);
         playerController.SetInputEnabled(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -114,6 +118,7 @@ public class DialogManager : MonoBehaviour
     private void EndDialog()
     {
         dialogPanel.SetActive(false);
+        keybindsUI.SetActive(true);
         playerController.SetInputEnabled(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
