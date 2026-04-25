@@ -3099,79 +3099,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 201ec3181de34424a8e060879b32535d, type: 3}
   m_PrefabInstance: {fileID: 352485203}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &357298359
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1650314094212557305, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_Name
-      value: OllamaAgentInteractable
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.00000011920929
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: zone
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: course
-      value: Getting Started with Artificial Intelligence
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: promptName
-      value: Factory NPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: interactableName
-      value: Jorge
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
 --- !u!1 &358727021
 GameObject:
   m_ObjectHideFlags: 0
@@ -9156,6 +9083,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2843b014992bed945823c2cefdd38502, type: 3}
+--- !u!1001 &1076119165
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1650314094212557305, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_Name
+      value: GroqAgentInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.136
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.957262
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.2892223
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -33.623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: zone
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: course
+      value: Getting Started with Artificial Intelligence
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: promptName
+      value: Factory NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: interactableName
+      value: Jorge
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
 --- !u!1001 &1080251000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19820,4 +19820,4 @@ SceneRoots:
   - {fileID: 1055651141}
   - {fileID: 1036913455}
   - {fileID: 1136053360}
-  - {fileID: 357298359}
+  - {fileID: 1076119165}

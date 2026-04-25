@@ -1,8 +1,6 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System.Linq;
 
-public class OllamaAgentAI : InteractableItem
+public class GroqAgentAI : InteractableItem
 {
     [SerializeField] private ZoneId zone;
     [SerializeField] private string course;
@@ -74,18 +72,11 @@ public class OllamaAgentAI : InteractableItem
     {
         string answer = string.Join(", ", question.correctAnswerIndices.ConvertAll(i => question.answers[i]));
 
-        return 
-            $"You are a {promptName} in a {zone} setting teaching the course called {course}.\n" +
-            "The player is on a quest involving the following question that you need to help:\n" +
-            $"Question: {question.question}\n" +
-            $"Answer: {answer}\n\n" +
-            "Provide **ONE single-sentence hint** that:\n" +
-            "- includes the answer **exactly as written**\n" +
-            "- explains why it is correct in context\n" +
-            "- is phrased differently each time\n" +
-            "- does not mention the AI's name, the course, the zone, or the object being interacted with.\n\n" +
-            "If the answer cannot be explained independently such as just '80%', use the question for more information and create your response.\n" +
-            "Do not label it. Do not use quotes.";
+        return
+            $"You are a {promptName} in a {zone} setting teaching the course {course}.\n\n" +
+            $"Question:\n{question.question}\n\n" +
+            $"Correct Answer (must be included exactly):\n{answer}\n\n" +
+            "Give a one-sentence hint using the answer.";
     }
 
     private void OnResponseReceived(string response)
