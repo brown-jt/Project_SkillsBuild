@@ -281,7 +281,7 @@ public class QuestManager : MonoBehaviour
             int index = i;
 
             string prompt = BuildPromptForQuestion(question);
-            OllamaManager.Instance.GenerateResponse(prompt, (res) =>
+            GroqManager.Instance.GenerateResponse(prompt, (res) =>
             {
                 DatabaseManager.Instance.InsertAIResponse(questInstance.questData.questId, index, res);
             });
@@ -297,12 +297,6 @@ public class QuestManager : MonoBehaviour
             "The player is on a quest involving the following question that you need to help:\n" +
             $"Question: {question.question}\n" +
             $"Answer: {answer}\n\n" +
-            "Provide **ONE single-sentence hint** that:\n" +
-            "- includes the answer **exactly as written**\n" +
-            "- explains why it is correct in context\n" +
-            "- is phrased differently each time\n" +
-            "- does not mention the AI's name, the course, the zone, or the object being interacted with.\n\n" +
-            "If the answer cannot be explained independently such as just '80%', use the question for more information and create your response.\n" +
-            "Do not label it. Do not use quotes.";
+            "Provide ONE single-sentence hint for the player.";
     }
 }

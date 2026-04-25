@@ -43,7 +43,7 @@ public class QuestionHintAIService : MonoBehaviour
         else
         {
             // If we have no hints (should never happen but as failsafe) we must attempt to generate and return one immediately
-            OllamaManager.Instance.GenerateResponse(prompt, (res) =>
+            GroqManager.Instance.GenerateResponse(prompt, (res) =>
             {
                 db.InsertAIResponse(questId, questionIndex, res);
                 onComplete?.Invoke(res);
@@ -88,7 +88,7 @@ public class QuestionHintAIService : MonoBehaviour
     {
         bool stored = false;
 
-        OllamaManager.Instance.GenerateResponse(prompt, (res) =>
+        GroqManager.Instance.GenerateResponse(prompt, (res) =>
         {
             DatabaseManager.Instance.InsertAIResponse(questId, questionIndex, res);
             stored = true;
