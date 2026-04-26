@@ -191,6 +191,16 @@ public class TileManager : MonoBehaviour
         if (IsAdjacent(tile.currentPosition, emptyPos))
         {
             MoveTile(tile);
+
+            int randomSFX = Random.Range(0, 2);
+            if (randomSFX == 0)
+            {
+                AudioManager.Instance.PlaySFX("Tile");
+            }
+            else
+            {
+                AudioManager.Instance.PlaySFX("Tile2");
+            }
         }
     }
 

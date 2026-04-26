@@ -11,11 +11,6 @@ public class InventoryManager : MonoBehaviour
     // Events
     public event Action OnInventoryChanged;
 
-    // Currencies
-    // TODO: Store in database in future
-    private int gold;
-    public int Gold => gold;
-
     // References
     [Header("References")]
     [SerializeField] private TextMeshProUGUI goldText;
@@ -47,25 +42,35 @@ public class InventoryManager : MonoBehaviour
     {
         RefreshInventorySlotsFromDB();
         InventoryUI.Instance.RefreshAll();
+        goldText.text = DatabaseManager.Instance.GetGold().ToString();
     }
 
     public void AddGold(int quantity)
     {
         if (quantity <= 0) return;
 
-        gold += quantity;
-        goldText.text = gold.ToString();
-        OnInventoryChanged?.Invoke();
+        if (DatabaseManager.Instance.AddGold(quantity))
+        {
+            int gold = DatabaseManager.Instance.GetGold();
+            goldText.text = gold.ToString();
+            OnInventoryChanged?.Invoke();
+        }
     }
 
     public bool RemoveGold(int quantity)
     {
         if (quantity <= 0) return false;
+
+        int gold = DatabaseManager.Instance.GetGold();
         if (gold < quantity) return false;
 
-        gold -= quantity;
-        OnInventoryChanged?.Invoke();
-        return true;
+        if (DatabaseManager.Instance.RemoveGold(quantity))
+        {
+            goldText.text = gold.ToString();
+            OnInventoryChanged?.Invoke();
+            return true;
+        }
+        return false;
     }
 
     public bool AddItem(ItemData item, int quantity = 1)

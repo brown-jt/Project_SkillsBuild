@@ -6,16 +6,20 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject helpMenuUI;
     [SerializeField] private GameObject settingsMenuUI;
+    [SerializeField] private GameObject exportMenuUI;
     [SerializeField] private InputActionReference pauseAction;
 
     private bool isPaused = false;
     private bool isHelpMenuOpen = false;
     private bool isSettingsMenuOpen = false;
+    private bool isExportMenuOpen = false;
 
     private void Start()
     {
         pauseMenuUI.SetActive(false);
         helpMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(false);
+        exportMenuUI.SetActive(false);
     }
 
     private void Update()
@@ -59,6 +63,13 @@ public class PauseManager : MonoBehaviour
             return;
         }
 
+        else if (isExportMenuOpen)
+        {
+            // If export menu is open, close it instead of toggling pause
+            CloseExportMenu();
+            return;
+        }
+
         else if (isPaused) ResumeGame();
 
         else PauseGame();
@@ -96,6 +107,20 @@ public class PauseManager : MonoBehaviour
         helpMenuUI.SetActive(false);
         pauseMenuUI.SetActive(true);
         isHelpMenuOpen = false;
+    }
+
+    public void OpenExportMenu()
+    {
+        pauseMenuUI.SetActive(false);
+        exportMenuUI.SetActive(true);
+        isExportMenuOpen = true;
+    }
+
+    public void CloseExportMenu()
+    {
+        exportMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
+        isExportMenuOpen = false;
     }
 
     public void OpenSettingsMenu()

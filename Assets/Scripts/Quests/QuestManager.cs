@@ -166,6 +166,9 @@ public class QuestManager : MonoBehaviour
 
                         // Show feedback banner
                         FeedbackBannerUI.Instance.ShowBanner("Objective Updated", objective.data.taskText, quest.questData.title);
+
+                        // Play audio SFX
+                        AudioManager.Instance.PlaySFX("Objective_Complete");
                     }
                 }
                 else

@@ -44,6 +44,7 @@ public class ProgressionUI : MonoBehaviour
         progressionPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        AudioManager.Instance.PlaySFX("Progression_Toggle");
     }
 
     private void ClosePanel()
@@ -52,5 +53,6 @@ public class ProgressionUI : MonoBehaviour
         progressionPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        AudioManager.Instance.PlaySFX("Progression_Toggle");
     }
 }

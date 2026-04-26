@@ -54,6 +54,7 @@ public class InventoryUI : MonoBehaviour
         inventoryPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        AudioManager.Instance.PlaySFX("Inventory_Open");
     }
 
     private void CloseInventory()
@@ -63,6 +64,7 @@ public class InventoryUI : MonoBehaviour
         inventoryPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        AudioManager.Instance.PlaySFX("Inventory_Close");
     }
 
     private void OnCancel(InputAction.CallbackContext ctx)

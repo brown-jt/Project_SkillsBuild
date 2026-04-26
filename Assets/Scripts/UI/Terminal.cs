@@ -82,7 +82,7 @@ public class Terminal : InteractableItem
         if (!IsInteractable) return;
         if (!robotInScanner) 
         {
-            FeedbackNotificationsUI.Instance.AddNotification("Please wait for a robot to enter the scanner before accessing the terminal.", 5f);
+            FeedbackNotificationsUI.Instance.AddNotification("Please wait for a robot to enter the scanner before accessing the terminal.", 3f);
             return;
         }
 
@@ -100,7 +100,7 @@ public class Terminal : InteractableItem
 
         if (questionSet == null)
         {
-            Debug.LogError("No Quests with QuestionSet data to show!");
+            FeedbackNotificationsUI.Instance.AddNotification("No active quiz found. Accept a quest first then try again.", 3f);
             return;
         }
 
