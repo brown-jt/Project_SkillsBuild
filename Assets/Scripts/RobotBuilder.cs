@@ -139,6 +139,8 @@ public class RobotBuilder : InteractableArea
                 break;
         }
 
+        AudioManager.Instance.PlaySFX("Pickup_Item");
+
         RefreshRobot();
     }
 
@@ -168,22 +170,18 @@ public class RobotBuilder : InteractableArea
         if (!hasHead && HaveItem(robotHeadItemData))
         {
             AddPart("head");
-            AudioSource.PlayClipAtPoint(InteractionSound, torso.transform.position);
         }
         else if (!hasTorso && HaveItem(robotTorsoItemData))
         {
             AddPart("torso");
-            AudioSource.PlayClipAtPoint(InteractionSound, torso.transform.position);
         }
         else if ((!hasLeftArm || !hasRightArm) && HaveItem(robotArmItemData))
         {
             AddPart("arm");
-            AudioSource.PlayClipAtPoint(InteractionSound, torso.transform.position);
         }
         else if ((!hasLeftLeg || !hasRightLeg) && HaveItem(robotLegItemData))
         {
             AddPart("leg");
-            AudioSource.PlayClipAtPoint(InteractionSound, torso.transform.position);
         }
     }
 

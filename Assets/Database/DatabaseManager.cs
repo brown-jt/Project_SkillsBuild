@@ -71,6 +71,14 @@ public class DatabaseManager : MonoBehaviour
     // Max usage of question hint before retired - Keeping for analytical purposes
     private const int HINT_MAX_USAGE = 3;
 
+    // Internal representation curencies table
+    [Table("Currencies")]
+    public class CurrencyRow
+    {
+        [PrimaryKey, AutoIncrement]
+        public int id { get; set; }
+        public int gold { get; set; }
+    }
 
     private void Awake()
     {
@@ -551,5 +559,59 @@ public class DatabaseManager : MonoBehaviour
         return _dbPath;
     }
 
+    public int GetGold()
+    {
+        try
+        {
+            var row = _db.Table<CurrencyRow>().FirstOrDefault();
+            return row != null ? row.gold : 0;
+        }
+        catch (SQLiteException ex)
+        {
+            Debug.LogError($"Error fetching gold amount: {ex.Message}");
+            return 0;
+        }
+    }
+
+    public bool AddGold(int amount)
+    {
+        try
+        {
+            var row = _db.Table<CurrencyRow>().FirstOrDefault();
+            if (row != null)
+            {
+                _db.Execute("UPDATE Currencies SET gold = gold + 1 WHERE id = ?", row.id);
+            }
+            else
+            {
+                _db.Execute("INSERT INTO Currencies (gold) VALUES (?)", amount);
+            }
+            return true;
+        }
+        catch (SQLiteException ex)
+        {
+            Debug.LogError($"Error adding gold: {ex.Message}");
+            return false;
+        }
+    }
+
+    public bool RemoveGold(int amount)
+    {
+        try
+        {
+            var row = _db.Table<CurrencyRow>().FirstOrDefault();
+            if (row != null)
+            {
+                int newAmount = Math.Max(0, row.gold - amount);
+                _db.Execute("UPDATE Currencies SET gold = ? WHERE id = ?", newAmount, row.id);
+            }
+            return true;
+        }
+        catch (SQLiteException ex)
+        {
+            Debug.LogError($"Error removing gold: {ex.Message}");
+            return false;
+        }
+    }
     #endregion
 }

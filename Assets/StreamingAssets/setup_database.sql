@@ -53,4 +53,11 @@ CREATE TABLE IF NOT EXISTS question_hints
   usage_count INTEGER DEFAULT 0,
   is_active BOOLEAN DEFAULT TRUE,
   FOREIGN KEY (quest_id) REFERENCES quests(quest_id)
-)
+);
+
+-- To store currency
+CREATE TABLE IF NOT EXISTS currencies
+(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  gold INTEGER NOT NULL DEFAULT 0
+);

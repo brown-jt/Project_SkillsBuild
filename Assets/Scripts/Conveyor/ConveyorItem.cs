@@ -144,7 +144,7 @@ public class ConveyorItem : InteractableItem
 
         if (added)
         {
-            AudioSource.PlayClipAtPoint(InteractionSound, transform.position);
+            AudioManager.Instance.PlaySFX("Pickup_Item");
             Destroy(gameObject);
             FeedbackNotificationsUI.Instance.AddNotification($"{quantity}x {itemData.itemName} added to inventory");
         }

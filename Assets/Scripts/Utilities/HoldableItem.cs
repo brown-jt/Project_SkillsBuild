@@ -43,8 +43,7 @@ public abstract class HoldableItem : InteractableItem
         isHeld = true;
 
         // Play feedback
-        if (InteractionSound != null)
-            AudioSource.PlayClipAtPoint(InteractionSound, transform.position);
+        AudioManager.Instance.PlaySFX("Pickup_Box");
 
         OnPickedUp();
     }

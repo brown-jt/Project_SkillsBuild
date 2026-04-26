@@ -39703,9 +39703,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b61aebc4646f9364b8690ff6322aaeae, type: 3}
   - key: Tile2
     clip: {fileID: 8300000, guid: b61aebc4646f9364b8690ff6322aaeae, type: 3}
+  - key: Pickup_Item
+    clip: {fileID: 8300000, guid: c77c99e076f0f8f449b9a82d1fbbd01d, type: 3}
+  - key: Pickup_Box
+    clip: {fileID: 8300000, guid: 31f8eaf9040292a45861440f0043f995, type: 3}
   masterVolume: 50
-  sfxVolume: 80
-  musicVolume: 50
+  sfxVolume: 40
+  musicVolume: 10
   uiSource: {fileID: 2050112257}
   musicSource: {fileID: 398480991}
 --- !u!4 &1425768011
