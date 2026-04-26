@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Start_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - After having this robot help us so much recently, all thanks to you, we've considered
+    that this robot, alongside machine learning, can really transform human life.
+  - Please share this newfound knowledge with the robot so it knows how much it means
+    to us!

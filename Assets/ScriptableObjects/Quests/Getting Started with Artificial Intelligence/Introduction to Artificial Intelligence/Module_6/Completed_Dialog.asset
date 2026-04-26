@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - Extraordinary. I've never seen a robot perform so well before you showed up.
+    You are our lucky charm.
+  - We are at the stage now where we must finalise our robot, double checking it
+    has consumed all the knowledge you have provided to it.
+  - Whenever you are ready to undertake this next major challenge, come back to me.
+    For now, take this silver medal as a token of our appreciation.

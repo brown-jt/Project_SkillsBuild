@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c513d81420ae4244ea5fa86c11a4a29b, type: 3}
   m_Name: Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
-  characterName: Jack
   lines:
   - Thanks so much! This will be a real help around the workshop.
-  - As promised here's some information about Artificial Intelligence.
-  - '[LEARNING CONTENT HERE]'
+  - Now I know I promised some information about artificial intelligence, but my
+    friend over by the terminal knows more than me.
+  - If you can help me out again, I am sure he will bestow his knowledge upon you!

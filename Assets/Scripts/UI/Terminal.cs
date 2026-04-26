@@ -15,6 +15,8 @@ public class Terminal : InteractableItem
     [SerializeField] private InputActionReference cancelAction;
     [SerializeField] private TriggerRelay scannerTriggerRelay;
 
+    public GameObject gameUI;
+
     private QuestionSetData questionSet;
 
     private CameraFocusController cameraController;
@@ -129,6 +131,8 @@ public class Terminal : InteractableItem
         else ShowCurrentQuestion();
 
         quizActive = true;
+
+        gameUI.SetActive(false);
     }
 
     public void ExitTerminal()
@@ -142,6 +146,8 @@ public class Terminal : InteractableItem
 
         FirstPersonController.Instance.SetCameraLookLocked(false);
         FirstPersonController.Instance.SetInputEnabled(true);
+
+        gameUI.SetActive(true);
     }
 
     public void StartQuestionSet()

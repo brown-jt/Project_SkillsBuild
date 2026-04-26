@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - As always, impressive work. I wonder what the robot will uncover next?

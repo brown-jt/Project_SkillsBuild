@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - At last. It is done. Your assistance has been vital for our experiments.
+  - I hope you have learnt a thing or too alongside our robot. This information is
+    extremely relevant for the future, you never know, it may too help you one day.
+  - As a parting gift and as a statement of our appreciation, take this golden medal.
+  - If I recall you now have all three? Bronze, Silver and Gold?
+  - I am sure there was someone in the forest you could talk to who would be willing
+    to exchange an expert medal for all of them...

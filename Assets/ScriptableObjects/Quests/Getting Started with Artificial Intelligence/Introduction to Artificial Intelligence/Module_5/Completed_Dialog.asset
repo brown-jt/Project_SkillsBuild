@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - Magnificent! The robot is becoming ever more powerful the more you help teach
+    it!
+  - I reckon another couple tries will do it, so please, come back again soon.
