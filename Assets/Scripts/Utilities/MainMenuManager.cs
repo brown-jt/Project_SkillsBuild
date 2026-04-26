@@ -24,6 +24,7 @@ public class MainMenuManager : MonoBehaviour
         FirstPersonController.Instance.SetCameraLookLocked(false);
         GameUI.SetActive(true);
         MainMenuUI.SetActive(false);
+        AudioManager.Instance.PlayMusic("Hub_Music");
     }
 
     public void QuitGame()

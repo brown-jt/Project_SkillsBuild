@@ -13094,6 +13094,135 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395654613}
   m_CullTransparentMesh: 1
+--- !u!1 &398480989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 398480990}
+  - component: {fileID: 398480991}
+  m_Layer: 0
+  m_Name: MusicSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &398480990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398480989}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1425768011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &398480991
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398480989}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &398775617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39545,11 +39674,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerTransform: {fileID: 2090429603}
-  sfxList:
-  - key: Test_SFX
-    clip: {fileID: 8300000, guid: c77c99e076f0f8f449b9a82d1fbbd01d, type: 3}
-  - key: Progression_Toggle
-    clip: {fileID: 8300000, guid: 3e0fff6e8a5a2a343808c08e94378c9b, type: 3}
+  audioList:
+  - key: Hub_Music
+    clip: {fileID: 8300000, guid: 3131cea794e654d4bb1944816f17030c, type: 3}
+  - key: Factory_Music
+    clip: {fileID: 8300000, guid: 67a53c4e9058d3845a9403d437931f3a, type: 3}
+  - key: Museum_Music
+    clip: {fileID: 8300000, guid: 11304a19fca885942975e84b8a94230c, type: 3}
+  - key: Warehouse_Music
+    clip: {fileID: 8300000, guid: 11304a19fca885942975e84b8a94230c, type: 3}
   - key: Inventory_Open
     clip: {fileID: 8300000, guid: 17edd00ca75bbb446be474888c32d153, type: 3}
   - key: Inventory_Close
@@ -39558,14 +39691,23 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b15f464effbedc24d9e1dd3ef177753e, type: 3}
   - key: Quest_Close
     clip: {fileID: 8300000, guid: e00763ca08ada28418ea06ed4fe10935, type: 3}
-  - key: Quset_Accept_Complete
+  - key: Quest_Accept_Complete
     clip: {fileID: 8300000, guid: 3c11a1567c663dd41a6649a4a76928bd, type: 3}
   - key: Objective_Complete
     clip: {fileID: 8300000, guid: c58ef0e0bbe2f354dbcb6844ed6cf1fd, type: 3}
+  - key: Progression_Toggle
+    clip: {fileID: 8300000, guid: 3e0fff6e8a5a2a343808c08e94378c9b, type: 3}
+  - key: Teleport
+    clip: {fileID: 8300000, guid: ea628151d3397764d81e9252785854f3, type: 3}
+  - key: Tile
+    clip: {fileID: 8300000, guid: b61aebc4646f9364b8690ff6322aaeae, type: 3}
+  - key: Tile2
+    clip: {fileID: 8300000, guid: b61aebc4646f9364b8690ff6322aaeae, type: 3}
   masterVolume: 50
-  sfxVolume: 50
+  sfxVolume: 80
   musicVolume: 50
   uiSource: {fileID: 2050112257}
+  musicSource: {fileID: 398480991}
 --- !u!4 &1425768011
 Transform:
   m_ObjectHideFlags: 0
@@ -39580,6 +39722,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2050112258}
+  - {fileID: 398480990}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1429847908

@@ -41,6 +41,7 @@ public class SettingsHandler : MonoBehaviour
     private void OnMasterVolumeChanged(float value)
     {
         AudioManager.Instance.masterVolume = value;
+        AudioManager.Instance.SetMusicVolume();
         masterSlider.value = value;
         masterText.text = value.ToString();
     }
@@ -48,6 +49,7 @@ public class SettingsHandler : MonoBehaviour
     private void OnMusicVolumeChanged(float value)
     {
         AudioManager.Instance.musicVolume = value;
+        AudioManager.Instance.SetMusicVolume();
         musicSlider.value = value;
         musicText.text = value.ToString();
     }
