@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Idle_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - If you are stuck, try talking to someone else or interacting with an informational
-    item. I am sure they'll provide useful information.
+  - You've learnt everything I have taught you. Did you manage to get that expert
+    medal I told you about?

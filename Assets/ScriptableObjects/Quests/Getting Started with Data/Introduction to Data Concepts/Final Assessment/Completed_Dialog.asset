@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - Fantastic work! That's the first set of deliveries completed!
-  - I knew I could count on you, please, take this as a token of our appreciation.
+  - Fantastic work! That's the first set of deliveries completed! In total that's
+    probably well over 30 boxes.
+  - I knew I could count on you, please, take this golden medal as a token of our
+    appreciation.

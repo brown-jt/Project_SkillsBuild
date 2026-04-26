@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
   - 'I can see you''re getting the hang of this. Well done. '
-  - There's more work for you so come talk to me again soon.
+  - There's more work for you so come talk to me again soon. For now, I think you
+    have earned this bronze medal.

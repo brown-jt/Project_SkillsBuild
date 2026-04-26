@@ -33,7 +33,7 @@ MonoBehaviour:
     gold: 250
     experience: 50
     items:
-    - {fileID: 11400000, guid: d881eeb6b95bf9b4a950702bb7f007de, type: 2}
+    - {fileID: 11400000, guid: 4091d35f6b06f2043be0eaacef99d743, type: 2}
   nextQuest: {fileID: 0}
   startDialog: {fileID: 11400000, guid: bb865ad7e55d30440a1909c562c82ed0, type: 2}
   inProgressDialog: {fileID: 11400000, guid: 4d386462e5d5666488f63d40eb2f8f46, type: 2}
