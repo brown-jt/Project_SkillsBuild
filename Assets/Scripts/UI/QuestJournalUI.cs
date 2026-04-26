@@ -164,6 +164,7 @@ public class QuestJournalUI : MonoBehaviour
         questJournalPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        AudioManager.Instance.PlaySFX("Quest_Open");
     }
 
     private void CloseJournal()
@@ -172,6 +173,7 @@ public class QuestJournalUI : MonoBehaviour
         questJournalPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        AudioManager.Instance.PlaySFX("Quest_Close");
     }
 
     private void OnCancel(InputAction.CallbackContext ctx)

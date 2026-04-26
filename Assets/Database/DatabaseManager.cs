@@ -546,5 +546,10 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
+    public string GetDBPath()
+    {
+        return _dbPath;
+    }
+
     #endregion
 }

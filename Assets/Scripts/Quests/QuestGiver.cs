@@ -65,6 +65,7 @@ public class QuestGiver : InteractableItem
                 QuestManager.Instance.AcceptQuest(quest);
                 UpdateQuestSigns();
                 FeedbackBannerUI.Instance.ShowBanner("Accepted Quest", quest.title);
+                AudioManager.Instance.PlaySFX("Quest_Accept_Complete");
             });
         }
         else if (QuestManager.Instance.HasQuest(quest))
@@ -79,6 +80,7 @@ public class QuestGiver : InteractableItem
                     QuestManager.Instance.TurnInQuest(quest, npcId);
                     UpdateQuestSigns();
                     FeedbackBannerUI.Instance.ShowBanner("Completed Quest", quest.title);
+                    AudioManager.Instance.PlaySFX("Quest_Accept_Complete");
                 });
             }
             else
