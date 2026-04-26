@@ -375,6 +375,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &319682796566983866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4368947885338308322}
+  m_Layer: 9
+  m_Name: CameraFocusPoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4368947885338308322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319682796566983866}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.03394862, y: -0.9606152, z: 0.24000688, w: -0.13587761}
+  m_LocalPosition: {x: 0.9995286, y: 1.4989681, z: 0.007166028}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5527186189089895483}
+  m_LocalEulerAnglesHint: {x: 28.056, y: -196.102, z: 0}
 --- !u!1 &321579648929385725
 GameObject:
   m_ObjectHideFlags: 0
@@ -5528,6 +5559,7 @@ Transform:
   - {fileID: 2026824545410946167}
   - {fileID: 5873228729973221682}
   - {fileID: 2722937880390796056}
+  - {fileID: 4368947885338308322}
   - {fileID: 1315720906759016725}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5545,9 +5577,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   interactableName: Quiz Terminal
   interactionPrompt: Interact
-  interactionSound: {fileID: 0}
   cameraFocusPoint: {fileID: 5873228729973221682}
   failCinematicFocusPoint: {fileID: 2722937880390796056}
+  successCinematicFocusPoint: {fileID: 4368947885338308322}
   terminalUI: {fileID: 288930368967376055}
   uiController: {fileID: 3213836559309452309}
   cancelAction: {fileID: 7727032971491509709, guid: 052faaac586de48259a63d0c4782560b, type: 3}

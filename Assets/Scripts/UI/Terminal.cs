@@ -9,6 +9,7 @@ public class Terminal : InteractableItem
     [Header("Terminal Setup")]
     [SerializeField] private Transform cameraFocusPoint;
     [SerializeField] private Transform failCinematicFocusPoint;
+    [SerializeField] private Transform successCinematicFocusPoint;
     [SerializeField] private GameObject terminalUI;
     [SerializeField] private TerminalUIController uiController;
     [SerializeField] private InputActionReference cancelAction;
@@ -214,16 +215,16 @@ public class Terminal : InteractableItem
         if (robotInScanner == null) return;
 
         if (passed) robotInScanner.GetComponent<RobotStaticMover>().StartWalking();
-        else
-        {
-            StartCoroutine(FailCinematic());
-            robotInScanner.GetComponent<DissolveController>().StartDissolve();
-        }
+        else robotInScanner.GetComponent<DissolveController>().StartDissolve();
+
+        StartCoroutine(Cinematic(passed));
     }
 
-    private IEnumerator FailCinematic()
+    private IEnumerator Cinematic(bool success)
     {
-        cameraController.FocusOnTerminal(failCinematicFocusPoint);
+        if (success) cameraController.FocusOnTerminal(successCinematicFocusPoint);
+        else cameraController.FocusOnTerminal(failCinematicFocusPoint);
+
         PlayerInputHandler.Instance.DisablePlayerInput();
         PlayerInputHandler.Instance.DisablePlayerUIInput();
 

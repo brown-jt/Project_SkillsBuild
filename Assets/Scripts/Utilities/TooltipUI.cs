@@ -66,4 +66,13 @@ public class TooltipUI : MonoBehaviour
 
         panel.position = pos;
     }
+
+    public void ShowRewardItemDetails(ItemData item, RectTransform area)
+    {
+        title.text = item.itemName;
+        description.text = item.description;
+
+        panel.gameObject.SetActive(true);
+        PositionTooltipRelativeToSlot(area);
+    }
 }
