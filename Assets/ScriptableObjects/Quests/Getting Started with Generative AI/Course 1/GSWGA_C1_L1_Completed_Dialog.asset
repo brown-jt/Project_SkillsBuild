@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: GSWGA_C1_L1_Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - Wonderful! I hope you've learnt a thing or two about Generative AI.
+  - Take this bronze medal also, it shows your improvement and will also allow you
+    to move on to other puzzles if you choose to.

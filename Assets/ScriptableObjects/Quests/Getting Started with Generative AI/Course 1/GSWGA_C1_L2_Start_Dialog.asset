@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: GSWGA_C1_L2_Start_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - This time around we will be moving on to a display about how different models
+    learn to generate things.
+  - Try and look for the next painting with the puzzle terminals and have a go at
+    it.

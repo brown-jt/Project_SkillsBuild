@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: GSWGA_C1_L4_Start_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - Hi again! Ready for the last round of practice?
+  - These puzzles will help you understand how to craft precision prompts with Generative
+    AI in order to better achieve your intended results.
+  - Same as always, find the painting and get to solving!
