@@ -739,6 +739,10 @@ PrefabInstance:
       propertyPath: paintingManager
       value: 
       objectReference: {fileID: 5853202090231179988}
+    - target: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: exitButtonCanvas
+      value: 
+      objectReference: {fileID: 2726178869889405169}
     - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
       propertyPath: fullImage
       value: 
@@ -760,6 +764,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+--- !u!223 &2726178869889405169 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3616407236399137356, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 1721881407599809213}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6580278619618403974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
@@ -903,7 +912,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   interactableName: Confirm Selection
   interactionPrompt: Press button
-  interactionSound: {fileID: 0}
   quizManager: {fileID: 0}
   paintingManager: {fileID: 5853202090231179988}
 --- !u!4 &3082554742807915964 stripped
@@ -963,6 +971,10 @@ PrefabInstance:
       propertyPath: paintingManager
       value: 
       objectReference: {fileID: 5853202090231179988}
+    - target: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: exitButtonCanvas
+      value: 
+      objectReference: {fileID: 144059660564496181}
     - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
       propertyPath: fullImage
       value: 
@@ -984,6 +996,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+--- !u!223 &144059660564496181 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3616407236399137356, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 3733416230318636409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5396520434789009077 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
@@ -1052,6 +1069,10 @@ PrefabInstance:
       propertyPath: paintingManager
       value: 
       objectReference: {fileID: 5853202090231179988}
+    - target: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: exitButtonCanvas
+      value: 
+      objectReference: {fileID: 314229781489928871}
     - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
       propertyPath: fullImage
       value: 
@@ -1073,6 +1094,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+--- !u!223 &314229781489928871 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3616407236399137356, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 3921598894851967211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5712773879527306023 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
@@ -1141,6 +1167,10 @@ PrefabInstance:
       propertyPath: paintingManager
       value: 
       objectReference: {fileID: 5853202090231179988}
+    - target: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: exitButtonCanvas
+      value: 
+      objectReference: {fileID: 8925812615578741732}
     - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
       propertyPath: fullImage
       value: 
@@ -1178,6 +1208,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be89b1209c38eac4f847d4c302e286ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlidingPuzzleTerminal
+--- !u!223 &8925812615578741732 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3616407236399137356, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 5327428990954924456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6425818823554819206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1297,6 +1332,10 @@ PrefabInstance:
       propertyPath: paintingManager
       value: 
       objectReference: {fileID: 5853202090231179988}
+    - target: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: exitButtonCanvas
+      value: 
+      objectReference: {fileID: 6398318387803145886}
     - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
       propertyPath: fullImage
       value: 
@@ -1332,6 +1371,11 @@ MonoBehaviour:
 --- !u!4 &2760681394887176425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 7708873470983161042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &6398318387803145886 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3616407236399137356, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
   m_PrefabInstance: {fileID: 7708873470983161042}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7948789976803328097
@@ -1739,6 +1783,10 @@ PrefabInstance:
       propertyPath: paintingManager
       value: 
       objectReference: {fileID: 5853202090231179988}
+    - target: {fileID: 8731222908777380812, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+      propertyPath: exitButtonCanvas
+      value: 
+      objectReference: {fileID: 5695746514760933053}
     - target: {fileID: 8825343790501738515, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
       propertyPath: fullImage
       value: 
@@ -1774,5 +1822,10 @@ MonoBehaviour:
 --- !u!4 &3571309362492369098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5527186189089895483, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
+  m_PrefabInstance: {fileID: 9023899185191558385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &5695746514760933053 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3616407236399137356, guid: 054c7b4d036bacf46b68c084d0404294, type: 3}
   m_PrefabInstance: {fileID: 9023899185191558385}
   m_PrefabAsset: {fileID: 0}

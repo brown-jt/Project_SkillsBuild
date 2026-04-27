@@ -100,3 +100,4 @@ InitTestScene*.unity*
 
 # SQLite database file
 /[Aa]ssets/[Dd]atabase/*.db
+/BuildV2

@@ -11,6 +11,7 @@ public class SlidingPuzzleTerminal : InteractableItem
     [SerializeField] private TileManager tileManager;
     [SerializeField] private TextMeshProUGUI answerText;
     [SerializeField] private PaintingManager paintingManager;
+    [SerializeField] private Canvas exitButtonCanvas;
 
     private CameraFocusController cameraController;
 
@@ -22,6 +23,11 @@ public class SlidingPuzzleTerminal : InteractableItem
     private void Awake()
     {
         cameraController = Camera.main.GetComponent<CameraFocusController>();
+    }
+
+    private void Start()
+    {
+        exitButtonCanvas.enabled = false;
     }
 
     private void OnEnable()
@@ -79,6 +85,7 @@ public class SlidingPuzzleTerminal : InteractableItem
 
         // Enabling terminal UI and focusing camera
         cameraController.FocusOnTerminal(cameraFocusPoint);
+        exitButtonCanvas.enabled = true;
 
         // Sending camera to tile manager for on click events via raycasting
         if (tileManager != null) tileManager.SetCamera(Camera.main);
@@ -95,6 +102,7 @@ public class SlidingPuzzleTerminal : InteractableItem
         FirstPersonController.Instance.SetInputEnabled(true);
 
         if (tileManager != null) tileManager.SetCamera(null);
+        exitButtonCanvas.enabled = false;
 
         StartCoroutine(InteractionManager.Instance.DelayedEndInteraction());
     }
