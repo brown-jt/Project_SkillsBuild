@@ -8,7 +8,6 @@ public class SceneTeleport : InteractableArea
     {
         SpawnManager.Instance.SetNextSpawn(returnSpawnID, sceneName);
         ZoneManager.Instance.TeleportTo(sceneName, returnSpawnID);
-        AudioManager.Instance.PlaySFX("Teleport");
         AudioManager.Instance.FadeToNewMusic("Hub_Music");
 
         if (sceneName == "HubScene")

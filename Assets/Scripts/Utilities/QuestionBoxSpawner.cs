@@ -38,10 +38,15 @@ public class QuestionBoxSpawner : MonoBehaviour
                 rb.AddTorque(Random.insideUnitSphere * 5f);
             }
 
+            // Play SFX
+            int sfxIndex = Random.Range(1, 4); // 3 box spawn sounds to choose from
+            AudioManager.Instance.PlaySFX($"BoxSpawn{sfxIndex}");
+
             // Wait before spawning the next box
             yield return new WaitForSeconds(spawnDelay);
         }
 
+        truckController.CloseDoors();
         truckController.StartDriving();
     }
 }

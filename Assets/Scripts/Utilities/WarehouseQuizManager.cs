@@ -25,6 +25,8 @@ public class WarehouseQuizManager : MonoBehaviour
     private int answeredQuestions;
     private int correctAnswers;
 
+    public bool IsQuizActive => quizActive;
+
     private void Start()
     {
         timerUI.SetActive(false);
@@ -62,7 +64,6 @@ public class WarehouseQuizManager : MonoBehaviour
         statusUI.text = $"Pass Percentage: {questionSet.passPercentage * 100}%\n" +
                         $"Current Score: {correctAnswers}/{totalQuestions}";
 
-        quizActive = true;
         timerUI.SetActive(true);
     }
 
@@ -118,5 +119,10 @@ public class WarehouseQuizManager : MonoBehaviour
                         $"Current Score: {correctAnswers}/{totalQuestions}";
 
         CheckQuizCompleted();
+    }
+
+    public void SetQuizActive()
+    {
+        quizActive = true;
     }
 }

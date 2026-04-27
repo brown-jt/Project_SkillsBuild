@@ -32,5 +32,6 @@ public class ConfirmAnswerButton : InteractableItem
         }
 
         paintingManager.SubmitAnswers(selectedAnswers);
+        AudioManager.Instance.PlaySFX("Click");
     }
 }

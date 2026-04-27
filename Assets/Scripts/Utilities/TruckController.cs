@@ -59,6 +59,12 @@ public class TruckController : MonoBehaviour
         StartCoroutine(OpenDoorsCoroutine());
     }
 
+    public void CloseDoors()
+    {
+        animator.SetTrigger("CloseLeftDoor");
+        animator.SetTrigger("CloseRightDoor");
+    }
+
     IEnumerator OpenDoorsCoroutine()
     {
         animator.SetTrigger("OpenLeftDoor");

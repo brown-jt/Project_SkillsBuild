@@ -39958,8 +39958,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c58ef0e0bbe2f354dbcb6844ed6cf1fd, type: 3}
   - key: Progression_Toggle
     clip: {fileID: 8300000, guid: 3e0fff6e8a5a2a343808c08e94378c9b, type: 3}
-  - key: Teleport
-    clip: {fileID: 8300000, guid: ea628151d3397764d81e9252785854f3, type: 3}
+  - key: Click
+    clip: {fileID: 8300000, guid: db7154c935949b74b91b247dc30d8d33, type: 3}
   - key: Tile
     clip: {fileID: 8300000, guid: b61aebc4646f9364b8690ff6322aaeae, type: 3}
   - key: Tile2
@@ -39968,6 +39968,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c77c99e076f0f8f449b9a82d1fbbd01d, type: 3}
   - key: Pickup_Box
     clip: {fileID: 8300000, guid: 31f8eaf9040292a45861440f0043f995, type: 3}
+  - key: BoxSpawn1
+    clip: {fileID: 8300000, guid: 736236e175a8b0541a5c150594f175d6, type: 3}
+  - key: BoxSpawn2
+    clip: {fileID: 8300000, guid: 209904cbb50c92a40b21c625ce2a566f, type: 3}
+  - key: BoxSpawn3
+    clip: {fileID: 8300000, guid: 0c9c31717753fc345a5d041813bc9a7a, type: 3}
   masterVolume: 50
   sfxVolume: 40
   musicVolume: 10

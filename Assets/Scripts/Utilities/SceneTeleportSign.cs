@@ -10,7 +10,6 @@ public class SceneTeleportSign : InteractableItem
         ZoneManager.Instance.TeleportTo(sceneName, returnSpawnID);
 
         Debug.Log($"Teleporting to {sceneName} with spawn ID {returnSpawnID}");
-        AudioManager.Instance.PlaySFX("Teleport");
 
         string musicKey = sceneName switch
         {
