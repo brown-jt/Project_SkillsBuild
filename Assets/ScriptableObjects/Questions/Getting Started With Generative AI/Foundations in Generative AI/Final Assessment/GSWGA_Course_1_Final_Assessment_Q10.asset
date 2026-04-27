@@ -18,6 +18,7 @@ MonoBehaviour:
 
     What generative
     AI task is the team performing?'
+  questionId: 9
   answers:
   - Problem solving
   - Personalization

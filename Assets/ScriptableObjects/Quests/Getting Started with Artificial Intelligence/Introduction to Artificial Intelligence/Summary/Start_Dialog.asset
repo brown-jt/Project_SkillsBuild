@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Start_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - The final test. This is it. Are you ready?
+  - Everything the robot has learnt so far needs reinforcing. We will repeat the
+    learning process sampling different parts of all previous topics.
+  - Once you achieve this, we will be eternally in your debt. A shiny gold medal
+    will be yours for the taking too!

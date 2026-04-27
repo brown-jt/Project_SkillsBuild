@@ -73,6 +73,10 @@ public class PaintingManager : MonoBehaviour
     private void ShowQuestion()
     {
         QuestionData currentQuestion = questionSet.questions[currentQuestionIndex];
+        
+        // Track question ID for the last displayed question to aid hint generation
+        QuestionManager.Instance.SetQuestionIndexForZone(ZoneId.Museum, currentQuestion.questionId);
+
         painting.DisplayQuestion(currentQuestion);
         painting.SetQuestionNumber(currentQuestionIndex + 1, questionSet.questions.Count);
         if (currentQuestionIndex == 0)

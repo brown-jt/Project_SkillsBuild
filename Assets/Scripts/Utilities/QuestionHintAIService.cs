@@ -33,7 +33,7 @@ public class QuestionHintAIService : MonoBehaviour
         {
             var selectedHint = SelectBestHint(hints);
 
-            db.UpdateAIResponseUsage(selectedHint.id, selectedHint.usage_count);
+            db.UpdateAIResponseUsage(selectedHint.id, false);
 
             onComplete?.Invoke(selectedHint.response);
 
@@ -56,10 +56,9 @@ public class QuestionHintAIService : MonoBehaviour
 
     private DatabaseManager.QuestionHintRow SelectBestHint(List<DatabaseManager.QuestionHintRow> hints)
     {
-        // Returns firstly the least-used hint followed by the least-recent hint in that order
+        // Returns the first created hint
         return hints
-            .OrderBy(h => h.usage_count)
-            .ThenBy(h => string.IsNullOrEmpty(h.last_used_at) ? DateTime.MinValue : DateTime.Parse(h.last_used_at))
+            .OrderBy(h => string.IsNullOrEmpty(h.created_at) ? DateTime.MinValue : DateTime.Parse(h.created_at))
             .First();
     }
 

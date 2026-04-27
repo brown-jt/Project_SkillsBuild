@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - Wonderful! Now we can rest assured that our robot won't be a stranger with data
+    anymore.
+  - Please take this bronze medal, you have earnt it. If you're up for more, do come
+    back!

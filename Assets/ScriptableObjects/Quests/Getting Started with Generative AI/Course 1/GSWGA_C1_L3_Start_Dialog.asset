@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: GSWGA_C1_L3_Start_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - We are halfway through the basics now before a big final puzzle needs to be solved.
+  - This time the puzzles and painting will relate to using Generative AI in everday
+    life. Give it a go when you are ready.
+  - Remember, feel free to talk to my assistant if you need some assistance.

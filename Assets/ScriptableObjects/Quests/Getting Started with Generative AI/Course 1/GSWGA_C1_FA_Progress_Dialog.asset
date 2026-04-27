@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GSWGA_C1_FA_Progress_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - How is that painting coming along? I hope the sliding puzzles aren't too difficult
-    for you.
+  - I know this one is a tough one. Ten puzzles are no joke. As long as you learnt
+    the information as you went, you will be ok!

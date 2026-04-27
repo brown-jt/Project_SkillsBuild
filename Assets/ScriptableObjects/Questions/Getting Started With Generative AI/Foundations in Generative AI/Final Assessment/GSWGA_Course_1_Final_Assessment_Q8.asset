@@ -18,6 +18,7 @@ MonoBehaviour:
 
     Which task
     is generative AI best suited for in this situation?'
+  questionId: 7
   answers:
   - Creating content drafts at scale
   - Personalizing product descriptions for different types of customers

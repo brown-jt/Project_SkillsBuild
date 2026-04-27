@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Start_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - Welcome back! This time around we'll be teaching the robot all about machine
+    learning.
+  - This will be used to check whether machine learning is the answer to the unstructured
+    data problem that the robot has just informed us about since last lesson.
+  - Same place as always! Best of luck!

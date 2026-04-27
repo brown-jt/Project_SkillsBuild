@@ -53,12 +53,12 @@ public class QuestJournalUI : MonoBehaviour
     [Header("Active Rewards References")]
     public TextMeshProUGUI goldRewardText;
     public TextMeshProUGUI xpRewardText;
-    // TODO: Add item rewards here as well when that system is implemented
+    public RewardItemHover itemReward;
 
     [Header("Completed Rewards References")]
     public TextMeshProUGUI completedGoldRewardText;
     public TextMeshProUGUI completedXpRewardText;
-    // TODO: Add item rewards here as well when that system is implemented
+    public RewardItemHover completedItemReward;
 
     [Header("Content Prefabs")]
     public QuestEntryUI questEntryPrefab;
@@ -224,6 +224,15 @@ public class QuestJournalUI : MonoBehaviour
             RewardData rewards = quest.questData.rewards;
             goldRewardText.text = rewards.gold.ToString();
             xpRewardText.text = rewards.experience.ToString();
+            if (rewards.items.Count > 0)
+            {
+                itemReward.gameObject.SetActive(true);
+                itemReward.SetItemData(rewards.items[0]);
+            }
+            else
+            {
+                itemReward.gameObject.SetActive(false);
+            }
 
             // Show the details panel and hide the "No active quest selected" message
             hasSelectedQuest = true;
@@ -244,6 +253,15 @@ public class QuestJournalUI : MonoBehaviour
             RewardData rewards = quest.questData.rewards;
             completedGoldRewardText.text = rewards.gold.ToString();
             completedXpRewardText.text = rewards.experience.ToString();
+            if (rewards.items.Count > 0)
+            {
+                completedItemReward.gameObject.SetActive(true);
+                completedItemReward.SetItemData(rewards.items[0]);
+            }
+            else
+            {
+                completedItemReward.gameObject.SetActive(false);
+            }
 
             // Show the details panel and hide the "No completed quest selected" message
             hasSelectedCompletedQuest = true;

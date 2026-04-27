@@ -16,9 +16,10 @@ MonoBehaviour:
     upcoming product launch. She enters a prompt describing the product and the target
     audience. The tool produces a polished draft in seconds.
 
-    Which step of
-    the generative AI process is happening when the tool produces the draft based
-    on her prompt?'
+    Which step of the
+    generative AI process is happening when the tool produces the draft based on
+    her prompt?'
+  questionId: 1
   answers:
   - AI uses what it has learned to create something new.
   - AI analyzes this data, looking for patterns and relationships between different

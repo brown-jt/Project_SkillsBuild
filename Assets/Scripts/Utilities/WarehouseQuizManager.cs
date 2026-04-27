@@ -6,7 +6,6 @@ public class WarehouseQuizManager : MonoBehaviour
 {
     [Header("Default Minigame Rewards")]
     [SerializeField] private int goldReward = 100;
-    [SerializeField] private float experienceReward = 50.0f;
 
     [Header("References")]
     [SerializeField] private GameObject timerUI;
@@ -24,6 +23,10 @@ public class WarehouseQuizManager : MonoBehaviour
     private int totalQuestions;
     private int answeredQuestions;
     private int correctAnswers;
+
+    public bool IsQuizActive => quizActive;
+
+    private float doubleGoldTimeLimit = 300.0f; // Time limit for double gold reward (5 minutes)
 
     private void Start()
     {
@@ -62,7 +65,6 @@ public class WarehouseQuizManager : MonoBehaviour
         statusUI.text = $"Pass Percentage: {questionSet.passPercentage * 100}%\n" +
                         $"Current Score: {correctAnswers}/{totalQuestions}";
 
-        quizActive = true;
         timerUI.SetActive(true);
     }
 
@@ -75,9 +77,11 @@ public class WarehouseQuizManager : MonoBehaviour
         {
             quizTrigger.Passed(questionSet.quizId);
             questionSet = null;
-            // TODO: Determine rewards based on performance (e.g., time taken, correct answers)
+            if (timer <= doubleGoldTimeLimit)
+            {
+                FeedbackNotificationsUI.Instance.AddNotification($"You earned an extra {goldReward} gold for completing the quiz in under {doubleGoldTimeLimit / 60} minutes!", 6f);
+            }
         }
-
         else
         {
             var gotPercentage = (float)correctAnswers / totalQuestions * 100;
@@ -118,5 +122,10 @@ public class WarehouseQuizManager : MonoBehaviour
                         $"Current Score: {correctAnswers}/{totalQuestions}";
 
         CheckQuizCompleted();
+    }
+
+    public void SetQuizActive()
+    {
+        quizActive = true;
     }
 }

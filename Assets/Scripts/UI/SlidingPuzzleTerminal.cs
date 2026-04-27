@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -65,6 +66,8 @@ public class SlidingPuzzleTerminal : InteractableItem
             return;
         }
 
+        InteractionManager.Instance.StartInteraction();
+
         // Disabling inputs
         FirstPersonController.Instance.SetInputEnabled(false);
         FirstPersonController.Instance.SetCameraLookLocked(true);
@@ -92,6 +95,8 @@ public class SlidingPuzzleTerminal : InteractableItem
         FirstPersonController.Instance.SetInputEnabled(true);
 
         if (tileManager != null) tileManager.SetCamera(null);
+
+        StartCoroutine(InteractionManager.Instance.DelayedEndInteraction());
     }
 
     public void SetAnswer(string answer, int answerIndex)

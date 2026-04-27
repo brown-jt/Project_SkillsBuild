@@ -16,6 +16,7 @@ MonoBehaviour:
     \u201CGive me a brief description of AI.\u201D Although the response is good,
     it won\u2019t be understood by his nephew. \r\nWhat is the best refinement Sam
     can make to the prompt to generate a response his nephew would easily understand?"
+  questionId: 2
   answers:
   - Adding background information
   - Adding a constraint limiting the length of the response

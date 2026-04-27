@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: GSWGA_C1_L3_Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - Not bad at all! I think I have one more practice set for you, I hope you have
+    been paying attention to all these, you will need it for the final painting.
+  - For now, you can take this silver medal as majority of the content has been solved.

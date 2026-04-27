@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Question_5
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: Which of the following is an example of structured data?
+  questionId: 4
   answers:
   - Movie reviews
   - Social media posts

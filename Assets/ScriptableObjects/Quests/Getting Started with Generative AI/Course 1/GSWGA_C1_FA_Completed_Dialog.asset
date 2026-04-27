@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: GSWGA_C1_FA_Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - Magnificent! Truly magnificent! The museum is complete!
+  - You have our eternal gratitude. Please, take this gold medal, you have earned
+    it.
+  - If I recall you now have bronze, silver and gold correct?
+  - Someone in the forest can definitely trade you an expert medal for them all...
+    I wonder where he lives...

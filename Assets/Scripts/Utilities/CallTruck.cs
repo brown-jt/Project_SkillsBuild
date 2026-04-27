@@ -15,6 +15,12 @@ public class CallTruck : InteractableItem
     {
         if (!IsInteractable) return;
 
+        if (quizManager.IsQuizActive)
+        {
+            FeedbackNotificationsUI.Instance.AddNotification("Quiz is already active! Finish the current quiz before calling the truck again.", 4f);
+            return;
+        }
+
         Debug.Log("Checking active quests " + QuestManager.Instance.activeQuests.Count);
 
         foreach (QuestInstance questInstance in QuestManager.Instance.activeQuests)
@@ -29,11 +35,13 @@ public class CallTruck : InteractableItem
 
         if (quizManager.questionSet == null)
         {
-            Debug.LogError("No Quests with QuestionSet data to show!");
+            FeedbackNotificationsUI.Instance.AddNotification("No active quests with questions found! Start a quest to be able to call the truck.", 4f);
             return;
         }
 
+        quizManager.SetQuizActive();
         ReverseTruck();
         FeedbackNotificationsUI.Instance.AddNotification("Delivery truck has been called! Get ready for the quiz!", 4f);
+        AudioManager.Instance.PlaySFX("Click");
     }
 }

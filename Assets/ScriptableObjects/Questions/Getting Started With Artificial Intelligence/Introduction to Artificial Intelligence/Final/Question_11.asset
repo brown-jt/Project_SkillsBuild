@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: Which of the following types of data is categorized as qualitative data,
     and cannot be processed and analysed by conventional data tools and methods?
+  questionId: 10
   answers:
   - Unstructured data
   - Structured data

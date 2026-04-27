@@ -15,7 +15,10 @@ MonoBehaviour:
   lines:
   - This museum is so empty!
   - Oh hey traveller, are you able to help us?
-  - To my right is a painting which if you solve correctly will reveal itself. Please
-    have a go!
+  - In front of me is a painting which if you solve the puzzles below it correctly,
+    it will reveal itself. Please have a go!
   - If you get stuck or don't know the answers, have a look around and talk to one
     of my assistants, they can provide you with useful information.
+  - Lastly, there are completed puzzle paintings scattered around the musuem to show
+    you what you need to create. They should come in handy if you are unable to complete
+    the puzzle.

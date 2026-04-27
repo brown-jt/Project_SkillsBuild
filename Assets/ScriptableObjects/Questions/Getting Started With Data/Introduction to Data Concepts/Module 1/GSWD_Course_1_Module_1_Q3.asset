@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: "What type of data is on a driver\u2019s license that records a person's
     eye color and hair color?"
+  questionId: 2
   answers:
   - Quantitative data
   - Qualitative data

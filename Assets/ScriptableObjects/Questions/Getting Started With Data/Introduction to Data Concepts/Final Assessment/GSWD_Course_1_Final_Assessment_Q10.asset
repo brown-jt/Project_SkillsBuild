@@ -15,8 +15,9 @@ MonoBehaviour:
   question: 'A credit card company database has the names of card holders, dates
     card holders make purchases, and the type of payment method used.
 
-    What
-    kind of data is this?'
+    What kind
+    of data is this?'
+  questionId: 9
   answers:
   - Ordinal data
   - Qualitative data

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: Tesla cars are all connected and share what they learn when autonomously
     driving. This is an example of which of the following levels of AI?
+  questionId: 2
   answers:
   - Programmable AI
   - "General AI\_"

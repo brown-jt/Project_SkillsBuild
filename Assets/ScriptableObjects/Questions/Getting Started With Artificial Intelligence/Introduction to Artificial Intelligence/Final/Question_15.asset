@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: Which level of AI refers to machines that can perform any intellectual
     task that a human can?
+  questionId: 14
   answers:
   - General AI
   - Broad AI

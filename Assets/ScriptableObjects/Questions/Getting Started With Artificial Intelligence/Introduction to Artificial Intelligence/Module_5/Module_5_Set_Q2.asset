@@ -16,6 +16,7 @@ MonoBehaviour:
     Google Photos can recognize their faces.
 
     What kind of learning is this?'
+  questionId: 1
   answers:
   - Transitory learning
   - Reinforcement learning

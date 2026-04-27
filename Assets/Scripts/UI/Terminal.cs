@@ -9,10 +9,13 @@ public class Terminal : InteractableItem
     [Header("Terminal Setup")]
     [SerializeField] private Transform cameraFocusPoint;
     [SerializeField] private Transform failCinematicFocusPoint;
+    [SerializeField] private Transform successCinematicFocusPoint;
     [SerializeField] private GameObject terminalUI;
     [SerializeField] private TerminalUIController uiController;
     [SerializeField] private InputActionReference cancelAction;
     [SerializeField] private TriggerRelay scannerTriggerRelay;
+
+    public GameObject gameUI;
 
     private QuestionSetData questionSet;
 
@@ -128,6 +131,12 @@ public class Terminal : InteractableItem
         else ShowCurrentQuestion();
 
         quizActive = true;
+
+        if (gameUI == null) gameUI = GameObject.Find("GameUI");
+
+        gameUI.SetActive(false);
+
+        InteractionManager.Instance.StartInteraction();
     }
 
     public void ExitTerminal()
@@ -141,6 +150,10 @@ public class Terminal : InteractableItem
 
         FirstPersonController.Instance.SetCameraLookLocked(false);
         FirstPersonController.Instance.SetInputEnabled(true);
+
+        gameUI.SetActive(true);
+
+        StartCoroutine(InteractionManager.Instance.DelayedEndInteraction());
     }
 
     public void StartQuestionSet()
@@ -162,6 +175,8 @@ public class Terminal : InteractableItem
             return;
         }
 
+        int shuffledQuestionIndex = shuffledQuestions[currentQuestionIndex].questionId;
+        QuestionManager.Instance.SetQuestionIndexForZone(ZoneId.Factory, shuffledQuestionIndex);
         QuestionData q = shuffledQuestions[currentQuestionIndex];
 
         uiController.ShowQuestion(q.question, q.answers, q.maxSelections, selectedIndexes =>
@@ -214,16 +229,16 @@ public class Terminal : InteractableItem
         if (robotInScanner == null) return;
 
         if (passed) robotInScanner.GetComponent<RobotStaticMover>().StartWalking();
-        else
-        {
-            StartCoroutine(FailCinematic());
-            robotInScanner.GetComponent<DissolveController>().StartDissolve();
-        }
+        else robotInScanner.GetComponent<DissolveController>().StartDissolve();
+
+        StartCoroutine(Cinematic(passed));
     }
 
-    private IEnumerator FailCinematic()
+    private IEnumerator Cinematic(bool success)
     {
-        cameraController.FocusOnTerminal(failCinematicFocusPoint);
+        if (success) cameraController.FocusOnTerminal(successCinematicFocusPoint);
+        else cameraController.FocusOnTerminal(failCinematicFocusPoint);
+
         PlayerInputHandler.Instance.DisablePlayerInput();
         PlayerInputHandler.Instance.DisablePlayerUIInput();
 

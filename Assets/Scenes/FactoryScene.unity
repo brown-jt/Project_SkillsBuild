@@ -7809,6 +7809,10 @@ PrefabInstance:
       value: Jack
       objectReference: {fileID: 0}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
+      propertyPath: idleDialog
+      value: 
+      objectReference: {fileID: 11400000, guid: 13de409df288ec4419abe5c1b412c0d2, type: 2}
+    - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: interactableName
       value: Jack
       objectReference: {fileID: 0}

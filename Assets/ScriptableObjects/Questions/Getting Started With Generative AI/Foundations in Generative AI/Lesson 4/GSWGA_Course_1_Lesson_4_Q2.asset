@@ -18,6 +18,7 @@ MonoBehaviour:
     with financial results of the previous quarter.\u201D The AI tool responds with
     a 15-page, detailed presentation. \r\nWhat is the best refinement Sara can apply
     to the prompt to generate what she needs? "
+  questionId: 1
   answers:
   - 'Adding a constraint setting a limit to the length of the presentation '
   - 'Adding information about how the output should be structured '

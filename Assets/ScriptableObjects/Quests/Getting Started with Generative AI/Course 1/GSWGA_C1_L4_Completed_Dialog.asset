@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: GSWGA_C1_L4_Completed_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - That's awesome! All the practice puzzles have been completed.
+  - When you are ready for the final painting puzzles let me know. There will be
+    ten to complete and this time you must get a certain percentage correct to pass.

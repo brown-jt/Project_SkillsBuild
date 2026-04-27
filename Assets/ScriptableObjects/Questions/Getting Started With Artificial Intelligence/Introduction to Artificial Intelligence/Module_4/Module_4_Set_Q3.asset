@@ -15,6 +15,7 @@ MonoBehaviour:
   question: Complete the sentence. Machine learning is a type of AI with many advantages
     over programmable computers, including the distinguishing capability to _____
     and _____.
+  questionId: 2
   answers:
   - predict, learn
   - use structured data, locate solutions

@@ -15,7 +15,8 @@ MonoBehaviour:
   questId: GSWAI_Course_1_Module_2
   zoneId: 1
   title: Introduction to Artificial Intelligence - Module 2
-  description: 'The worker has directed me to learn the content here: <link="https://skillsbuild.org/college-students/course-catalog/getting-started-with-artificial-intelligence"><color=#4EA5FF><u>Getting
+  description: 'The worker has directed me to program the robots by learning from
+    the hint givers or the content here: <link="https://skillsbuild.org/college-students/course-catalog/getting-started-with-artificial-intelligence"><color=#4EA5FF><u>Getting
     Started with Artificial Intelligence</u></color></link> inside the eLearning
     course <i>Introduction to Artificial Intelligence</i> before proceeding with
     anything else.
@@ -31,7 +32,8 @@ MonoBehaviour:
   rewards:
     gold: 20
     experience: 5
-    items: []
+    items:
+    - {fileID: 11400000, guid: 6fcab74eb2ade384abef4e042fc8f9e6, type: 2}
   nextQuest: {fileID: 0}
   startDialog: {fileID: 11400000, guid: 395b7cde7139b104f82a45cd31d28f2c, type: 2}
   inProgressDialog: {fileID: 11400000, guid: 5ea627250f651c4449e38585c4a27f7c, type: 2}

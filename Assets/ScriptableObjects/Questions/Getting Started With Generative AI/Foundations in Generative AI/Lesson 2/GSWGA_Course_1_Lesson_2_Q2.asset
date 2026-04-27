@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: What step in the process involves the LLM forecasting based on the prompt,
     its training data, and the statistical patterns it has learned?
+  questionId: 1
   answers:
   - Input prompt
   - Tokenization

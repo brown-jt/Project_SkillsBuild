@@ -16,6 +16,7 @@ MonoBehaviour:
     He prompts, \u201CSummarize this blog post.\u201D Although the output is brief,
     he wants it provided as a list of bullets.\r\nWhat is the best refinement technique
     Ekon can apply to the prompt to generate the output he wants?"
+  questionId: 2
   answers:
   - Adding a constraint related to the tone of the response
   - Adding the role the AI should take and expertise that should be used

@@ -31,6 +31,7 @@ public class InventoryDrag : MonoBehaviour
         if (dragIcon != null)
         {
             dragIcon.sprite = slot.itemData.icon;
+            dragIcon.preserveAspect = true;
             dragIcon.gameObject.SetActive(true);
             Cursor.visible = false;
         }

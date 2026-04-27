@@ -17,6 +17,7 @@ MonoBehaviour:
     with the result because it lacks details relevant to the target audience.\r\nWhat
     is the best refinement technique Freyja can apply to the prompt to generate the
     output she wants?"
+  questionId: 5
   answers:
   - Adding the role the AI should take and expertise that should be used
   - Adding the format the output should take

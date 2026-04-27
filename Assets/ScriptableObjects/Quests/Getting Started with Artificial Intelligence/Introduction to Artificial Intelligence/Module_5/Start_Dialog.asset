@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Start_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - Welcome back! After leaving the robot to do its thing, we have come to the conclusion
+    that we need to learn more about machine learning.
+  - We've come up with three common methods of machine learning that we will need
+    to ensure the robot knows as well.
+  - Fancy lending us a hand again?

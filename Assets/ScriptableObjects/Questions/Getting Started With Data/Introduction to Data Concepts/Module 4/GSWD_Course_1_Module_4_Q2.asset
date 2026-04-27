@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: In which step did Charles share that he gets excited to investigate and
     use the right analytical methods to find root causes?
+  questionId: 1
   answers:
   - Collect
   - Visualize

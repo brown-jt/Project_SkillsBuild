@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: If names and email addresses are organized using a spreadsheet software,
     like Google Sheets or Microsoft Excel, which type of data is this?
+  questionId: 3
   answers:
   - True data
   - Semi-structured data

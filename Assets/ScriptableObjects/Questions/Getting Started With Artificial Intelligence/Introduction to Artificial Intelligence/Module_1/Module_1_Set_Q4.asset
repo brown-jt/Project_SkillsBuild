@@ -15,6 +15,7 @@ MonoBehaviour:
   question: This robot has a slight malfunction we need to fix in its essential workflow.
     Fill in the missing data. Artificial Intelligence (AI) refers to the ability
     of a machine to _____ and _____.
+  questionId: 3
   answers:
   - identify emotions, transfer data
   - learn patterns, make predictions

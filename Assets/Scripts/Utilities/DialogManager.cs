@@ -54,6 +54,8 @@ public class DialogManager : MonoBehaviour
         playerController.SetInputEnabled(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        StartCoroutine(InteractionManager.Instance.DelayedEndInteraction());
     }
 
     private void Start()
@@ -70,7 +72,7 @@ public class DialogManager : MonoBehaviour
     {
         if (data == null)
         {
-            Debug.LogError("No DialogData provided!");
+            FeedbackNotificationsUI.Instance.AddNotification("This character has nothing to say.");
             return;
         }
 
@@ -90,6 +92,8 @@ public class DialogManager : MonoBehaviour
         }
 
         DisplayNextSentence();
+
+        InteractionManager.Instance.StartInteraction();
     }
 
     public void DisplayNextSentence()
@@ -125,6 +129,8 @@ public class DialogManager : MonoBehaviour
 
         onDialogComplete?.Invoke();
         onDialogComplete = null;
+
+        StartCoroutine(InteractionManager.Instance.DelayedEndInteraction());
     }
 
     IEnumerator TypeSentence(string sentence)

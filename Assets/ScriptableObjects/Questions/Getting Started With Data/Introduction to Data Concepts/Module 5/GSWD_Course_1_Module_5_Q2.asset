@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: Which type of visualization is best-suited for ranking a large number
     of categories, showing correlation, and using for before-after analysis?
+  questionId: 1
   answers:
   - Bar chart
   - Pie chart

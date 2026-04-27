@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: GSWGA_C1_FA_Start_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - "This is it. The big moment. The <i>pi\xE8ce de r\xE9sistance</i> so to speak.
+    I am excited! Are you?"
+  - When you are ready, please attempt the puzzles. I cannot wait to see this painting
+    completed also!
+  - These will be puzzles relating to all previous topics you have just practiced,
+    so it should come naturally. But again, if you need help, my assistant can offer
+    some insight.

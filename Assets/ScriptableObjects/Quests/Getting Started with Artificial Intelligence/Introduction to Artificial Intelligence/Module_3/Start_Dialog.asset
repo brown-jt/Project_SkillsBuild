@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: Start_Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   lines:
-  - TODO
+  - Nicely done again with the history lesson. There's loads more to be taught so
+    let's kick it up a notch.
+  - This time we will be ensuring the robots know about structured, semi-structured
+    and unstructured data.
+  - You know where the terminal is! Best of luck. Speak to my colleague beside it
+    if you need extra assistance.
