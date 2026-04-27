@@ -119,6 +119,7 @@ public class InventoryManager : MonoBehaviour
         {
             RefreshInventorySlotsFromDB();
             OnInventoryChanged?.Invoke();
+            FeedbackNotificationsUI.Instance.AddNotification($"Removed {quantity}x {item.itemName}");
         }
 
         return removed;
