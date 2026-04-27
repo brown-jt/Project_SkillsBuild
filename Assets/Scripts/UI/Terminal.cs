@@ -132,7 +132,11 @@ public class Terminal : InteractableItem
 
         quizActive = true;
 
+        if (gameUI == null) gameUI = GameObject.Find("GameUI");
+
         gameUI.SetActive(false);
+
+        InteractionManager.Instance.StartInteraction();
     }
 
     public void ExitTerminal()
@@ -148,6 +152,8 @@ public class Terminal : InteractableItem
         FirstPersonController.Instance.SetInputEnabled(true);
 
         gameUI.SetActive(true);
+
+        StartCoroutine(InteractionManager.Instance.DelayedEndInteraction());
     }
 
     public void StartQuestionSet()
@@ -169,6 +175,8 @@ public class Terminal : InteractableItem
             return;
         }
 
+        int shuffledQuestionIndex = shuffledQuestions[currentQuestionIndex].questionId;
+        QuestionManager.Instance.SetQuestionIndexForZone(ZoneId.Factory, shuffledQuestionIndex);
         QuestionData q = shuffledQuestions[currentQuestionIndex];
 
         uiController.ShowQuestion(q.question, q.answers, q.maxSelections, selectedIndexes =>

@@ -8,7 +8,6 @@ public class GroqAgentAI : InteractableItem
     [SerializeField] private GameObject hintIndicator;
 
     private QuestionSetData questionSet;
-    private int questionIndex = 0;
 
     private void Start()
     {
@@ -36,24 +35,14 @@ public class GroqAgentAI : InteractableItem
             return;
         }
 
-        if (questionSet != null && questionSet != questInstance.questData.questionSet)
-        {
-            // New question set being assigned so we will need to reset questionIndex
-            questionIndex = -1;
-        }
-
         questionSet = questInstance.questData.questionSet;
 
-        // Randomly setting the starting index for the questions
-        if (questionIndex == -1) questionIndex = Random.Range(0, questionSet.questions.Count);
+        // Picking the current question to generate a hint for in this interaction sequence and display as dialog
+        int currentQuestionIndex = QuestionManager.Instance.GetQuestionIndexForZone(zone);
 
-        // Picking one question to generate a hint for in this interaction sequence and display as dialog
-        QuestionData question = questionSet.questions[questionIndex];
+        QuestionData question = questionSet.questions.Find(q => q.questionId == currentQuestionIndex);
         string prompt = BuildPromptForQuestion(question);
-        QuestionHintAIService.Instance.GetQuestionHint(questInstance.questData.questId, questionIndex, prompt, OnResponseReceived);
-
-        // Moving index up by one
-        questionIndex = (questionIndex + 1) % questionSet.questions.Count;
+        QuestionHintAIService.Instance.GetQuestionHint(questInstance.questData.questId, currentQuestionIndex, prompt, OnResponseReceived);
     }
 
     private QuestInstance FindActiveQuestWithQuestions()

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: Which of the following Narrow AI systems would you want to include when
     building the Broad AI system for this autonomous robot?
+  questionId: 2
   answers:
   - International news
   - Informations from the global positioning system (GPS)

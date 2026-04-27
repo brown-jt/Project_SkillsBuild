@@ -17,6 +17,7 @@ MonoBehaviour:
     manager next week.\u201D The system analyzes his request, interprets the tone,
     and generates a clear, formal draft email.\r\nWhich step of the LLM process is
     happening when the system determines Lorezo\u2019s intent and tone?"
+  questionId: 6
   answers:
   - Tokenization
   - Prediction

@@ -17,6 +17,7 @@ MonoBehaviour:
     data analyst wants to drill down and find out the reason for these unexpected
     patterns.\r\nWhat kind of analytics will the data analyst use to answer the question,
     \u201CWhy is this happening?\u201D"
+  questionId: 14
   answers:
   - Predictive analytics
   - Prescriptive analytics

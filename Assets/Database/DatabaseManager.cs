@@ -525,7 +525,7 @@ public class DatabaseManager : MonoBehaviour
         {
             string currentTime = DateTime.UtcNow.ToString("o");
             _db.Execute(
-                "INSERT INTO Question_Hints (quest_id, question_index, response, created_at, usage_count) VALUES (?, ?, ?, ?, 0)",
+                "INSERT INTO Question_Hints (quest_id, question_index, response, created_at) VALUES (?, ?, ?, ?)",
                 questId, questionIndex, response, currentTime
             );
         }
@@ -535,17 +535,14 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void UpdateAIResponseUsage(int id, int currentUsage)
+    public void UpdateAIResponseUsage(int id, bool isActive)
     {
-        int newUsage = currentUsage + 1;
-        bool isActive = newUsage < HINT_MAX_USAGE;
-
         try
         {
             string currentTime = DateTime.UtcNow.ToString("o");
             _db.Execute(
-                "UPDATE Question_Hints SET usage_count = ?, last_used_at = ?, is_active = ? WHERE id = ?",
-                newUsage, currentTime, isActive, id
+                "UPDATE Question_Hints SET is_active = ? WHERE id = ?",
+                isActive, id
             );
         }
         catch (SQLiteException ex)

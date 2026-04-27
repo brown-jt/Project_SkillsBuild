@@ -15,6 +15,7 @@ MonoBehaviour:
   question: Complete the sentence. _____ performs tasks without human intervention
     and completes mundane and repetitive tasks for humans, while _____ allows humans
     to make final decisions after analysing data, reports, and other types of data."
+  questionId: 4
   answers:
   - AI, augmented intelligence
   - Augmented intelligence, Narrow AI

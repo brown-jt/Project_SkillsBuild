@@ -15,6 +15,7 @@ MonoBehaviour:
   question: Which of the following is the level of AI that is more versatile, can
     handle a wider range of related tasks, and is focused on integrating AI within
     specific business processes?
+  questionId: 13
   answers:
   - General AI
   - Broad AI

@@ -17,6 +17,7 @@ MonoBehaviour:
     in a hospital before going home.
 
     What type of data is this?'
+  questionId: 1
   answers:
   - Discrete
   - Ordinal

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: "George types, \u201CWrite a catchy tagline for our new eco-friendly
     packaging campaign.\u201D\r\nIn what step of the process does this occur? "
+  questionId: 4
   answers:
   - Input prompt
   - Tokenization

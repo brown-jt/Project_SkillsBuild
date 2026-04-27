@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: This robot is being commissioned to anticipate equipment failures before
     they happen. What one word best describes what AI can do?
+  questionId: 1
   answers:
   - Calculate
   - Think

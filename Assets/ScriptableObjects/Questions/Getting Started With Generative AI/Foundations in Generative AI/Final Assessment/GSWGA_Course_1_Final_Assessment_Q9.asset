@@ -16,6 +16,7 @@ MonoBehaviour:
     and prompts, \u201CTell me about electric cars.\u201D The AI-generated response
     is too broad.\r\nWhat is the best refinement technique Cory can apply to the
     prompt to generate the output he wants?"
+  questionId: 8
   answers:
   - Adding a constraint specifying the required content
   - Adding information describing exactly what you want the AI to do

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: Which of the following explains why an AI trained with machine learning
     can rapidly map the best route between two points on a map?
+  questionId: 12
   answers:
   - It uses predefined programming instructions to navigate through traffic.
   - It predicts traffic problems based on stored alternative routes for every possible

@@ -17,6 +17,7 @@ MonoBehaviour:
 
     What
     step of the data analysis process are they performing?'
+  questionId: 4
   answers:
   - Clean
   - Visualize

@@ -17,6 +17,7 @@ MonoBehaviour:
 
     Which
     of the following is another reason data analysts create data visualizations?'
+  questionId: 6
   answers:
   - Communicate results and help people understand the insights to make decisions
   - Publish data in a presentation template

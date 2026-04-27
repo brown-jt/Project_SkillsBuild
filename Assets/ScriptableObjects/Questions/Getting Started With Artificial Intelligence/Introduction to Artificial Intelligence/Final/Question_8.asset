@@ -17,6 +17,7 @@ MonoBehaviour:
     \u201CHow does machine learning enable decision-making in complex scenarios,
     such as medical treatment choices?\u201D\nWhich of the following is the best
     response?"
+  questionId: 7
   answers:
   - By providing probabilistic statements with confidence levels for different treatment
     options

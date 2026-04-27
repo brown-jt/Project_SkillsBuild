@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: In which era did companies guide astronauts from Earth to the moon and
     advance to handle more than one kind of instruction?
+  questionId: 2
   answers:
   - The Era of Tabulation
   - The Era of AI

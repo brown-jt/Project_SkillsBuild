@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionData
   question: "What step in the process involves the LLM analyzing the prompt\u2019s
     grammar, tone, intent, and implied meaning?"
+  questionId: 3
   answers:
   - Input prompt
   - Tokenization

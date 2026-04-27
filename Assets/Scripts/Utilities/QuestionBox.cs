@@ -45,6 +45,9 @@ public class QuestionBox : HoldableItem
                 questionShelves[i].SetAnswer(questionData.answers[i]);
             }
         }
+
+        // Track question ID for the last picked up box for to aid hint generation
+        QuestionManager.Instance.SetQuestionIndexForZone(ZoneId.Warehouse, questionData.questionId);
     }
 
     protected override void OnDropped()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class QuestionData : ScriptableObject
 {
     [TextArea] public string question;
+    public int questionId;
     public List<string> answers;
 
     [Tooltip("How many answers can be selected - (1 = single | >1 = multi)")]

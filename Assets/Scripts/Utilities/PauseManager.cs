@@ -47,7 +47,7 @@ public class PauseManager : MonoBehaviour
 
     private void ToggleMenu(InputAction.CallbackContext ctx)
     {
-        if (!PlayerInputHandler.Instance.IsPlayerInputEnabled()) return;
+        if (InteractionManager.Instance.IsInteracting) return;
 
         if (isHelpMenuOpen)
         {

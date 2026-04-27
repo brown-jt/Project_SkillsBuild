@@ -17,6 +17,7 @@ MonoBehaviour:
     them, and then begins producing the response one word at a time until the response
     is complete.\r\nWhich step of the LLM process is happening when the system produces
     the response word by word until the response is complete?"
+  questionId: 4
   answers:
   - Prediction
   - Output generation
