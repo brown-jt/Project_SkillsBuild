@@ -81,6 +81,9 @@ public class WarehouseQuizManager : MonoBehaviour
             {
                 FeedbackNotificationsUI.Instance.AddNotification($"You earned an extra {goldReward} gold for completing the quiz in under {doubleGoldTimeLimit / 60} minutes!", 6f);
             }
+
+            // Reset question index in question manager to -1 to indicate no active question to give hints for
+            QuestionManager.Instance.SetQuestionIndexForZone(ZoneId.Warehouse, -1);
         }
         else
         {

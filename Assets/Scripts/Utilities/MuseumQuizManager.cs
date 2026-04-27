@@ -54,6 +54,9 @@ public class MuseumQuizManager : MonoBehaviour
         OnQuizPassed?.Invoke();
         questionSet = null;
         StartCoroutine(CompletePainting(painting));
+
+        // Reset question index in question manager to -1 to indicate no active question to give hints for
+        QuestionManager.Instance.SetQuestionIndexForZone(ZoneId.Museum, -1);
     }
 
     private void OnQuestUpdated(QuestInstance quest)

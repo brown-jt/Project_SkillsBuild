@@ -577,7 +577,7 @@ public class DatabaseManager : MonoBehaviour
             var row = _db.Table<CurrencyRow>().FirstOrDefault();
             if (row != null)
             {
-                _db.Execute("UPDATE Currencies SET gold = gold + 1 WHERE id = ?", row.id);
+                _db.Execute("UPDATE Currencies SET gold = gold + ? WHERE id = 1", amount);
             }
             else
             {

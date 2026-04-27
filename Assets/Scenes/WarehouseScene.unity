@@ -375,7 +375,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   interactableName: Button
   interactionPrompt: Call Delivery Truck
-  interactionSound: {fileID: 0}
   truckController: {fileID: 1794115183}
   quizManager: {fileID: 618972617}
 --- !u!4 &78720506
@@ -1265,7 +1264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   goldReward: 100
-  experienceReward: 50
   timerUI: {fileID: 1605389039}
   statusUI: {fileID: 875885571}
   timerText: {fileID: 892142435}
@@ -2479,6 +2477,114 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 3, z: 1}
   m_Center: {x: 0, y: 1.5, z: 1}
+--- !u!1001 &1137444061
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1650314094212557305, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_Name
+      value: GroqAgentInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.111912
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.5700555
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: zone
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: course
+      value: Getting Started with Data
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: promptName
+      value: Warehouse NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: followSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: interactableName
+      value: Sam
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 8464939595063989762, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1650314094212557305, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1137444063}
+  m_SourcePrefab: {fileID: 100100000, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+--- !u!1 &1137444062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1650314094212557305, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+  m_PrefabInstance: {fileID: 1137444061}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1137444063
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137444062}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb6460301a1b9204085f08d991152047, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1157998704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5694,79 +5800,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450651914232199}
   m_LocalEulerAnglesHint: {x: -89.98021, y: 0, z: 0}
---- !u!1001 &7826940966176730609
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1650314094212557305, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_Name
-      value: OllamaAgentInteractable
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.64696
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.5724998
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932355433539657547, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: zone
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: course
-      value: Getting Started with Data
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: promptName
-      value: Warehouse NPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308258846212134678, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
-      propertyPath: interactableName
-      value: Kevin
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: efc03b066d4627d419da55f8be486c7f, type: 3}
 --- !u!33 &8380545803345387142
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5882,4 +5915,4 @@ SceneRoots:
   - {fileID: 744236731}
   - {fileID: 520351239}
   - {fileID: 78720506}
-  - {fileID: 7826940966176730609}
+  - {fileID: 1137444061}
