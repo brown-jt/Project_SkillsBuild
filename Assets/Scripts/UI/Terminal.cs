@@ -212,6 +212,9 @@ public class Terminal : InteractableItem
         uiController.ShowFinalResult(passed, scoreText);
         quizActive = false;
         currentQuestionIndex = 0;
+
+        // Reset question index for the zone so no hints can be given until restart/new quiz
+        QuestionManager.Instance.SetQuestionIndexForZone(ZoneId.Factory, -1);
     }
 
     private bool AreAnswersCorrect(List<int> selected, List<int> correct)

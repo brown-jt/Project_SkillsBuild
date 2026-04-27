@@ -9099,9 +9099,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroqAgentInteractable
       objectReference: {fileID: 0}
+    - target: {fileID: 5343642696189685234, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: dissolveController
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5343642696189685234, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: 'movementPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2083696770}
+    - target: {fileID: 5343642696189685234, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: 'movementPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 822006538}
+    - target: {fileID: 5343642696189685234, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: 'movementPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1455952278}
+    - target: {fileID: 5343642696189685234, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: 'movementPoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 203940764}
+    - target: {fileID: 5612457198401568805, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: amplitude
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.136
+      value: -9.162643
       objectReference: {fileID: 0}
     - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9109,11 +9133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.25
+      value: -2.9644156
       objectReference: {fileID: 0}
     - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.957262
+      value: 0.99507546
       objectReference: {fileID: 0}
     - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9121,7 +9145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.2892223
+      value: 0.099121034
       objectReference: {fileID: 0}
     - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: m_LocalRotation.z
@@ -9133,7 +9157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -33.623
+      value: 11.377
       objectReference: {fileID: 0}
     - target: {fileID: 5932355433539657547, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -9152,11 +9176,16 @@ PrefabInstance:
       value: Factory NPC
       objectReference: {fileID: 0}
     - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
+      propertyPath: followSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: interactableName
       value: Jorge
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8464939595063989762, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25fda43994dff2447989466e010c0ad6, type: 3}

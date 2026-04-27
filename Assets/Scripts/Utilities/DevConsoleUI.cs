@@ -43,9 +43,18 @@ public class DevConsoleUI : MonoBehaviour
 
         if (isOpen)
         {
+            PlayerInputHandler.Instance.DisablePlayerInput();
+            PlayerInputHandler.Instance.DisablePlayerUIInput();
+            FirstPersonController.Instance.SetCameraLookLocked(true);
             inputField.text = "";
             inputField.ActivateInputField();
             inputField.Select();
+        }
+        else
+        {
+            PlayerInputHandler.Instance.EnablePlayerInput();
+            PlayerInputHandler.Instance.EnablePlayerUIInput();
+            FirstPersonController.Instance.SetCameraLookLocked(false);
         }
     }
 

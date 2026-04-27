@@ -9,19 +9,28 @@ public class GroqAgentAI : InteractableItem
 
     private QuestionSetData questionSet;
 
+    // Follow player variables
+    [SerializeField] private Transform player;
+    [SerializeField] private float followSpeed = 2f;
+    [SerializeField] private float stopDistance = 2f;
+    [SerializeField] private Animator animator;
+
+    private Vector3 lastPosition;
+    private float smoothedSpeed;
+
     private void Start()
     {
         promptName ??= InteractableName;
         hintIndicator.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
     {
-        {
-            // Show hint indicator if player is on an active quest in this zone with questions
-            bool hasActiveQuestWithQuestions = FindActiveQuestWithQuestions() != null;
-            hintIndicator.SetActive(hasActiveQuestWithQuestions);
-        }
+        HandleHintIndicator();
+        FollowPlayer();
+        LookAtPlayer();
+        UpdateAnimation();
     }
 
     public override void Interact()
@@ -39,6 +48,11 @@ public class GroqAgentAI : InteractableItem
 
         // Picking the current question to generate a hint for in this interaction sequence and display as dialog
         int currentQuestionIndex = QuestionManager.Instance.GetQuestionIndexForZone(zone);
+        if (currentQuestionIndex == -1)
+        {
+            DialogManager.Instance.StartDialog(DialogDataHelper.CreateDialogDataFromText("I cannot help you with a question when you are not currently on one. Try starting a quiz first then talk to me again, I'll be of more use then."), InteractableName);
+            return;
+        }
 
         QuestionData question = questionSet.questions.Find(q => q.questionId == currentQuestionIndex);
         string prompt = BuildPromptForQuestion(question);
@@ -87,5 +101,62 @@ public class GroqAgentAI : InteractableItem
         response = response.Replace("<|fim_prefix|>", ""); // sometimes appears
 
         return response.Trim();
+    }
+
+    private void HandleHintIndicator()
+    {
+        bool hasActiveQuestWithQuestions = FindActiveQuestWithQuestions() != null;
+        bool currentQuestionValid = QuestionManager.Instance.GetQuestionIndexForZone(zone) != -1;
+        hintIndicator.SetActive(hasActiveQuestWithQuestions && currentQuestionValid);
+    }
+
+    private void FollowPlayer()
+    {
+        if (player == null) return;
+
+        float distance = Vector3.Distance(transform.position, player.position);
+
+        // Only follow if outside stop distance
+        if (distance > stopDistance)
+        {
+            Vector3 targetPosition = player.position;
+            targetPosition.y = transform.position.y; // Prevent moving up/down, only follow on the horizontal plane
+
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                targetPosition,
+                followSpeed * Time.deltaTime
+            );
+        }
+    }
+
+    private void UpdateAnimation()
+    {
+        if (animator == null) return;
+
+        float rawSpeed = (transform.position - lastPosition).magnitude / Time.deltaTime;
+
+        // Normalize to 0 - 0.5 range for idle and walk (ignoring running as unnecessary for this agent)
+        float normalizedSpeed = Mathf.Clamp01(rawSpeed / followSpeed) * 0.5f;
+
+        // Fast but slightly smoothed response
+        animator.SetFloat("Speed", normalizedSpeed, 0.05f, Time.deltaTime);
+
+        lastPosition = transform.position;
+    }
+
+    private void LookAtPlayer()
+    {
+        if (player == null) return;
+
+        Vector3 directionToPlayer = player.position - transform.position;
+
+        directionToPlayer.y = 0; // Keep only horizontal direction as we don't want the agent tilting up/down
+
+        if (directionToPlayer.sqrMagnitude > 0.001f) // Avoids a zero-length vector
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * followSpeed);
+        }
     }
 }
