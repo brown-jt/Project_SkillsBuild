@@ -5,7 +5,6 @@ public class Painting : MonoBehaviour
 {
     public TextMeshProUGUI mainText;
     public TextMeshProUGUI questionNumberText;
-    public TextMeshProUGUI progressText;
     public TextMeshProUGUI passRateText;
     public GameObject activeText;
     public GameObject staticPassText;
@@ -29,6 +28,7 @@ public class Painting : MonoBehaviour
         unstartedText.SetActive(false);
         terminalsParent.SetActive(true);
         button.SetActive(true);
+        button.GetComponent<ConfirmAnswerButton>().SetInteractableName("Confirm Selection");
     }
     public void DisplayResult(bool correct, QuestionData data)
     {
@@ -62,7 +62,6 @@ public class Painting : MonoBehaviour
 
     public void ClearExtraText()
     {
-        progressText.text = "";
         questionNumberText.text = "";
         passRateText.text = "";
     }
@@ -70,11 +69,6 @@ public class Painting : MonoBehaviour
     public void SetQuestionNumber(int number, int total)
     {
         questionNumberText.text = $"Question {number} of {total}"; 
-    }
-
-    public void SetProgress(int correct, int total)
-    {
-        progressText.text = $"Correct Answers: {correct}/{total} ({(float)correct / total * 100:F2}%)";
     }
 
     public void SetPassRate(float passPercentage)
@@ -86,5 +80,11 @@ public class Painting : MonoBehaviour
     private void SetQuestionSetName(string name)
     {
         staticPassTextName.text = $"{name}\nPuzzle completed";
+    }
+
+    public void ResetButton()
+    {
+        button.SetActive(true);
+        button.GetComponent<ConfirmAnswerButton>().SetInteractableName("Try Again");
     }
 }

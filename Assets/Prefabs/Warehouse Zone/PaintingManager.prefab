@@ -1403,10 +1403,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6326822643458496253}
     - target: {fileID: 336459703621873646, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
-      propertyPath: progressText
-      value: 
-      objectReference: {fileID: 3940519158834319116}
-    - target: {fileID: 336459703621873646, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
       propertyPath: unstartedText
       value: 
       objectReference: {fileID: 4248844381907910977}
@@ -1623,7 +1619,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1087949888984213650, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7290781802669086960, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
       insertIndex: -1
@@ -1682,17 +1679,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &3940519158834319116 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6404205611088383853, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}
-  m_PrefabInstance: {fileID: 7948789976803328097}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &5585740376397352633 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2579242182795120344, guid: ae817e5299ec4ff4b9abb6fa4f1d675d, type: 3}

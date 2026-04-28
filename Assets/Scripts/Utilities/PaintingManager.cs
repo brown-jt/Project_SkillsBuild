@@ -82,7 +82,6 @@ public class PaintingManager : MonoBehaviour
         if (currentQuestionIndex == 0)
         {
             painting.SetPassRate(questionSet.passPercentage);
-            painting.SetProgress(0, questionSet.questions.Count);
         }
 
         // Set the answer on all puzzle terminals

@@ -15,6 +15,12 @@ public class ConfirmAnswerButton : InteractableItem
     {
         if (!IsInteractable || quizManager == null || paintingManager == null) return;
 
+        if (quizManager.resetButtonActive)
+        {
+            quizManager.RestartQuiz();
+            return;
+        }
+
         List<int> selectedAnswers = paintingManager.GetSelectedAnswerIndices();
 
         if (selectedAnswers.Count == 0)
