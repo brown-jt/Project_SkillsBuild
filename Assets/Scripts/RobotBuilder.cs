@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -63,6 +64,11 @@ public class RobotBuilder : InteractableArea
     private void Update()
     {
         if (gameObject.scene != SceneManager.GetActiveScene()) return;
+
+        // If related quest not active we won't make it interactable
+        if (!QuestManager.Instance.activeQuests.Any(q => q.questData.questId == relatedQuest.questId)) {
+            IsInteractable = false;
+        }
 
         if (oldRobot != null && oldRobot.Equals(null))
         {

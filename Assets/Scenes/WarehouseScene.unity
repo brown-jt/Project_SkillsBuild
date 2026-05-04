@@ -2547,7 +2547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: interactableName
-      value: Sam
+      value: Ryan
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

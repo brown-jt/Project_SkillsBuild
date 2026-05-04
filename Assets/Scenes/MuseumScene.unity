@@ -3848,7 +3848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: interactableName
-      value: Kevin
+      value: Tom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -7884,6 +7884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b97e4bcf2f2464ebb6f9b35a642fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  resetButtonActive: 0
 --- !u!4 &2022113847
 Transform:
   m_ObjectHideFlags: 0

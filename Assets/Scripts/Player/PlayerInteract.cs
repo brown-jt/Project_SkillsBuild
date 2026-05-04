@@ -20,9 +20,13 @@ public class PlayerInteract : MonoBehaviour
     private InteractableArea currentArea;
     private InteractableItem currentItem;
 
+    private Camera mainCamera;
+    private bool isPromptVisible;
+
     private void Awake()
     {
         inputHandler = GetComponent<PlayerInputHandler>();
+        mainCamera = Camera.main;
     }
 
     private void Update()
@@ -36,10 +40,12 @@ public class PlayerInteract : MonoBehaviour
     {
         if (other.TryGetComponent(out InteractableArea interactableArea))
         {
+            currentArea = interactableArea;
+
             if (interactableArea.IsInteractable)
             {
-                currentArea = interactableArea;
                 promptUI.Show($"{interactableArea.InteractionPrompt}", $"{interactableArea.InteractName}");
+                isPromptVisible = true;
             }
         }
     }
@@ -48,10 +54,12 @@ public class PlayerInteract : MonoBehaviour
     {
         if (other.TryGetComponent(out InteractableArea interactableArea))
         {
-            if (interactableArea == currentArea)
+            currentArea = null;
+
+            if (isPromptVisible)
             {
-                currentArea = null;
                 promptUI.Hide();
+                isPromptVisible = false;
             }
         }
     }
@@ -77,7 +85,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void HandleItemInteraction() 
     {
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
         int itemLayerMask = LayerMask.GetMask("Item", "QuestNPC", "ItemInteractable", "HoldableItem");
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange, itemLayerMask))
@@ -99,7 +107,12 @@ public class PlayerInteract : MonoBehaviour
                 if (currentItem != interactableItem)
                 {
                     currentItem = interactableItem;
-                    promptUI.Show($"{interactableItem.InteractionPrompt}", $"{interactableItem.InteractableName}");
+
+                    if (!isPromptVisible)
+                    {
+                        promptUI.Show($"{interactableItem.InteractionPrompt}", $"{interactableItem.InteractableName}");
+                        isPromptVisible = true;
+                    }
                 }
 
                 // Interact if key pressed
@@ -115,9 +128,11 @@ public class PlayerInteract : MonoBehaviour
                         interactableItem.Interact();
                     }
 
-                    // For now, hide prompt after any item interaction
-                    // TODO - Handle differently for pick up vs other interactions
-                    promptUI.Hide();
+                    if (isPromptVisible)
+                    {
+                        promptUI.Hide();
+                        isPromptVisible = false;
+                    }
                 }
 
                 return;
@@ -129,6 +144,7 @@ public class PlayerInteract : MonoBehaviour
         {
             currentItem = null;
             promptUI.Hide();
+            isPromptVisible = false;
         }
     }
 
