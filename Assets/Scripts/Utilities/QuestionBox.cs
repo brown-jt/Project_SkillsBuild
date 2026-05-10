@@ -13,6 +13,14 @@ public class QuestionBox : HoldableItem
 
     public QuestionData QuestionData => questionData;
 
+    private Transform resetPosition;
+
+    private void Start()
+    {
+        resetPosition = GameObject.FindGameObjectWithTag("QuestionBoxResetPosition").transform;
+    }
+
+
     public void Initialise(QuestionData questionData)
     {
         this.questionData = questionData;
@@ -59,6 +67,16 @@ public class QuestionBox : HoldableItem
             {
                 sign.Clear();
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ResetZone"))
+        {
+            Debug.Log("Question box collided with reset zone, resetting position.");
+            // If the box collides with the reset zone, reset its position
+            transform.position = resetPosition.position;
         }
     }
 }
