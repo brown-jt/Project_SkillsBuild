@@ -16,8 +16,7 @@ public class Conveyor : MonoBehaviour
     [SerializeField] private ConveyorDirection directionSetting = ConveyorDirection.FORWARD;
     [SerializeField] private float speed = 10f;
 
-    private ConveyorItem currentItem;
-    private readonly List<ConveyorItem> nextItems = new List<ConveyorItem>();
+    private readonly HashSet<ConveyorItem> itemsOnConveyor = new();
 
     public float Speed => speed;
 
@@ -46,19 +45,11 @@ public class Conveyor : MonoBehaviour
         if (!other.CompareTag("Item")) return;
 
         var item = other.GetComponent<ConveyorItem>();
-        if (item != null)
+        if (item == null) return;
+
+        if (itemsOnConveyor.Add(item))
         {
-            if (currentItem == null)
-            {
-                currentItem = item;
-                currentItem.OnEnterConveyor(this);
-            }
-            else
-            {
-                // Queue the item
-                item.ToggleMovement(false);
-                nextItems.Add(item);
-            }
+            item.OnEnterConveyor(this);
         }
     }
 
@@ -67,20 +58,11 @@ public class Conveyor : MonoBehaviour
         if (!other.CompareTag("Item")) return;
 
         var item = other.GetComponent<ConveyorItem>();
-        if (item != null)
+        if (item == null) return;
+
+        if (itemsOnConveyor.Remove(item))
         {
             item.OnExitConveyor(this);
-            currentItem = null;
-            if (nextItems.Count > 0)
-            {
-                // Grab next item in line
-                currentItem = nextItems[0];
-                nextItems.RemoveAt(0);
-
-                // Resume its movement and notify it
-                currentItem.OnEnterConveyor(this);
-                currentItem.ToggleMovement(true);
-            }
         }
     }
 

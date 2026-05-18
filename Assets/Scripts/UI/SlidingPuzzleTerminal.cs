@@ -89,6 +89,8 @@ public class SlidingPuzzleTerminal : InteractableItem
 
         // Sending camera to tile manager for on click events via raycasting
         if (tileManager != null) tileManager.SetCamera(Camera.main);
+
+        tileManager.EnableColour();
     }
 
     public void ExitTerminal()
@@ -105,6 +107,8 @@ public class SlidingPuzzleTerminal : InteractableItem
         exitButtonCanvas.enabled = false;
 
         StartCoroutine(InteractionManager.Instance.DelayedEndInteraction());
+
+        tileManager.DisableColour();
     }
 
     public void SetAnswer(string answer, int answerIndex)

@@ -41,6 +41,9 @@ public class TileManager : MonoBehaviour
             {
                 ScrambleTiles(scrambleMoves);
             }
+
+            // Disable colour until interaction
+            DisableColour();
         }
     }
 
@@ -154,9 +157,11 @@ public class TileManager : MonoBehaviour
                     // Create a new material with URP shader
                     Material mat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
                     mat.SetTexture("_BaseMap", tileTextures[x, y]);
+                    mat.SetColor("_BaseColor", Color.white);
 
                     // Assign to renderer
                     rend.material = mat;
+                    tile.material = mat;
                 }
             }
         }
@@ -220,6 +225,9 @@ public class TileManager : MonoBehaviour
 
         // Update empty space
         emptyPos = oldPos;
+
+        // Update visuals
+        UpdateTileVisual(tile);
 
         // Check solved state after the move
         bool wasSolved = isSolved;
@@ -333,5 +341,35 @@ public class TileManager : MonoBehaviour
         }
 
         tile.transform.position = targetPos;
+
+        UpdateTileVisual(tile);
+    }
+
+    private void UpdateTileVisual(Tile tile)
+    {
+        if (tile == null || tile.material == null) return;
+
+        bool isCorrect = tile.correctPosition == tile.currentPosition;
+        Color emissionColor = isCorrect ? Color.green : Color.white;
+
+        tile.material.SetColor("_BaseColor", emissionColor);
+    }
+
+    public void DisableColour()
+    {
+        foreach (Tile tile in grid)
+        {
+            if (tile == null || tile.material == null) continue;
+
+            tile.material.SetColor("_BaseColor", Color.white);
+        }
+    }
+
+    public void EnableColour()
+    {
+        foreach (Tile tile in grid)
+        {
+            UpdateTileVisual(tile);
+        }
     }
 }

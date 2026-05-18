@@ -1392,7 +1392,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: c6896e21a8a42d24a999ac2de6b93a6f, type: 2}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: interactableName
-      value: Museum Curator
+      value: Rob
       objectReference: {fileID: 0}
     - target: {fileID: 4267655749378300578, guid: 0f0571295c8ac5c44a4598e40650299f, type: 3}
       propertyPath: interactionPrompt
@@ -3152,7 +3152,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a8874147b5f34e04e803a4314cad87c5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 8.858
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a8874147b5f34e04e803a4314cad87c5, type: 3}
       propertyPath: m_LocalScale.y
@@ -3160,7 +3160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a8874147b5f34e04e803a4314cad87c5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a8874147b5f34e04e803a4314cad87c5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3848,7 +3848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6308258846212134678, guid: 25fda43994dff2447989466e010c0ad6, type: 3}
       propertyPath: interactableName
-      value: Kevin
+      value: Tom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -7884,6 +7884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b97e4bcf2f2464ebb6f9b35a642fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  resetButtonActive: 0
 --- !u!4 &2022113847
 Transform:
   m_ObjectHideFlags: 0

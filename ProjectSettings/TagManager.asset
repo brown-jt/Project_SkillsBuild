@@ -10,6 +10,8 @@ TagManager:
   - Item
   - PlayerHoldPoint
   - Robot
+  - ResetZone
+  - QuestionBoxResetPosition
   layers:
   - Default
   - TransparentFX

@@ -138,9 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7739b3c4d07ea6944a77fcd6318948eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestGiver
-  itemName: 
+  interactableName: Unnamed
   interactionPrompt: 
-  interactionSound: {fileID: 0}
   questChain: []
   npcId: 
   idleDialog: {fileID: 0}
@@ -194,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   amplitude: 0.1
   frequency: 2
+  agentTransform: {fileID: 0}
 --- !u!1001 &8275075146229244
 PrefabInstance:
   m_ObjectHideFlags: 0

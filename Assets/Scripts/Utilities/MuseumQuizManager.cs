@@ -22,10 +22,12 @@ public class MuseumQuizManager : MonoBehaviour
     private int currentQustionIndex;
     
     public int CurrentQuestionIndex => currentQustionIndex;
+    public bool resetButtonActive;
 
     private void Start()
     {
         quizTrigger = GetComponent<QuestQuizTrigger>();
+        resetButtonActive = false;
     }
 
     private void OnEnable()
@@ -49,14 +51,26 @@ public class MuseumQuizManager : MonoBehaviour
         }
     }
 
+    public void RestartQuiz()
+    {
+        if (questionSet != null)
+        {
+            totalQuestions = questionSet.questions.Count;
+            currentQustionIndex = 0;
+            resetButtonActive = false;
+            answeredQuestions = 0;
+            correctAnswers = 0;
+            OnMuseumQuestionSetChanged?.Invoke();
+        }
+    }
+
     public void EndQuiz(Painting painting)
     {
         OnQuizPassed?.Invoke();
         questionSet = null;
         StartCoroutine(CompletePainting(painting));
 
-        // Reset question index in question manager to -1 to indicate no active question to give hints for
-        QuestionManager.Instance.SetQuestionIndexForZone(ZoneId.Museum, -1);
+        QuestionManager.Instance.SetQuestionIndexForZone(ZoneId.Museum, -1); // Reset question index in question manager to -1 to indicate no active question to give hints for
     }
 
     private void OnQuestUpdated(QuestInstance quest)
@@ -92,7 +106,13 @@ public class MuseumQuizManager : MonoBehaviour
             {
                 // Handle quiz failure, e.g., reset progress or allow retry
                 painting.DisplayEnd($"Quiz Failed!\n{scoreText}\nClick the button to try again.");
+                painting.ResetButton();
             }
+
+            // Reset score tracking for retry or next quiz
+            correctAnswers = 0;
+            answeredQuestions = 0;
+            resetButtonActive = true;
         }
     }
 
@@ -108,7 +128,6 @@ public class MuseumQuizManager : MonoBehaviour
         if (isCorrect) correctAnswers++;
 
         painting.DisplayResult(isCorrect, questionData);
-        painting.SetProgress(correctAnswers, totalQuestions);
 
         StartCoroutine(DelayedCheckCompletion(painting));
     }

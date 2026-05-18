@@ -8,9 +8,12 @@ public class BounceIndicator : MonoBehaviour
     [SerializeField] private Transform agentTransform;
 
     private Transform playerTransform;
+    Vector3 startPos;
 
     void Start()
     {
+        startPos = transform.position;
+
         // Find the player in the scene
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player != null ? player.transform : null;
@@ -18,8 +21,23 @@ public class BounceIndicator : MonoBehaviour
 
     void Update()
     {
-        if (agentTransform == null) return;
+        if (agentTransform == null) QuestBounce();
+        else HintBounce();
 
+        FacePlayer();
+
+    }
+
+    private void QuestBounce()
+    {
+        // Apply sine wave to the y position for quest indicator
+        float newY = startPos.y + Mathf.Sin(Time.time * frequency) * amplitude;
+
+        transform.position = new Vector3(startPos.x, newY, startPos.z);
+    }
+
+    private void HintBounce()
+    {
         // Base position (add a fixed height offset so it sits above the agent)
         Vector3 basePosition = agentTransform.position + Vector3.up * 0.25f;
 
@@ -27,8 +45,6 @@ public class BounceIndicator : MonoBehaviour
         float bounce = Mathf.Sin(Time.time * frequency) * amplitude;
 
         transform.position = basePosition + Vector3.up * bounce;
-
-        FacePlayer();
     }
 
     private void FacePlayer()

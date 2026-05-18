@@ -74,11 +74,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1297d31752181a44fa78d2b7af18ed36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorItem
-  itemName: Unnamed Item
+  interactableName: Unnamed
   interactionPrompt: CHANGE ME
-  interactionSound: {fileID: 8300000, guid: c77c99e076f0f8f449b9a82d1fbbd01d, type: 3}
   centeringThreshold: 0.01
   centeringSpeedMultiplier: 1
+  itemData: {fileID: 0}
+  quantity: 1
 --- !u!65 &6546745822117592777
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -95,7 +96,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0, y: 0, z: 0}
