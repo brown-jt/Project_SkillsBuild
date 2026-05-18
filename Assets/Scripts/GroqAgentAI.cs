@@ -84,21 +84,21 @@ public class GroqAgentAI : InteractableItem
 
     private void OnResponseReceived(string response)
     {
-        string cleanedResponse = CleanOllamaResponse(response);
+        string cleanedResponse = CleanResponse(response);
 
         DialogData aiDialog = DialogDataHelper.CreateDialogDataFromText(cleanedResponse);
 
         DialogManager.Instance.StartDialog(aiDialog, InteractableName);
     }
 
-    private string CleanOllamaResponse(string response)
+    private string CleanResponse(string response)
     {
         if (string.IsNullOrEmpty(response)) return response;
 
-        // Removing common Ollama finish markers
+        // Removing common unnecessary finish markers
         response = response.Replace("<|fim_suffix|>", "");
         response = response.Replace("<|fim_middle|>", "");
-        response = response.Replace("<|fim_prefix|>", ""); // sometimes appears
+        response = response.Replace("<|fim_prefix|>", "");
 
         return response.Trim();
     }
